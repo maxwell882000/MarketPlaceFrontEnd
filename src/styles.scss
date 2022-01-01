@@ -1,0 +1,13 @@
+:root {
+  --blue: #007AFF;
+}
+
+body {
+  font-family: Inter, sans-serif !important;
+  background-color: #F2F3F5 !important;
+  min-height: 80vh;
+}
+.splide__pagination__page.is-active {
+  background-color: #007AFF !important;
+  transform: none;
+}

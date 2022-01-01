@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <BannerAndItem />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
+import BannerAndItem from "../components/mainPage/BannerAndItem";
+import '@splidejs/splide/dist/css/splide.min.css';
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  components: {BannerAndItem},
+  data() {
+    return {
+      msg: "Welcome to Your Vue.js + TypeScript App",
+    };
   }
 }
 </script>
+
+<style scoped lang="scss">
+  .container {
+    padding: 24px 0;
+  }
+</style>
