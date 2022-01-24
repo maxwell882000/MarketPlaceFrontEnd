@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-import CartButton from "./buttons/CartButton";
+import CartButton from "../buttons/CartButton";
 export default {
   components: {CartButton}
 }

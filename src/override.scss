@@ -1,0 +1,44 @@
+.main-page__custom-tabs {
+  li.nav-item {
+    margin-right: 10px;
+
+    .nav-link {
+      background-color: white;
+      color: black;
+      border-radius: 7px !important;
+    }
+    .tab-header-active {
+      background-color: var(--blue) !important;
+      color: white !important;
+    }
+  }
+}
+.btn-check:focus + .btn, .btn:focus {
+  box-shadow: none !important;
+}
+.splide__pagination__page.is-active {
+  background-color: #007AFF !important;
+  transform: none;
+}
+.custom-arrows {
+  button.splide__arrow--prev {
+    margin-left: -50px;
+  }
+  button.splide__arrow--next {
+    margin-right: -50px;
+  }
+}
+.about-item {
+  .nav-tabs {
+    border: none !important;
+  }
+  .nav-link {
+    padding-left: 0 !important;
+    border: none !important;
+  }
+  .active-tab {
+    * {
+      color: black !important;
+    }
+  }
+}
