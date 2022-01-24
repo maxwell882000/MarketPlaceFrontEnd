@@ -1,4 +1,4 @@
-# buy-shop
+# Url of test domain: [https://buy-shop-uz.web.app/](https://buy-shop-uz.web.app/)
 
 ## Project setup
 ```
