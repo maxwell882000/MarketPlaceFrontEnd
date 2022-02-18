@@ -87,7 +87,10 @@
               to="/"
               class="seller d-flex align-items-center justify-content-between"
             >
-              <div class="d-flex align-items-center">
+              <router-link
+                to="/shop/1"
+                class="d-flex align-items-center shop-link"
+              >
                 <img src="@/assets/icons/apple.png" alt="seller icon" />
                 <div class="mx-1">
                   <p class="mb-0">MacBro</p>
@@ -96,7 +99,7 @@
                     <span class="text-muted mx-2">4.6 86 отзывов</span>
                   </p>
                 </div>
-              </div>
+              </router-link>
               <b-icon icon="chevron-right" />
             </router-link>
           </div>
@@ -245,7 +248,7 @@
 </template>
 
 <script>
-import Badge from "../components/item/Badge.vue";
+import Badge from "../components/shared/Badge.vue";
 import PicturesPart from "../components/item/PicturesPart.vue";
 export default {
   components: { Badge, PicturesPart },
@@ -332,7 +335,7 @@ export default {
   margin-bottom: 30px;
 }
 .star {
-  color: var(--yellow);
+  color: var(--yellow) !important;
 }
 .badges {
   margin-top: 16px;
@@ -357,6 +360,11 @@ export default {
       margin-right: 8px;
     }
   }
+}
+.shop-link,
+.shop-link * {
+  text-decoration: none;
+  color: black;
 }
 .product-content {
   background-color: white;
@@ -419,13 +427,6 @@ export default {
   background-color: white;
   padding: 24px;
   border-radius: 12px;
-
-  .old-price {
-    text-decoration: line-through;
-    line-height: 17px;
-    color: var(--gray);
-    margin-bottom: 0;
-  }
   .price {
     font-weight: 600;
     padding-bottom: 20px;

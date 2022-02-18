@@ -7,7 +7,7 @@
           <router-link to="/">
             <img src="@/assets/logo.png" alt="buy-shop logo" />
           </router-link>
-          <div class="d-flex">
+          <div class="d-flex search-form">
             <div class="dropdown">
               <button
                 class="dropdown-toggle"
@@ -39,14 +39,17 @@
             </form>
           </div>
           <div class="btns-row">
+            <button class="search-button">
+              <b-icon icon="search" variant="dark"></b-icon>
+            </button>
             <a href="#">
               <img src="@/assets/icons/heart.svg" alt="heart icon" />
               Избранное
             </a>
-            <a href="#">
+            <router-link to="/cart">
               <img src="@/assets/icons/cart.svg" alt="cart icon" />
               Корзина
-            </a>
+            </router-link>
             <a href="#">
               <img src="@/assets/icons/user.svg" alt="cart icon" />
               Профиль
@@ -155,6 +158,9 @@ form {
 }
 .btns-row {
   display: flex;
+  .search-button {
+    display: none;
+  }
   a {
     color: black;
     display: flex;
@@ -192,6 +198,17 @@ form {
     a {
       font-size: 10px !important;
     }
+  }
+}
+@media (max-width: 767px) {
+  .search-form {
+    display: none !important;
+  }
+  .search-button {
+    display: block !important;
+    margin-top: -6px;
+    padding: 0 10px;
+    background-color: transparent !important;
   }
 }
 </style>

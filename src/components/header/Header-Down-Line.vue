@@ -25,10 +25,10 @@
           <b-collapse
             id="categories"
             :visible="categoriesOpened"
-            class="mt-2 categories"
+            class="categories"
           >
-            <div class="container">
-              <p class="card-text">Collapse contents Here</p>
+            <div class="container filter-tabs mt-3">
+              <FilterTabs />
             </div>
           </b-collapse>
         </div>
@@ -57,12 +57,27 @@
 </template>
 
 <script>
+import { disableScrollBar, enableScrollBar } from "@/utils/bodyScrollBar";
+import FilterTabs from "@/components/header/Filter-Tabs";
 export default {
   name: "Header-Down-Line",
+  components: {
+    FilterTabs,
+  },
   data() {
     return {
       categoriesOpened: false,
     };
+  },
+  watch: {
+    categoriesOpened() {
+      window.scroll(0, 0);
+      if (this.categoriesOpened) {
+        disableScrollBar();
+      } else {
+        enableScrollBar();
+      }
+    },
   },
 };
 </script>
@@ -76,7 +91,6 @@ export default {
   overflow-x: auto;
   .btn-primary {
     white-space: nowrap;
-    background: var(--blue) !important;
     border-radius: 8px;
     padding: 7px 15px;
     border: none;
@@ -89,9 +103,19 @@ export default {
   }
   .categories {
     position: fixed;
+    z-index: 667;
     width: 100%;
     left: 0;
     background-color: white;
+    transition: all 0.3s;
+    height: calc(100vh - 170px);
+
+    &.collapsing {
+      height: 0 !important;
+    }
+  }
+  .filter-tabs {
+    height: 100%;
   }
 }
 .header-link {

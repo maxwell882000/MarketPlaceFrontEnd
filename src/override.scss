@@ -1,3 +1,12 @@
+.btn-primary {
+  border-color: var(--blue);
+  background: var(--blue);
+}
+
+.btn {
+  border-radius: 12px;
+}
+
 .main-page__custom-tabs {
   li.nav-item {
     margin-right: 10px;
@@ -41,4 +50,57 @@
       color: black !important;
     }
   }
+}
+.btn-light {
+  background: #F2F2F2 !important;
+  /* Gray 6 */
+
+  border: 1px solid #F2F2F2 !important;
+  border-radius: 8px !important;
+}
+
+.bg-light {
+  background: #F6F6F6;
+}
+
+.nav-tabs {
+  border-bottom: none;
+  .left-tabs {
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 20px;
+
+    ul {
+      margin-right: 0 !important;
+
+      .nav-item a {
+        display: flex;
+        align-items: center;
+        color: black !important;
+        
+        svg {
+          margin-right: 5px;
+          path {
+            stroke: black !important;
+          }
+        }
+        &.active {
+          color: var(--violet) !important;
+          
+          svg path{
+            stroke: var(--violet) !important;
+          }
+        }
+      }
+    }
+  }
+  .tab-content {
+    padding-left: 20px;
+  }
+  .card-header {
+    border-bottom: none;
+  }
+}
+.text-violet, .text-violet * {
+  color: var(--violet) !important;
 }

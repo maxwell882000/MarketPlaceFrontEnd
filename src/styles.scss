@@ -3,6 +3,7 @@
   --red: #EB5757;
   --yellow: #FC9700;
   --gray: #C0C0C0;
+  --violet: #5858DF;
 }
 
 body {
@@ -36,5 +37,34 @@ small {
     font-weight: 400;
     background-color: white;
     padding: 5px;
+  }
+}
+.old-price {
+  text-decoration: line-through;
+  line-height: 17px;
+  color: var(--gray);
+  margin-bottom: 0;
+}
+
+* {
+  ::-webkit-scrollbar {
+    transition: all 0.3s;
+    width: 5px;
+    height: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: darkgrey; 
+    border-radius: 10px;
+    width: 3px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: lightgrey; 
   }
 }

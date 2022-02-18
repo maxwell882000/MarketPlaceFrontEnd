@@ -5,14 +5,14 @@ import store from "./store";
 import VueSplide from '@splidejs/vue-splide';
 import BootstrapVue3 from 'bootstrap-vue-3'
 
+// bootstrap css
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
 // global scss
 import "./fonts.scss";
 import "./styles.scss";
 import "./override.scss";
 
-// bootstrap css
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
 
 createApp(App)
     .use(store)
