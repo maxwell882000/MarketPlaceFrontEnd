@@ -8,7 +8,7 @@ class AuthService {
         form.append("phone", phone);
         form.append("password", password);
         let response = await methods.post("login/", form);
-        TokenService.setToken(response.token)
+        TokenService.setToken(response)
         return response.token;
     }
 
