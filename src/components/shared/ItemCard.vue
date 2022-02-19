@@ -1,5 +1,5 @@
 <template>
-    <router-link to="/item/1" class="item-card">
+    <router-link to="/item/2" class="item-card">
         <div class="item-card__image">
             <div class="item-card__image__like">
               <Like />

@@ -50,10 +50,11 @@
               <img src="@/assets/icons/cart.svg" alt="cart icon" />
               Корзина
             </router-link>
-            <a href="#">
+            <a  href="#">
               <img src="@/assets/icons/user.svg" alt="cart icon" />
               Профиль
             </a>
+            <Login></Login>
           </div>
         </div>
       </div>
@@ -65,8 +66,9 @@
 <script>
 import HeaderUpperLine from "./Header-Upper-Line";
 import HeaderDownLine from "./Header-Down-Line";
+import Login from "@/components/auth/login/login";
 export default {
-  components: { HeaderUpperLine, HeaderDownLine },
+  components: {Login, HeaderUpperLine, HeaderDownLine },
   data() {
     return {
       scrolled: false,

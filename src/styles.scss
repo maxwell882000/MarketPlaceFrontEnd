@@ -1,9 +1,20 @@
 :root {
   --blue: #007AFF;
   --red: #EB5757;
+  --dark: #282F3C;
   --yellow: #FC9700;
   --gray: #C0C0C0;
   --violet: #5858DF;
+  --gray100: #F2F2F2;
+  --gray200: #C0C0C0;
+}
+
+:root {
+  --borderRadius: 12px;
+}
+
+:root {
+  --marinTop: 20px;
 }
 
 body {
@@ -13,9 +24,11 @@ body {
   width: 100% !important;
   overflow-x: hidden;
 }
+
 p, li, a {
   font-size: 14px;
 }
+
 small {
   font-size: 12px;
 }
@@ -33,12 +46,14 @@ small {
       margin-top: 14px;
     }
   }
+
   span {
     font-weight: 400;
     background-color: white;
     padding: 5px;
   }
 }
+
 .old-price {
   text-decoration: line-through;
   line-height: 17px;
@@ -52,19 +67,20 @@ small {
     width: 5px;
     height: 5px;
   }
-  
+
   /* Track */
   ::-webkit-scrollbar-track {
     background: transparent;
   }
+
   ::-webkit-scrollbar-thumb {
-    background: darkgrey; 
+    background: darkgrey;
     border-radius: 10px;
     width: 3px;
   }
-  
+
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: lightgrey; 
+    background: lightgrey;
   }
 }

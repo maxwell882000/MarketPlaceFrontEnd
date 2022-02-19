@@ -1,9 +1,11 @@
-import { createApp } from "vue";
+import {createApp} from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import VueSplide from '@splidejs/vue-splide';
 import BootstrapVue3 from 'bootstrap-vue-3'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 // bootstrap css
 import 'bootstrap/dist/css/bootstrap.css'
@@ -19,4 +21,5 @@ createApp(App)
     .use(router)
     .use(VueSplide)
     .use(BootstrapVue3)
+    .use(VueAxios, axios)
     .mount("#app");
