@@ -1,22 +1,22 @@
 <template>
-  <ModalView title="Вход" style="width: 25%">
+  <ModalAuth title="Вход">
     <template #inputs>
       <Input v-model="phone" placeholder="Номер телефона"/>
       <InputPassword v-model="password"/>
       <ButtonBlue v-if="isEntered()" title="Войти"></ButtonBlue>
       <ButtonGray v-else @click="login()" title="Войти"></ButtonGray>
     </template>
-  </ModalView>
+  </ModalAuth>
 </template>
 <script>
-import ModalView from "@/components/modal/modalView";
 import Input from "@/components/helper/input/input";
 import InputPassword from "@/components/helper/input/inputPassword";
 import ButtonGray from "@/components/helper/button/buttonGray";
 import ButtonBlue from "@/components/helper/button/buttonBlue";
+import ModalAuth from "@/components/modal/modalAuth";
 
 export default {
-  components: {ButtonBlue, ButtonGray, InputPassword, Input, ModalView},
+  components: {ModalAuth, ButtonBlue, ButtonGray, InputPassword, Input},
   data() {
     return {
       phone: "",

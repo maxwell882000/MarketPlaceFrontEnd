@@ -1,20 +1,20 @@
 <template>
   <header :class="[scrolled ? 'fixed' : '']">
-    <headerUpperLine />
+    <headerUpperLine/>
     <nav>
       <div class="container">
         <div class="d-flex justify-content-between align-items-center py-3">
           <router-link to="/">
-            <img src="@/assets/logo.png" alt="buy-shop logo" />
+            <img src="@/assets/logo.png" alt="buy-shop logo"/>
           </router-link>
           <div class="d-flex search-form">
             <div class="dropdown">
               <button
-                class="dropdown-toggle"
-                type="button"
-                id="cityDropdown"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+                  class="dropdown-toggle"
+                  type="button"
+                  id="cityDropdown"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
               >
                 Везде
               </button>
@@ -29,9 +29,9 @@
             <form autocomplete="off" @submit.stop.prevent="submit()">
               <div class="line"></div>
               <input
-                autocomplete="false"
-                type="text"
-                placeholder="Искать товары"
+                  autocomplete="false"
+                  type="text"
+                  placeholder="Искать товары"
               />
               <button type="submit">
                 <b-icon icon="search" variant="secondary"></b-icon>
@@ -43,32 +43,35 @@
               <b-icon icon="search" variant="dark"></b-icon>
             </button>
             <a href="#">
-              <img src="@/assets/icons/heart.svg" alt="heart icon" />
+              <img src="@/assets/icons/heart.svg" alt="heart icon"/>
               Избранное
             </a>
             <router-link to="/cart">
-              <img src="@/assets/icons/cart.svg" alt="cart icon" />
+              <img src="@/assets/icons/cart.svg" alt="cart icon"/>
               Корзина
             </router-link>
-            <a  href="#">
-              <img src="@/assets/icons/user.svg" alt="cart icon" />
-              Профиль
-            </a>
-            <Login></Login>
+            <AuthProfile>
+              <a href="#">
+                <img src="@/assets/icons/user.svg" alt="cart icon"/>
+                Профиль
+              </a>
+            </AuthProfile>
+
           </div>
         </div>
       </div>
     </nav>
-    <headerDownLine class="down-line" />
+    <headerDownLine class="down-line"/>
   </header>
 </template>
 
 <script>
 import HeaderUpperLine from "./Header-Upper-Line";
 import HeaderDownLine from "./Header-Down-Line";
-import Login from "@/components/auth/login/login";
+import AuthProfile from "@/components/auth/authProfile";
+
 export default {
-  components: {Login, HeaderUpperLine, HeaderDownLine },
+  components: {AuthProfile, HeaderUpperLine, HeaderDownLine},
   data() {
     return {
       scrolled: false,
@@ -102,15 +105,18 @@ nav {
   top: -120px;
   z-index: 666;
 }
+
 .fixed {
   nav {
     position: fixed;
     top: 0px;
   }
+
   .down-line {
     margin-top: 80px;
   }
 }
+
 input,
 .dropdown button,
 button {
@@ -121,14 +127,17 @@ button {
   outline: none;
   height: 44px;
 }
+
 .dropdown {
   button {
     border-radius: 8px 0 0 8px;
     font-weight: 500;
   }
 }
+
 form {
   display: flex;
+
   .line {
     height: 100%;
     width: 1px;
@@ -144,6 +153,7 @@ form {
       background-color: #e0e0e0;
     }
   }
+
   input {
     color: black;
     font-weight: 500;
@@ -154,15 +164,19 @@ form {
       font-weight: 300;
     }
   }
+
   button {
     border-radius: 0 8px 8px 0;
   }
 }
+
 .btns-row {
   display: flex;
+
   .search-button {
     display: none;
   }
+
   a {
     color: black;
     display: flex;
@@ -181,11 +195,13 @@ form {
     }
   }
 }
+
 @media (max-width: 1400px) {
   form > input {
     width: 450px;
   }
 }
+
 @media (max-width: 992px) {
   form > input {
     width: 200px;
@@ -202,6 +218,7 @@ form {
     }
   }
 }
+
 @media (max-width: 767px) {
   .search-form {
     display: none !important;
