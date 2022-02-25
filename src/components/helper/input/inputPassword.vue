@@ -1,7 +1,9 @@
 <template>
   <Input v-bind="$attrs" :type="type()" placeholder="Пароль" style="width: 90%">
     <template #prefix>
-      <i @click="hide()" :class="icon()" ></i>
+      <b-icon
+          @click="hide()" :icon="icon()"></b-icon>
+      <i></i>
     </template>
   </Input>
 </template>
@@ -21,7 +23,7 @@ export default {
       this.isHidden = !this.isHidden;
     },
     icon() {
-      return this.isHidden ? 'bi bi-eye' : 'bi bi-eye-slash';
+      return this.isHidden ? 'eye' : 'eye-slash';
     },
     type() {
       return this.isHidden ? "password" : "text";

@@ -7,6 +7,8 @@
   --violet: #5858DF;
   --gray100: #F2F2F2;
   --gray200: #C0C0C0;
+  --gray300: #9499A5;
+  --green: green;
 }
 
 :root {
@@ -59,6 +61,27 @@ small {
   line-height: 17px;
   color: var(--gray);
   margin-bottom: 0;
+}
+
+.text-error {
+  color: var(--red);
+}
+
+.text-success {
+  color: var(--green);
+}
+
+.text-font {
+  margin: 0;
+  padding: 0;
+}
+
+.text-link {
+  cursor: pointer;
+}
+
+.text-link:hover {
+  color: var(--blue);
 }
 
 * {

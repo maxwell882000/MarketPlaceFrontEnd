@@ -1,13 +1,13 @@
 import api from "@/services/api/api";
 import errorService from "@/services/error/errorService";
+
 // check on error from the results
 class Methods {
     async put(path, data) {
         try {
             return await api.put(path, data);
         } catch (e) {
-            errorService.sendError(path, data, e.toString());
-            throw  e;
+            errorService.sendError(path, data, e);
         }
     }
 
@@ -15,7 +15,7 @@ class Methods {
         try {
             return await api.get(path);
         } catch (e) {
-            errorService.sendError(path, "", e.toString());
+            errorService.sendError(path, "", e);
         }
     }
 
@@ -23,8 +23,7 @@ class Methods {
         try {
             return await api.post(path, data);
         } catch (e) {
-            errorService.sendError(path, data, e.toString());
-            throw  e;
+            errorService.sendError(path, data, e);
         }
     }
 
@@ -39,8 +38,7 @@ class Methods {
                 }
             );
         } catch (e) {
-            errorService.sendError('uploadFile', formData, e.toString());
-            throw  e;
+            errorService.sendError('uploadFile', formData, e);
         }
     }
 
@@ -49,8 +47,7 @@ class Methods {
         try {
             return await api.delete(path, data);
         } catch (e) {
-            errorService.sendError(path, data, e.toString());
-            throw  e;
+            errorService.sendError(path, data, e);
         }
     }
 }

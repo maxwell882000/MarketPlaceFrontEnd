@@ -1,21 +1,76 @@
 <template>
-  <ModalView>
+  <ModalAuth waiting="register" v-show="isRegister" title="Регистрация">
     <template #inputs>
-      <Input v-model="phone" placeholder="Номер телефона"/>
+      <Input v-model="name" placeholder="Введите имя"/>
+      <InputPhone v-model="phone" placeholder="Номер телефона"/>
       <InputPassword v-model="password"/>
-      <ButtonBlue v-if="isEntered()" title="Войти"></ButtonBlue>
-      <ButtonGray v-else @click="login()" title="Войти"></ButtonGray>
+      <ButtonForm @submit="register" :is-entered="isEntered()" title="Зарегистрироваться"></ButtonForm>
+      <div class="mt-2">
+        <p class="text-font">
+          Уже есть аккаунта ?
+        </p>
+        <p @click="setLogin()" style="color: var(--blue)" class="text-font text-link">
+          Войти
+        </p>
+      </div>
     </template>
-  </ModalView>
+  </ModalAuth>
 </template>
 <script>
-import ModalView from "@/components/modal/modalView";
-import ButtonBlue from "@/components/helper/button/buttonBlue";
+import ModalAuth from "@/components/modal/modalAuth";
 import InputPassword from "@/components/helper/input/inputPassword";
-import ButtonGray from "@/components/helper/button/buttonGray";
 import Input from "@/components/helper/input/input";
+import {mapActions, mapMutations, mapState} from "vuex";
+import ButtonForm from "@/components/helper/button/buttonForm";
+import InputPhone from "@/components/helper/input/inputPhone";
 
 export default {
-  components: {Input, ButtonGray, InputPassword, ButtonBlue, ModalView}
+  components: {InputPhone, ButtonForm, Input, InputPassword, ModalAuth},
+  data() {
+    return {
+      phone: "",
+      password: "",
+      name: "",
+      isPhoneEntered: false,
+      isPasswordEntered: false,
+      isNameEntered: false
+    }
+  },
+  watch: {
+    phone(newVal) {
+      this.isPhoneEntered = newVal !== "";
+    },
+    password(newVal) {
+      this.isPasswordEntered = newVal !== "";
+    },
+    name(newVal) {
+      this.isNameEntered = newVal !== ""
+    }
+  },
+  methods: {
+    ...mapMutations({
+      setLogin: 'authWindow/setLogin',
+    }),
+    ...mapActions({
+      setRegister: "register"
+    }),
+    register() {
+      let request = {
+        phone: this.phone,
+        name: this.name,
+        password: this.password
+      }
+      this.setRegister(request);
+    },
+    isEntered() {
+      return this.isPhoneEntered && this.isPasswordEntered && this.isNameEntered;
+    },
+  },
+  computed: {
+    ...mapState({
+      isLogin: state => state.authWindow.isLogin,
+      isRegister: state => state.authWindow.isRegister
+    })
+  },
 }
 </script>

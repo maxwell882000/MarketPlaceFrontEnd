@@ -1,32 +1,27 @@
-import api from "@/services/api/api";
-import TokenService from "@/services/auth/TokenService";
 import methods from "@/services/api/methods";
 
 class AuthService {
-    async login({phone, password}) {
-        let form = new FormData();
-        form.append("phone", phone);
-        form.append("password", password);
-        let response = await methods.post("login/", form);
-        TokenService.setToken(response)
-        return response.token;
+    async login(request) {
+        let response = await methods.post("login/", request);
+        return response.data.result;
+    }
+
+    async getUser() {
+        let response = await methods.get("user/");
+        return response.data.result;
     }
 
     async logout() {
-        await methods.get("logout/");
-        TokenService.removeToken();
+        try {
+            await methods.get("logout/");
+        } catch (e) {
+            console.log(e);
+        }
     }
 
-    async register({name, phone, password}) {
-        let form = new FormData();
-        form.append("phone", phone);
-        form.append("name", name);
-        form.append("password", password);
-        return await api.post("/", {
-            name,
-            phone,
-            password
-        });
+    async register(request) {
+        let result = await methods.post("register/", request);
+        return result.data.result;
     }
 }
 

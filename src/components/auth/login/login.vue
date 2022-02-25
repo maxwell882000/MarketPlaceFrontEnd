@@ -1,22 +1,30 @@
 <template>
-  <ModalAuth title="Вход">
+  <ModalAuth waiting="login" v-show="isLogin" title="Вход">
     <template #inputs>
-      <Input v-model="phone" placeholder="Номер телефона"/>
+      <InputPhone v-model="phone" placeholder="Номер телефона"/>
       <InputPassword v-model="password"/>
-      <ButtonBlue v-if="isEntered()" title="Войти"></ButtonBlue>
-      <ButtonGray v-else @click="login()" title="Войти"></ButtonGray>
+      <ButtonForm title="Войти" :isEntered="isEntered()" @submit="login()"></ButtonForm>
+      <div class="mt-2">
+        <p @click="setRegister()" class="text-font text-link">
+          Нет аккаунта ?
+        </p>
+        <p @click="setPassword()" class="text-font text-link">
+          Забыли пароль?
+        </p>
+      </div>
+
     </template>
   </ModalAuth>
 </template>
 <script>
-import Input from "@/components/helper/input/input";
 import InputPassword from "@/components/helper/input/inputPassword";
-import ButtonGray from "@/components/helper/button/buttonGray";
-import ButtonBlue from "@/components/helper/button/buttonBlue";
 import ModalAuth from "@/components/modal/modalAuth";
+import {mapActions, mapMutations, mapState} from "vuex";
+import ButtonForm from "@/components/helper/button/buttonForm";
+import InputPhone from "@/components/helper/input/inputPhone";
 
 export default {
-  components: {ModalAuth, ButtonBlue, ButtonGray, InputPassword, Input},
+  components: {InputPhone, ButtonForm, ModalAuth, InputPassword},
   data() {
     return {
       phone: "",
@@ -25,7 +33,17 @@ export default {
       isPasswordEntered: false,
     }
   },
+  computed: {
+    ...mapState({
+      isLogin: state => state.authWindow.isLogin
+    })
+  },
   watch: {
+    isLogin(val) {
+      if (val) {
+        this.password = "";
+      }
+    },
     // whenever question changes, this function will run
     phone(newVal) {
       this.isPhoneEntered = newVal !== "";
@@ -35,8 +53,19 @@ export default {
     }
   },
   methods: {
-    login() {
-      console.log(process.env.VUE_APP_TITLE);
+    ...mapActions({
+      sendLogin: 'login',
+    }),
+    ...mapMutations({
+      setRegister: "authWindow/setRegister",
+      setPassword: "authWindow/setForget"
+    }),
+    async login() {
+      let request = {
+        phone: this.phone,
+        password: this.password
+      };
+      await this.sendLogin(request);
     },
     isEntered() {
       return this.isPasswordEntered && this.isPhoneEntered;

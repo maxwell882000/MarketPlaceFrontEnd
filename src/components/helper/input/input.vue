@@ -21,9 +21,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "sass:math";
 $inputHeight: 45px;
 $lineHeight: 18px;
-$center: $inputHeight/2 - $lineHeight/2;
+$center: math.div($inputHeight,2) - math.div($lineHeight,2);
 .label {
   position: absolute;
   top: $center;

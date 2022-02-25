@@ -1,12 +1,18 @@
 <template>
-  <div class="modal-overlay-first">
-    <div v-bind="$attrs" class="modal-second">
-      <h6>{{ title }}</h6>
-      <p>{{ description }}</p>
-      <slot name="inputs"></slot>
-      <slot name="buttons"></slot>
+  <transition name="modal-fade">
+    <div class="modal-overlay-first">
+      <div v-bind="$attrs" class="modal-second" @click.stop>
+        <div class="left-corner">
+          <b-icon  @click="$emit('closeModal')" style="cursor: pointer; color: var(--gray300)" icon="x"
+                  font-scale="1.7"></b-icon>
+        </div>
+        <h5>{{ title }}</h5>
+        <p class="text-font">{{ description }}</p>
+        <slot name="body"></slot>
+        <slot name="buttons"></slot>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -24,6 +30,11 @@ export default {
 </script>
 
 <style scoped>
+.left-corner {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: calc( -0.9* var(--marinTop));
+}
 
 .modal-overlay-first {
   position: fixed;
@@ -45,10 +56,10 @@ export default {
   z-index: 300;
   /*width: 100vw;*/
   border-radius: var(--borderRadius);
-  padding: 20px 30px;
+  padding: 15px 15px;
 }
 
-h6 {
+h5 {
   font-weight: 600;
   font-size: 16px;
   color: var(--dark);
@@ -57,7 +68,7 @@ h6 {
 }
 
 p {
-  font-size: 16px;
+  font-size: 14px;
   margin: 20px 0;
 }
 
@@ -69,5 +80,15 @@ button {
   font-size: 14px;
   border-radius: 16px;
   margin-top: 50px;
+}
+
+.modal-fade-enter,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.5s ease;
 }
 </style>

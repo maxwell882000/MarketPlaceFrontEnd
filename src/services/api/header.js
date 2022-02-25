@@ -1,13 +1,16 @@
 import axiosInstance from "./api";
-import TokenService from "@/services/auth/TokenService";
 
 
-const setup = (store) => {
+const setup = (getToken) => {
     axiosInstance.interceptors.request.use(
         (config) => {
-            const token = store.token || TokenService.getToken();
+            const token = getToken;
+            console.log("TOKEINGN : ", !!token);
             if (token) {
-                config.headers["Authorization"] = 'Bearer ' + token;  // for Spring Boot back-end
+                config.headers["Authorization"] = 'Bearer ' + token;
+                console.log(config);
+            } else {
+                delete config.headers['Authorization'];
             }
             return config;
         },
