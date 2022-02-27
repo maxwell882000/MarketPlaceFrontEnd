@@ -15,6 +15,8 @@
     <Registration></Registration>
     <ForgetPassword></ForgetPassword>
     <VerifyRegister></VerifyRegister>
+    <VerifyForget></VerifyForget>
+    <NewPassword></NewPassword>
   </div>
 
 </template>
@@ -24,10 +26,12 @@ import Registration from "@/components/auth/registration/regisration";
 import {mapGetters, mapMutations, mapActions, mapState} from "vuex";
 import ForgetPassword from "@/components/auth/forgetPassword/forgetPassword";
 import VerifyRegister from "@/components/auth/registration/verifyRegister";
+import VerifyForget from "@/components/auth/forgetPassword/verifyForget";
+import NewPassword from "@/components/auth/forgetPassword/newPassword";
 
 
 export default {
-  components: {VerifyRegister, ForgetPassword, Login, Registration},
+  components: {NewPassword, VerifyForget, VerifyRegister, ForgetPassword, Login, Registration},
   computed: {
     ...mapGetters({
       isAuthenticated: 'isAuthenticated',

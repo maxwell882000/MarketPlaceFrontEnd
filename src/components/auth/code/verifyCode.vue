@@ -31,7 +31,7 @@ export default {
       this.code = value;
     },
     submit() {
-      this.$emit("codeSubmit", this.code);
+      this.$emit("codeSubmit", {code: this.code});
     }
   },
 }

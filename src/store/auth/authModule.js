@@ -2,13 +2,6 @@ import authService from "@/services/auth/authService";
 import codeService from "@/services/auth/codeService";
 import tokenService from "@/services/auth/tokenService";
 
-// eslint-disable-next-line no-unused-vars
-function sleep(ms) {
-    return new Promise((resolve) => {
-        setTimeout(resolve, ms);
-    });
-}
-
 export const authModule = {
     state() {
         return {
@@ -46,7 +39,7 @@ export const authModule = {
                 commit('setToken', token);
                 commit("authWindow/close");
             } catch (e) {
-                commit("authWindow/setError", "Неверные данные");
+                commit("authWindow/setError", e);
             }
             commit("wait/END", "login");
         },
@@ -81,9 +74,10 @@ export const authModule = {
         async verifyCode({commit}, code) {
             commit("wait/START", "code");
             try {
-                await codeService.verifyCode({code});
+                await codeService.verifyCode(code);
             } catch (e) {
                 console.log(e);
+                commit('authWindow/setError', e);
             } finally {
                 commit("wait/END", "code");
             }
@@ -91,10 +85,11 @@ export const authModule = {
         async phoneCodeVerify({commit}, code) {
             commit("wait/START", "code");
             try {
-                await codeService.phoneCodeVerify({code});
+                await codeService.phoneCodeVerify(code);
                 commit("authWindow/close");
             } catch (e) {
                 console.log(e);
+                commit('authWindow/setError', e);
             } finally {
                 commit("wait/END", "code");
             }

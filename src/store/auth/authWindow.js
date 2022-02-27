@@ -7,6 +7,7 @@ export const authWindow = {
             isForgetPassword: false,
             isVerifyRegister: false,
             isVerifyForget: false,
+            isNewPassword: false,
             error: "",
             success: "",
             codePhone: "",
@@ -22,12 +23,19 @@ export const authWindow = {
         setSuccess(state, success) {
             state.success = success;
         },
+        setNewPassword(state) {
+            state.isNewPassword = true;
+            state.isVerifyForget = false;
+            state.error = "";
+            state.success = "";
+        },
         setVerifyForget(state) {
             state.isLogin = false;
             state.isForgetPassword = false;
             state.isRegister = false;
             state.isVerifyRegister = false;
             state.isVerifyForget = true;
+            state.isNewPassword = false;
             state.error = "";
             state.success = "";
         },
@@ -37,6 +45,8 @@ export const authWindow = {
             state.isRegister = false;
             state.isVerifyRegister = true;
             state.isVerifyForget = false;
+            state.isNewPassword = false;
+
             state.error = "";
             state.success = "";
         },
@@ -46,6 +56,8 @@ export const authWindow = {
             state.isRegister = false;
             state.isVerifyRegister = false;
             state.isVerifyForget = false;
+            state.isNewPassword = false;
+
             state.error = "";
             state.success = "";
         },
@@ -54,6 +66,8 @@ export const authWindow = {
             state.isLogin = false;
             state.isRegister = false;
             state.isVerifyRegister = false;
+            state.isNewPassword = false;
+
             state.isVerifyForget = false;
             state.error = "";
             state.success = "";
@@ -62,6 +76,7 @@ export const authWindow = {
             state.isRegister = true;
             state.isLogin = false;
             state.isForgetPassword = false;
+            state.isNewPassword = false;
             state.isVerifyRegister = false;
             state.isVerifyForget = false;
             state.error = "";
@@ -71,6 +86,7 @@ export const authWindow = {
             state.isForgetPassword = false;
             state.isLogin = false;
             state.isRegister = false;
+            state.isNewPassword = false;
             state.isVerifyRegister = false;
             state.isVerifyForget = false;
             state.error = "";

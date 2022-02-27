@@ -11,12 +11,10 @@ const instance = axios.create({
     },
 });
 instance.interceptors.request.use((config) => {
-    let token = store.getters.authToken().token;
-    console.log(token);
+    let token = store.getters["passwordModule/passToken"]() || store.getters.authToken().token;
     if (token) {
         config.headers["Authorization"] = 'Bearer ' + token;
     }
-    console.log(store.getters.language());
     let lang = store.getters.language() || "ru";
     if (lang) {
         config.headers['Accept-Language'] = lang;

@@ -1,19 +1,19 @@
 <template>
-  <ModalAuth v-show="isPassword" title="Вход">
+  <ModalAuth waiting="issue_password" v-show="isPassword" title="Введите ваш номер телефона">
     <template #inputs>
-      <Input v-model="phone" placeholder="Номер телефона"/>
-      <ButtonForm title="Получить код" :is-entered="isEntered()"></ButtonForm>
+      <InputPhone v-model="phone" placeholder="Номер телефона"/>
+      <ButtonForm title="Получить код" @submit="submit" :is-entered="isEntered()"></ButtonForm>
     </template>
   </ModalAuth>
 </template>
 <script>
-import Input from "@/components/helper/input/input";
 import ModalAuth from "@/components/modal/modalAuth";
-import {mapMutations, mapState} from "vuex";
+import {mapActions, mapState} from "vuex";
 import ButtonForm from "@/components/helper/button/buttonForm";
+import InputPhone from "@/components/helper/input/inputPhone";
 
 export default {
-  components: {ButtonForm, ModalAuth, Input},
+  components: {InputPhone, ButtonForm, ModalAuth},
   data() {
     return {
       phone: "",
@@ -27,14 +27,22 @@ export default {
   },
   watch: {
     // whenever question changes, this function will run
+    isPassword(newVal) {
+      if (newVal) {
+        this.phone = "";
+      }
+    },
     phone(newVal) {
       this.isPhoneEntered = newVal !== "";
     },
   },
   methods: {
-    ...mapMutations({
-      setRegister: "authWindow/setRegister"
+    ...mapActions({
+      issue: 'passwordModule/issueToken'
     }),
+    submit() {
+      this.issue({phone: this.phone});
+    },
     isEntered() {
       return this.isPhoneEntered;
     }

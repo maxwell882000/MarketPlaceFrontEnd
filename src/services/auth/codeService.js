@@ -5,16 +5,12 @@ class CodeService {
         await methods.get("sendCode/");
     }
 
-    async verifyCode({code}) {
-        let form = new FormData();
-        form.append("code", code);
-        return await methods.post("verifyCode/", form);
+    async verifyCode(code) {
+        return await methods.post("verifyCode/", code);
     }
 
-    async phoneCodeVerify({code}) {
-        let form = new FormData();
-        form.append("code", code);
-        return await methods.post('phoneCodeVerify/', form);
+    async phoneCodeVerify(code) {
+        return await methods.post('phoneCodeVerify/', code);
     }
 
 }
