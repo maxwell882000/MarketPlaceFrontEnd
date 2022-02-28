@@ -104,3 +104,13 @@
 .text-violet, .text-violet * {
   color: var(--violet) !important;
 }
+
+.user-tabs {
+  .tab-content {
+    width: 100%;
+
+    .tab-pane {
+      padding: 5px;
+    }
+  }
+}
