@@ -12,10 +12,8 @@
 }
 
 :root {
-  --borderRadius: 12px;
-}
 
-:root {
+  --borderRadius: 12px;
   --marinTop: 20px;
 }
 
@@ -25,6 +23,7 @@ body {
   min-height: 80vh;
   width: 100% !important;
   overflow-x: hidden;
+  min-width: 767px !important;
 }
 
 p, li, a {
@@ -106,4 +105,39 @@ small {
   ::-webkit-scrollbar-thumb:hover {
     background: lightgrey;
   }
+}
+
+.transparent-nav-active {
+  color: #282F3C;
+
+  svg {
+    color: var(--blue) !important;
+  }
+}
+
+.transparent-tab-passive {
+  display: flex;
+  align-items: center;
+  color: #282F3C !important;
+
+  svg {
+    color: grey;
+  }
+}
+
+.buyshop-card {
+  padding: 24px;
+  border-radius: 12px;
+  background-color: white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
