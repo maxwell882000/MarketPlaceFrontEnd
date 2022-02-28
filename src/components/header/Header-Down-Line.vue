@@ -4,61 +4,62 @@
       <div class="d-flex align-items-center justify-content-between links-row">
         <div>
           <b-button
-            @click="categoriesOpened = !categoriesOpened"
-            variant="primary"
-            class="d-flex align-items-center"
+              @click="categoriesOpened = !categoriesOpened"
+              variant="primary"
+              class="d-flex align-items-center"
           >
             <img
-              v-if="!categoriesOpened"
-              src="@/assets/icons/burger.svg"
-              alt="burger icon"
-              class="burger"
+                v-if="!categoriesOpened"
+                src="@/assets/icons/burger.svg"
+                alt="burger icon"
+                class="burger"
             />
             <img
-              v-else
-              src="@/assets/icons/x.svg"
-              alt="x icon"
-              class="burger"
+                v-else
+                src="@/assets/icons/x.svg"
+                alt="x icon"
+                class="burger"
             />
             Каталог товаров
           </b-button>
           <b-collapse
-            id="categories"
-            :visible="categoriesOpened"
-            class="categories"
+              id="categories"
+              :visible="categoriesOpened"
+              class="categories"
           >
             <div class="container filter-tabs mt-3">
-              <FilterTabs />
+              <FilterTabs/>
             </div>
           </b-collapse>
         </div>
-        <div class="header-link">
-          <a href="#">
-            <img src="@/assets/icons/coupon.svg" alt="coupon icon" />
-            Предложения для вас
-          </a>
-        </div>
-        <div class="header-link">
-          <a href="#">
-            <img src="@/assets/icons/fire.svg" alt="sales icon" />
-            Скидки
-          </a>
-        </div>
-        <div class="header-link"><a href="#">Электроника</a></div>
-        <div class="header-link"><a href="#">Бытовая техника</a></div>
-        <div class="header-link"><a href="#">Детям</a></div>
-        <div class="header-link"><a href="#">Спорт</a></div>
-        <div class="header-link"><a href="#">Продукты</a></div>
-        <div class="header-link"><a href="#">Красота</a></div>
-        <div class="header-link"><a href="#">Аптека</a></div>
+        <!--        <div class="header-link">-->
+        <!--          <a href="#">-->
+        <!--            <img src="@/assets/icons/coupon.svg" alt="coupon icon" />-->
+        <!--            Предложения для вас-->
+        <!--          </a>-->
+        <!--        </div>-->
+        <!--        <div class="header-link">-->
+        <!--          <a href="#">-->
+        <!--            <img src="@/assets/icons/fire.svg" alt="sales icon" />-->
+        <!--            Скидки-->
+        <!--          </a>-->
+        <!--        </div>-->
+        <div v-for="item in nav_bar" :key="item.slug" class="header-link"><a href="#">{{ item.name }}</a></div>
+        <!--        <div class="header-link"><a href="#">Детям</a></div>-->
+        <!--        <div class="header-link"><a href="#">Спорт</a></div>-->
+        <!--        <div class="header-link"><a href="#">Продукты</a></div>-->
+        <!--        <div class="header-link"><a href="#">Красота</a></div>-->
+        <!--        <div class="header-link"><a href="#">Аптека</a></div>-->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { disableScrollBar, enableScrollBar } from "@/utils/bodyScrollBar";
+import {disableScrollBar, enableScrollBar} from "@/utils/bodyScrollBar";
 import FilterTabs from "@/components/header/Filter-Tabs";
+import {mapGetters} from "vuex";
+
 export default {
   name: "Header-Down-Line",
   components: {
@@ -68,6 +69,11 @@ export default {
     return {
       categoriesOpened: false,
     };
+  },
+  computed: {
+    ...mapGetters([
+      'nav_bar'
+    ])
   },
   watch: {
     categoriesOpened() {
@@ -87,8 +93,10 @@ export default {
   padding-top: 10px;
   background-color: white;
 }
+
 .links-row {
   overflow-x: auto;
+
   .btn-primary {
     white-space: nowrap;
     border-radius: 8px;
@@ -101,6 +109,7 @@ export default {
       width: 22px;
     }
   }
+
   .categories {
     position: fixed;
     z-index: 667;
@@ -114,13 +123,16 @@ export default {
       height: 0 !important;
     }
   }
+
   .filter-tabs {
     height: 100%;
   }
 }
+
 .header-link {
   padding: 10px;
   margin-bottom: 6px;
+
   a {
     white-space: nowrap;
     display: block;
@@ -141,6 +153,7 @@ export default {
       position: relative;
       bottom: -16px;
     }
+
     &:hover::after {
       left: 0;
       width: 100%;

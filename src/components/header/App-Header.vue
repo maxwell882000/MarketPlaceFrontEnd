@@ -56,7 +56,6 @@
                 Профиль
               </a>
             </AuthProfile>
-
           </div>
         </div>
       </div>

@@ -27,11 +27,12 @@ export default {
   },
   methods: {
     ...mapActions({
-      getUser: 'getUser'
+      getUser: 'getUser',
+      getHeader: 'getHeaders'
     }),
   },
-  mounted() {
-    this.getUser();
+  created() {
+    this.getHeader();
   }
 }
 </script>
