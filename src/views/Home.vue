@@ -1,15 +1,15 @@
 <template>
   <div class="container">
-    <BannerAndItem />
+    <BannerAndItem/>
     <h5 class="mt-4 mb-3">
       Купите, пока это выгодно <span class="timer">07:48:10</span>
     </h5>
-    <SalesRoll />
+    <SalesRoll/>
     <h5 class="mt-4 mb-3">Акции и предложения</h5>
-    <StocksTabs />
+    <StocksTabs/>
     <!-- Электроника -->
     <h5 class="mt-4 mb-3">Успей купить!</h5>
-    <SalesRoll />
+    <SalesRoll/>
   </div>
 </template>
 
@@ -19,11 +19,21 @@ import BannerAndItem from "../components/mainPage/BannerAndItem";
 import "@splidejs/splide/dist/css/splide.min.css";
 import SalesRoll from "@/components/shared/SalesRoll";
 import StocksTabs from "@/components/mainPage/StocksTabs";
+import {mapActions} from "vuex";
+
 export default {
-  components: { StocksTabs, SalesRoll, BannerAndItem },
+  components: {StocksTabs, SalesRoll, BannerAndItem},
   data() {
     return {};
   },
+  methods: {
+    ...mapActions([
+      'mainModule/getMain'
+    ])
+  },
+  created() {
+    this['mainModule/getMain']();
+  }
 };
 </script>
 

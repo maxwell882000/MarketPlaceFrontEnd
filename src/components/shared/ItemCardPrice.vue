@@ -1,18 +1,32 @@
 <template>
   <div class="d-flex">
     <div class="price">
-      <small>Рассрочка</small>
+      <small> {{ credit.name }}</small>
       <p class="mb-0">
-        <span class="numbers">150 000</span>
-        <small class="time"> x 6 мес</small>
+        <span class="numbers">{{ credit.price }}</span>
+        <small class="time"> x {{ credit.month }} мес</small>
       </p>
     </div>
-    <CartButton />
+    <CartButton/>
   </div>
 </template>
 <script>
 import CartButton from "../buttons/CartButton";
+
 export default {
+  props: {
+    credit: {
+      type: Object,
+      default() {
+        return {
+          name: "Рассрочка",
+          price: "150 000",
+          month: "2"
+        }
+      }
+    }
+  },
+
   components: {CartButton}
 }
 </script>
@@ -26,13 +40,16 @@ export default {
   line-height: 17px;
   width: 100%;
 }
+
 .price small {
   font-size: 13px;
 }
+
 .price .numbers {
   color: var(--blue);
   font-weight: 700;
 }
+
 .price .time {
   font-weight: 600;
 }

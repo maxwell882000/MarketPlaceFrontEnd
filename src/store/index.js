@@ -4,6 +4,9 @@ import {authWindow} from "@/store/auth/authWindow";
 import {langModule} from "@/store/general/langModule";
 import {passwordModule} from "@/store/auth/passwordModule";
 import {commonModule} from "@/store/common/commonModule";
+import {mainModule} from "@/store/main/mainModule";
+import {favouriteModule} from "@/store/favourite/favouriteModule";
+import {backetModule} from "@/store/backet/backetModule";
 
 export default createStore({
     modules: {
@@ -11,6 +14,9 @@ export default createStore({
         auth: authModule,
         authWindow: authWindow,
         langModule: langModule,
-        commonModule: commonModule
+        commonModule: commonModule,
+        mainModule: mainModule,
+        favouriteModule: favouriteModule,
+        backetModule: backetModule
     }
 });
