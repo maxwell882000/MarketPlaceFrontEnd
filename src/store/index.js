@@ -7,6 +7,7 @@ import {commonModule} from "@/store/common/commonModule";
 import {mainModule} from "@/store/main/mainModule";
 import {favouriteModule} from "@/store/favourite/favouriteModule";
 import {backetModule} from "@/store/backet/backetModule";
+import {productModule} from "@/store/product/productModule";
 
 export default createStore({
     modules: {
@@ -17,6 +18,7 @@ export default createStore({
         commonModule: commonModule,
         mainModule: mainModule,
         favouriteModule: favouriteModule,
-        backetModule: backetModule
+        backetModule: backetModule,
+        productModule:productModule
     }
 });

@@ -24,7 +24,6 @@ export const commonModule = {
     actions: {
         async getHeaders({commit}) {
             let result = await commonService.headers();
-            console.log(result);
             commit("setDropBar", result.drop_bar);
             commit("setNavBar", result.nav_bar);
         },

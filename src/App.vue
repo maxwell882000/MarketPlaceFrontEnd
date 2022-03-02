@@ -28,11 +28,17 @@ export default {
   methods: {
     ...mapActions({
       getUser: 'getUser',
-      getHeader: 'getHeaders'
+      getHeader: 'getHeaders',
+      countDownSecond: "mainModule/countDownSecond"
     }),
   },
   created() {
     this.getHeader();
+  },
+  mounted() {
+    window.setInterval(() => {
+      this.countDownSecond();
+    }, 1000);
   }
 }
 </script>

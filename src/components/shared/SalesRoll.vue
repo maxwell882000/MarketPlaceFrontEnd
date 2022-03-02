@@ -1,40 +1,49 @@
 <template>
   <Splide class="splide" :options="splideOptions">
-    <SplideSlide>
-      <item-card />
+    <SplideSlide v-for="item in products" :key="item.id">
+      <item-card :product="item"/>
     </SplideSlide>
-    <SplideSlide>
-      <item-card />
-    </SplideSlide>
-    <SplideSlide>
-      <item-card />
-    </SplideSlide>
-    <SplideSlide>
-      <item-card />
-    </SplideSlide>
-    <SplideSlide>
-      <item-card />
-    </SplideSlide>
-    <SplideSlide>
-      <item-card />
-    </SplideSlide>
-    <SplideSlide>
-      <item-card />
-    </SplideSlide>
-    <SplideSlide>
-      <item-card />
-    </SplideSlide>
-    <SplideSlide>
-      <item-card />
-    </SplideSlide>
-    <SplideSlide>
-      <item-card />
-    </SplideSlide>
+<!--    <SplideSlide>-->
+<!--      <item-card/>-->
+<!--    </SplideSlide>-->
+<!--    <SplideSlide>-->
+<!--      <item-card/>-->
+<!--    </SplideSlide>-->
+<!--    <SplideSlide>-->
+<!--      <item-card/>-->
+<!--    </SplideSlide>-->
+<!--    <SplideSlide>-->
+<!--      <item-card/>-->
+<!--    </SplideSlide>-->
+<!--    <SplideSlide>-->
+<!--      <item-card/>-->
+<!--    </SplideSlide>-->
+<!--    <SplideSlide>-->
+<!--      <item-card/>-->
+<!--    </SplideSlide>-->
+<!--    <SplideSlide>-->
+<!--      <item-card/>-->
+<!--    </SplideSlide>-->
+<!--    <SplideSlide>-->
+<!--      <item-card/>-->
+<!--    </SplideSlide>-->
+<!--    <SplideSlide>-->
+<!--      <item-card/>-->
+<!--    </SplideSlide>-->
   </Splide>
 </template>
 <script>
 import ItemCard from "../shared/ItemCard";
+
 export default {
+  props: {
+    products: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
+  },
   components: {ItemCard},
   data() {
     return {
@@ -73,25 +82,29 @@ export default {
 </script>
 
 <style scoped>
+.splide {
+  margin-left: -2rem;
+}
+
+.splide__slide {
+  padding-bottom: 18px;
+}
+
+@media (max-width: 1400px) {
   .splide {
-    margin-left: -2rem;
+    margin-left: -1rem;
   }
+}
+
+@media (max-width: 992px) {
+  .splide {
+    margin-left: -0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
   .splide__slide {
-    padding-bottom: 18px;
+    width: 240px !important;
   }
-  @media (max-width: 1400px) {
-    .splide {
-      margin-left: -1rem;
-    }
-  }
-  @media (max-width: 992px) {
-    .splide {
-      margin-left: -0.5rem;
-    }
-  }
-  @media (max-width: 768px) {
-    .splide__slide {
-      width: 240px !important;
-    }
-  }
+}
 </style>

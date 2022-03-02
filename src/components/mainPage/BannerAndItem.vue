@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xl-9 col-12">
       <Splide class="splide" :options="{ autoplay: true, type: 'loop' }">
-        <SplideSlide v-for="item in banners" :key="item.id" data-splide-interval="3000">
+        <SplideSlide v-for="item in banners" :key="'banners_id' + item.id" data-splide-interval="3000">
           <a :href="item.link">
             <img :src="item.image" alt="Sample 1"/>
           </a>
@@ -10,28 +10,30 @@
       </Splide>
     </div>
     <div class="col-lg-3 item-of-day-col">
-      <div v-if="Object.keys(product).length !== 0" class="item-of-day">
-        <div class="item-of-day-title">
-          <h5>Товар дня</h5>
-          <div class="time">{{ getTime() }}</div>
-        </div>
-        <div class="item-of-day-content">
-          <div class="item-of-day-image">
-            <div></div>
-            <img :src="product.image" alt="mi-band"/>
-            <div class="icons">
-              <Like :favourite="product.favourite" :id="product.id" class="like"/>
-              <!--              <Gift class="gift"/>-->
+      <router-link :to="`/item/${product.id}`" class="route-delete">
+        <div v-if="Object.keys(product).length !== 0" class="item-of-day">
+          <div class="item-of-day-title">
+            <h5>Товар дня</h5>
+            <div class="time">{{ getTime }}</div>
+          </div>
+          <div class="item-of-day-content">
+            <div class="item-of-day-image">
+              <div></div>
+              <img :src="product.image" alt="mi-band"/>
+              <div class="icons">
+                <Like :favourite="product.favourite" :id="product.id" class="like"/>
+                <!--              <Gift class="gift"/>-->
+              </div>
+            </div>
+            <div class="item-of-day-info">
+              <p class="item-of-day__description mb-1">
+                {{ product.title }}
+              </p>
+              <ItemPrice :basket="product.basket" :id="product.id" :credit="product.credit"/>
             </div>
           </div>
-          <div class="item-of-day-info">
-            <p class="item-of-day__description mb-1">
-              {{ product.title }}
-            </p>
-            <ItemPrice :credit="product.credit"/>
-          </div>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -43,59 +45,15 @@ import {mapGetters} from "vuex";
 
 export default {
   components: {ItemPrice, Like},
-  data() {
-    return {
-      hours: 23,
-      minutes: 59,
-      seconds: 59,
-      product: {},
-    }
-  },
-  watch: {
-    product_of_day(newVal) {
-      this.hours = newVal.hours;
-      this.minutes = newVal.minutes;
-      if (newVal.items.length !== 0)
-        this.product = newVal.items[0];
-    }
-  },
-  methods: {
-    addZero(time) {
-      if (time < 10) {
-        return "0" + time;
-      }
-      return time;
-    },
-    getTime() {
-      return this.addZero(this.hours) + ":" + this.addZero(this.minutes) + ":" + this.addZero(this.seconds);
-    },
-    countDownSecond() {
-      this.seconds--;
-      if (this.seconds < 0) {
-        this.minutes--;
-        if (this.minutes < 0) {
-          this.hours--;
-          if (this.hours < 0) {
-            this.hours = 23;
-          }
-          this.minutes = 59;
-        }
-        this.seconds = 59;
-      }
-    }
-  },
-  mounted() {
-    this.$nextTick(function () {
-      window.setInterval(() => {
-        this.countDownSecond();
-      }, 1000);
-    })
-  },
+
   computed: {
     ...mapGetters('mainModule', [
       'banners',
-      'product_of_day'
-    ])
+      'getTime'
+    ]),
+    ...mapGetters({
+      product: "mainModule/first_product"
+    })
   }
 };
 </script>
@@ -107,7 +65,13 @@ export default {
   }
 }
 
+.route-delete {
+  text-decoration: none;
+  color: inherit;
+}
+
 .item-of-day {
+  text-decoration: none !important;
   transition: all 0.3s;
   min-height: 100%;
   background-color: white;

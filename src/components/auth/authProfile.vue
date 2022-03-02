@@ -4,7 +4,9 @@
   </div>
   <ul v-show="isAuthenticated" class="dropdown-menu" aria-labelledby="cities">
     <b-dropdown-item @click="toProfile()">
-      <span class="text-font">Профиль</span>
+      <router-link to="user">
+        <span class="text-font">Профиль</span>
+      </router-link>
     </b-dropdown-item>
     <b-dropdown-divider></b-dropdown-divider>
     <b-dropdown-item @click="exitAccount">

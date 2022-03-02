@@ -14,7 +14,8 @@
           <b-icon icon="person-fill" scale="1.5" class="me-2" />
           Пользователь
         </template>
-        <b-card-text> <user-settings class="w-100" /> </b-card-text>
+        <b-card-text> <user-settings class="w-100" />
+        </b-card-text>
       </b-tab>
       <b-tab title-link-class="transparent-tab-passive">
         <template #title>

@@ -1,5 +1,5 @@
 <template>
-  <button @click="clicked" class="like-btn">
+  <button @click.prevent="clicked" class="like-btn">
     <b-icon :style="styleIcon()" :icon="fill ? 'heart-fill' : 'heart'"></b-icon>
   </button>
 </template>
@@ -19,7 +19,6 @@ export default {
     ...mapMutations(['authWindow/setLogin']),
     ...mapActions(['addRemoveFavourite']),
     clicked() {
-      console.log(this.isAuthenticated());
       if (this.id && this.isAuthenticated()) {
         this.addRemoveFavourite(this.id);
         this.fill = !this.fill;
@@ -39,6 +38,7 @@ export default {
 button.like-btn {
   background: transparent;
   border-radius: 20px;
+  z-index: 100;
   border: none;
   font-size: 18px;
 }

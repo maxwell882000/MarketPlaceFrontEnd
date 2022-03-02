@@ -1,5 +1,5 @@
 <template>
-  <Input v-bind="$attrs" :type="type()" placeholder="Пароль" style="width: 90%">
+  <Input v-bind="$attrs" :type="type()" :placeholder="$attrs.placeholder || 'Пароль'" style="width: 90%">
     <template #prefix>
       <b-icon
           @click="hide()" :icon="icon()"></b-icon>

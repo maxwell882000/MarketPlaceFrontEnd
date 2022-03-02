@@ -1,16 +1,19 @@
 <template>
-  <div class="container">
-    <BannerAndItem/>
-    <h5 class="mt-4 mb-3">
-      Купите, пока это выгодно <span class="timer">07:48:10</span>
-    </h5>
-    <SalesRoll/>
-    <h5 class="mt-4 mb-3">Акции и предложения</h5>
-    <StocksTabs/>
-    <!-- Электроника -->
-    <h5 class="mt-4 mb-3">Успей купить!</h5>
-    <SalesRoll/>
-  </div>
+  <loader waiting="main">
+    <div class="container">
+      <BannerAndItem/>
+      <h5 class="mt-4 mb-3">
+        Купите, пока это выгодно <span class="timer">{{ getTime }}</span>
+      </h5>
+      <SalesRoll :products="products"/>
+      <h5 class="mt-4 mb-3">Акции и предложения</h5>
+      <StocksTabs/>
+      <!-- Электроника -->
+      <h5 class="mt-4 mb-3">Успей купить!</h5>
+      <SalesRoll/>
+    </div>
+  </loader>
+
 </template>
 
 
@@ -19,20 +22,39 @@ import BannerAndItem from "../components/mainPage/BannerAndItem";
 import "@splidejs/splide/dist/css/splide.min.css";
 import SalesRoll from "@/components/shared/SalesRoll";
 import StocksTabs from "@/components/mainPage/StocksTabs";
-import {mapActions} from "vuex";
+import {mapActions, mapGetters} from "vuex";
+import Loader from "@/components/loading/loader";
 
 export default {
-  components: {StocksTabs, SalesRoll, BannerAndItem},
+  components: {Loader, StocksTabs, SalesRoll, BannerAndItem},
   data() {
-    return {};
+    return {
+      products: []
+    };
+  },
+  computed: {
+    ...mapGetters('mainModule', [
+      'getTime',
+      'product_of_day'
+    ])
+  },
+  watch: {
+    product_of_day(newVal) {
+      this.products = newVal.items.slice(1);
+    }
   },
   methods: {
     ...mapActions([
-      'mainModule/getMain'
-    ])
+      'mainModule/getMain',
+      'mainModule/countDownSecond'
+    ]),
   },
   created() {
     this['mainModule/getMain']();
+
+  },
+  mounted() {
+
   }
 };
 </script>

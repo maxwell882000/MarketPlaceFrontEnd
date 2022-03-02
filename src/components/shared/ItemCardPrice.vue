@@ -1,13 +1,13 @@
 <template>
   <div class="d-flex">
-    <div class="price">
+    <div v-if="Object.keys(credit).length  !== 0" class="price">
       <small> {{ credit.name }}</small>
       <p class="mb-0">
         <span class="numbers">{{ credit.price }}</span>
         <small class="time"> x {{ credit.month }} мес</small>
       </p>
     </div>
-    <CartButton/>
+    <CartButton :basket="basket" :id="id"/>
   </div>
 </template>
 <script>
@@ -23,6 +23,18 @@ export default {
           price: "150 000",
           month: "2"
         }
+      }
+    },
+    basket: {
+      type: Boolean,
+      default() {
+        return false;
+      },
+    },
+    id: {
+      type: Number,
+      default() {
+        return undefined
       }
     }
   },
