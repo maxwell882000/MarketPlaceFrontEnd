@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@bachdgvn/vue-otp-input": "^1.0.8",
+    "@ivanv/vue-collapse-transition": "^1.0.2",
     "@splidejs/splide": "^3.6.9",
     "@splidejs/vue-splide": "^0.5.15",
     "axios": "^0.26.0",

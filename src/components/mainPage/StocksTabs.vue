@@ -1,8 +1,6 @@
 <template>
   <div v-for="item in discount.items" :key="item.id" class="row stocks">
-    <div class="col-lg-4 col col-md-6 col-sm-12">
-      <img :src="item.des_image" alt=""/>
-    </div>
+    <discount-item :item="item" class="col-lg-4 col col-md-6 col-sm-12"></discount-item>
   </div>
   <!--  <b-tabs-->
   <!--      pills-->
@@ -24,27 +22,19 @@
 </template>
 <script>
 import {mapGetters} from "vuex";
+import DiscountItem from "@/components/discount/discountItem";
 
 export default {
-  data() {
-    return {
-      discounts: []
-    }
-  },
+  components: {DiscountItem},
   computed: {
     ...mapGetters('mainModule', {
       discount: 'discount'
     })
   },
-  watch: {
-    discount(newVal) {
-      console.log(newVal);
-      this.discounts = newVal.items;
-    }
-  }
 }
 </script>
 <style scoped>
+
 .stocks .col {
   padding: 10px;
 }

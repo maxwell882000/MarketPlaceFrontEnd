@@ -1,7 +1,7 @@
 <template>
   <v-wait :for="waiting">
     <template #waiting>
-      <div class="d-flex justify-content-center align-items-center " style="height: 35vw">
+      <div class="d-flex justify-content-center align-items-center" :style="divStyle">
         <b-spinner class=""></b-spinner>
       </div>
     </template>
@@ -10,6 +10,19 @@
 </template>
 <script>
 export default {
-  props: ['waiting']
+  inheritAttrs: false,
+  props: {
+    waiting: {
+      type: String
+    },
+    divStyle: {
+      type: Object,
+      default() {
+        return {
+          height: "35vw"
+        }
+      }
+    }
+  }
 }
 </script>

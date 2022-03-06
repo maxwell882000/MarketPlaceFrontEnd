@@ -4,7 +4,7 @@
       <div class="d-flex align-items-center justify-content-between links-row">
         <div>
           <b-button
-              @click="categoriesOpened = !categoriesOpened"
+              @click="toggleCategoryOpened()"
               variant="primary"
               class="d-flex align-items-center"
           >
@@ -58,22 +58,29 @@
 <script>
 import {disableScrollBar, enableScrollBar} from "@/utils/bodyScrollBar";
 import FilterTabs from "@/components/header/Filter-Tabs";
-import {mapGetters} from "vuex";
+import {mapGetters, mapMutations, mapState} from "vuex";
 
 export default {
   name: "Header-Down-Line",
   components: {
     FilterTabs,
   },
-  data() {
-    return {
-      categoriesOpened: false,
-    };
-  },
   computed: {
+    ...mapState({
+      categoriesOpened: state => state.categoriesOpened
+    }),
     ...mapGetters([
-      'nav_bar'
+      'nav_bar',
+      'categoriesOpened'
     ])
+  },
+  methods: {
+    ...mapMutations([
+      'toggleCategoryOpened'
+    ]),
+    toggle() {
+      this.toggleCategoryOpened();
+    }
   },
   watch: {
     categoriesOpened() {

@@ -1,13 +1,21 @@
 <template>
-  <div class="border">
+  <div class="border custom-border-input">
     <div class="inputContainer">
-      <input :value="modelValue"
-             @input="$emit('update:modelValue', $event.target.value)"
-             v-bind="$attrs" class="input">
-      <label :for="$attrs['id']" class="label">{{ $attrs['placeholder'] }}</label>
-      <span class="prefix-items">
+      <div ref="prefix" class="prefix">
         <slot name="prefix"></slot>
-      </span>
+      </div>
+      <input ref="input" :value="modelValue"
+             @input="$emit('update:modelValue', $event.target.value)"
+             :style="style"
+             v-bind="$attrs" class="input">
+      <label :for="$attrs['id']" class="label">
+        <span>
+              {{ $attrs['placeholder'] }}
+        </span>
+      </label>
+      <div ref="suffix" class="suffix-items">
+        <slot name="suffix"></slot>
+      </div>
     </div>
   </div>
 
@@ -15,16 +23,34 @@
 <script>
 export default {
   inheritAttrs: false,
-  props: ['modelValue'],
+  props: {
+    modelValue: {},
+
+  },
+  data() {
+    return {
+      style: {}
+    }
+  },
+  mounted() {
+    this.style['margin-left'] = this.$refs.prefix.clientWidth + "px";
+    let width;
+    if ((width = (this.$refs.input.clientWidth - this.$refs.suffix.clientWidth - this.$refs.prefix.clientWidth)) > 0)
+      this.style['width'] = width + "px";
+  },
   emits: ['update:modelValue']
 }
 </script>
 
 <style scoped lang="scss">
 @use "sass:math";
+
 $inputHeight: 45px;
 $lineHeight: 18px;
 $center: math.div($inputHeight,2) - math.div($lineHeight,2);
+input[type="date"] {
+  color: var(--dark);
+}
 .label {
   position: absolute;
   top: $center;
@@ -37,23 +63,25 @@ $center: math.div($inputHeight,2) - math.div($lineHeight,2);
   z-index: 0;
 }
 
-.prefix-items {
+.suffix-items {
   position: absolute;
-  top: $center - 0.5;
-  width: 10%;
+  display: flex;
+  align-items: center;
+  height: 100%;
   right: 5px;
-  cursor: pointer;
   line-height: $lineHeight;
 }
 
 .border {
   border: 1px solid var(--gray100);
-  border-radius: 7px;
+  border-radius: var(--borderRadius);
   margin-top: var(--marinTop);
 }
 
 .inputContainer {
   position: relative;
+  display: flex;
+  align-content: center;
   height: $inputHeight;
   width: 100%;
 }
@@ -97,4 +125,18 @@ $center: math.div($inputHeight,2) - math.div($lineHeight,2);
 ::placeholder {
   color: transparent;
 }
+
+.prefix,
+.suffix {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  left: 7.5px;
+  background-color: white;
+  color: var(--gray200);
+  font-size: 16px;
+  line-height: $lineHeight;
+}
+
 </style>

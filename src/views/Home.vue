@@ -5,12 +5,13 @@
       <h5 class="mt-4 mb-3">
         Купите, пока это выгодно <span class="timer">{{ getTime }}</span>
       </h5>
-      <SalesRoll :products="products"/>
+      <SalesRoll slide-key="product_day" :products="products"/>
       <h5 class="mt-4 mb-3">Акции и предложения</h5>
       <StocksTabs/>
       <!-- Электроника -->
-      <h5 class="mt-4 mb-3">Успей купить!</h5>
-      <SalesRoll/>
+<!--      <h5 class="mt-4 mb-3">Успей купить!</h5>-->
+<!--      <SalesRoll slide-key="hurry_up_"/>-->
+      <discount-roll></discount-roll>
     </div>
   </loader>
 
@@ -24,9 +25,10 @@ import SalesRoll from "@/components/shared/SalesRoll";
 import StocksTabs from "@/components/mainPage/StocksTabs";
 import {mapActions, mapGetters} from "vuex";
 import Loader from "@/components/loading/loader";
+import DiscountRoll from "@/components/shared/discountRoll";
 
 export default {
-  components: {Loader, StocksTabs, SalesRoll, BannerAndItem},
+  components: {DiscountRoll, Loader, StocksTabs, SalesRoll, BannerAndItem},
   data() {
     return {
       products: []

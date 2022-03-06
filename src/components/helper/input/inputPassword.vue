@@ -1,9 +1,10 @@
 <template>
-  <Input v-bind="$attrs" :type="type()" :placeholder="$attrs.placeholder || 'Пароль'" style="width: 90%">
-    <template #prefix>
-      <b-icon
-          @click="hide()" :icon="icon()"></b-icon>
-      <i></i>
+  <Input v-bind="$attrs" :type="type()" :placeholder="$attrs.placeholder || 'Пароль'">
+    <template #suffix>
+      <span class="px-2" style="cursor: pointer">
+             <b-icon
+                 @click="hide()" :icon="icon()"></b-icon>
+      </span>
     </template>
   </Input>
 </template>

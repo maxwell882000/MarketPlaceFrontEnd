@@ -4,7 +4,9 @@
       <div class="item-card__image__like">
         <Like :id="product.id" :favourite="product.favourite"/>
       </div>
-      <img :src="product.image" alt="item image">
+      <div class="">
+        <b-img class="image_style" :src="product.image" center fluid alt="item image"/>
+      </div>
       <div class="item-card__image__sale-amount">
         <span>-{{ product.discount }}%</span>
       </div>
@@ -60,7 +62,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+
 .item-card {
   transition: all 0.3s;
   display: block;
@@ -89,12 +92,16 @@ export default {
       margin-bottom: 5px;
       margin-left: 10px;
       font-size: 15px;
+      position: relative;
       padding: 2.5px 9.5px;
       border-radius: 20px;
       background-color: var(--red);
       color: white;
       width: max-content;
     }
+    //.item-card__image__sale-amount span:hover{
+    //  color: white !important;
+    //}
   }
 
   .item-card__rating__star {

@@ -1,10 +1,12 @@
 <template>
   <div class="left-part">
-    <img class="main-image" :src="activeImageUrl"/>
-    <div class="d-flex justify-content-center">
+    <div class="image_con p-1">
+      <img class="img-res border-st main-image" :src="activeImageUrl"/>
+    </div>
+    <div class="ml-1 d-flex justify-content-center">
       <Splide @splide:move="splideMove" :options="splideOptions" class="splide custom-arrows">
         <SplideSlide v-for="(element, index) in picturesList" :key="'splide_' + index" class="splide-slide">
-          <img :src="element" alt="xiaomi">
+          <img class="" :src="element" alt="xiaomi">
         </SplideSlide>
       </Splide>
     </div>
@@ -65,13 +67,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.image_con {
+  height: 25rem;
+}
+
 .left-part {
   width: 100%;
 
-  .main-image {
-    width: 100%;
-    object-fit: cover;
-  }
 
   .splide {
     width: calc(100% - 100px);

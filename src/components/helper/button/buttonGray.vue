@@ -1,6 +1,6 @@
 <template>
   <Button style="background-color: var(--gray100)">
-    <span style="color: var(--gray)">
+    <span :style="titleStyle">
       {{ title }}
     </span>
   </Button>
@@ -10,7 +10,17 @@ import Button from "@/components/helper/button/button";
 
 export default {
   components: {Button},
-  props: ['title']
+  props: {
+    title: {},
+    titleStyle: {
+      type: Object,
+      default() {
+        return {
+          color: "var(--gray)"
+        }
+      }
+    }
+  }
 }
 
 

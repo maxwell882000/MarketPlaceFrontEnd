@@ -1,0 +1,86 @@
+<template>
+  <section class="border-st p-3 back-white mb-3">
+    <div class="w-70">
+      <h6>{{ title }}</h6>
+      <div class="mb-3">
+      <span class="text-sm">
+      {{ desc }}
+      </span>
+      </div>
+      <loader :div-style="{height: 'auto'}" :waiting="waiting">
+        <div
+            @click="$refs.input_file.click()"
+            @dragover.prevent="dragover" @dragleave="dragleave" @drop.prevent="drop"
+            class="input-file  border-st  pointer" :class="image || 'p-3'">
+          <input @change="onChange" type="file" ref="input_file" style="display: none">
+          <template v-if="!image">
+            <div class="h-50">
+              <img class="img-res" :src="require('@/assets/' + assetImage)">
+            </div>
+            <span>
+       <span class="text-blue">Нажмите  </span> чтобы выбрать фотографии или просто перетащите их сюда
+      </span>
+          </template>
+          <template v-else>
+            <div>
+              <img class="img-res border-st" :src="image">
+            </div>
+          </template>
+        </div>
+      </loader>
+    </div>
+  </section>
+</template>
+<script>
+import Loader from "@/components/loading/loader";
+// eslint-disable-next-line no-unused-vars
+let sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
+export default {
+  components: {Loader},
+  props: ['initialImage', 'waiting',
+    'title', 'decs', 'assetImage'],
+  data() {
+    return {
+      filelist: {},
+      image: this.initialImage
+    }
+  },
+  methods: {
+    async onChange() {
+      if (this.$refs.input_file.files.length !== 0) {
+        this.filelist = this.$refs.input_file.files[0];
+        this.image = URL.createObjectURL(this.filelist);
+        this.$emit("image-upload", this.image, this.filelist);
+      }
+    },
+
+    remove(i) {
+      this.filelist.splice(i, 1);
+    },
+    dragover() {
+      // Add some visual fluff to show the user can drop its files
+    },
+    dragleave() {
+      // Clean up
+    },
+    drop(event) {
+      this.$refs.input_file.files = event.dataTransfer.files;
+      this.onChange(); // Trigger the onChange event manually
+
+    }
+  }
+}
+</script>
+<style scoped lang="scss">
+
+
+.input-file {
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='9' ry='9' stroke='%23BDBDBDFF' stroke-width='2' stroke-dasharray='13' stroke-dashoffset='57' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+</style>

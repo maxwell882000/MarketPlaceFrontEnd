@@ -1,11 +1,15 @@
 <template>
   <h6 class="mt-4">Продавец</h6>
-  <div class="seller d-flex align-items-center justify-content-between">
-    <router-link
-        :to="'/shop/' + shop.slug"
-        class="d-flex align-items-center shop-link"
+  <router-link
+      :to="'/shop/' + shop.slug"
+      class="seller d-flex align-items-center shop-link justify-content-between">
+    <div
+        class="d-flex align-items-center "
     >
-      <img :src="shop.image" alt="seller icon"/>
+      <div class="logo">
+        <img class="img-res" :src="shop.image" alt="seller icon"/>
+      </div>
+
       <div class="mx-1">
         <p class="mb-0">{{ shop.name }}</p>
         <!--        <p class="mb-0">-->
@@ -13,9 +17,9 @@
         <!--          <span class="text-muted mx-2">4.6 86 отзывов</span>-->
         <!--        </p>-->
       </div>
-    </router-link>
+    </div>
     <b-icon icon="chevron-right"/>
-  </div>
+  </router-link>
 </template>
 <script>
 import {mapGetters} from "vuex";
@@ -28,3 +32,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+.logo {
+   height: 2rem;
+  width: 2rem;
+}
+</style>

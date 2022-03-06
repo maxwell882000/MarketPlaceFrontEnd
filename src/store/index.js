@@ -8,6 +8,7 @@ import {mainModule} from "@/store/main/mainModule";
 import {favouriteModule} from "@/store/favourite/favouriteModule";
 import {backetModule} from "@/store/backet/backetModule";
 import {productModule} from "@/store/product/productModule";
+import {navbarModule} from "@/store/general/navbarModule";
 
 export default createStore({
     modules: {
@@ -19,6 +20,8 @@ export default createStore({
         mainModule: mainModule,
         favouriteModule: favouriteModule,
         backetModule: backetModule,
-        productModule:productModule
+        navbarModule: navbarModule,
+        productModule: productModule,
+
     }
 });

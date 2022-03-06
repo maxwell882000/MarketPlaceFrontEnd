@@ -1,0 +1,27 @@
+<template>
+
+  <router-link :to="'/category/' + item.slug" class="remove-link"><h6 class="header">{{ item.name }}</h6>
+  </router-link>
+  <b-container style="padding: 0">
+    <b-row gutter-x="5">
+      <sub-categories :column="column" :key="'category_child_1' + index + 'slug_' + child.slug" :category="child"
+                      v-for="(child , index) in item.children"></sub-categories>
+    </b-row>
+  </b-container>
+</template>
+<script>
+import SubCategories from "@/components/header/subCategories";
+
+export default {
+  props: {
+    item: {},
+    column: {
+      type: Number,
+      default() {
+        return 4;
+      }
+    }
+  },
+  components: {SubCategories}
+}
+</script>

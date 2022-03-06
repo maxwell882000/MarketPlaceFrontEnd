@@ -2,32 +2,33 @@
   <div class="row">
     <div class="col-xl-9 col-12">
       <Splide class="splide" :options="{ autoplay: true, type: 'loop' }">
-        <SplideSlide v-for="item in banners" :key="'banners_id' + item.id" data-splide-interval="3000">
-          <a :href="item.link">
-            <img :src="item.image" alt="Sample 1"/>
-          </a>
+        <SplideSlide class="border-st" v-for="item in banners" :key="'banners_id' + item.id"
+                     data-splide-interval="3000">
+          <div class="banner_image" :href="item.link">
+            <b-img fluid :src="item.image" class="border-st img-res"
+                   alt="Sample 1"/>
+          </div>
         </SplideSlide>
       </Splide>
     </div>
     <div class="col-lg-3 item-of-day-col">
       <router-link :to="`/item/${product.id}`" class="route-delete">
-        <div v-if="Object.keys(product).length !== 0" class="item-of-day">
+        <div v-if="Object.keys(product).length !== 0" class="d-flex flex-column item-of-day">
           <div class="item-of-day-title">
             <h5>Товар дня</h5>
             <div class="time">{{ getTime }}</div>
           </div>
-          <div class="item-of-day-content">
-            <div class="item-of-day-image">
-              <div></div>
-              <img :src="product.image" alt="mi-band"/>
-              <div class="icons">
-                <Like :favourite="product.favourite" :id="product.id" class="like"/>
-                <!--              <Gift class="gift"/>-->
-              </div>
+          <div class="flex-grow-1 item-of-day-content d-flex flex-column">
+            <div class="icons">
+              <Like style="position: absolute" :favourite="product.favourite" :id="product.id" class="like"/>
+            </div>
+<!--             do not know why it is work -->
+            <div class="flex-grow-1" style="height: 0;">
+              <b-img fluid class="img-res" center :src="product.image" alt="mi-band"/>
             </div>
             <div class="item-of-day-info">
               <p class="item-of-day__description mb-1">
-                {{ product.title }}
+                {{ product.title }} fdfa lsk lfk fl;dk l;fk ds;lfkds;lf k;l sdkl;f
               </p>
               <ItemPrice :basket="product.basket" :id="product.id" :credit="product.credit"/>
             </div>
@@ -104,20 +105,16 @@ export default {
     }
   }
 
-  .item-of-day-image {
-    display: flex;
-    padding: 0 10px;
-    justify-content: space-between;
 
-    .icons {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.3s;
-      visibility: hidden;
-      opacity: 0;
-      padding-bottom: 10px;
-    }
+  .icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    transition: all 0.3s;
+
+    visibility: hidden;
+    opacity: 0;
+    padding-bottom: 10px;
   }
 
   .item-of-day__description {
@@ -132,6 +129,10 @@ export default {
       opacity: 1;
     }
   }
+}
+
+.banner_image {
+  height: 20rem;
 }
 
 @media (max-width: 1200px) {

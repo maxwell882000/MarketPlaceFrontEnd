@@ -31,14 +31,16 @@
         </p>
       </div>
       <div class="col col-7 col-sm-8 col-md-2 d-flex justify-content-end">
-        <b-icon variant="secondary" icon="trash"></b-icon>
+          <trash></trash>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Trash from "@/components/icons/trash";
 export default {
+  components: {Trash},
   props: {
     id: String,
     itemInfo: Object,

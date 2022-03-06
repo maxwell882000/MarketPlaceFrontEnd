@@ -4,7 +4,7 @@
   </div>
   <ul v-show="isAuthenticated" class="dropdown-menu" aria-labelledby="cities">
     <b-dropdown-item @click="toProfile()">
-      <router-link to="user">
+      <router-link  style="text-decoration: none; color: inherit;" :to="{path: '/user'}">
         <span class="text-font">Профиль</span>
       </router-link>
     </b-dropdown-item>

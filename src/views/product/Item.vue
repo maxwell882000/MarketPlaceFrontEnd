@@ -8,7 +8,7 @@
         <div class="col-lg-9">
           <div class="product-content">
             <pictures-part class="pictures"></pictures-part>
-            <div class="">
+            <div class="w-100">
               <color-component button="color-btn"></color-component>
               <select-component v-for="(component, index) in selectComponent"
                                 :key="'select_com_ ' + index" :param="component">
@@ -22,27 +22,30 @@
 
         <div class="col-lg-3">
           <installment-product></installment-product>
-<!--          <delivery-product></delivery-product>-->
+          <!--          <delivery-product></delivery-product>-->
         </div>
       </div>
     </section>
+
+    <comments/>
+
   </loader>
 </template>
-
 <script>
-import PicturesPart from "../components/item/PicturesPart.vue";
+import PicturesPart from "../../components/item/PicturesPart.vue";
 import SelectComponent from "@/components/product/selectComponent";
 import HeaderProduct from "@/components/product/headerProduct";
 import ColorComponent from "@/components/product/colorComponent";
 import ShopProduct from "@/components/product/shopProduct";
 import AboutProduct from "@/components/product/aboutProduct";
 import InstallmentProduct from "@/components/product/installmentProduct";
-// import DeliveryProduct from "@/components/product/deliveryProduct";
 import {mapActions, mapGetters} from "vuex";
 import Loader from "@/components/loading/loader";
+import Comments from "@/components/product/comment/comments";
 
 export default {
   components: {
+    Comments,
     Loader,
     InstallmentProduct,
     AboutProduct, ShopProduct, ColorComponent, HeaderProduct, SelectComponent, PicturesPart
@@ -176,6 +179,7 @@ export default {
 .seller {
   text-decoration: none;
   color: black;
+  width: 70%;
   padding: 5px;
   border-radius: 7px;
 
