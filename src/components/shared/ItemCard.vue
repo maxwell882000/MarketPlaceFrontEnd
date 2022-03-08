@@ -40,7 +40,7 @@ export default {
       default() {
         return {
           id: undefined,
-          image: '@/assets/item-image.png',
+          image: require('@/assets/item-image.png'),
           title: "Чехол Apple Leather Sleeve for MacBook Pro 13 black",
           favourite: false,
           basket: false,

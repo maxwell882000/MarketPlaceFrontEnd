@@ -1057,6 +1057,11 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/geojson@*":
+  "integrity" "sha512-1rkryxURpr6aWP7R786/UQOkJ3PcpQiWkAXBmdWc7ryFWqN6a4xfK7BtjXvFBKO9LjQ+MWQSWxYeZX1OApnArA=="
+  "resolved" "https://registry.npmjs.org/@types/geojson/-/geojson-7946.0.8.tgz"
+  "version" "7946.0.8"
+
 "@types/glob@^7.1.1":
   "integrity" "sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA=="
   "resolved" "https://registry.npmjs.org/@types/glob/-/glob-7.2.0.tgz"
@@ -1076,6 +1081,13 @@
   "integrity" "sha512-qcUXuemtEu+E5wZSJHNxUXeCZhAfXKQ41D+duX+VYPde7xyEVZci+/oXKJL13tnRs9lR2pr4fod59GT6/X1/yQ=="
   "resolved" "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.9.tgz"
   "version" "7.0.9"
+
+"@types/leaflet@^1.5.7":
+  "integrity" "sha512-H8vPgD49HKzqM41ArHGZM70g/tfhp8W+JcPxfnF+5H/Xvp+xiP+KQOUNWU8U89fqS1Jj3cpRY/+nbnaHFzwnFA=="
+  "resolved" "https://registry.npmjs.org/@types/leaflet/-/leaflet-1.7.9.tgz"
+  "version" "1.7.9"
+  dependencies:
+    "@types/geojson" "*"
 
 "@types/mime@^1":
   "integrity" "sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw=="
@@ -1173,6 +1185,11 @@
     "@types/webpack-sources" "*"
     "anymatch" "^3.0.0"
     "source-map" "^0.6.0"
+
+"@vue-leaflet/vue-leaflet@^0.6.1":
+  "integrity" "sha512-/sm0bdrdftXh5nSGEPsoKrJI1D/GtKiEsBo9X/TA2yu4lYTDcaem6U4t1Ea5CoLleiZRCNUrZr9PG/xHdUPXYA=="
+  "resolved" "https://registry.npmjs.org/@vue-leaflet/vue-leaflet/-/vue-leaflet-0.6.1.tgz"
+  "version" "0.6.1"
 
 "@vue/babel-helper-vue-jsx-merge-props@^1.2.1":
   "integrity" "sha512-QOi5OW45e2R20VygMSNhyQHvpdUwQZqGPc748JLGCYEy+yp8fNFNdbNIGAgZmi9e+2JHPd6i6idRuqivyicIkA=="
@@ -5679,6 +5696,11 @@
     "picocolors" "^1.0.0"
     "shell-quote" "^1.6.1"
 
+"leaflet@^1.6.0":
+  "integrity" "sha512-/xwPEBidtg69Q3HlqPdU3DnrXQOvQU/CCHA1tcDQVzOwm91YMYaILjNp7L4Eaw5Z4sOYdbBz6koWyibppd8Zqw=="
+  "resolved" "https://registry.npmjs.org/leaflet/-/leaflet-1.7.1.tgz"
+  "version" "1.7.1"
+
 "levn@^0.3.0", "levn@~0.3.0":
   "integrity" "sha1-OwmSTt+fCDwEkP3UwLxEIeBHZO4="
   "resolved" "https://registry.npmjs.org/levn/-/levn-0.3.0.tgz"
@@ -9187,6 +9209,11 @@
   "integrity" "sha512-R33p0wljvjOC1OoqZffPS7pjstn5dAOdML5TdhHky3PqlO98qntMcJceGaeHxKTOXcjh50XNFOBQfGVzqGixCA=="
   "resolved" "https://registry.npmjs.org/vue-wait/-/vue-wait-1.5.3.tgz"
   "version" "1.5.3"
+
+"vue-yandex-maps@^0.12.3":
+  "integrity" "sha512-xvj1GGavzrXCq40swfTgf7UK7uKXgb0flq45mlA70QSNPWvjiB0PXJGnc/Bz1tvu1M2nQix0AMqGfgTEesYs5w=="
+  "resolved" "https://registry.npmjs.org/vue-yandex-maps/-/vue-yandex-maps-0.12.3.tgz"
+  "version" "0.12.3"
 
 "vue@^2 || ^3.0.0-0", "vue@^2.5.16", "vue@^3.0.0", "vue@^3.0.0 || ^2.0.0", "vue@^3.0.2", "vue@3.2.26":
   "integrity" "sha512-KD4lULmskL5cCsEkfhERVRIOEDrfEL9CwAsLYpzptOGjaGFNWo3BQ9g8MAb7RaIO71rmVOziZ/uEN/rHwcUIhg=="

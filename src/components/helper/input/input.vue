@@ -1,5 +1,5 @@
 <template>
-  <div class="border custom-border-input">
+  <div class="border-input custom-border-input">
     <div class="inputContainer">
       <div ref="prefix" class="prefix">
         <slot name="prefix"></slot>
@@ -51,6 +51,7 @@ $center: math.div($inputHeight,2) - math.div($lineHeight,2);
 input[type="date"] {
   color: var(--dark);
 }
+
 .label {
   position: absolute;
   top: $center;
@@ -72,11 +73,6 @@ input[type="date"] {
   line-height: $lineHeight;
 }
 
-.border {
-  border: 1px solid var(--gray100);
-  border-radius: var(--borderRadius);
-  margin-top: var(--marinTop);
-}
 
 .inputContainer {
   position: relative;

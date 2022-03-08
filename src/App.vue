@@ -14,6 +14,7 @@ import {mapActions, mapState} from "vuex";
 
 
 export default {
+  // eslint-disable-next-line vue/no-unused-components
   components: {AppFooter, AppHeader},
   data() {
     return {

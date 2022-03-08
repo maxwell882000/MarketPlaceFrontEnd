@@ -1,13 +1,11 @@
 <template>
-  <div class="form-check d-flex align-items-end">
+  <div class="form-check d-flex ">
     <input class="form-check-input pointer" type="checkbox" value="" :id="labelId">
     <slot name="prefix">
-<!--      <span style="height: 1.2em ; width: 1.2em; background-color: red; border-radius:50%"></span>-->
+      <!--      <span style="height: 1.2em ; width: 1.2em; background-color: red; border-radius:50%"></span>-->
     </slot>
-
-    <span>
-            {{ helperText }}
-    </span>
+    <slot>
+    </slot>
   </div>
 </template>
 <script>

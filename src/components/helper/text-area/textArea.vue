@@ -13,10 +13,15 @@ export default {
 </script>
 <style>
 .style {
-  border-color: var(--gray100);
+  border: 1px solid var(--gray100);
+  color: var(--dark) !important;
+  font-weight: 500;
 }
-
-. form-control:focus {
+textarea::placeholder {
+  font-weight: 400;
+  color: var(--gray200) !important;
+}
+.form-control:focus {
   border-color: white !important;
 }
 </style>

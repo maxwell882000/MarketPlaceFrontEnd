@@ -8,12 +8,32 @@ const routes = [
         component: Home,
     },
     {
-        path: "/asd",
+      path: "/",
+      name: "WayOfPayment",
+      component: ()=>import('../views/')
+    },
+    {
+        path: "/as",
         name: "CategoryListView",
         component: () => import("../views/category/categoryLastView"),
     },
     {
         path: "/",
+        name: "PrepareOrder",
+        component: () => import("../views/takeOrder/prepareOrder")
+    },
+    {
+        path: "/fsa",
+        name: "PlasticCard",
+        component: () => import("../views/takeOrder/plasticCard")
+    },
+    {
+        path: "/asd",
+        name: "selectAddress",
+        component: () => import("../views/takeOrder/selectAddress")
+    },
+    {
+        path: "/af",
         name: "VerificationAccount",
         component: () => import("../views/verification/verificationAccount")
     },
@@ -35,9 +55,9 @@ const routes = [
     },
     {
         path: "/cart",
-        name: "Cart",
+        name: "Basket",
         component: () =>
-            import("../views/Cart.vue"),
+            import("../views/takeOrder/Basket"),
     },
     {
         path: "/shop/:id",

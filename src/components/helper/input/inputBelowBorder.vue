@@ -13,18 +13,18 @@ export default {
 </script>
 <style>
 
-
-.input-below-border .border {
+.input-below-border .border-input {
   margin: 0 !important;
   border: none !important;
   border-bottom: 1px solid var(--gray100) !important;
-  border-radius: 0px;
+  border-radius: 0;
 }
 
-.input-below-border .border input:focus{
-  border-bottom: 1px solid var(--blue);
+.input-below-border .border-input input:focus {
+  border-bottom: 1px solid var(--blue) !important;
 }
-.input-below-border .border input:focus  + .label{
+
+.input-below-border .border-input input:focus + .label {
   color: var(--blue);
 }
 </style>
