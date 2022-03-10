@@ -1,12 +1,7 @@
 <template>
   <div class="price">
     <div class="payment-info">
-      <p class="old-price">
-        <small>{{ priceOld }} сум</small>
-      </p>
-      <h5 class="price">
-        {{ priceNew }} сум <small class="sale-percent">-{{ discount }}%</small>
-      </h5>
+      <price-component></price-component>
       <div v-if="installment && installment.credits.length !== 0">
         <div class="installment-plan row">
           <div v-for="(items, index) in installment.credits" :key="'monthes_' + index +'_unique_' + items.id"
@@ -22,21 +17,10 @@
         </div>
       </div>
       <div class="buttons">
-        <div class="d-flex mb-2">
-          <div class="w-100 buy-now">
-            <button class="w-100">Купить сразу</button>
-          </div>
-          <div class="add2cart col-offset-1">
-            <button class="w-100">
-              <img src="@/assets/icons/bag.png" alt="bag"/>
-            </button>
-          </div>
-        </div>
+        <buy-fast-and-bag></buy-fast-and-bag>
         <div class="row">
           <div class="col-12">
-            <button class="installment-buy w-100">
-              Купить в рассрочку
-            </button>
+            <buy-installment-button></buy-installment-button>
           </div>
         </div>
       </div>
@@ -45,8 +29,12 @@
 </template>
 <script>
 import {mapGetters, mapMutations} from "vuex";
+import PriceComponent from "@/components/product/priceComponent";
+import BuyInstallmentButton from "@/components/product/button/buyInstallmentButton";
+import BuyFastAndBag from "@/components/product/button/buyFastAndBag";
 
 export default {
+  components: {BuyFastAndBag, BuyInstallmentButton, PriceComponent},
   methods: {
     ...mapMutations({
       setCredit: "productModule/setCredit"

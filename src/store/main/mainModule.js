@@ -11,6 +11,7 @@ export const mainModule = {
     namespaced: true,
     state() {
         return {
+            showFooterAndHeader: true,
             banners: [
                 //elements
                 // id:int, link:string , image:string
@@ -61,6 +62,7 @@ export const mainModule = {
                 return state.product_of_day.items[0]
             return {}
         },
+        showFooterAndHeader: (state) => state.showFooterAndHeader,
         product_of_day(state) {
             return state.product_of_day;
         },
@@ -110,6 +112,15 @@ export const mainModule = {
         },
         initialStateHours(state) {
             state.product_of_day.hours = 23;
+        },
+        toggleFooterAndHeader(state) {
+            state.showFooterAndHeader = !state.showFooterAndHeader;
+        },
+        openFooterAndHeader(state) {
+           state.showFooterAndHeader = true;
+        },
+        hideFooterAndHeader(state) {
+            state.showFooterAndHeader = false;
         },
         setMain(state, result) {
             state.banners = result.banners;

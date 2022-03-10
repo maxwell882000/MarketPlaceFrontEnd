@@ -38,7 +38,7 @@ export default {
 button.like-btn {
   background: transparent;
   border-radius: 20px;
-  z-index: 100;
+  z-index: 1  ;
   border: none;
   font-size: 18px;
 }

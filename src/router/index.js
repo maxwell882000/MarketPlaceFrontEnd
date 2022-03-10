@@ -3,61 +3,110 @@ import Home from "../views/Home.vue";
 
 const routes = [
     {
-        path: '/asd',
+        path: '/',
         name: "Home",
         component: Home,
     },
+
     {
-      path: "/",
-      name: "WayOfPayment",
-      component: ()=>import('../views/')
+        path: "/favourite",
+        name: "Favourites",
+        component: () => import("../views/favourites/favourites")
     },
+
     {
-        path: "/as",
-        name: "CategoryListView",
-        component: () => import("../views/category/categoryLastView"),
-    },
-    {
-        path: "/",
-        name: "PrepareOrder",
-        component: () => import("../views/takeOrder/prepareOrder")
-    },
-    {
-        path: "/fsa",
-        name: "PlasticCard",
-        component: () => import("../views/takeOrder/plasticCard")
-    },
-    {
-        path: "/asd",
-        name: "selectAddress",
-        component: () => import("../views/takeOrder/selectAddress")
-    },
-    {
-        path: "/af",
+        path: "/verification",
         name: "VerificationAccount",
-        component: () => import("../views/verification/verificationAccount")
+        component: () => import("../views/verification/verificationAccount"),
+        children: [
+            {
+                path: "1",
+                component: () => import("../views/verification/firstStep"),
+            },
+            {
+                path: "2",
+                component: () => import("../views/verification/secondStep"),
+            },
+            {
+                path: "3",
+                component: () => import("../views/verification/thirdStep"),
+            },
+            {
+                path: "4",
+                component: () => import("../views/verification/fourthStep"),
+            }
+        ]
     },
     {
         path: "/item/:id",
         name: "Item",
-        component: () =>
-            import("../views/product/Item.vue"),
+        component: () => import("../views/product/ItemMain"),
+        children: [
+            {
+                path: "",
+                name: "Item",
+                component: () =>
+                    import("../views/product/Item.vue"),
+            },
+            {
+                path: "comment",
+                name: "Comment",
+                component: () => import("../views/product/RemainComment.vue")
+            },
+            {
+                path: "description",
+                name: "ItemDescription",
+                component: () => import("../views/product/ItemDescription")
+            }
+        ]
     },
     {
-        path: "/comment",
-        name: "RemainComment",
-        component: () => import("../views/product/RemainComment.vue")
-    },
-    {
-        path: "/category/:slug",
+        path: "/category",
         name: "CategoryView",
-        component: () => import("../views/category/categoryView")
+        component: () => import("../views/category/categoryMain"),
+        children: [
+            {
+                path: "parent/:slug",
+                sensitive: true,
+                component: () => import("../views/category/categoryView")
+            },
+            {
+                path: "child/:slug",
+                name: "CategoryListView",
+
+                component: () => import("../views/category/categoryLastView"),
+            },
+        ]
     },
     {
         path: "/cart",
-        name: "Basket",
         component: () =>
-            import("../views/takeOrder/Basket"),
+            import("../views/takeOrder/BasketMain"),
+        children: [
+            {
+                path: "",
+                name: "Basket",
+                component: () =>
+                    import("../views/takeOrder/Basket"),
+            },
+            {
+                path: "selectAddress",
+                component: () => import("../views/takeOrder/selectAddress")
+            },
+            {
+                path: "plasticCard",
+                component: () => import("../views/takeOrder/plasticCard")
+            },
+            {
+                path: "prepareOrder",
+                component: () => import("../views/takeOrder/prepareOrder")
+            },
+            {
+                path: "wayOfPayment",
+                name: "WayOfPayment",
+                component: () => import('../views/takeOrder/wayOfPayment')
+            },
+        ]
     },
     {
         path: "/shop/:id",

@@ -1,12 +1,16 @@
 <template>
-  <file-step title="Страница паспорта с пропиской"
+  <file-step title="Фото паспорта с фотографией"
              decs="Сделайте фото паспорта. Фотография должна быть четкая,а символы на документе различимые"
-             asset-image="passport2.svg"
-             waiting="passport2"
+             asset-image="passport.svg"
+             waiting="passport"
+             next="/3"
+             back="/1"
   ></file-step>
+
 </template>
 <script>
 import FileStep from "@/components/verification/fileStep";
+
 
 export default {
   components: {FileStep}

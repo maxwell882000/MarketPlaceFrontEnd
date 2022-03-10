@@ -3,7 +3,7 @@
     <back-button title="Назад в корзину"></back-button>
     <h4>Оформление заказа</h4>
     <b-row>
-      <b-col cols="8">
+      <b-col cols="9">
         <section class="section-container d-flex align-items-center mb-3">
           <info style="fill: var(--green)"></info>
           <span
@@ -15,22 +15,21 @@
           <product-prepare-item/>
           <product-prepare-item/>
         </section>
-
       </b-col>
-      <b-col cols="4">
+      <b-col cols="3">
         <section class="section-container">
           <h6 class="mb-3">Ваш заказ</h6>
           <div class="mb-3 text-sm">
-            <div class="d-flex justify-content-between">
+            <div class="my-2 d-flex justify-content-between">
               <span> Товары (2)</span>
               <span class="text-500">2 898 000 сум</span>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="my-2 d-flex justify-content-between">
               <span> Скидка на товары</span>
               <span class="text-500 text-red">2 898 000 сум</span>
             </div>
-            <div class="d-flex justify-content-between">
-              <span> Стоимость доставки</span>
+            <div class="my-2 d-flex justify-content-between">
+              <span>Доставка</span>
               <span class="text-500">2 898 000 сум</span>
             </div>
           </div>
@@ -39,7 +38,9 @@
             <span>Итого</span>
             <span>2 898 000 сум</span>
           </div>
-          <ButtonBlue title="Оплатить"></ButtonBlue>
+          <router-link to="/cart/plasticCard">
+            <ButtonBlue title="Оплатить"></ButtonBlue>
+          </router-link>
           <div class="text-center mt-3">
             <div class="d-flex justify-content-center align-items-end text-sm">
               <div>
@@ -76,7 +77,8 @@ import SalesRoll from "@/components/shared/SalesRoll";
 export default {
   components: {
     SalesRoll,
-    Shields, ButtonBlue, ProductPrepareItem, WayOfPaymentPrepare, DeliveryPrepare, Info, BackButton}
+    Shields, ButtonBlue, ProductPrepareItem, WayOfPaymentPrepare, DeliveryPrepare, Info, BackButton
+  }
 }
 </script>
 <style>

@@ -1,14 +1,16 @@
 <template>
-  <empty-base image="document.png"
+  <empty-page image="document.png"
               title="Нет документов"
+              link="/verification/1"
+              buttonText="Добавить документы"
               desc="Добавьте документы чтобы брать товары в рассрочку"
   >
-  </empty-base>
+  </empty-page>
 </template>
 <script>
-import EmptyBase from "@/components/helper/empty/emptyBase";
+import EmptyPage from "@/components/helper/empty/emptyPage";
 
 export default {
-  components: {EmptyBase}
+  components: {EmptyPage}
 }
 </script>

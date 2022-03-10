@@ -1,10 +1,10 @@
 <template>
-  <div class="down-line">
+  <div v-if="showCategoryLine" class="down-line">
     <div class="container">
       <div class="d-flex align-items-center justify-content-between links-row">
         <div>
           <b-button
-              @click="toggleCategoryOpened()"
+              @click="toggle()"
               variant="primary"
               class="d-flex align-items-center"
           >
@@ -71,7 +71,8 @@ export default {
     }),
     ...mapGetters([
       'nav_bar',
-      'categoriesOpened'
+      'categoriesOpened',
+      'showCategoryLine'
     ])
   },
   methods: {

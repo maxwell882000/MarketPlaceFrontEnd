@@ -1,26 +1,34 @@
 <template>
-  <div class="form-check d-flex ">
-    <input class="form-check-input pointer" type="checkbox" value="" :id="labelId">
-    <slot name="prefix">
-      <!--      <span style="height: 1.2em ; width: 1.2em; background-color: red; border-radius:50%"></span>-->
-    </slot>
-    <slot>
-    </slot>
+  <div>
+    <b-form-checkbox v-bind="Object.assign({}, $props, $attrs)">
+      <slot></slot>
+    </b-form-checkbox>
   </div>
+
 </template>
 <script>
-
-export default {
-  props: ['helperText', "labelId"]
-}
+export default {}
 </script>
-<style scoped>
+<style>
 .form-check {
   font-size: 1.2rem;
 
 }
 
-span {
+.form-check .form-check-label {
+  display: block;
+}
+
+
+.form-check-input {
+  cursor: pointer;
+}
+
+.form-check-input:focus {
+  box-shadow: none;
+}
+
+.form-check span {
   line-height: normal;
   margin-right: 10px;
 }

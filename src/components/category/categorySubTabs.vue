@@ -14,12 +14,12 @@
     </div>
     <div>
       <b-tabs nav-class="custom-tabs" pills>
-        <b-tab title="Tab 1" active>
+        <b-tab title="Смартфоны" active>
           <div>
             <SalesRoll :perPage="3" :products="produt"></SalesRoll>
           </div>
         </b-tab>
-        <b-tab title="Tab 2">
+        <b-tab title="Кнопочные телефоны">
           <b-card-text>Tab contents 2</b-card-text>
         </b-tab>
       </b-tabs>

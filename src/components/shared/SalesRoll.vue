@@ -1,8 +1,8 @@
 <template>
   <BaseRoll :perPage="perPage">
-    <!--    <SplideSlide v-for="item in products" :key="slideKey + item.id ">-->
-    <!--      <item-card :product="item"/>-->
-    <!--    </SplideSlide>-->
+    <SplideSlide v-for="item in products" :key="slideKey + item.id ">
+      <item-card :product="item"/>
+    </SplideSlide>
     <SplideSlide>
       <item-card/>
     </SplideSlide>

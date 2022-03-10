@@ -22,6 +22,7 @@ import SwitchButton from "@/components/buttons/switchButton";
 import OpenLayer from "@/components/map/leaflet";
 import Delivery from "@/components/backet/map/delivery";
 import SelfDelivery from "@/components/backet/map/selfDelivery";
+import {mapMutations} from "vuex";
 
 export default {
   components: {SelfDelivery, Delivery, OpenLayer, SwitchButton, BackButton},
@@ -31,9 +32,20 @@ export default {
     }
   },
   methods: {
+    ...mapMutations({
+      hideFooterAndHeader: 'mainModule/hideFooterAndHeader',
+      openFooterAndHeader: 'mainModule/openFooterAndHeader'
+
+    }),
     setDelivery(e) {
       this.isDelivery = e;
     }
+  },
+  mounted() {
+    this.hideFooterAndHeader();
+  },
+  unmounted() {
+    this.openFooterAndHeader();
   }
 }
 </script>

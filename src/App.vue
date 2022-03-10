@@ -1,16 +1,16 @@
 <template>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
   <div>
-    <AppHeader/>
+    <AppHeader v-if="show"/>
     <router-view/>
-    <AppFooter/>
+    <AppFooter v-if="show"/>
   </div>
 </template>
 
 <script>
 import AppHeader from "./components/header/App-Header";
 import AppFooter from "./components/App-Footer";
-import {mapActions, mapState} from "vuex";
+import {mapActions, mapGetters, mapState} from "vuex";
 
 
 export default {
@@ -22,6 +22,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      show: "mainModule/showFooterAndHeader"
+    }),
     ...mapState({
       token: state => state.token
     }),

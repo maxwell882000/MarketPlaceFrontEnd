@@ -13,8 +13,10 @@
     "@ivanv/vue-collapse-transition": "^1.0.2",
     "@splidejs/splide": "^3.6.9",
     "@splidejs/vue-splide": "^0.5.15",
+    "@vueform/slider": "^2.0.9",
     "axios": "^0.26.0",
     "bootstrap-vue-3": "^0.1.0",
+    "click-outside-vue3": "^4.0.1",
     "core-js": "^3.6.5",
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.0",
@@ -25,6 +27,7 @@
     "vue-router": "^4.0.0-0",
     "vue-wait": "^1.5.3",
     "vue-yandex-maps": "^0.12.3",
+    "vue3-click-away": "^1.2.1",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {

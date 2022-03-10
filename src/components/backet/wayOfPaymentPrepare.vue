@@ -1,6 +1,6 @@
 <template>
   <section class="section-container mb-3">
-    <div class="mb-3 d-flex align-items-center justify-content-between">
+    <router-link to="/cart/wayOfPayment" class="remove-link mb-3 d-flex align-items-center justify-content-between">
       <div>
         <div class="mb-3">
           <span class="bold block">Способ оплаты</span>
@@ -12,7 +12,7 @@
       <div>
         <b-icon icon="chevron-right"/>
       </div>
-    </div>
+    </router-link>
     <span>План оплаты рассрочки 21.11.2021 – 20.02.2022</span>
   </section>
 </template>

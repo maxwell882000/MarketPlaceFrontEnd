@@ -1,6 +1,6 @@
 <template>
 
-  <router-link :to="'/category/' + item.slug" class="remove-link"><h6 class="header">{{ item.name }}</h6>
+  <router-link :to="path" class="remove-link"><h6 class="header">{{ item.name }}</h6>
   </router-link>
   <b-container style="padding: 0">
     <b-row gutter-x="5">
@@ -20,6 +20,11 @@ export default {
       default() {
         return 4;
       }
+    }
+  },
+  data() {
+    return {
+      path: '/category/parent/' + this.item.slug,
     }
   },
   components: {SubCategories}

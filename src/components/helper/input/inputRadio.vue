@@ -3,7 +3,7 @@
     <slot></slot>
   </b-form-radio>
 </template>
-<style >
+<style  scoped >
 .text-size {
   font-size: 1.2rem;
 }

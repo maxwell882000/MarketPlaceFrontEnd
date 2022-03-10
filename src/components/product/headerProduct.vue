@@ -1,13 +1,12 @@
 <template>
-  <Badge class="badges" :path="path"></Badge>
-  <h1>{{ name }}</h1>
+
   <div class="rating">
     <stars :rating="rating"></stars>
     <span class="ratings-count">{{ rating }}</span>
     <span class="reviews-count">{{ reviews }} отзывов</span>
     <div class="rating__review top-icon">
       <img src="@/assets/icons/review.png" alt="comparison icon"/>
-      <router-link class="remove-link" to="/comment"><span>Оставить отзыв</span></router-link>
+      <router-link class="remove-link" :to="`${$route.params.id}/comment`"><span>Оставить отзыв</span></router-link>
     </div>
     <div class="rating__comparison top-icon">
       <Like :id="favourite.id" :favourite="favourite.favourite"></Like>
@@ -20,19 +19,18 @@
   </div>
 </template>
 <script>
-import Badge from "@/components/shared/Badge";
 import {mapGetters} from "vuex";
 import Like from "@/components/buttons/Like";
 import Stars from "@/components/product/stars";
 
 export default {
-  components: {Stars, Like, Badge},
+  components: {Stars, Like},
   computed: {
     ...mapGetters({
-      path: "productModule/path",
+
       reviews: "productModule/reviews",
       rating: "productModule/rating",
-      name: "productModule/name",
+
       favourite: "productModule/favourite"
     }),
 

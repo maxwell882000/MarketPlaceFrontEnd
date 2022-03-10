@@ -1,5 +1,5 @@
 <template>
-  <b-tabs class="custom-tabs" pills>
+  <b-tabs class="custom-tabs order-user" pills>
     <b-tab title="Все">
       <order></order>
       <order></order>

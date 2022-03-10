@@ -30,12 +30,14 @@
             Выберите товары, чтобы перейти к оформлению заказа
           </p>
         </div>
-        <button
-            :disabled="buttonDisabled"
-            class="btn w-100 mt-3 py-2 btn-primary"
-        >
-          Перейти к оформлению
-        </button>
+        <router-link to="/cart/prepareOrder" class='remove-link'>
+          <button
+              :disabled="buttonDisabled"
+              class="btn w-100 mt-3 py-2 btn-primary"
+          >
+            Перейти к оформлению
+          </button>
+        </router-link>
       </div>
     </div>
   </div>

@@ -5,7 +5,7 @@
     <b-form-group class="w-30" v-slot="{ ariaDescribedby }">
       <input-radio :aria-describedby="ariaDescribedby" name="some-radios" value="A">
         <div class="d-flex justify-content-between align-items-center">
-          <span>8600 49** **** 2299</span>
+          <span class="text-sm">8600 49** **** 2299</span>
           <div class="pointer">
             <trash></trash>
           </div>

@@ -2,8 +2,8 @@
   <div class="back-white p-4 shadow-box ">
     <InputBelowBorder @input="$emit('card-input', $event)" class="w-100" :placeholder="'Номер карты'"/>
     <br>
-    <div class="w-20">
-      <input-below-border @input="$emit('expiry-input', $event)" placeholder="ММ/ГГ"></input-below-border>
+    <div class="w-30">
+      <input-below-border class="w-100" @input="$emit('expiry-input', $event)" placeholder="ММ/ГГ"></input-below-border>
     </div>
   </div>
 </template>

@@ -120,7 +120,7 @@ export default function (id) {
         console.log(percentValue);
         return (slider.offsetWidth - 20) * percentValue;
     }
-
+// not needed
     // eslint-disable-next-line no-unused-vars
     self.valueMin = function setValueMin(value) {
         setRight(touchLeft, getActualWidth(value));

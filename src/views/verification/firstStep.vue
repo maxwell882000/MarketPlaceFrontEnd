@@ -35,7 +35,9 @@
       <Input placeholder="Сумма рассрочки"/>
     </div>
   </section>
-  <ButtonBlue class="w-20 mb-3" title="Далее"></ButtonBlue>
+  <router-link to="/verification/2" replace>
+    <ButtonBlue class="w-20 mb-3 py-2" title="Далее"></ButtonBlue>
+  </router-link>
 </template>
 <script>
 import Input from "@/components/helper/input/input";

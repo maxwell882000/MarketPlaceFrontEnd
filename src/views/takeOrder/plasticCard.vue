@@ -20,10 +20,23 @@
         <br>
         <br>
         <span class="bold">Ваша карта</span>
-        <br>
-        <br>
-        <div class="w-60 mb-3">
-          <input-card></input-card>
+        <div class="d-flex">
+          <div class="mini-card ">
+            <plastic-card-item-mini></plastic-card-item-mini>
+          </div>
+          <div class="mini-card ">
+            <div
+                class="d-flex flex-column align-items-center justify-content-center p-1 back-gray h-100 w-100 border-st">
+              <card-add style="stroke: var(--dark)"></card-add>
+              <span class="text-sm">Новая карта</span>
+            </div>
+          </div>
+        </div>
+        <div class="selected-card">
+          <input-card class="w-100 h-100"></input-card>
+        </div>
+        <div class="selected-card">
+          <plastic-card-item></plastic-card-item>
         </div>
         <InputSelect class="mb-3">
           <div class="text-sm w-50">
@@ -47,8 +60,37 @@ import InputSelect from "@/components/helper/input/inputSelect";
 import Shields from "@/components/icons/shields";
 import InputCard from "@/components/helper/input/inputCard";
 import ButtonBlue from "@/components/helper/button/buttonBlue";
+import PlasticCardItem from "@/components/plasticCard/plasticCardItem";
+import PlasticCardItemMini from "@/components/plasticCard/plasticCardItemMini";
+import CardAdd from "@/components/icons/card-add";
 
 export default {
-  components: {ButtonBlue, InputCard, Shields, InputSelect, BackButton}
+  // eslint-disable-next-line vue/no-unused-components
+  components: {CardAdd, PlasticCardItemMini, PlasticCardItem, ButtonBlue, InputCard, Shields, InputSelect, BackButton}
 }
 </script>
+<style>
+.mini-card {
+  width: 8rem;
+  height: 5rem;
+  margin: 0.4rem 0.2rem 0.4rem 0;
+  font-size: 8px;
+  cursor: pointer;
+  font-weight: 400;
+  padding: 0.25rem;
+}
+
+.active-card {
+  border-radius: var(--borderRadius);
+  border: 1px solid var(--blue)
+
+}
+
+.selected-card {
+  width: 20rem;
+  height: 12rem;
+  border-radius: var(--borderRadius);
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+</style>

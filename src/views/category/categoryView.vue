@@ -14,7 +14,7 @@
 </template>
 <script>
 import Badge from "@/components/shared/Badge";
-import {mapGetters, mapMutations} from "vuex";
+import {mapGetters} from "vuex";
 import Category from "@/components/header/category";
 import DiscountRoll from "@/components/shared/discountRoll";
 import CategorySubTabs from "@/components/category/categorySubTabs";
@@ -37,21 +37,14 @@ export default {
     }
   },
   methods: {
-    ...mapMutations([
-      'closeCategoryOpened'
-    ]),
     setCategory(value) {
       let parent = value.filter(e => e.slug === this.$route.params.slug);
-      console.log(parent);
       if (parent.length !== 0) {
         this.category = parent[0];
       }
     },
   },
 
-  created() {
-    this.closeCategoryOpened();
-  },
   mounted() {
     this.setCategory(this.drop_bar);
   }

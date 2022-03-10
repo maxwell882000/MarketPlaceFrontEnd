@@ -10,7 +10,7 @@
         <template #title>
           <h5 class="tab-content"> {{ aboutProduct.header }}</h5>
         </template>
-        <p>
+        <p class="text-dark text-400">
           {{ aboutProduct.body }}
         </p>
       </b-tab>
@@ -18,12 +18,14 @@
         <template #title>
           <h5 class="tab-content">{{ firstChar.header }}</h5>
         </template>
-        <table class="dotted-table">
+        <table class="dotted-table text-dark">
           <tr v-for="(items, index) in firstChar.values" :key="'char_'  + index">
             <th><span>{{ items.key }}</span></th>
             <th><span>{{ items.value }}</span></th>
           </tr>
         </table>
+        <router-link :to="`/item/${$route.params.id}/description`" class="remove-link text-blue">Все характеристики
+        </router-link>
       </b-tab>
     </b-tabs>
   </div>
@@ -36,15 +38,16 @@ export default {
     ...mapGetters({
       product: 'productModule/product'
     }),
+    firstChar() {
+      return this.product.characteristics[0];
+    },
     aboutProduct() {
       return this.product.about_product;
     },
     showChar() {
       return this.product.characteristics && this.product.characteristics.length !== 0;
     },
-    firstChar() {
-      return this.product.characteristics[0];
-    }
+
   },
   methods: {}
 }

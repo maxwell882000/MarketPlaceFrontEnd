@@ -4,6 +4,8 @@
               Фотография должна быть четкая, а символы на документе различимые "
              asset-image="self_passport.svg"
              waiting="self_passport"
+             back="/3"
+             next="/5"
   ></file-step>
 </template>
 <script>

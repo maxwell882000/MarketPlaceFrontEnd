@@ -1,11 +1,24 @@
 <template>
   <b-col cols="3" class="ml-r back-white border-st p-4">
-
+    <filter-item collapse="category" title="Категории">
+    </filter-item>
     <filter-item collapse="price" title="Цена">
       <range-with-inputs :min-constrain="10000" :max-constrain="12000000"/>
     </filter-item>
-    <filter-select/>
-    <filter-toggle></filter-toggle>
+    <filter-toggle name="Рассрочка"></filter-toggle>
+    <filter-toggle name="В наличии"></filter-toggle>
+    <filter-toggle name="Получить сегодня"></filter-toggle>
+    <filter-toggle name="Со скидкой продавца"></filter-toggle>
+    <filter-item collapse="manufacture" title="Производитель">
+      <filter-select></filter-select>
+    </filter-item>
+    <filter-toggle name="Высокий рейтинг"></filter-toggle>
+    <filter-item collapse="color" title="Цвет">
+      <filter-select></filter-select>
+    </filter-item>
+    <filter-item collapse="shop" title="Продавец">
+      <filter-select></filter-select>
+    </filter-item>
   </b-col>
 </template>
 

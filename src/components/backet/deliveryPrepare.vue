@@ -10,7 +10,7 @@
         <div class="mb-3">
           <span class="bold">Курьером</span>
         </div>
-        <div class="mb-3 d-flex w-100 justify-content-between align-items-center">
+        <router-link to="/cart/selectAddress" class="mb-3 remove-link d-flex w-100 justify-content-between align-items-center">
           <div>
                 <span>
             ул. Аккурган, 23А, Ташкент
@@ -27,7 +27,7 @@
           <div>
             <b-icon icon="chevron-right"/>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </section>

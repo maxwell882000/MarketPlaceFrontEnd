@@ -30,15 +30,26 @@
       </loader>
     </div>
   </section>
+
+  <router-link :to="'/verification' + back" replace>
+    <ButtonGray style="background-color: var(--gray600)" :title-style="{color: 'white'}" class="mr-2 w-20 mb-3 py-2"
+                title="Назад"></ButtonGray>
+  </router-link>
+
+  <router-link :to="'/verification' + next" replace>
+    <ButtonBlue class="w-20 mb-3 py-2" title="Далее"></ButtonBlue>
+  </router-link>
 </template>
 <script>
 import Loader from "@/components/loading/loader";
+import ButtonGray from "@/components/helper/button/buttonGray";
+import ButtonBlue from "@/components/helper/button/buttonBlue";
 // eslint-disable-next-line no-unused-vars
 let sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 export default {
-  components: {Loader},
+  components: {ButtonBlue, ButtonGray, Loader},
   props: ['initialImage', 'waiting',
-    'title', 'decs', 'assetImage'],
+    'title', 'decs', 'assetImage', "next", 'back'],
   data() {
     return {
       filelist: {},

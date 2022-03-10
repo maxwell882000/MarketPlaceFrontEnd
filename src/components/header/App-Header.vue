@@ -42,10 +42,10 @@
             <button class="search-button">
               <b-icon icon="search" variant="dark"></b-icon>
             </button>
-            <a href="#">
+            <router-link to="/favourite" >
               <img src="@/assets/icons/heart.svg" alt="heart icon"/>
               Избранное
-            </a>
+            </router-link>
             <router-link to="/cart">
               <img src="@/assets/icons/cart.svg" alt="cart icon"/>
               Корзина
@@ -102,7 +102,7 @@ nav {
   width: 100%;
   position: sticky;
   top: -120px;
-  z-index: 666;
+  z-index: 2;
 }
 
 .fixed {

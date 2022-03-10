@@ -40,7 +40,7 @@
           </div>
         </b-col>
         <b-col cols="12">
-          <router-link to="/comment" >
+          <router-link :to='`/item/${$route.params.id}/comment`'>
             <ButtonGray style="margin-top: 5px!important;" title="Оставить отзыв"></ButtonGray>
           </router-link>
         </b-col>

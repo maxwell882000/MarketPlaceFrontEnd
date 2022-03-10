@@ -1,6 +1,6 @@
 <template>
   <empty-base :image="image" :title="title" :desc="desc">
-    <router-link :to="link" class="goto-catalogue btn btn-primary">
+    <router-link :to="link" class="mt-2 goto-catalogue btn btn-primary">
       {{ buttonText }}
     </router-link>
   </empty-base>
