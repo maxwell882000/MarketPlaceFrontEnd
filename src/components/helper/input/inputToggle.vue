@@ -1,32 +1,30 @@
 <template>
   <div class="toggle-btn" id="_3rd-toggle-btn">
-    <input @click="clicked" type="checkbox">
+    <input @click="clicked" type="checkbox" />
     <span></span>
   </div>
-
 </template>
 
 <script>
-
 export default {
-  props: ['helperText'],
+  props: ["helperText"],
   components: {},
   data() {
     return {
       model: false,
-    }
+    };
   },
   methods: {
     clicked() {
       console.log(this.model);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style scoped lang="scss">
 $height: 25px;
 $width: 50px;
-$circle: $width / 2  + 5;
+$circle: calc($width / 2 + 5px);
 .toggle-btn {
   position: relative;
   width: $width;
@@ -73,7 +71,7 @@ input[type="checkbox"] {
 #_3rd-toggle-btn input[type="checkbox"]:checked + span:before {
   box-shadow: 7px 6px 25px #e6e6e6;
   border: 2px solid var(--blue);
-  transform: translate($width*0.42, 0px);
+  transform: translate($width * 0.42, 0px);
 }
 
 #_3rd-toggle-btn input[type="checkbox"]:checked + span:after {
@@ -87,5 +85,4 @@ input[type="checkbox"] {
 }
 
 /* Third toggle btn completed */
-
 </style>

@@ -1,11 +1,17 @@
 <template>
-  <router-link :to="`/item/${product.id}`" class='item-card'>
+  <router-link :to="`/item/${product.id}`" class="item-card">
     <div class="item-card__image">
       <div class="item-card__image__like">
-        <Like :id="product.id" :favourite="product.favourite"/>
+        <Like :id="product.id" :favourite="product.favourite" />
       </div>
       <div class="">
-        <b-img class="image_style" :src="product.image" center fluid alt="item image"/>
+        <b-img
+          class="image_style"
+          :src="product.image"
+          center
+          fluid
+          alt="item image"
+        />
       </div>
       <div class="item-card__image__sale-amount">
         <span>-{{ product.discount }}%</span>
@@ -13,17 +19,27 @@
     </div>
     <div class="item-card__content">
       <div class="item-card__rating">
-        <b-icon class="item-card__rating__star" icon="star-fill" size="sm"></b-icon>
+        <b-icon
+          class="item-card__rating__star"
+          icon="star-fill"
+          size="sm"
+        ></b-icon>
         <small class="mx-1">{{ product.mark }}</small>
         <small class="mx-2">{{ product.num_comment }} отзывов</small>
       </div>
       <div class="item-card__prices">
         <p class="item-card__prices__ex-price">{{ product.price }} сум</p>
-        <h6 class="item-card__prices__new-price">{{ product.real_price }} сум</h6>
+        <h6 class="item-card__prices__new-price">
+          {{ product.real_price }} сум
+        </h6>
       </div>
-      <p class="item-card__description mb-1"> {{ product.title }}</p>
+      <p class="item-card__description mb-1">{{ product.title }}</p>
       <div class="item-card__price">
-        <ItemCardPrice :basket="product.basket" :id="product.id" :credit="product.credit"/>
+        <ItemCardPrice
+          :basket="product.basket"
+          :id="product.id"
+          :credit="product.credit"
+        />
       </div>
     </div>
   </router-link>
@@ -40,7 +56,7 @@ export default {
       default() {
         return {
           id: undefined,
-          image: require('@/assets/item-image.png'),
+          image: require("@/assets/item-image.png"),
           title: "Чехол Apple Leather Sleeve for MacBook Pro 13 black",
           favourite: false,
           basket: false,
@@ -52,18 +68,17 @@ export default {
           credit: {
             name: "Рассрочка",
             price: "150 000",
-            month: "2"
-          }
-        }
-      }
-    }
+            month: "2",
+          },
+        };
+      },
+    },
   },
-  components: {Like, ItemCardPrice}
-}
+  components: { Like, ItemCardPrice },
+};
 </script>
 
 <style scoped lang="scss">
-
 .item-card {
   transition: all 0.3s;
   display: block;
@@ -85,6 +100,7 @@ export default {
 
     img {
       width: 100%;
+      object-fit: cover;
     }
 
     .item-card__image__sale-amount {
@@ -105,7 +121,7 @@ export default {
   }
 
   .item-card__rating__star {
-    color: #FC9700;
+    color: #fc9700;
   }
 
   .item-card__prices {

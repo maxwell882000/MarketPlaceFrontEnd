@@ -4,22 +4,20 @@
   </Splide>
 </template>
 <script>
-
 export default {
   props: {
     autoWidth: {
       type: Boolean,
       default() {
         return false;
-      }
+      },
     },
     perPage: {
       type: Number,
       default() {
         return 4;
-      }
-    }
-
+      },
+    },
   },
   data() {
     return {
@@ -27,35 +25,35 @@ export default {
         type: "noloop",
         perPage: 5,
         perMove: 3,
-        padding: '2rem',
+        padding: "2rem",
         pagination: false,
         autoWidth: this.autoWidth,
         breakpoints: {
           1400: {
             perPage: this.perPage,
             perMove: 2,
-            padding: '1rem'
+            padding: "1rem",
           },
           992: {
             perPage: this.perPage - 1 || 3,
             perMove: 2,
-            padding: '0.5rem'
+            padding: "0.5rem",
           },
           768: {
-            perPage: this.perPage - 2 || 2,
+            perPage: this.perPage - 2 || 3,
             perMove: 1,
-            padding: '1rem'
+            padding: "1rem",
           },
           500: {
-            perPage: this.perPage - 3 || 1,
+            perPage: this.perPage - 3 || 3,
             perMove: 1,
-            padding: '1rem'
+            padding: "1rem",
           },
         },
       },
-    }
+    };
   },
-}
+};
 </script>
 
 <style scoped>
