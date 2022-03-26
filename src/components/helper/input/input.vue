@@ -23,9 +23,11 @@
 <script>
 export default {
   inheritAttrs: false,
+
   props: {
     modelValue: {},
-
+    widthSuffix: undefined,
+    widthPrefix: undefined
   },
   data() {
     return {
@@ -35,7 +37,10 @@ export default {
   mounted() {
     this.style['margin-left'] = this.$refs.prefix.clientWidth + "px";
     let width;
-    if ((width = (this.$refs.input.clientWidth - this.$refs.suffix.clientWidth - this.$refs.prefix.clientWidth)) > 0)
+    let prefixWidth = this.widthPrefix || this.$refs.prefix.clientWidth;
+    let suffixWidth = this.widthSuffix || this.$refs.suffix.clientWidth;
+
+    if ((width = (this.$refs.input.clientWidth - suffixWidth - prefixWidth)) > 0)
       this.style['width'] = width + "px";
   },
   emits: ['update:modelValue']
@@ -101,7 +106,7 @@ input[type="date"] {
 .input:focus + .label {
   top: -7px;
   left: 3px;
-  z-index: 10;
+  z-index: 1;
   font-size: 12px;
   font-weight: normal;
   line-height: 18px;
@@ -111,7 +116,7 @@ input[type="date"] {
 .input:not(:placeholder-shown) + .label {
   top: -7px;
   left: 3px;
-  z-index: 10;
+  z-index: 1;
   font-size: 12px;
   font-weight: normal;
   line-height: $lineHeight;

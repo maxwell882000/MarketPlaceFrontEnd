@@ -1,5 +1,4 @@
 <template>
-
   <router-link :to="path" class="remove-link"><h6 class="header">{{ item.name }}</h6>
   </router-link>
   <b-container style="padding: 0">

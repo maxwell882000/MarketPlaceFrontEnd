@@ -151,6 +151,9 @@ export const productModule = {
         reviews(state) {
             return state.product.num_comment;
         },
+        image(state) {
+            return state.product.image;
+        },
         name(state) {
             return state.product.title;
         },
@@ -173,9 +176,20 @@ export const productModule = {
             let category = state.product.category;
             if (category.length !== 0) {
                 category.slice(0, -1).forEach(function (elem) {
+                    let path = "";
+                    switch (elem.depth) {
+                        case 2:
+                            path = "/category/sub/" + elem.slug;
+                            break;
+                        case 3:
+                            path = "/category/child/" + elem.slug;
+                            break;
+                        default:
+                            path = '/category/parent/' + elem.slug;
+                    }
                     response.push({
                         name: elem.name,
-                        path: "/category/" + elem.slug
+                        path: path
                     })
                 });
                 let last = category.slice(-1)[0]

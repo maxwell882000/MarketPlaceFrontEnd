@@ -31,13 +31,15 @@ export const authModule = {
         async logout({commit}) {
             await authService.logout();
             commit("logoutUser");
+            window.location.reload();
         },
         async login({commit}, request) {
             commit("wait/START", "login");
             try {
                 let token = await authService.login(request);
-                commit('setToken', token);
+                commit('setToken', token.token);
                 commit("authWindow/close");
+                window.location.reload();
             } catch (e) {
                 commit("authWindow/setError", e);
             }
@@ -76,7 +78,6 @@ export const authModule = {
             try {
                 await codeService.verifyCode(code);
             } catch (e) {
-                console.log(e);
                 commit('authWindow/setError', e);
             } finally {
                 commit("wait/END", "code");
@@ -113,6 +114,7 @@ export const authModule = {
             tokenService.removeToken();
         },
         setToken(state, token) {
+            console.log(`GET TOKEN ${token}`);
             state.token = token;
             tokenService.setToken({token: token})
         },

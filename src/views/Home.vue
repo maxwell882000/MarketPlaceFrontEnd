@@ -8,10 +8,11 @@
       <SalesRoll slide-key="product_day" :products="products"/>
       <h5 class="mt-4 mb-3">Акции и предложения</h5>
       <StocksTabs/>
-      <!-- Электроника -->
-<!--      <h5 class="mt-4 mb-3">Успей купить!</h5>-->
-<!--      <SalesRoll slide-key="hurry_up_"/>-->
       <discount-roll></discount-roll>
+      <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
+        <h5 class="mt-4 mb-3">{{ item.text }}</h5>
+        <SalesRoll slide-key="product_day" :products="item.products"/>
+      </div>
     </div>
   </loader>
 
@@ -37,7 +38,8 @@ export default {
   computed: {
     ...mapGetters('mainModule', [
       'getTime',
-      'product_of_day'
+      'product_of_day',
+      'lenta'
     ])
   },
   watch: {
@@ -48,12 +50,13 @@ export default {
   methods: {
     ...mapActions([
       'mainModule/getMain',
-      'mainModule/countDownSecond'
+      'mainModule/getLenta',
+      'mainModule/countDownSecond',
     ]),
   },
-  created() {
-    this['mainModule/getMain']();
-
+  async created() {
+    await this['mainModule/getMain']();
+    this['mainModule/getLenta']();
   },
   mounted() {
 

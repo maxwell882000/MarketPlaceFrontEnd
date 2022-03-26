@@ -41,7 +41,7 @@ export default {
         return {
           id: undefined,
           image: require('@/assets/item-image.png'),
-          title: "Чехол Apple Leather Sleeve for MacBook Pro 13 black",
+          title: "Чехол Apple Leather Sleeve for MacBook Pro 13 black fdasfd afd dfsf fdsaf dfa ",
           favourite: false,
           basket: false,
           price: "3 071 880",
@@ -70,6 +70,7 @@ export default {
   text-decoration: none;
   color: black;
   cursor: pointer;
+  height: 100%;
   padding: 12px;
   background-color: white;
   border-radius: 12px;

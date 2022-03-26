@@ -31,7 +31,7 @@ export default {
   },
   data() {
     return {
-      path: '/category/parent/' + this.category.slug,
+      path: '/category/sub/' + this.category.slug,
       show: false
     }
   },

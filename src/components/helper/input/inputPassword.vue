@@ -1,7 +1,7 @@
 <template>
   <Input v-bind="$attrs" :type="type()" :placeholder="$attrs.placeholder || 'Пароль'">
     <template #suffix>
-      <span class="px-2" style="cursor: pointer">
+      <span  class="px-2" style="cursor: pointer">
              <b-icon
                  @click="hide()" :icon="icon()"></b-icon>
       </span>
@@ -29,6 +29,7 @@ export default {
     type() {
       return this.isHidden ? "password" : "text";
     }
-  }
+  },
+
 }
 </script>

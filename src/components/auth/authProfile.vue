@@ -4,7 +4,7 @@
   </div>
   <ul v-show="isAuthenticated" class="dropdown-menu" aria-labelledby="cities">
     <b-dropdown-item @click="toProfile()">
-      <router-link  style="text-decoration: none; color: inherit;" :to="{path: '/user'}">
+      <router-link style="text-decoration: none; color: inherit;" :to="{path: '/user'}">
         <span class="text-font">Профиль</span>
       </router-link>
     </b-dropdown-item>
@@ -56,12 +56,12 @@ export default {
         this.setLogin();
       }
     },
-    exitAccount() {
-      console.log(this.token);
-      this.logout();
+    async exitAccount() {
+      await this.logout();
     },
     toProfile() {
       this.getUser();
+      this.$router.push("/user");
     }
   }
 }

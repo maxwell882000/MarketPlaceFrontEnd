@@ -5,7 +5,7 @@
   </RangeInput>
   <div class="d-flex inputs">
     <div style="flex: 1">
-      <Input @input="minValue" type="number" v-model="min">
+      <Input @input="e=> timeOut(()=>minValue(e))" type="number" v-model="min">
         <template #prefix>
           от
         </template>
@@ -14,7 +14,7 @@
     <div class="p-2">
     </div>
     <div style="flex: 1">
-      <Input @input="maxValue" v-model="max" type="number">
+      <Input @input="e=> timeOut(()=>maxValue(e))" v-model="max" type="number">
         <template #prefix>
           до
         </template>
@@ -49,6 +49,9 @@ export default {
     RangeInput
   },
   methods: {
+    timeOut(s) {
+      setTimeout(s, 4000);
+    },
     setMinValue(e) {
       this.min = parseInt(e);
       let specific = this.min;
@@ -58,6 +61,7 @@ export default {
         // specific = this.max;
       }
       this.min = specific;
+      this.$emit("min-value", specific);
       return specific;
     },
     setMaxValue(e) {
@@ -69,6 +73,7 @@ export default {
         // specific = this.min;
       }
       this.max = specific;
+      this.$emit("max-value", specific);
       return specific;
     },
     minValue(event) {
@@ -77,7 +82,8 @@ export default {
     maxValue(event) {
       event.target.value = this.setMaxValue(this.max);
     }
-  }
+  },
+  emits: ['max-value', 'min-value']
 }
 </script>
 <style>

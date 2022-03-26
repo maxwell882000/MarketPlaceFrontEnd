@@ -11,6 +11,24 @@ export const mainModule = {
     namespaced: true,
     state() {
         return {
+            lenta: {
+                // "text": "Third",
+                // "products": [
+                //     {
+                //         "id": 1,
+                //         "image": "http://127.0.0.1:8000/storage/card/image/car.svg",
+                //         "title": "first product",
+                //         "favourite": false,
+                //         "basket": false,
+                //         "price": " 0",
+                //         "discount": 3,
+                //         "real_price": " 0",
+                //         "mark": "2.0",
+                //         "num_comment": 3,
+                //         "credit": []
+                //     }
+                // ]
+            },
             showFooterAndHeader: true,
             banners: [
                 //elements
@@ -51,6 +69,9 @@ export const mainModule = {
         }
     },
     getters: {
+        lenta(state){
+          return state.lenta;
+        },
         banners(state) {
             return state.banners;
         },
@@ -79,6 +100,10 @@ export const mainModule = {
             commit('setMain', result);
             commit("wait/END", "main", {root: true});
         },
+        async getLenta({commit}) {
+            let result = await mainService.lenta();
+            commit('setLenta', result);
+        },
         countDownSecond({commit, state}) {
             commit('decreaseSecond');
             if (state["product_of_day"].seconds < 0) {
@@ -95,6 +120,9 @@ export const mainModule = {
         },
     },
     mutations: {
+        setLenta(state, lenta) {
+            state.lenta = lenta;
+        },
         decreaseSecond(state) {
             state.product_of_day.seconds--;
         },
@@ -117,7 +145,7 @@ export const mainModule = {
             state.showFooterAndHeader = !state.showFooterAndHeader;
         },
         openFooterAndHeader(state) {
-           state.showFooterAndHeader = true;
+            state.showFooterAndHeader = true;
         },
         hideFooterAndHeader(state) {
             state.showFooterAndHeader = false;
@@ -127,7 +155,6 @@ export const mainModule = {
             state.product_of_day = result.product_of_day;
             state.product_of_day.seconds = 10;
             state.discount = result.discount;
-            console.log(result.discount);
         }
     },
 

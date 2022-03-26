@@ -5,6 +5,13 @@ class ProductService {
         let result = await methods.get(`product/${id}/`);
         return result.data.result;
     }
+
+    async getProducts(query) {
+        console.log("GET PRODUCTSS");
+        console.log(query);
+        let result = await methods.get('filter/product/?' + query);
+        return result.data.result;
+    }
 }
 
 export default new ProductService();

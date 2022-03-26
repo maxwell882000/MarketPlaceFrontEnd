@@ -6,7 +6,7 @@
     <span class="reviews-count">{{ reviews }} отзывов</span>
     <div class="rating__review top-icon">
       <img src="@/assets/icons/review.png" alt="comparison icon"/>
-      <router-link class="remove-link" :to="`${$route.params.id}/comment`"><span>Оставить отзыв</span></router-link>
+      <router-link class="remove-link" :to="`/item/${this.$route.params.id}/comment`"><span>Оставить отзыв</span></router-link>
     </div>
     <div class="rating__comparison top-icon">
       <Like :id="favourite.id" :favourite="favourite.favourite"></Like>

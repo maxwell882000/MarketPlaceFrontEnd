@@ -9,7 +9,7 @@ export default {
   computed: {
     ...mapState({
       error: state => state.authWindow.error,
-      success: state => state.authWindow.success
+      success: state => state.authWindow.success,
     }),
   }
 }

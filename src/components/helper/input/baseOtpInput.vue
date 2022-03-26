@@ -119,7 +119,8 @@ export default {
       // Paste data from focused input onwards
       const currentCharsInOtp = this.otp.slice(0, this.activeInput)
       const combinedWithPastedData = currentCharsInOtp.concat(pastedData)
-      this.$set(this, 'otp', combinedWithPastedData.slice(0, this.numInputs))
+      this.otp = combinedWithPastedData.slice(0, this.numInputs);
+      // this.$set(this, 'otp', )
       this.focusInput(combinedWithPastedData.slice(0, this.numInputs).length)
       return this.checkFilledAllInputs()
     },

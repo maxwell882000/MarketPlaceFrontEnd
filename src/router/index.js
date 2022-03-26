@@ -68,12 +68,15 @@ const routes = [
             {
                 path: "parent/:slug",
                 sensitive: true,
-                component: () => import("../views/category/categoryView")
+                component: () => import("../views/category/categoryParentView")
+            },
+            {
+                path: "sub/:slug",
+                component: () => import("../views/category/categorySubView")
             },
             {
                 path: "child/:slug",
                 name: "CategoryListView",
-
                 component: () => import("../views/category/categoryLastView"),
             },
         ]

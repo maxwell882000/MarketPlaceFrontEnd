@@ -9,6 +9,11 @@ import {favouriteModule} from "@/store/favourite/favouriteModule";
 import {backetModule} from "@/store/backet/backetModule";
 import {productModule} from "@/store/product/productModule";
 import {navbarModule} from "@/store/general/navbarModule";
+import {prepareBasketModule} from "@/store/backet/prepareBasketModule";
+import {commentModule} from "@/store/product/commentModule";
+import {rateModule} from "@/store/product/rateModule";
+import {categoryModule} from "@/store/category/categoryModule";
+import {productFilterByModule} from "@/store/product/productFilterByModule";
 
 export default createStore({
     modules: {
@@ -22,6 +27,10 @@ export default createStore({
         backetModule: backetModule,
         navbarModule: navbarModule,
         productModule: productModule,
-
+        prepareBasketModule: prepareBasketModule,
+        commentModule: commentModule,
+        rateModule: rateModule,
+        categoryModule:categoryModule,
+        productFilterByModule:productFilterByModule
     }
 });

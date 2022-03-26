@@ -4,18 +4,30 @@
   </loader>
 </template>
 <script>
-import {mapActions} from "vuex";
+import {mapActions, mapMutations} from "vuex";
 import Loader from "@/components/loading/loader";
 
 export default {
   components: {Loader},
   methods: {
     ...mapActions({
-      loadProduct: "productModule/loadProduct"
+      loadProduct: "productModule/loadProduct",
+      getComments: "commentModule/getComments",
+      getRate: "rateModule/getRate"
+    }),
+    ...mapMutations({
+      cleanComment: "commentModule/clean",
+      cleanRate: 'rateModule/clean'
     }),
   },
-  created() {
-    this.loadProduct(this.$route.params.id);
+  async created() {
+    await this.loadProduct(this.$route.params.id);
+    this.getComments();
+    this.getRate();
+  },
+  beforeUnmount() {
+    this.cleanRate();
+    this.cleanComment();
   }
 }
 </script>

@@ -34,6 +34,9 @@ export default {
   watch: {
     value(newVal) {
       this.$emit('update:modelValue', newVal);
+    },
+    modelValue(){
+      this.value = this.modelValue;
     }
   },
   data() {

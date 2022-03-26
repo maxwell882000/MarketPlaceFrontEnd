@@ -4,23 +4,14 @@
     <small class="text-muted ms-2 mb-1">1 товар</small>
   </div>
   <div class="row">
+
     <div class="col col-12 col-lg-8">
       <div class="card py-2 px-3">
-        <b-form-checkbox v-model="status" name="checkbox-1">
+        <b-form-checkbox value="all" @click="checkAll" name="checkbox-1">
           Выбрать все товары
         </b-form-checkbox>
       </div>
-      <div class="card mt-3 py-2 px-3">
-        <b-form-checkbox>
-          <b-icon icon="shop" class="me-1" variant="secondary"/>
-          MacBro
-          <router-link to="/">
-            <b-icon icon="chevron-compact-right" variant="secondary"/>
-          </router-link>
-        </b-form-checkbox>
-        <div class="line"></div>
-        <CartItem :itemInfo="itemInfo"/>
-      </div>
+      <basket-order></basket-order>
     </div>
     <div class="col col-12 pt-3 pt-lg-0 col-lg-4">
       <div class="card py-3 px-4">
@@ -43,12 +34,15 @@
   </div>
 </template>
 <script>
-import CartItem from "@/components/cart/Cart-item";
 
+import BasketOrder from "@/components/backet/basketOrder";
+import {mapMutations} from "vuex";
 export default {
+  components: {BasketOrder},
   data() {
     return {
       buttonDisabled: true,
+      allOrders: undefined,
       badgePath: [
         {
           name: "Главная",
@@ -68,7 +62,16 @@ export default {
       },
     };
   },
-  components: {CartItem},
+  methods: {
+
+    ...mapMutations({
+      setAll: 'prepareBasketModule/addToSelectedOrders'
+    }),
+    checkAll(event) {
+    this.allOrders = event.target.checked;
+    },
+
+  }
 };
 
 </script>

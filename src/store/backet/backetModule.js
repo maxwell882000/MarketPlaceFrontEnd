@@ -9,6 +9,7 @@ export const backetModule = {
         }
     },
     getters: {
+
         getPreOrder: (state) => (id) => {
             return {
                 quantity: state.quantity[id] || 1,
@@ -17,6 +18,7 @@ export const backetModule = {
         },
     },
     mutations: {
+
         setQuantity(state, id, quantity) {
             state.quantity[id] = state.quantity[id] || 1;
             state.quantity[id] = quantity;
@@ -47,30 +49,6 @@ export const backetModule = {
                 console.log(e);
             }
         },
-        // eslint-disable-next-line no-unused-vars
-        async destroyOrder({commit}, id) {
-            try {
-                await backetService.destroyOrder(id);
-            } catch (e) {
-                console.log(e);
-            }
-        },
-        // eslint-disable-next-line no-unused-vars
-        async updateOrder({commit}, {id, data}) {
-            try {
-                await backetService.updateOrder(id, data);
-            } catch (e) {
-                console.log(e);
-            }
-        },
-        // ids = { ids: []}
-        // eslint-disable-next-line no-unused-vars
-        async massDestroyOrder({commit}, ids) {
-            try {
-                await backetService.massDestroyOrder(ids);
-            } catch (e) {
-                console.log(e);
-            }
-        }
+
     }
 }

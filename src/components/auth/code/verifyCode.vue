@@ -2,7 +2,7 @@
   <ModalAuth waiting="code" title="Введите код"
              :description="'Введите код подтверждения, который мы отправили на номер ' + phone">
     <template #inputs>
-      <OtpInput @on-change="setCode"></OtpInput>
+      <OtpInput class="mt-4" @on-change="setCode"></OtpInput>
       <ButtonForm @submit="submit" title="Отправить" :is-entered="isCodeEntered"></ButtonForm>
     </template>
   </ModalAuth>

@@ -2,7 +2,7 @@
   <div class="cart-item">
     <div class="row align-items-center justify-content-space-between">
       <div class="col col-12 col-md-7 d-flex align-items-center">
-        <b-form-checkbox />
+        <b-form-checkbox v-model="check" />
         <img
           class="cart-item__image"
           :src="itemInfo.picture"
@@ -45,7 +45,18 @@ export default {
     id: String,
     itemInfo: Object,
     amount: Number,
+    checkItem:Boolean
   },
+  data() {
+    return {
+      check: this.checkItem
+    }
+  },
+  watch:{
+    checkItem(){
+      this.check = this.checkItem;
+    }
+  }
 };
 </script>
 

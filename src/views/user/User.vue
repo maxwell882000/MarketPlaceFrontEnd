@@ -70,6 +70,7 @@ import ChooseCard from "@/components/userPage/payments/chooseCard";
 import Documents from "@/components/userPage/documents/documents";
 import Notification from "@/components/userPage/notification/notification";
 import Questions from "@/components/userPage/question/questions";
+import {mapGetters} from "vuex";
 
 export default {
   data: () => ({
@@ -85,8 +86,25 @@ export default {
     ],
   }),
   components: {Questions, Notification, Documents, ChooseCard, OrderUser, Badge, UserSettings},
+  computed: {
+    ...mapGetters({
+      isAuthenticated: "isAuthenticated"
+    })
+  },
+  watch: {
+    isAuthenticated(val) {
+      if(!val){
+        this.$router.replace("/");
+      }
+    }
+  },
   methods: {
     clicked() {
+    }
+  },
+  created() {
+    if(!this.isAuthenticated){
+      this.$router.replace("/");
     }
   }
 };

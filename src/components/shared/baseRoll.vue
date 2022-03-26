@@ -25,7 +25,7 @@ export default {
     return {
       splideOptions: {
         type: "noloop",
-        perPage: 5,
+        perPage: this.perPage,
         perMove: 3,
         padding: '2rem',
         pagination: false,

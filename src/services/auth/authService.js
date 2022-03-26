@@ -20,6 +20,7 @@ class AuthService {
     }
 
     async register(request) {
+        console.log(request);
         let result = await methods.post("register/", request);
         return result.data.result;
     }

@@ -1,6 +1,10 @@
 <template>
-  <div class="mt-3 custom-pagination">
-    <b-pagination v-model="currentPage" pills :total-rows="rows"
+  <div v-if="products.total >= products.per_page" class="mt-3 custom-pagination">
+    <b-pagination @page-click="goToOtherPage"
+                  v-model="currentPage"
+                  pills
+                  :total-rows="products.total || 0"
+                  :per-page="products.per_page || 0"
                   prev-text="Назад"
                   next-text="Вперед"
                   last-number
@@ -10,13 +14,34 @@
 </template>
 
 <script>
+import {mapActions, mapGetters} from "vuex";
+
 export default {
   data() {
     return {
-      rows: 1000,
-      perPage: 10,
-      currentPage: 5
+      currentPage: 1,
     }
+  },
+  watch: {
+    currentPage() {
+
+    }
+  },
+  computed: {
+    ...mapGetters({
+      products: "productFilterByModule/products"
+    })
+  },
+  methods: {
+    goToOtherPage(clickEvent, pageNumber) {
+      this.getProducts(pageNumber);
+    },
+    ...mapActions({
+      getProducts: "productFilterByModule/getProducts"
+    })
+  },
+  mounted() {
+    this.currentPage = this.products.current_page;
   }
 }
 </script>
@@ -26,7 +51,7 @@ export default {
   border-radius: 0.4em !important;
 }
 
-.page-link ,.page-item.disabled .page-link  {
+.page-link, .page-item.disabled .page-link {
   background-color: transparent;
   color: var(--gray);
 }

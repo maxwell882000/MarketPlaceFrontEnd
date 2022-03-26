@@ -1,23 +1,42 @@
 <template>
-  <empty-search>
-  </empty-search>
-  <section class="container my-4">
-    <Badge></Badge>
-    <b-row>
-      <filtration-side></filtration-side>
-      <b-col cols="9">
-        <product-wrapper></product-wrapper>
-      </b-col>
-    </b-row>
-  </section>
+  <b-row>
+    <filtration-side></filtration-side>
+    <b-col cols="9">
+      <product-wrapper></product-wrapper>
+    </b-col>
+  </b-row>
 </template>
 <script>
-import Badge from "@/components/shared/Badge";
 import FiltrationSide from "@/components/filter/filtrationSide";
 import ProductWrapper from "@/components/shared/productWrapper";
-import EmptySearch from "@/components/search/emptySearch";
+import {mapActions, mapGetters, mapMutations} from "vuex";
 
 export default {
-  components: {EmptySearch, ProductWrapper, FiltrationSide, Badge}
+  components: {
+    ProductWrapper, FiltrationSide
+  },
+  computed: {
+    ...mapGetters({
+      category: "categoryModule/category"
+    })
+  },
+  methods: {
+    ...mapMutations({
+      clean: "productFilterByModule/clean",
+      addFilter: "productFilterByModule/addFilterBy",
+    }),
+    ...mapActions({
+      getProducts: "productFilterByModule/getProducts"
+    })
+  },
+  created() {
+    this.clean();
+    console.log("sadad");
+    this.addFilter({key: "category_slug", item: this.$route.params.slug});
+    this.getProducts(1);
+  },
+  beforeUnmount() {
+    this.clean();
+  }
 }
 </script>

@@ -13,6 +13,11 @@ export default {
       value: !this.modelValue || this.modelValue.length === 0 ? "+998" + this.modelValue : this.modelValue
     }
   },
+  watch: {
+    modelValue(){
+      this.value = this.modelValue;
+    }
+  },
   methods: {
     input(event) {
       event.target.value = this.removeSpace(event.target.value).replace(/[^0-9+]/gi, '').slice(0, 13);

@@ -22,8 +22,8 @@
             <div class="icons">
               <Like style="position: absolute" :favourite="product.favourite" :id="product.id" class="like"/>
             </div>
-<!--             do not know why it is work -->
-            <div class="flex-grow-1" style="height: 0;">
+            <!--             do not know why it is work -->
+            <div class="flex-grow-1">
               <b-img fluid class="img-res" center :src="product.image" alt="mi-band"/>
             </div>
             <div class="item-of-day-info">

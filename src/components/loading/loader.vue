@@ -19,7 +19,7 @@ export default {
       type: Object,
       default() {
         return {
-          height: "35vw"
+          height: "70vh"
         }
       }
     }

@@ -1,5 +1,6 @@
 import commonService from "@/services/general/commonService";
 
+
 export const commonModule = {
     state() {
         return {
@@ -14,6 +15,7 @@ export const commonModule = {
         }
     },
     getters: {
+
         nav_bar(state) {
             return state.nav_bar;
         },
