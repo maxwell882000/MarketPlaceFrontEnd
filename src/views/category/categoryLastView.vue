@@ -31,7 +31,6 @@ export default {
   },
   created() {
     this.clean();
-    console.log("sadad");
     this.addFilter({key: "category_slug", item: this.$route.params.slug});
     this.getProducts(1);
   },

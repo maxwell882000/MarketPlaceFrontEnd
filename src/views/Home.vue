@@ -5,13 +5,13 @@
       <h5 class="mt-4 mb-3">
         Купите, пока это выгодно <span class="timer">{{ getTime }}</span>
       </h5>
-      <SalesRoll slide-key="product_day" :products="products"/>
+      <SalesRoll :per-page="5" slide-key="product_day" :products="products"/>
       <h5 class="mt-4 mb-3">Акции и предложения</h5>
       <StocksTabs/>
       <discount-roll></discount-roll>
       <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
         <h5 class="mt-4 mb-3">{{ item.text }}</h5>
-        <SalesRoll slide-key="product_day" :products="item.products"/>
+        <SalesRoll :per-page="5" slide-key="product_day" :products="item.products"/>
       </div>
     </div>
   </loader>

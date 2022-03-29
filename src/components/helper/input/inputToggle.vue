@@ -1,6 +1,6 @@
 <template>
   <div class="toggle-btn" id="_3rd-toggle-btn">
-    <input @click="clicked" type="checkbox">
+    <input v-model="model" @click="clicked" type="checkbox">
     <span></span>
   </div>
 
@@ -9,16 +9,16 @@
 <script>
 
 export default {
-  props: ['helperText'],
+  props: ['helperText', 'initial', "toggled"],
   components: {},
   data() {
     return {
-      model: false,
+      model: this.initial || false,
     }
   },
   methods: {
-    clicked() {
-      console.log(this.model);
+    clicked(val) {
+      this.$emit("toggled", val.target.checked);
     }
   }
 }

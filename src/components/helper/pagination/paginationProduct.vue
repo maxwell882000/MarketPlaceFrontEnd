@@ -1,5 +1,5 @@
 <template>
-  <div v-if="products.total >= products.per_page" class="mt-3 custom-pagination">
+  <div v-if="products.total > products.per_page" class="mt-3 custom-pagination">
     <b-pagination @page-click="goToOtherPage"
                   v-model="currentPage"
                   pills

@@ -1,0 +1,13 @@
+<template>
+  <filter-select-base title="Продавец" prefix="shop" v-slot="{item}">
+    <span class="text-sm"> {{ item.name }} ({{ item.num_product }})</span>
+  </filter-select-base>
+</template>
+<script>
+
+import FilterSelectBase from "@/components/filter/filterSelect/base/filterSelectBase";
+
+export default {
+  components: {FilterSelectBase},
+}
+</script>

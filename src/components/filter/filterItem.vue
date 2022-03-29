@@ -13,10 +13,10 @@
 <script>
 
 export default {
-  props: ['title', 'collapse'],
+  props: ['title', 'collapse', 'isShow'],
   data() {
     return {
-      show: false
+      show: this.isShow || false
     }
   }
 }

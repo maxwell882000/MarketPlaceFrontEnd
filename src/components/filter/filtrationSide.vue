@@ -1,26 +1,16 @@
 <template>
   <b-col cols="3" class="ml-r back-white border-st p-4">
-    <filter-item collapse="category" title="Категории">
+    <filter-chosen></filter-chosen>
+    <filter-item :is-show="true" collapse="category" title="Категории">
+      <filter-category></filter-category>
     </filter-item>
-    <filter-item collapse="price" title="Цена">
-      <range-with-inputs @max-value="addMaxPrice"
-                         @min-value="addMinPrice"
-                         :min-constrain="10000"
-                         :max-constrain="12000000"/>
-    </filter-item>
-    <filter-toggle name="В наличии"></filter-toggle>
-    <filter-toggle name="Высокий рейтинг"></filter-toggle>
-    <filter-toggle name="Со скидкой продавца"></filter-toggle>
-    <filter-item collapse="manufacture" title="Производитель">
-      <filter-select></filter-select>
-    </filter-item>
-
-    <filter-item collapse="color" title="Цвет">
-      <filter-select></filter-select>
-    </filter-item>
-    <filter-item collapse="shop" title="Продавец">
-      <filter-select></filter-select>
-    </filter-item>
+    <filter-price></filter-price>
+    <filter-toggle prefix="exists" name="В наличии"></filter-toggle>
+    <filter-toggle prefix="rate_high" name="Высокий рейтинг"></filter-toggle>
+    <filter-toggle prefix="discount_exists" name="Со скидкой продавца"></filter-toggle>
+    <filter-manufacture></filter-manufacture>
+    <filter-color></filter-color>
+    <filter-shop></filter-shop>
   </b-col>
 </template>
 
@@ -28,15 +18,26 @@
 
 import RangeWithInputs from "@/components/helper/input/range/rangeWithInputs";
 import FilterItem from "@/components/filter/filterItem";
-import FilterSelect from "@/components/filter/filterSelect";
 import FilterToggle from "@/components/filter/filterToggle";
 import {mapMutations} from "vuex";
+import FilterCategory from "@/components/filter/fliterCategory/filterCategory";
+import FilterChosen from "@/components/filter/filterChosen";
+import FilterManufacture from "@/components/filter/filterSelect/filterBrand";
+import FilterColor from "@/components/filter/filterSelect/filterColor";
+import FilterShop from "@/components/filter/filterSelect/filterShop";
+import FilterPrice from "@/components/filter/filterPrice";
 
 export default {
   components: {
+    FilterPrice,
+    FilterShop,
+    FilterColor,
+    FilterManufacture,
+    FilterChosen: FilterChosen,
+    FilterCategory,
     FilterToggle,
-    FilterSelect,
     FilterItem,
+    // eslint-disable-next-line vue/no-unused-components
     RangeWithInputs,
   },
   methods: {

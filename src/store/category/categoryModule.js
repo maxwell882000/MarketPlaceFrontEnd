@@ -157,7 +157,7 @@ export const categoryModule = {
         productInCategory(state) {
             return state.productInCategory;
         },
-            parent(state) {
+        parent(state) {
             return state.parent
         },
         sub(state) {
@@ -173,6 +173,9 @@ export const categoryModule = {
             try {
                 let result = await categoryService.getCategory(slug);
                 commit("setCategory", result);
+                if (result.depth === 3)
+                    commit("productFilterByModule/setFilterCanBeApplied", result, {root: true}) // set the filter
+                // namely , which value could exist in filter
             } catch (e) {
                 console.log(e);
             }

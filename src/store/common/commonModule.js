@@ -15,7 +15,6 @@ export const commonModule = {
         }
     },
     getters: {
-
         nav_bar(state) {
             return state.nav_bar;
         },
@@ -29,7 +28,12 @@ export const commonModule = {
             commit("setDropBar", result.drop_bar);
             commit("setNavBar", result.nav_bar);
         },
-
+        getThirdChild({getters}, slug) {
+            return getters.drop_bar.filter(first => first.slug === slug
+                || first.children
+                    .filter(second => second.slug === slug
+                        || second.children.filter(third => third.slug === slug).length !== 0).length !== 0);
+        }
     },
     mutations: {
         setDropBar(state, drop_bar) {

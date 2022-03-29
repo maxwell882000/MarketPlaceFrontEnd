@@ -17,7 +17,7 @@
 }
 
 :root {
-
+  --borderRadius47: 47px;
   --borderRadius: 12px;
   --borderRadius17: 17px;
   --marinTop: 20px;
@@ -50,9 +50,23 @@
 .decoration-none {
   text-decoration: none;
 }
+
 .text-start {
   text-align: start;
 }
+
+.w-min {
+  width: min-content;
+}
+
+.w-max {
+  width: max-content;
+}
+
+.h-max {
+  height: max-content;
+}
+
 .text-center {
   text-align: center !important;
 }
@@ -70,10 +84,12 @@
 .pl-2 {
   padding-left: 0.4rem;
 }
+
 .pl-3 {
   padding-left: 0.6rem;
 }
-.pt{
+
+.pt {
   padding-top: 0.1rem;
 }
 
@@ -190,12 +206,15 @@ hr {
 .block {
   display: block;
 }
-.relative{
+
+.relative {
   position: relative;
 }
+
 .absolute {
   position: absolute;
 }
+
 .pr-3 {
   padding-right: 0.6rem;
 }
@@ -211,6 +230,20 @@ hr {
 .text-end {
   text-align: end;
 }
+.text-gray300 {
+  color: var(--gray300);
+}
+.bg-gray300 {
+  background-color: var(--gray300);
+}
+
+.bg-gray {
+  background-color: var(--gray100);
+}
+
+.bg-blue {
+  background-color: var(--blue);
+}
 
 .text-sm {
   font-size: 0.8rem !important;
@@ -220,9 +253,11 @@ hr {
 .text-md {
   font-size: 1rem !important;
 }
+
 .text-lg {
   font-size: 1.2rem !important;
 }
+
 .text-xs-l {
   font-size: 0.7rem !important;
 }
@@ -400,6 +435,14 @@ input[type=number] {
   margin-top: var(--marinTop);
 }
 
+.border-lg {
+  border-radius: var(--borderRadius47);
+}
+
+.border-circle {
+  border-radius: 50%;
+}
+
 .border-st {
   border-radius: var(--borderRadius);
 }
@@ -407,9 +450,11 @@ input[type=number] {
 .back-gray {
   background-color: var(--gray100);
 }
+
 .inline {
   display: inline;
 }
+
 .text-blue {
   color: var(--blue);
 }
