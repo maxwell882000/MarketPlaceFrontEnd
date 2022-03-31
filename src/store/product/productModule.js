@@ -50,7 +50,7 @@ export const productModule = {
                 "shop": {
                     "name": "",
                     "slug": "",
-                    "image": "",
+                    "logo": "",
                 },
                 "key_with_values": [
                     // {
@@ -114,7 +114,6 @@ export const productModule = {
     mutations: {
         setProduct(state, product) {
             state.product = product;
-            console.log(product);
         },
         setCurrentImage(state, image) {
             state.currentImage = image;
@@ -175,7 +174,7 @@ export const productModule = {
             ];
             let category = state.product.category;
             if (category.length !== 0) {
-                category.slice(0, -1).forEach(function (elem) {
+                category.forEach(function (elem) {
                     let path = "";
                     switch (elem.depth) {
                         case 2:
@@ -192,9 +191,9 @@ export const productModule = {
                         path: path
                     })
                 });
-                let last = category.slice(-1)[0]
+                // let last = category.slice(-1)[0]
                 response.push({
-                    name: last.name + " " + state.product.title,
+                    name: state.product.title,
                     path: "/item/" + state.product.id
                 })
             }

@@ -9,26 +9,53 @@ export const productFilterByModule = {
             showChosen: {},
             currentPage: 1,
             products: {},
-            deletedFilter: {}
         }
     },
     getters: {
+        rate_high(state) {
+            return state.filterCanBeApplied['rate_high'] || 0;
+        },
+        exists(state) {
+            return state.filterCanBeApplied['exists'] || 0;
+        },
+        discount_exists(state) {
+            return state.filterCanBeApplied['discount_exists'] || 0;
+        },
         prices(state) {
             return {
                 min: state.filterBy['min_price'] || 0,
                 max: state.filterBy['max_price'] || 0
             }
         },
-        filterDeleted(state) {
-            return state.deletedFilter;
+        isProducts(state) {
+            return Object.entries(state.products);
+        },
+        isProductExists(state) {
+            // return state.products.total; // here we check in favourite so be carefull
+            // if (state.products.total === 0) {
+            //     return false;
+            // }
+            return state.filterCanBeApplied.count;
+        },
+        count(state) {
+            if (state.products.total || state.products.total === 0)
+                return state.products.total.toString();
+            return state.filterCanBeApplied.count;
+        },
+        categories(state) {
+            return state.filterCanBeApplied['categories'] || [];
         },
         getChosenItems(state) {
             return ({values, prefix_key}) => {
                 let val = []; // is the array, from checkbox model
                 Object.entries(state.showChosen).forEach(item => {
                     let key = item[0].split(SEPARATOR);
+                    console.log(prefix_key);
+                    console.log(key);
                     if (prefix_key === key[0]) {
-                        val = values.filter(e => e.id === parseInt(key[1]));
+                        let first = values.filter(e => e.id === parseInt(key[1]));
+                        if (first[0]) // add to the array first element if it exists
+                            val.push(first[0]);
                     }
                 });
                 console.log(val);
@@ -43,6 +70,10 @@ export const productFilterByModule = {
         },
         productData(state) {
             return state.products.data || [];
+        },
+        checkPagination(state) {
+            let res = state.products && state.products.total > state.products.per_page;
+            return res;
         },
         products(state) {
             return state.products
@@ -85,12 +116,17 @@ export const productFilterByModule = {
             }
             dispatch("getProducts", 1);
         },
+        addFilterAndGetProduct({commit, dispatch}, val) {
+            commit('addFilterBy', val);
+            dispatch('getProducts', 1);
+        },
         async getProducts({commit, getters}, val) {
             commit("wait/START", "product_wrapper_load", {root: true});
             if (val)
                 commit('addFilterBy', {key: 'page', item: val});
             try {
                 let result = await productService.getProducts(constructKeys(getters.filterBy));
+
                 commit('setProducts', result);
             } catch (e) {
                 console.log(e);
@@ -100,8 +136,8 @@ export const productFilterByModule = {
         removeAllChosen({dispatch, getters}) {
             Object.entries(getters.showChosen).map(item => {
                 dispatch('removeChosen', item[0]);
-                // commit("addDeletedFilter", item[0]);
             });
+            dispatch("getProducts");
         },
         cleanSpecificKeys({dispatch}, value) {
             value.old.forEach(e => {
@@ -124,9 +160,9 @@ export const productFilterByModule = {
             }
             commit('removeChosen', key);
         },
-        removeAndAddToDeleteFilter({commit}, key) {
-            // commit('addDeletedFilter', key);
+        removeAndGetProducts({commit, dispatch}, key) {
             commit('removeChosen', key);
+            dispatch("getProducts");
         },
         addToChosenFilterAndGetProduct({commit, dispatch}, value) {
             dispatch("cleanSpecificKeys", value);
@@ -137,14 +173,11 @@ export const productFilterByModule = {
     },
     mutations: {
         clean(state) {
-            state.products = {}
-            state.filterBy = {}
-        },
-        addDeletedFilter(state, key) {
-            state.deletedFilter[key] = 1;
-        },
-        cleanDeletedFilter(state, keys) {
-            keys.forEach(e => delete state.deletedFilter[e]);
+            state.filterBy = {};
+            state.filterCanBeApplied = {};// will be set individually depending on window || search , category, shop , favourite
+            state.showChosen = {};
+            state.currentPage = 1;
+            state.products = {};
         },
         removeChosen(state, key) {
             delete state.showChosen[key];

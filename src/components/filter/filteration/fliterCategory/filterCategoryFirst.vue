@@ -1,5 +1,10 @@
 <template>
-  <span @click="addCategory(category.slug)" class="text-link">{{ category.name }}</span>
+  <span v-if="category"
+        @click="addCategory(category.slug)"
+        class="text-link">
+    {{ category.name }}
+  </span>
+  <slot></slot>
 </template>
 <script>
 import {mapActions} from "vuex";

@@ -12,28 +12,12 @@
     <b-dropdown-item @click="exitAccount">
       <span class="text-font">Выйти</span></b-dropdown-item>
   </ul>
-  <div>
-    <Login></Login>
-    <Registration></Registration>
-    <ForgetPassword></ForgetPassword>
-    <VerifyRegister></VerifyRegister>
-    <VerifyForget></VerifyForget>
-    <NewPassword></NewPassword>
-  </div>
-
 </template>
 <script>
-import Login from "@/components/auth/login/login";
-import Registration from "@/components/auth/registration/regisration";
-import {mapGetters, mapMutations, mapActions, mapState} from "vuex";
-import ForgetPassword from "@/components/auth/forgetPassword/forgetPassword";
-import VerifyRegister from "@/components/auth/registration/verifyRegister";
-import VerifyForget from "@/components/auth/forgetPassword/verifyForget";
-import NewPassword from "@/components/auth/forgetPassword/newPassword";
 
+import {mapGetters, mapMutations, mapActions, mapState} from "vuex";
 
 export default {
-  components: {NewPassword, VerifyForget, VerifyRegister, ForgetPassword, Login, Registration},
   computed: {
     ...mapGetters({
       isAuthenticated: 'isAuthenticated',

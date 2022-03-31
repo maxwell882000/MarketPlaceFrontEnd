@@ -29,9 +29,9 @@ export default {
     })
   },
   watch: {
-     drop_bar() {
-       this.setPath();
-     }
+    drop_bar() {
+      this.setPath();
+    }
   },
   methods: {
     ...mapActions({
@@ -40,7 +40,7 @@ export default {
     ...mapMutations([
       'closeCategoryOpened',
     ]),
-      setPath(sluggable) {
+    setPath(sluggable) {
       this.info.path = [ // set path can be called several times, so we rest every time it is called
         {
           name: "Главная",

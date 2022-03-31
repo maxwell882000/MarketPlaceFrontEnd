@@ -1,12 +1,15 @@
 <template>
   <filter-item collapse="price" title="Цена">
-    <range-with-inputs @update-full="fullUpdate"
-                       :min-constrain="10000"
-                       :max-constrain="12000000"/>
+    <range-with-inputs
+        :initial-max="prices.max"
+        :initial-min="prices.min"
+        @update-full="fullUpdate"
+        :min-constrain="0"
+        :max-constrain="12000000"/>
   </filter-item>
 </template>
 <script>
-import FilterItem from "@/components/filter/filterItem";
+import FilterItem from "@/components/filter/filteration/filterItem";
 import RangeWithInputs from "@/components/helper/input/range/rangeWithInputs";
 import {useStore} from "vuex";
 import {computed} from "vue";
@@ -30,7 +33,8 @@ export default {
     }
 
     return {
-      fullUpdate: fullUpdate
+      fullUpdate: fullUpdate,
+      prices: prices
     }
   }
 }

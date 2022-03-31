@@ -24,7 +24,10 @@
             <th><span>{{ items.value }}</span></th>
           </tr>
         </table>
-        <router-link :to="`/item/${$route.params.id}/description`" class="remove-link text-blue">Все характеристики
+        <router-link v-show="product.characteristics.length > 1"
+                     :to="`/item/${$route.params.id}/description`"
+                     class="remove-link text-blue">
+          Все характеристики
         </router-link>
       </b-tab>
     </b-tabs>

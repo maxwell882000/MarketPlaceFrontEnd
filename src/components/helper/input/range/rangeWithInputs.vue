@@ -29,6 +29,8 @@ import RangeInputTwo from "@/components/helper/input/range/rangeInputTwo";
 
 export default {
   props: {
+    initialMin: Number,
+    initialMax: Number,
     minConstrain: {
       type: Number,
       default: 0
@@ -40,8 +42,8 @@ export default {
   },
   data() {
     return {
-      min: this.minConstrain,
-      max: this.maxConstrain,
+      min: this.initialMin || this.minConstrain,
+      max: this.initialMax || this.maxConstrain,
     }
   },
   components: {

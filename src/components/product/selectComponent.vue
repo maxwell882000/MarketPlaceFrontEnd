@@ -16,10 +16,11 @@
   <div class="mb-4"></div>
 </template>
 <script>
-import {mapGetters, mapMutations} from "vuex";
+import {mapActions, mapGetters, mapMutations} from "vuex";
 
 export default {
   props: {
+    index: Number,
     param: {
       type: Object,
       default() {
@@ -42,20 +43,25 @@ export default {
     })
   },
   methods: {
+    ...mapActions({
+      updateParams: "backetModule/updatePreOrder"
+    }),
     ...mapMutations({
       setOrder: 'backetModule/setOrder'
     }),
     selectedValue(option, optionIndex) {
-      this.selected = optionIndex;
+      this.selected = optionIndex // for activating selected classes;
+      let value = {};
+      value[this.index] = {
+        key: this.param.text,
+        value: option
+      }
       this.setOrder({
         id: this.product.id,
-        key: this.param.id,
-        value: {
-          key: this.param.text,
-          value: option
-        }
-      })
-      ;
+        key: 'additional',
+        value: value
+      });
+      this.updateParams({key: this.index, value: value[this.index]});
     }
   }
 }

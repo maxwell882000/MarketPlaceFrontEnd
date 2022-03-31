@@ -7,42 +7,12 @@
           <router-link to="/">
             <img src="@/assets/logo.png" alt="buy-shop logo"/>
           </router-link>
-          <div class="d-flex search-form">
-            <div class="dropdown">
-              <button
-                  class="dropdown-toggle"
-                  type="button"
-                  id="cityDropdown"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-              >
-                Везде
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="cityDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </div>
-            <form autocomplete="off" @submit.stop.prevent="submit()">
-              <div class="line"></div>
-              <input
-                  autocomplete="false"
-                  type="text"
-                  placeholder="Искать товары"
-              />
-              <button type="submit">
-                <b-icon icon="search" variant="secondary"></b-icon>
-              </button>
-            </form>
-          </div>
+          <search-header></search-header>
           <div class="btns-row">
             <button class="search-button">
               <b-icon icon="search" variant="dark"></b-icon>
             </button>
-            <router-link to="/favourite" >
+            <router-link to="/favourite">
               <img src="@/assets/icons/heart.svg" alt="heart icon"/>
               Избранное
             </router-link>
@@ -62,15 +32,19 @@
     </nav>
     <headerDownLine class="down-line"/>
   </header>
+  <auth-modals></auth-modals>
+
 </template>
 
 <script>
 import HeaderUpperLine from "./Header-Upper-Line";
 import HeaderDownLine from "./Header-Down-Line";
 import AuthProfile from "@/components/auth/authProfile";
+import SearchHeader from "@/components/header/search/component/searchHeader";
+import AuthModals from "@/components/auth/authModals";
 
 export default {
-  components: {AuthProfile, HeaderUpperLine, HeaderDownLine},
+  components: {AuthModals, SearchHeader, AuthProfile, HeaderUpperLine, HeaderDownLine},
   data() {
     return {
       scrolled: false,

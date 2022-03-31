@@ -1,5 +1,5 @@
 <template>
-  <section class="back-white  p-3 border-st mb-3">
+  <section class="bg-white  p-3 border-st mb-3">
     <h6>
       <slot name="title"></slot>
     </h6>

@@ -1,6 +1,6 @@
 <template>
   <back-button title="Назад в оплату"></back-button>
-  <section class="border-st back-white p-3">
+  <section class="border-st bg-white p-3">
     <div class="w-40">
       <h5> Привязка банковской карты</h5>
       <br>

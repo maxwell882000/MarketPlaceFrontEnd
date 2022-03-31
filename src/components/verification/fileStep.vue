@@ -1,5 +1,5 @@
 <template>
-  <section class="border-st p-3 back-white mb-3">
+  <section class="border-st p-3 bg-white mb-3">
     <div class="w-70">
       <h6>{{ title }}</h6>
       <div class="mb-3">

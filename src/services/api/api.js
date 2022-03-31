@@ -12,7 +12,6 @@ const instance = axios.create({
 });
 instance.interceptors.request.use((config) => {
     let token = store.getters["passwordModule/passToken"]() || store.getters.authToken();
-    console.log("TOKEENN");
     console.log(token);
     if (token) {
         config.headers["Authorization"] = 'Bearer ' + token;

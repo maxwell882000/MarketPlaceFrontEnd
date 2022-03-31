@@ -7,7 +7,7 @@
         class="d-flex align-items-center "
     >
       <div class="logo">
-        <img class="img-res" :src="shop.image" alt="seller icon"/>
+        <img class="img-res" :src="shop.logo" alt="seller icon"/>
       </div>
 
       <div class="mx-1">
@@ -34,7 +34,8 @@ export default {
 </script>
 <style scoped>
 .logo {
-   height: 2rem;
+  height: 2rem;
+
   width: 2rem;
 }
 </style>

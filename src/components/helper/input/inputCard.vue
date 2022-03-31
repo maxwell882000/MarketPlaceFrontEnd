@@ -1,5 +1,5 @@
 <template>
-  <div class="back-white p-4 shadow-box ">
+  <div class="bg-white p-4 shadow-box ">
     <InputBelowBorder @input="$emit('card-input', $event)" class="w-100" :placeholder="'Номер карты'"/>
     <br>
     <div class="w-30">

@@ -1,5 +1,5 @@
 <template>
-  <b-col cols="3" class="ml-r back-white border-st p-4">
+  <b-col cols="3" class="ml-r bg-white border-st p-4">
     <filter-chosen></filter-chosen>
     <filter-item :is-show="true" collapse="category" title="Категории">
       <filter-category></filter-category>
@@ -17,15 +17,15 @@
 <script>
 
 import RangeWithInputs from "@/components/helper/input/range/rangeWithInputs";
-import FilterItem from "@/components/filter/filterItem";
-import FilterToggle from "@/components/filter/filterToggle";
+import FilterItem from "@/components/filter/filteration/filterItem";
+import FilterToggle from "@/components/filter/filteration/filterToggle";
 import {mapMutations} from "vuex";
-import FilterCategory from "@/components/filter/fliterCategory/filterCategory";
-import FilterChosen from "@/components/filter/filterChosen";
-import FilterManufacture from "@/components/filter/filterSelect/filterBrand";
-import FilterColor from "@/components/filter/filterSelect/filterColor";
-import FilterShop from "@/components/filter/filterSelect/filterShop";
-import FilterPrice from "@/components/filter/filterPrice";
+import FilterCategory from "@/components/filter/filteration/fliterCategory/filterCategory";
+import FilterChosen from "@/components/filter/filteration/filterChosen";
+import FilterManufacture from "@/components/filter/filteration/filterSelect/filterBrand";
+import FilterColor from "@/components/filter/filteration/filterSelect/filterColor";
+import FilterShop from "@/components/filter/filteration/filterSelect/filterShop";
+import FilterPrice from "@/components/filter/filteration/filterPrice";
 
 export default {
   components: {

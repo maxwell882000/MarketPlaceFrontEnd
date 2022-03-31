@@ -1,13 +1,13 @@
 <template>
-  <filter-select-base title="Цвет" prefix="color" v-slot="item">
+  <filter-select-base title="Цвет" prefix="color" v-slot="{item}">
     <div class="text-sm d-flex align-items-center">
-      <span class="circle" :style="{backgroundColor: item.hex}"></span>
+      <span class="circle" :style="{'background-color': item.hex}"></span>
       {{ item.name }} ({{ item.num_product }})
     </div>
   </filter-select-base>
 </template>
 <script>
-import FilterSelectBase from "@/components/filter/filterSelect/base/filterSelectBase";
+import FilterSelectBase from "@/components/filter/filteration/filterSelect/base/filterSelectBase";
 
 export default {
   components: {FilterSelectBase},

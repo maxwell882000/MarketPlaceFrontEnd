@@ -1,5 +1,5 @@
 <template>
-  <section class="back-white p-3 border-st mb-3">
+  <section class="bg-white p-3 border-st mb-3">
     <h6>Общая информация</h6>
     <b-row>
       <b-col cols="6">
@@ -25,7 +25,7 @@
       </b-col>
     </b-row>
   </section>
-  <section class="back-white p-3 border-st ">
+  <section class="bg-white p-3 border-st ">
     <h6>У вас есть рассрочка в других местах в данный момент?</h6>
     <div class="d-flex w-30">
       <ButtonForm class=" mr-2" :title-style="{style:'var(--dark)'}" title="Да"></ButtonForm>

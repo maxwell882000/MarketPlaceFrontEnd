@@ -30,7 +30,6 @@ export default {
 .price {
   font-weight: 600;
   padding-bottom: 20px;
-  border-bottom: 1px solid #f2f2f2;
 
   .sale-percent {
     padding: 2px 10px;

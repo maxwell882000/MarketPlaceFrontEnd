@@ -6,8 +6,12 @@ class TokenService {
      */
     getToken() {
         const token = cookies.get('token');
+        console.log("GET TOKEN ");
+        console.log(token);
         if (token) {
             return token;
+        } else if (token.token) {
+            return token.token;
         } else {
             console.error('[TokenService]: No token found!');
             return "";

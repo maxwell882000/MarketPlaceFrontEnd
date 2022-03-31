@@ -1,6 +1,6 @@
 <template>
   <empty-card></empty-card>
-  <section class="border-st back-white p-3">
+  <section class="border-st bg-white p-3">
     <h5>Сохраненные карты</h5>
     <b-form-group class="w-30" v-slot="{ ariaDescribedby }">
       <input-radio :aria-describedby="ariaDescribedby" name="some-radios" value="A">

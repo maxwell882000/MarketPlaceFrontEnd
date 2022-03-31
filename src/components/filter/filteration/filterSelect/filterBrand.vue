@@ -15,7 +15,7 @@
 <!--  </filter-item>-->
 </template>
 <script>
-import FilterSelectBase from "@/components/filter/filterSelect/base/filterSelectBase";
+import FilterSelectBase from "@/components/filter/filteration/filterSelect/base/filterSelectBase";
 
 export default {
   // eslint-disable-next-line vue/no-unused-components

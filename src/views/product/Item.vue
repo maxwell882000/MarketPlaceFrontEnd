@@ -2,7 +2,7 @@
 
     <section class="container">
       <Badge class="badges" :path="path"></Badge>
-      <h1>{{ name }}</h1>
+      <h4 class="my-3">{{ name }}</h4>
       <header-product></header-product>
     </section>
     <section class="container">
@@ -13,7 +13,7 @@
             <div class="w-100">
               <color-component button="color-btn"></color-component>
               <select-component v-for="(component, index) in selectComponent"
-                                :key="'select_com_ ' + index" :param="component">
+                                :key="'select_com_ ' + index" :param="component" :index="index">
               </select-component>
               <shop-product>
               </shop-product>

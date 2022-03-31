@@ -14,6 +14,8 @@ import {commentModule} from "@/store/product/commentModule";
 import {rateModule} from "@/store/product/rateModule";
 import {categoryModule} from "@/store/category/categoryModule";
 import {productFilterByModule} from "@/store/product/productFilterByModule";
+import {searchModule} from "@/store/search/searchModule";
+import {shopModule} from "@/store/shop/shopModule";
 
 export default createStore({
     modules: {
@@ -30,7 +32,9 @@ export default createStore({
         prepareBasketModule: prepareBasketModule,
         commentModule: commentModule,
         rateModule: rateModule,
-        categoryModule:categoryModule,
-        productFilterByModule:productFilterByModule
+        categoryModule: categoryModule,
+        productFilterByModule: productFilterByModule,
+        searchModule: searchModule,
+        shopModule: shopModule
     }
 });

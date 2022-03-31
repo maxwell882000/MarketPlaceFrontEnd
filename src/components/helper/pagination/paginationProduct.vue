@@ -1,10 +1,10 @@
 <template>
-  <div v-if="products.total > products.per_page" class="mt-3 custom-pagination">
+  <div class="mt-3 custom-pagination">
     <b-pagination @page-click="goToOtherPage"
                   v-model="currentPage"
                   pills
                   :total-rows="products.total || 0"
-                  :per-page="products.per_page || 0"
+                  :per-page="products.per_page || 1"
                   prev-text="Назад"
                   next-text="Вперед"
                   last-number
@@ -19,7 +19,7 @@ import {mapActions, mapGetters} from "vuex";
 export default {
   data() {
     return {
-      currentPage: 1,
+      currentPage: 0,
     }
   },
   watch: {

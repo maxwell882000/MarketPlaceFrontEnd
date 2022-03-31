@@ -11,6 +11,7 @@
 import {mapActions, mapGetters, mapMutations} from "vuex";
 
 export default {
+  name: "CartButton",
   data() {
     return {
       isBasket: this.basket || false,

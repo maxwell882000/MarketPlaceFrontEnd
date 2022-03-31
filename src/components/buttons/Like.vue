@@ -22,6 +22,8 @@ export default {
       if (this.id && this.isAuthenticated()) {
         this.addRemoveFavourite(this.id);
         this.fill = !this.fill;
+        if (!this.fill)
+          this.$root.$emit("like-updated")
       } else if (!this.isAuthenticated()) {
         this['authWindow/setLogin']();
       }
@@ -38,7 +40,7 @@ export default {
 button.like-btn {
   background: transparent;
   border-radius: 20px;
-  z-index: 1  ;
+  z-index: 1;
   border: none;
   font-size: 18px;
 }

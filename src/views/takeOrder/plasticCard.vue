@@ -2,7 +2,7 @@
   <section class="container">
     <back-button title="Назад в оформление"></back-button>
     <h4>Предоставьте карточные данные</h4>
-    <div class="back-white border-st p-4">
+    <div class="bg-white border-st p-4">
       <div class="w-60 text-sm">
               <span class="mb-4">
         Предоставьте реквизиты банковской карты, на которую переводится ваш доход,

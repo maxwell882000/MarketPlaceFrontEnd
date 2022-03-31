@@ -13,7 +13,11 @@ const routes = [
         name: "Favourites",
         component: () => import("../views/favourites/favourites")
     },
-
+    {
+        path: "/search/:search",
+        name: "Search",
+        component: () => import("../views/search/searchView")
+    },
     {
         path: "/verification",
         name: "VerificationAccount",
@@ -112,7 +116,7 @@ const routes = [
         ]
     },
     {
-        path: "/shop/:id",
+        path: "/shop/:shop",
         name: "Shop",
         component: () =>
             import("../views/Shop.vue"),

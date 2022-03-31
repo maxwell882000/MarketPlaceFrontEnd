@@ -2,7 +2,9 @@
   <filter-item v-if="iterate.length !== 0" :collapse="prefix" :title="title">
     <filter-select>
       <b-form-group v-slot="{ ariaDescribedby }">
-        <input-select :aria-describedby="ariaDescribedby" v-model="isCollected" :value="item" name="filter_brands"
+        <input-select :aria-describedby="ariaDescribedby"
+                      v-model="isCollected" :value="item"
+                      :name="prefix"
                       :key=" prefix + '_filter_select_' + item.id"
                       v-for="item in iterate">
           <slot :item="item"></slot>
@@ -12,10 +14,10 @@
   </filter-item>
 </template>
 <script>
-import FilterSelect from "@/components/filter/filterSelect";
-import FilterItem from "@/components/filter/filterItem";
+import FilterSelect from "@/components/filter/filteration/filterSelect";
+import FilterItem from "@/components/filter/filteration/filterItem";
 import InputSelect from "@/components/helper/input/inputSelect";
-import useFilterSelect from "@/components/filter/filterSelect/setup/useFilterSelect";
+import useFilterSelect from "@/components/filter/filteration/filterSelect/setup/useFilterSelect";
 
 export default {
   components: {InputSelect, FilterItem, FilterSelect},

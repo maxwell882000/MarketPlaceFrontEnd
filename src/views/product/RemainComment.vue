@@ -2,13 +2,13 @@
   <section class="container">
     <loader waiting="left_comment">
       <back-button title="К описанию товара"></back-button>
-      <div class="d-flex align-items-center border-st back-white p-3 my-3">
+      <div class="d-flex align-items-center border-st bg-white p-3 my-3">
         <div class="mr-4" style="height: 3rem;width: 3rem;">
           <img class="img-res" :src="image"/>
         </div>
         <span class="bold text-sm">{{ name }}</span>
       </div>
-      <div class="border-st back-white p-3 my-3">
+      <div class="border-st bg-white p-3 my-3">
         <b-row>
           <b-col cols="6" class="mb-3">
             <h6 v-show="error" v-html="error" class="text-error text-font"></h6>

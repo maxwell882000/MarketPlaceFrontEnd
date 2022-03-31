@@ -16,7 +16,7 @@ export const authModule = {
     getters: {
         authToken: (state) => () => state.token,
         isAuthenticated(state) {
-            return state.token === undefined || state.token.length !== 0;
+            return !!state.token;
         }
     },
     actions: {
@@ -39,7 +39,7 @@ export const authModule = {
                 let token = await authService.login(request);
                 commit('setToken', token.token);
                 commit("authWindow/close");
-                window.location.reload();
+                // window.location.reload();
             } catch (e) {
                 commit("authWindow/setError", e);
             }
@@ -53,7 +53,7 @@ export const authModule = {
                 result.phone = request.phone;
                 result.name = request.name;
                 commit("setUser", result);
-                tokenService.setToken(result);
+                tokenService.setToken(result.token);
                 commit("authWindow/setVerifyRegister");
             } catch (e) {
                 commit('authWindow/setError', e);

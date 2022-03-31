@@ -5,7 +5,7 @@
         <Like :id="product.id" :favourite="product.favourite"/>
       </div>
       <div class="">
-        <b-img class="image_style" :src="product.image" center fluid alt="item image"/>
+        <b-img v-lazy="product.image" class="image_style"  center fluid alt="item image"/>
       </div>
       <div class="item-card__image__sale-amount">
         <span>-{{ product.discount }}%</span>

@@ -1,4 +1,5 @@
 import backetService from "@/services/actions/backetService";
+import orderService from "@/services/basket/orderService";
 // in backet page quantity will be immidatetely increased
 export const backetModule = {
     namespaced: true,
@@ -50,5 +51,17 @@ export const backetModule = {
             }
         },
 
+        async updatePreOrder({rootGetters}, data) {
+            if (rootGetters.isAuthenticated) {
+                let order_id = rootGetters["productModule/product"];
+                if (order_id) {
+                    try {
+                        await orderService.updateSelectOrder(order_id, data);
+                    } catch (e) {
+                        console.log(e);
+                    }
+                }
+            }
+        }
     }
 }

@@ -8,6 +8,8 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import {createVueWait} from 'vue-wait'
 import VueClickAway from "vue3-click-away";
+import VueLazyLoad from 'vue3-lazyload'
+
 // bootstrap css
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
@@ -22,6 +24,7 @@ createApp(App)
     .use(router)
     .use(VueClickAway)
     .use(VueSplide)
+    .use(VueLazyLoad)
     .use(VueWait)
     .use(BootstrapVue3)
     .use(VueAxios, axios)

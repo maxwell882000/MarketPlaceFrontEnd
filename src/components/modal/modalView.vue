@@ -1,9 +1,9 @@
 <template>
-  <transition name="modal-fade">
+  <transition style="z-index: 4000" name="modal-fade">
     <div class="modal-overlay-first">
       <div v-bind="$attrs" class="modal-second" @click.stop>
         <div class="left-corner">
-          <b-icon  @click="$emit('closeModal')" style="cursor: pointer; color: var(--gray300)" icon="x"
+          <b-icon @click="$emit('closeModal')" style="cursor: pointer; color: var(--gray300)" icon="x"
                   font-scale="1.7"></b-icon>
         </div>
         <h5 v-if="title">{{ title }}</h5>
@@ -33,7 +33,7 @@ export default {
 .left-corner {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: calc( -0.9* var(--marinTop));
+  margin-bottom: calc(-0.9 * var(--marinTop));
 }
 
 .modal-overlay-first {
@@ -43,7 +43,7 @@ export default {
   left: 0;
   right: 0;
   display: flex;
-  z-index: 200;
+  z-index: 20000;
   justify-content: center;
   align-items: center;
   width: 100vw;
@@ -53,7 +53,7 @@ export default {
 .modal-second {
   text-align: center;
   background-color: white;
-  z-index: 300;
+  z-index: 30000;
   /*width: 100vw;*/
   border-radius: var(--borderRadius);
   padding: 15px 15px;

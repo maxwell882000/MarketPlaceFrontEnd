@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-import {mapGetters, mapMutations} from "vuex";
+import {mapActions, mapGetters, mapMutations} from "vuex";
 
 export default {
   data() {
@@ -34,6 +34,9 @@ export default {
       setImageList: "productModule/setImageList",
       setOrder: "backetModule/setOrder",
     }),
+    ...mapActions({
+      updateParams: "backetModule/updatePreOrder"
+    }),
     setColor(color, index) {
       this.selected = index;
       this.setImageList(color.images);
@@ -41,8 +44,8 @@ export default {
         id: this.product.id,
         key: "colors",
         value: color.color_name
-      })
-      ;
+      });
+      this.updateParams({key: "colors", value: color.color_name});
     }
   }
 }

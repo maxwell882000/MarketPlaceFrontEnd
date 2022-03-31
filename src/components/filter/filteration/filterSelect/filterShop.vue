@@ -5,7 +5,7 @@
 </template>
 <script>
 
-import FilterSelectBase from "@/components/filter/filterSelect/base/filterSelectBase";
+import FilterSelectBase from "@/components/filter/filteration/filterSelect/base/filterSelectBase";
 
 export default {
   components: {FilterSelectBase},

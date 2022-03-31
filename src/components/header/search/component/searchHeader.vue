@@ -1,0 +1,190 @@
+<template>
+  <div class="d-flex relative search-form">
+    <div class="dropdown">
+      <button
+
+          type="button"
+          id="cityDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+      >
+        <!--        Товары-->
+      </button>
+      <!--      <ul class="dropdown-menu" aria-labelledby="cityDropdown">-->
+      <!--        <li><a class="dropdown-item" href="#">Action</a></li>-->
+      <!--        <li><a class="dropdown-item" href="#">Another action</a></li>-->
+      <!--        <li>-->
+      <!--          <a class="dropdown-item" href="#">Something else here</a>-->
+      <!--        </li>-->
+      <!--      </ul>-->
+    </div>
+    <form autocomplete="off" @submit.stop.prevent>
+      <div class="line"></div>
+      <input
+          id="global_search"
+          v-model="search"
+          v-on:keyup.enter="() => $router.push('/search/' + search)"
+          autocomplete="false"
+          @focus="onFocus = true"
+          @focusout="leaveFocus"
+          type="text"
+          placeholder="Искать товары"
+      />
+      <button class="icon_container" disabled>
+        <b-icon v-show="search" @click="clearSearch" icon="x-lg" class="pointer text-gray300"></b-icon>
+        <span class="pr-3"></span>
+        <router-link :to="'/search/' + search" class="remove-link">
+          <b-icon icon="search" class=" text-gray300" variant="secondary"></b-icon>
+        </router-link>
+      </button>
+    </form>
+    <search-results v-show="onFocus && search"></search-results>
+  </div>
+</template>
+<script setup>
+import useSearch from "@/components/header/search/setup/useSearch";
+import SearchResults from "@/components/header/search/component/searchResults";
+import {ref} from "vue";
+
+const onFocus = ref(false);
+
+function leaveFocus() {
+  setTimeout(() => onFocus.value = false, 150);
+}
+
+const {search, clearSearch} = useSearch();
+</script>
+<style scoped lang="scss">
+
+
+input,
+.dropdown button,
+button {
+  padding-left: 20px;
+  padding-right: 20px;
+  background: #f5f5f5;
+  border: none;
+  outline: none;
+  height: 44px;
+}
+
+.dropdown {
+  button {
+    border-radius: 8px 0 0 8px;
+    font-weight: 500;
+  }
+}
+
+form {
+  display: flex;
+  position: relative;
+
+  .line {
+    height: 100%;
+    width: 1px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+
+    & ::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 60%;
+      background-color: #e0e0e0;
+    }
+
+  }
+
+  input {
+    color: black;
+    font-weight: 500;
+    width: 700px;
+
+    &
+    ::placeholder {
+      color: black;
+      font-weight: 300;
+    }
+
+  }
+
+  button {
+    border-radius: 0 8px 8px 0;
+  }
+
+}
+
+.btns-row {
+  display: flex;
+
+  .search-button {
+    display: none;
+  }
+
+  a {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0 10px;
+
+    &
+    :hover {
+      color: #535963;
+
+      img {
+        opacity: 0.7;
+      }
+
+    }
+  }
+}
+
+.icon_container {
+  width: 5.5rem;
+}
+
+@media (max-width: 1400px) {
+  form > input {
+    width: 450px;
+  }
+}
+
+@media (max-width: 992px) {
+  form > input {
+    width: 200px;
+    font-size: 14px;
+  }
+
+  .dropdown {
+
+    button {
+      font-size: 14px;
+    }
+  }
+
+  .btns-row {
+
+    a {
+      font-size: 10px !important;
+    }
+
+  }
+}
+
+@media (max-width: 767px) {
+  .search-form {
+    display: none !important;
+  }
+
+  .search-button {
+    display: block !important;
+    margin-top: -6px;
+    padding: 0 10px;
+    background-color: transparent !important;
+  }
+}
+</style>

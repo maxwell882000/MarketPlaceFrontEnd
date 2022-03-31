@@ -1,41 +1,17 @@
 <template>
-  <b-row>
-    <filtration-side></filtration-side>
-    <b-col cols="9">
-      <product-wrapper></product-wrapper>
-    </b-col>
-  </b-row>
+  <filter-with-products></filter-with-products>
 </template>
 <script>
-import FiltrationSide from "@/components/filter/filtrationSide";
-import ProductWrapper from "@/components/shared/productWrapper";
-import {mapActions, mapGetters, mapMutations} from "vuex";
+import FilterWithProducts from "@/components/filter/component/filterWithProducts";
+import useFilterWithComponent from "@/components/filter/setup/useFilterWithComponent";
+import useFilterBy from "@/components/filter/setup/useFilterBy";
+import {useRoute} from "vue-router";
 
 export default {
-  components: {
-    ProductWrapper, FiltrationSide
-  },
-  computed: {
-    ...mapGetters({
-      category: "categoryModule/category"
-    })
-  },
-  methods: {
-    ...mapMutations({
-      clean: "productFilterByModule/clean",
-      addFilter: "productFilterByModule/addFilterBy",
-    }),
-    ...mapActions({
-      getProducts: "productFilterByModule/getProducts"
-    })
-  },
-  created() {
-    this.clean();
-    this.addFilter({key: "category_slug", item: this.$route.params.slug});
-    this.getProducts(1);
-  },
-  beforeUnmount() {
-    this.clean();
+  components: {FilterWithProducts},
+  setup() {
+    const route = useRoute();
+    return useFilterWithComponent(useFilterBy({key: "category_slug", item: route.params.slug}));
   }
 }
 </script>

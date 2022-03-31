@@ -8,7 +8,7 @@
         <location></location>
       </template>
     </Input>
-    <div class="border-st back-white p-2 w-100 shadow mt-1"
+    <div class="border-st bg-white p-2 w-100 shadow mt-1"
          style="position: absolute; z-index: 100;">
       <button class="button-clear w-100 text-left">Ташкент, ул. Амира Темура 25</button>
     </div>

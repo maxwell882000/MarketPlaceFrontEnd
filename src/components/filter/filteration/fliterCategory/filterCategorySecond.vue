@@ -7,7 +7,7 @@
   </div>
 </template>
 <script>
-import FilterCategoryFirst from "@/components/filter/fliterCategory/filterCategoryFirst";
+import FilterCategoryFirst from "@/components/filter/filteration/fliterCategory/filterCategoryFirst";
 
 export default  {
   props: ['category'],

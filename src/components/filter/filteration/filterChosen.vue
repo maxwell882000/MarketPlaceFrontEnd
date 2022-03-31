@@ -22,7 +22,7 @@ export default {
     })
   }, methods: {
     ...mapActions({
-      removeChosen: "productFilterByModule/removeAndAddToDeleteFilter",
+      removeChosen: "productFilterByModule/removeAndGetProducts",
       allRemove: "productFilterByModule/removeAllChosen"
     })
   }

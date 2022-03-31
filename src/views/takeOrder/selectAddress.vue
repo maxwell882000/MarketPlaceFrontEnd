@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="d-flex">
-      <div class="back-white information w-30">
+      <div class="bg-white information w-30">
         <back-button title="Назад"></back-button>
         <h4>Способ доставки</h4>
         <switch-button @changed="setDelivery" class="mb-3"></switch-button>
