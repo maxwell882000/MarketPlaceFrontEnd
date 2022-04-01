@@ -114,3 +114,28 @@
     }
   }
 }
+
+@media (max-width: 992px) {
+  .user-tabs {
+    flex-direction: column;
+
+    .card-header {
+      width: 100% !important;
+
+      ul.nav-pills {
+        flex-direction: row !important;
+        flex-wrap: nowrap;
+        overflow: scroll;
+        padding-bottom: 5px;
+
+        li.nav-item {
+          min-width: 160px;
+
+          a {
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
