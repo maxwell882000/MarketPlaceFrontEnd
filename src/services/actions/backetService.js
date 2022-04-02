@@ -3,7 +3,8 @@ import methods from "@/services/api/methods";
 class BacketService {
     async addToBasket(product_id, data) {
         console.log(data);
-        await methods.post(`action/basket/${product_id}/`, data);
+        let result = await methods.post(`action/basket/${product_id}/`, data);
+        return result.data.result;
     }
 
     async removeFromBasket(product_id) {

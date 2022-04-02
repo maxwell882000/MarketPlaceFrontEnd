@@ -10,7 +10,26 @@ export const backetModule = {
         }
     },
     getters: {
-
+        chosenColors: (state) => (product_id) => {
+            if (state.order && state.order[product_id] && state.order[product_id].colors)
+                return state.order[product_id].colors.id;
+            return -1;
+        },
+        additional: (state) => (product_id) => {
+            if (state.order && state.order[product_id]
+                && state.order[product_id].additional) {
+                return state.order[product_id].additional;
+            }
+            return {};
+        },
+        chosenAdditional: (state) => (product_id, index) => {
+            if (state.order && state.order[product_id]
+                && state.order[product_id].additional
+                && state.order[product_id].additional[index]
+                && state.order[product_id].additional[index].value)
+                return state.order[product_id].additional[index].value.id;
+            return -1;
+        },
         getPreOrder: (state) => (id) => {
             return {
                 quantity: state.quantity[id] || 1,
@@ -19,7 +38,6 @@ export const backetModule = {
         },
     },
     mutations: {
-
         setQuantity(state, id, quantity) {
             state.quantity[id] = state.quantity[id] || 1;
             state.quantity[id] = quantity;
@@ -27,6 +45,8 @@ export const backetModule = {
         setOrder(state, {id, key, value}) {
             state.order[id] = state.order[id] || {};
             state.order[id][key] = value;
+            console.log("ORDEER GOOTTED");
+            console.log(state.order);
         },
         clear(state) {
             state.order = {};
@@ -34,18 +54,20 @@ export const backetModule = {
         }
     },
     actions: {
-        // eslint-disable-next-line no-unused-vars
+
+
         async addToBasket({commit, getters}, id) {
             try {
-                await backetService.addToBasket(id, getters.getPreOrder(id));
+                let data = await backetService.addToBasket(id, getters.getPreOrder(id));
+                commit("productModule/setProductOrder", data.id, {root: true});
             } catch (e) {
                 console.log(e);
             }
         },
-        // eslint-disable-next-line no-unused-vars
         async removeFromBasket({commit}, id) {
             try {
                 await backetService.removeFromBasket(id);
+                commit("productModule/setProductOrder", 0, {root: true});
             } catch (e) {
                 console.log(e);
             }
@@ -53,7 +75,7 @@ export const backetModule = {
 
         async updatePreOrder({rootGetters}, data) {
             if (rootGetters.isAuthenticated) {
-                let order_id = rootGetters["productModule/product"];
+                let order_id = rootGetters["productModule/order_id"];
                 if (order_id) {
                     try {
                         await orderService.updateSelectOrder(order_id, data);

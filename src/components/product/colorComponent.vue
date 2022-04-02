@@ -6,7 +6,7 @@
           v-for="(color, colorIndex) in colors"
           :key="'color_' + colorIndex"
           @click="setColor(color, colorIndex)"
-          :class="['color-btn', this.selected === colorIndex && 'active']"
+          :class="['color-btn', this.selected === color.id && 'active']"
       >
         <img :src="color.image" alt="color"/>
         <small>{{ color.color_name }}</small>
@@ -18,16 +18,15 @@
 import {mapActions, mapGetters, mapMutations} from "vuex";
 
 export default {
-  data() {
-    return {
-      selected: -1,
-    }
-  },
   computed: {
     ...mapGetters({
       colors: 'productModule/colors',
-      product: 'productModule/product'
-    })
+      product: 'productModule/product',
+      selectOrder: 'backetModule/chosenColors'
+    }),
+    selected() {
+      return this.selectOrder(this.product.id)
+    }
   },
   methods: {
     ...mapMutations({
@@ -37,15 +36,19 @@ export default {
     ...mapActions({
       updateParams: "backetModule/updatePreOrder"
     }),
-    setColor(color, index) {
-      this.selected = index;
+    setColor(color) {
       this.setImageList(color.images);
+      const response = {
+        id: color.id,
+        name: color.color_name
+      };
       this.setOrder({
         id: this.product.id,
         key: "colors",
-        value: color.color_name
+        value: response
       });
-      this.updateParams({key: "colors", value: color.color_name});
+
+      this.updateParams({colors: response});
     }
   }
 }

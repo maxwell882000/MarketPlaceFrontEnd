@@ -16,6 +16,7 @@ class OrderService {
     }
 
     async updateSelectOrder(order_id, data) {
+        console.log(data);
         await methods.put(`action/basket/${order_id}/updateOrderSelect`, data);
     }
 

@@ -38,13 +38,14 @@
         </router-link>
       </button>
     </form>
-    <search-results v-show="onFocus && search"></search-results>
+    <search-results v-show="onFocus && search && isVisible"></search-results>
   </div>
 </template>
 <script setup>
 import useSearch from "@/components/header/search/setup/useSearch";
 import SearchResults from "@/components/header/search/component/searchResults";
 import {ref} from "vue";
+import useSearchResults from "@/components/header/search/setup/useSearchResults";
 
 const onFocus = ref(false);
 
@@ -53,6 +54,7 @@ function leaveFocus() {
 }
 
 const {search, clearSearch} = useSearch();
+const {isVisible} = useSearchResults();
 </script>
 <style scoped lang="scss">
 

@@ -8,7 +8,7 @@
         <b-img v-lazy="product.image" class="image_style" center fluid alt="item image"/>
 
       </div>
-      <div class="item-card__image__sale-amount">
+      <div v-show="product.discount" class="item-card__image__sale-amount">
         <span>-{{ product.discount }}%</span>
       </div>
     </div>
@@ -23,7 +23,8 @@
         <small class="mx-2">{{ product.num_comment }} отзывов</small>
       </div>
       <div class="item-card__prices">
-        <p class="item-card__prices__ex-price">{{ product.price }} сум</p>
+
+        <p class="item-card__prices__ex-price" v-show="isChangedPrice">{{ product.price }} сум</p>
         <h6 class="item-card__prices__new-price">
           {{ product.real_price }} сум
         </h6>
@@ -69,6 +70,11 @@ export default {
         };
       },
     },
+  },
+  computed: {
+    isChangedPrice() {
+      return this.product.real_price !== this.product.price;
+    }
   },
   components: {Like, ItemCardPrice},
 };

@@ -3,14 +3,13 @@
   <div class="d-flex flex-wrap">
     <button
         v-for="(option, optionIndex) in param.values"
-        :key="'options_index_' + optionIndex+  '_value_ ' +  option"
-        @click="selectedValue(option, optionIndex)"
+        :key="'options_index_' + optionIndex+  '_value_ ' +  option.id"
+        @click="selectedValue(option)"
         :class="[
                     'param-option',
-                    selected === optionIndex && 'active'
-                ]"
-    >
-      {{ option }}
+                    selected === option.id && 'active'
+                ]">
+      {{ option.text }}
     </button>
   </div>
   <div class="mb-4"></div>
@@ -31,16 +30,17 @@ export default {
       }
     }
   },
-  data() {
-    return {
-      selected: -1
-    }
-  },
+
   computed: {
     ...mapGetters({
       order: "backetModule/getPreOrder",
-      product: "productModule/product"
-    })
+      additional: "backetModule/additional",
+      product: "productModule/product",
+      selectedOrder: "backetModule/chosenAdditional"
+    }),
+    selected() {
+      return this.selectedOrder(this.product.id, this.index)
+    }
   },
   methods: {
     ...mapActions({
@@ -49,9 +49,8 @@ export default {
     ...mapMutations({
       setOrder: 'backetModule/setOrder'
     }),
-    selectedValue(option, optionIndex) {
-      this.selected = optionIndex // for activating selected classes;
-      let value = {};
+    selectedValue(option) {
+      let value = this.additional(this.product.id);
       value[this.index] = {
         key: this.param.text,
         value: option
@@ -61,7 +60,7 @@ export default {
         key: 'additional',
         value: value
       });
-      this.updateParams({key: this.index, value: value[this.index]});
+      this.updateParams({additional: {key: this.index, value: value[this.index]}});
     }
   }
 }

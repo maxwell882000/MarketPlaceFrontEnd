@@ -101,10 +101,28 @@ export const productModule = {
     },
     actions: {
         // eslint-disable-next-line no-unused-vars
-        async loadProduct({commit}, id) {
+        setOrder({commit}, product) {
+            if (product.order) {
+                if (product.order.additional)
+                    commit("backetModule/setOrder", {
+                        id: product.id,
+                        key: 'additional',
+                        value: product.order.additional
+                    }, {root: true})
+                if (product.order.colors) {
+                    commit("backetModule/setOrder", {
+                        id: product.id,
+                        key: 'colors',
+                        value: product.order.colors
+                    }, {root: true})
+                }
+            }
+        },
+        async loadProduct({commit, dispatch}, id) {
             commit('wait/START', 'product', {root: true});
             let product = await productService.getProduct(id);
             commit("setProduct", product);
+            dispatch("setOrder", product);
             commit('setImageList', product.images);
             if (product.installment && product.installment.credits.length !== 0)
                 commit('setCredit', product.installment.credits[0])
@@ -112,6 +130,13 @@ export const productModule = {
         }
     },
     mutations: {
+        setProductOrder(state, order_id) { // used when basket changed in product view
+            if (state.product) {
+                state.product.order = {
+                    'id': order_id
+                };
+            }
+        },
         setProduct(state, product) {
             state.product = product;
         },
@@ -138,7 +163,6 @@ export const productModule = {
             return state.product.key_with_values;
         },
         colors(state) {
-            console.log(state.product.colors)
             return state.product.colors;
         },
         currentImage(state) {
@@ -198,6 +222,11 @@ export const productModule = {
                 })
             }
             return response
+        },
+        order_id(state) {
+            if (state.product.order)
+                return state.product.order.id || 0
+            return 0;
         },
         product(state) {
             return state.product;

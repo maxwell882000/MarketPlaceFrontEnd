@@ -1,9 +1,9 @@
 <template>
-  <p class="old-price">
+  <p v-show="changedPrice" class="old-price">
     <small>{{ priceOld }} сум</small>
   </p>
   <h5 class="price">
-    {{ priceNew }} сум <small class="sale-percent">-{{ discount }}%</small>
+    {{ priceNew }} сум <small class="sale-percent" v-show="discount">-{{ discount }}%</small>
   </h5>
 </template>
 <script>
@@ -14,6 +14,9 @@ export default {
     ...mapGetters({
       product: "productModule/product",
     }),
+    changedPrice() {
+      return this.priceOld !== this.priceNew;
+    },
     priceOld() {
       return this.product.price;
     },

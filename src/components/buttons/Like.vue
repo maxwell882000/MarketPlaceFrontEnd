@@ -1,5 +1,5 @@
 <template>
-  <button @click.prevent="clicked" class="like-btn">
+  <button @click.prevent="clicked" class="like-btn" v-b-tooltip.hover title="Добавить в избраное">
     <b-icon :style="styleIcon()" :icon="fill ? 'heart-fill' : 'heart'"></b-icon>
   </button>
 </template>

@@ -1,33 +1,33 @@
 <template>
 
-    <section class="container">
-      <Badge class="badges" :path="path"></Badge>
-      <h4 class="my-3">{{ name }}</h4>
-      <header-product></header-product>
-    </section>
-    <section class="container">
-      <div class="row cols">
-        <div class="col-lg-9">
-          <div class="product-content">
-            <pictures-part class="pictures"></pictures-part>
-            <div class="w-100">
-              <color-component button="color-btn"></color-component>
-              <select-component v-for="(component, index) in selectComponent"
-                                :key="'select_com_ ' + index" :param="component" :index="index">
-              </select-component>
-              <shop-product>
-              </shop-product>
-            </div>
+  <section class="container">
+    <Badge class="badges" :path="path"></Badge>
+    <h4 class="my-3">{{ name }}</h4>
+    <header-product></header-product>
+  </section>
+  <section class="container">
+    <div class="row cols">
+      <div class="col-lg-9">
+        <div class="product-content">
+          <pictures-part class="pictures"></pictures-part>
+          <div class="w-100">
+            <color-component button="color-btn"></color-component>
+            <select-component v-for="(component, index) in selectComponent"
+                              :key="'select_com_ ' + index" :param="component" :index="component.id">
+            </select-component>
+            <shop-product>
+            </shop-product>
           </div>
-          <about-product></about-product>
         </div>
-        <div class="col-lg-3">
-          <installment-product></installment-product>
-          <!--          <delivery-product></delivery-product>-->
-        </div>
+        <about-product></about-product>
       </div>
-    </section>
-    <comments/>
+      <div class="col-lg-3">
+        <installment-product></installment-product>
+        <!--          <delivery-product></delivery-product>-->
+      </div>
+    </div>
+  </section>
+  <comments/>
 
 </template>
 <script>

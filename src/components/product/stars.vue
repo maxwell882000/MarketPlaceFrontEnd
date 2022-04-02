@@ -18,7 +18,6 @@ export default {
         stars.push("star-fill");
       }
       // decimal part of ratingCp
-      console.log(ratingCp);
       if (ratingCp % 1 > 0.4 && ratingCp % 1 < 0.85) {
         stars.push("star-half");
         ratingCp++;

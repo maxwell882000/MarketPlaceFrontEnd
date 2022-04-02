@@ -16,6 +16,7 @@ import {categoryModule} from "@/store/category/categoryModule";
 import {productFilterByModule} from "@/store/product/productFilterByModule";
 import {searchModule} from "@/store/search/searchModule";
 import {shopModule} from "@/store/shop/shopModule";
+import {orderModule} from "@/store/backet/orderModule";
 
 export default createStore({
     modules: {
@@ -35,6 +36,7 @@ export default createStore({
         categoryModule: categoryModule,
         productFilterByModule: productFilterByModule,
         searchModule: searchModule,
-        shopModule: shopModule
+        shopModule: shopModule,
+        orderModule: orderModule
     }
 });
