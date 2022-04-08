@@ -8,7 +8,8 @@ export default {
   methods: {
     ...mapMutations({
       hideCategoryLine: 'hideCategoryLine',
-      openCategoryLine: 'openCategoryLine'
+      openCategoryLine: 'openCategoryLine',
+      clean: 'prepareBasketModule/clean'
     })
   },
   mounted() {
@@ -16,6 +17,7 @@ export default {
   },
   unmounted() {
     this.openCategoryLine();
+    this.clean();
   }
 }
 </script>

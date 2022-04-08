@@ -9,8 +9,7 @@
           link="/" image="SearchNotFound.png"
           title="Ещё не готовы к покупке?"></empty-page>
       <template v-else>
-        <div class="mb-3"><h4 class="inline">Избранное</h4> <span v-show="count">{{ count }} товаров</span>
-        </div>
+        <div class="mb-3"><h4 class="inline">Избранное</h4> <span v-show="count">{{ count }} товаров</span></div>
         <filter-with-products></filter-with-products>
       </template>
     </section>

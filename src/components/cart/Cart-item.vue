@@ -2,36 +2,39 @@
   <div class="cart-item">
     <div class="row align-items-center justify-content-space-between">
       <div class="col col-12 col-md-7 d-flex align-items-center">
-        <b-form-checkbox v-model="check" />
-        <img
-          class="cart-item__image"
-          :src="itemInfo.picture"
-          :alt="itemInfo.name"
-        />
+        <input-select v-model="check"/>
+        <div class="cart-item__image">
+          <img
+              class="img-res"
+              :src="itemInfo.image"
+              :alt="itemInfo.title"
+          />
+        </div>
         <div>
-          <small class="old-price d-block" v-if="itemInfo.oldPrice">
-            {{ itemInfo.oldPrice }}
+
+          <small class="old-price d-block">
+               <span v-show="itemInfo.discount_price">
+                        {{ itemInfo.price }}
+          </span>
           </small>
-          <h6 class="mb-1">{{ itemInfo.price }}</h6>
-          <p>{{ itemInfo.name }}</p>
+          <h6 class="mb-1">{{ itemInfo.real_price }}</h6>
+          <p>{{ itemInfo.title }}</p>
         </div>
       </div>
       <div
-        class="
-          count-btns
+          class=" count-btns
           col col-5 col-sm-4 col-md-3
           d-flex
           justify-content-center
-        "
-      >
+        ">
         <p class="mb-0">
-          <button class="btn btn-light">-</button>
-          <span class="px-3 fw-bold">1</span>
-          <button class="btn btn-light">+</button>
+          <button :style="styleQuantity" @click="decrementQuantity" class="btn btn-light">-</button>
+          <span class="px-3 fw-bold">{{ quantity }}</span>
+          <button @click="incrementQuantity" class="btn btn-light">+</button>
         </p>
       </div>
       <div class="col col-7 col-sm-8 col-md-2 d-flex justify-content-end">
-          <trash></trash>
+        <trash @click="deleteOrder({order_id: order.id, index:index})"></trash>
       </div>
     </div>
   </div>
@@ -39,31 +42,81 @@
 
 <script>
 import Trash from "@/components/icons/trash";
+import InputSelect from "@/components/helper/input/inputSelect";
+import {mapActions, mapGetters, mapMutations} from "vuex";
+
 export default {
-  components: {Trash},
+  components: {InputSelect, Trash},
   props: {
     id: String,
-    itemInfo: Object,
-    amount: Number,
-    checkItem:Boolean
+    order: Object,
+    index: Number,
   },
   data() {
     return {
-      check: this.checkItem
+      quantity: this.order.quantity,
+      itemInfo: this.order.product,
+      styleQuantity: {
+        'cursor': this.order.quantity === 1 && 'not-allowed' || 'pointer'
+      }
+    };
+  },
+  computed: {
+    ...mapGetters({
+      selected: "prepareBasketModule/getSelectedItem"
+    }),
+    check: {
+      get() {
+        return !!this.selected(this.order.id);
+      },
+      set(val) {
+        if (val) {
+          this.addToSelectedOrders(this.order);
+        } else {
+          this.removeFromSelectedOrders(this.order);
+        }
+      }
     }
   },
-  watch:{
-    checkItem(){
-      this.check = this.checkItem;
+  methods: {
+    ...mapActions({
+      update: "prepareBasketModule/updateQuantityOrder",
+      deleteOrder: "prepareBasketModule/deleteOrders"
+    }),
+    ...mapMutations({
+      addToSelectedOrders: "prepareBasketModule/addToSelectedOrders",
+      removeFromSelectedOrders: "prepareBasketModule/removeSelectedOrders"
+    }),
+    incrementQuantity() {
+      this.quantity = this.quantity + 1;
+      this.styleQuantity = {};
+      this.updateQuantity();
+    },
+    updateQuantity() {
+      if (this.check) {
+        this.addToSelectedOrders(this.order);
+      }
+      this.update({
+        order_id: this.order.id, quantity: this.quantity,
+        index: this.index
+      });
+    },
+    decrementQuantity() {
+      this.quantity = (this.quantity - 1) || ((this.styleQuantity['cursor'] = 'not-allowed') && 1);
+      this.updateQuantity();
     }
+
   }
 };
 </script>
 
 <style scoped>
 .cart-item__image {
-  width: 100px;
+  padding: 1.2rem;
+  width: 5.9rem;
+  height: 5.6rem;
 }
+
 .count-btns button {
   border-radius: 12px;
   font-weight: 500;

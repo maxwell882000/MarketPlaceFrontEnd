@@ -7,6 +7,7 @@ class BacketService {
         return result.data.result;
     }
 
+    // we use product id to detach from the basket
     async removeFromBasket(product_id) {
         await methods.delete(`action/basket/remove/${product_id}/`);
     }

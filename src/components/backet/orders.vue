@@ -1,58 +1,41 @@
 <template>
-  <div class="d-flex align-items-end mb-2">
-    <h3 class="mb-0">Корзина</h3>
-    <small class="text-muted ms-2 mb-1">1 товар</small>
+  <div class="mb-3">
+    <h4 class="my-3 inline">Корзина</h4>
+    <span class="text-muted ms-2 mb-1">{{ count }} товара</span>
   </div>
   <div class="row">
-
     <div class="col col-12 col-lg-8">
-      <div class="card py-2 px-3">
-        <b-form-checkbox value="all" @click="checkAll" name="checkbox-1">
-          Выбрать все товары
-        </b-form-checkbox>
-      </div>
-      <basket-order></basket-order>
-    </div>
-    <div class="col col-12 pt-3 pt-lg-0 col-lg-4">
-      <div class="card py-3 px-4">
-        <div class="d-flex align-items-center flex-row">
-          <b-icon icon="info-circle-fill" class="me-3" variant="secondary"/>
-          <p class="mb-0">
-            Выберите товары, чтобы перейти к оформлению заказа
-          </p>
+      <div class="card py-2 px-3 ">
+        <div class="w-100 d-flex align-items-center">
+          <div class="w-30">
+            <b-form-checkbox v-model="checkALlOrder">
+             <span class="text-sm text-center">
+                      Выбрать все товары
+               </span>
+            </b-form-checkbox>
+          </div>
+          <span @click="deleteSelected" class="pointer text-red text-sm" v-show="isSelectedEmpty">
+              Удалить выбранные
+          </span>
         </div>
-        <router-link to="/cart/prepareOrder" class='remove-link'>
-          <button
-              :disabled="buttonDisabled"
-              class="btn w-100 mt-3 py-2 btn-primary"
-          >
-            Перейти к оформлению
-          </button>
-        </router-link>
       </div>
+      <basket-order :key="'basket_gotted_' + item.shop.slug" v-for="(item, index) in allOrders"
+                    :index="index" :order="item"></basket-order>
     </div>
+    <prepare-order-calculate-pricing></prepare-order-calculate-pricing>
   </div>
 </template>
 <script>
 
 import BasketOrder from "@/components/backet/basketOrder";
-import {mapMutations} from "vuex";
+import {mapActions, mapGetters, mapMutations} from "vuex";
+import PrepareOrderCalculatePricing from "@/components/backet/prepareOrderCalculatePricing";
+
 export default {
-  components: {BasketOrder},
+  components: {PrepareOrderCalculatePricing, BasketOrder},
   data() {
     return {
       buttonDisabled: true,
-      allOrders: undefined,
-      badgePath: [
-        {
-          name: "Главная",
-          path: "/",
-        },
-        {
-          name: "Корзина",
-          path: "/cart",
-        },
-      ],
       itemInfo: {
         oldPrice: "3 071 880",
         price: "2 898 000",
@@ -62,13 +45,37 @@ export default {
       },
     };
   },
-  methods: {
+  computed: {
+    ...mapGetters({
+      allOrders: "prepareBasketModule/allOrders",
+      isAllSelected: "prepareBasketModule/allSelected",
+      count: "prepareBasketModule/count",
+      isSelectedEmpty: "prepareBasketModule/isSelectedEmpty"
+    }),
 
+    checkALlOrder: {
+      get() {
+        return this.isAllSelected;
+      },
+      set(val) {
+        if (val)
+          this.setAll();
+        else {
+          this.cleanAll();
+        }
+      }
+    }
+  },
+  methods: {
+    ...mapActions({
+      deleteSelected: 'prepareBasketModule/deleteSelectedOrders'
+    }),
     ...mapMutations({
-      setAll: 'prepareBasketModule/addToSelectedOrders'
+      setAll: 'prepareBasketModule/addAllToSelected',
+      cleanAll: "prepareBasketModule/cleanSelectedOrders"
     }),
     checkAll(event) {
-    this.allOrders = event.target.checked;
+      this.checkALlOrder = event.target.checked;
     },
 
   }

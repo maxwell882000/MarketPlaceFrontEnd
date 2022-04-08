@@ -1,5 +1,8 @@
 import {createRouter, createWebHistory,} from "vue-router";
 import Home from "../views/Home.vue";
+import basket from "@/middlewares/basket";
+import store from "@/store";
+import middlewarePipeline from "@/router/middlewarePipeline";
 
 const routes = [
     {
@@ -92,26 +95,38 @@ const routes = [
         children: [
             {
                 path: "",
-                name: "Basket",
+                name: "basket",
                 component: () =>
                     import("../views/takeOrder/Basket"),
             },
             {
                 path: "selectAddress",
-                component: () => import("../views/takeOrder/selectAddress")
+                component: () => import("../views/takeOrder/selectAddress"),
+                meta: {
+                    middleware: [basket]
+                }
             },
             {
                 path: "plasticCard",
-                component: () => import("../views/takeOrder/plasticCard")
+                component: () => import("../views/takeOrder/plasticCard"),
+                meta: {
+                    middleware: [basket]
+                }
             },
             {
                 path: "prepareOrder",
-                component: () => import("../views/takeOrder/prepareOrder")
+                component: () => import("../views/takeOrder/prepareOrder"),
+                meta: {
+                    middleware: [basket]
+                }
             },
             {
                 path: "wayOfPayment",
                 name: "WayOfPayment",
-                component: () => import('../views/takeOrder/wayOfPayment')
+                component: () => import('../views/takeOrder/wayOfPayment'),
+                meta: {
+                    middleware: [basket]
+                }
             },
         ]
     },
@@ -139,5 +154,22 @@ const router = createRouter({
         }
     }
 });
-
+router.beforeEach((to, from, next) => {
+    if (!(to.meta.middleware)) {
+        return next()
+    }
+    const middleware = to.meta.middleware;
+    console.log("MIDDLEWARE");
+    console.log(middleware);
+    const context = {
+        to,
+        from,
+        next,
+        store
+    }
+    return middleware[0]({
+        ...context,
+        next: middlewarePipeline(context, middleware, 1)
+    })
+});
 export default router;

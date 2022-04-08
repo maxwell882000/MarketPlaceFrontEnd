@@ -7,10 +7,17 @@
         <switch-button @changed="setDelivery" class="mb-3"></switch-button>
         <delivery v-if="isDelivery"></delivery>
         <self-delivery v-else></self-delivery>
-        <!--        <span class="text-gray text-sm"> Расскажите информацию, которая может пригодиться курьеру — например, как быстрее к вам добраться</span>-->
       </div>
       <div style="max-width: 70%">
-        <open-layer></open-layer>
+        <open-layer v-if="isDelivery"></open-layer>
+        <open-layer v-else>
+          <template #markers>
+            <l-marker :key="'shop_self_delivery_marker_' + item.id"
+                      v-for="item in shops" :lat-lng="[item.latitude, item.longitude]">
+              <l-popup :content="item.name + ' ' + item.address"/>
+            </l-marker>
+          </template>
+        </open-layer>
       </div>
     </div>
   </section>
@@ -22,20 +29,30 @@ import SwitchButton from "@/components/buttons/switchButton";
 import OpenLayer from "@/components/map/leaflet";
 import Delivery from "@/components/backet/map/delivery";
 import SelfDelivery from "@/components/backet/map/selfDelivery";
-import {mapMutations} from "vuex";
+import {mapActions, mapGetters, mapMutations} from "vuex";
+import {
+  LMarker, LPopup
+} from "@vue-leaflet/vue-leaflet";
 
 export default {
-  components: {SelfDelivery, Delivery, OpenLayer, SwitchButton, BackButton},
+  components: {SelfDelivery, Delivery, OpenLayer, SwitchButton, BackButton, LMarker, LPopup},
   data() {
     return {
       isDelivery: true
     }
   },
+  computed: {
+    ...mapGetters({
+      shops: "deliveryInfoModule/shops"
+    })
+  },
   methods: {
+    ...mapActions({
+      getShop: "deliveryInfoModule/getShops"
+    }),
     ...mapMutations({
       hideFooterAndHeader: 'mainModule/hideFooterAndHeader',
-      openFooterAndHeader: 'mainModule/openFooterAndHeader'
-
+      openFooterAndHeader: 'mainModule/openFooterAndHeader',
     }),
     setDelivery(e) {
       this.isDelivery = e;
@@ -43,6 +60,7 @@ export default {
   },
   mounted() {
     this.hideFooterAndHeader();
+    this.getShop();
   },
   unmounted() {
     this.openFooterAndHeader();

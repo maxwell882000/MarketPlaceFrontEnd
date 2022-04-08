@@ -1,13 +1,20 @@
 <template>
-  <textarea
-      rows="7"
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
-      class="style border-st form-control"></textarea>
+  <div>
+     <textarea
+         rows="7"
+         v-bind="$attrs"
+         :style="{'border-color' : error && 'var(--red)'}"
+         :value="modelValue"
+         @input="$emit('update:modelValue', $event.target.value)"
+         class="style border-st form-control"></textarea>
+    <span class="text-red text-sm pl-2" v-show="error">{{ error }}</span>
+  </div>
+
 </template>
 <script>
 export default {
-  props: ['modelValue'],
+  inheritAttrs: false,
+  props: ['modelValue', 'error'],
   emits: ['update:modelValue']
 }
 </script>
@@ -17,10 +24,12 @@ export default {
   color: var(--dark) !important;
   font-weight: 500;
 }
+
 textarea::placeholder {
   font-weight: 400;
   color: var(--gray200) !important;
 }
+
 .form-control:focus {
   border-color: white !important;
 }

@@ -5,7 +5,6 @@ export const backetModule = {
     namespaced: true,
     state() {
         return {
-            quantity: {},
             order: {}
         }
     },
@@ -32,25 +31,19 @@ export const backetModule = {
         },
         getPreOrder: (state) => (id) => {
             return {
-                quantity: state.quantity[id] || 1,
+                quantity: 1,
                 order: state.order[id] || {}
             }
         },
     },
     mutations: {
-        setQuantity(state, id, quantity) {
-            state.quantity[id] = state.quantity[id] || 1;
-            state.quantity[id] = quantity;
-        },
+
         setOrder(state, {id, key, value}) {
             state.order[id] = state.order[id] || {};
             state.order[id][key] = value;
-            console.log("ORDEER GOOTTED");
-            console.log(state.order);
         },
         clear(state) {
             state.order = {};
-            state.quantity = 1;
         }
     },
     actions: {

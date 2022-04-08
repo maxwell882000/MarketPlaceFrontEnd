@@ -1,37 +1,52 @@
 <template>
-    <div class="card mt-3 py-2 px-3">
-      <b-form-checkbox v-model="checkShop">
-        <b-icon icon="shop" class="me-1" variant="secondary"/>
-        MacBro
-        <router-link to="/">
-          <b-icon icon="chevron-compact-right" variant="secondary"/>
-        </router-link>
-      </b-form-checkbox>
-      <div class="line"></div>
-      <CartItem :checkItem="checkShop" :itemInfo="itemInfo"/>
-    </div>
+  <div class="card mt-3 py-2 px-3">
+    <b-form-checkbox v-model="checkShop">
+      <b-icon icon="shop" class="me-1" variant="secondary"/>
+      <router-link class="remove-link" :to="'/shop/' + order.shop.slug">
+        <span class="text-sm bold px-2">{{ order.shop.name }}</span>
+
+        <b-icon icon="chevron-right" variant="secondary"/>
+      </router-link>
+    </b-form-checkbox>
+    <div class="line"></div>
+    <CartItem :key="'basket_item_shop_' + order.id" v-for="order in order.orders"
+              :index="index"
+              :order="order"
+    />
+  </div>
 </template>
 <script>
 import CartItem from "@/components/cart/Cart-item";
+import {mapGetters, mapMutations} from "vuex";
+
 export default {
   components: {CartItem},
-  data(){
-    return {
-      checkShop: undefined,
-      itemInfo: {
-        oldPrice: "3 071 880",
-        price: "2 898 000",
-        name: "Смартфон Samsung Galaxy A12 (SM-A125) 3/32 ГБ RU, красный",
-        picture:
-            "https://www.lg.com/in/images/tvs/md06117716/gallery/Desk-02.jpg",
-      },
-    };
+  props: {
+    order: Object,
+    index: Number
   },
-
-  methods:{
-    checkOrder() {
-
+  computed: {
+    ...mapGetters({
+      isAllInShop: 'prepareBasketModule/isInShopSelected'
+    }),
+    checkShop: {
+      get() {
+        return this.isAllInShop(this.index);
+      },
+      set(val) {
+        if (val) {
+          this.addAllInShop(this.index);
+        } else {
+          this.cleanAllInShop(this.index);
+        }
+      }
     }
+  },
+  methods: {
+    ...mapMutations({
+      addAllInShop: 'prepareBasketModule/addAllInShop',
+      cleanAllInShop: 'prepareBasketModule/cleanAllInShop'
+    })
   }
 }
 </script>

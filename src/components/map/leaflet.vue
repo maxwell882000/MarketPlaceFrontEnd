@@ -4,26 +4,23 @@
         v-model="zoom"
         v-model:zoom="zoom"
         :center="[41.2995, 69.2401]"
-        @move="log('move')"
-    >
-      <l-tile-layer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      ></l-tile-layer>
+        @move="log('move')">
+      <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
       <l-control-layers/>
-      <l-marker :lat-lng="[41.2995, 69.2401]">
-        <l-icon>
-          <img src="@/assets/icons/map_pin.svg">
-        </l-icon>
-      </l-marker>
+      <slot name="markers"></slot>
     </l-map>
   </div>
+<!--  <l-marker :lat-lng="markerLatLng">-->
+<!--    &lt;!&ndash;        <l-icon>&ndash;&gt;-->
+<!--    &lt;!&ndash;&lt;!&ndash;          <img src="@/assets/icons/map_pin.svg">&ndash;&gt;&ndash;&gt;-->
+<!--    &lt;!&ndash;        </l-icon>&ndash;&gt;-->
+<!--  </l-marker>-->
 </template>
+
 <script>
 import {
   LMap,
   LControlLayers,
-  LIcon,
-  LMarker,
   LTileLayer,
 
 } from "@vue-leaflet/vue-leaflet";
@@ -34,13 +31,16 @@ export default {
     LMap,
     LControlLayers,
     LTileLayer,
-    LIcon,
-    LMarker,
+    // eslint-disable-next-line vue/no-unused-components
   },
   data() {
     return {
       zoom: 11,
+      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      attribution:
+          '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       iconWidth: 25,
+      markerLatLng: [41.34999319211107, 69.34938845769688],
       iconHeight: 40,
     };
   },

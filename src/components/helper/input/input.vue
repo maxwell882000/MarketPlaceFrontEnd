@@ -1,5 +1,5 @@
 <template>
-  <div class="border-input custom-border-input">
+  <div :style="styleBorder" class="border-input custom-border-input">
     <div class="inputContainer">
       <div ref="prefix" class="prefix">
         <slot name="prefix"></slot>
@@ -21,11 +21,11 @@
 
 </template>
 <script>
-export default {
+export default  {
   inheritAttrs: false,
-
   props: {
     modelValue: {},
+    styleBorder: {},
     widthSuffix: undefined,
     widthPrefix: undefined
   },
@@ -57,12 +57,17 @@ input[type="date"] {
   color: var(--dark);
 }
 
+.label, .input:focus + .label, .input:not(:placeholder-shown) + .label,
+.prefix,
+.suffix {
+  color: var(--gray200);
+}
+
 .label {
   position: absolute;
   top: $center;
   left: 7.5px;
   background-color: white;
-  color: var(--gray200);
   font-size: 16px;
   line-height: $lineHeight;
   transition: 0.5s;
@@ -110,7 +115,6 @@ input[type="date"] {
   font-size: 12px;
   font-weight: normal;
   line-height: 18px;
-  color: var(--gray200);
 }
 
 .input:not(:placeholder-shown) + .label {
@@ -120,7 +124,6 @@ input[type="date"] {
   font-size: 12px;
   font-weight: normal;
   line-height: $lineHeight;
-  color: var(--gray200);
 }
 
 ::placeholder {
@@ -135,7 +138,6 @@ input[type="date"] {
   height: 100%;
   left: 7.5px;
   background-color: white;
-  color: var(--gray200);
   font-size: 16px;
   line-height: $lineHeight;
 }

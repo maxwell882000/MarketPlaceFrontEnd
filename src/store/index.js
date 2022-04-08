@@ -16,7 +16,9 @@ import {categoryModule} from "@/store/category/categoryModule";
 import {productFilterByModule} from "@/store/product/productFilterByModule";
 import {searchModule} from "@/store/search/searchModule";
 import {shopModule} from "@/store/shop/shopModule";
-import {orderModule} from "@/store/backet/orderModule";
+import {deliveryInfoModule} from "@/store/backet/registration/deliveryInfoModule";
+import {registrationOrderModule} from "@/store/backet/registration/registrationOrderModule";
+import {wayOfPaymentModule} from "@/store/backet/registration/wayOfPaymentModule";
 
 export default createStore({
     modules: {
@@ -37,6 +39,8 @@ export default createStore({
         productFilterByModule: productFilterByModule,
         searchModule: searchModule,
         shopModule: shopModule,
-        orderModule: orderModule
+        deliveryInfoModule: deliveryInfoModule,
+        registrationOrderModule: registrationOrderModule,
+        wayOfPaymentModule: wayOfPaymentModule
     }
 });

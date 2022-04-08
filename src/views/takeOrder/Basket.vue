@@ -1,11 +1,14 @@
 <template>
-  <section class="container py-3">
-    <Badge class="mb-2" :path="badgePath"/>
-    <empty-backet></empty-backet>
-    <Orders></Orders>
-    <h5 class="mt-3 mb-3">Вам может быть интересно</h5>
-    <SalesRoll/>
-  </section>
+  <loader waiting="basket">
+    <section class="container py-3">
+      <Badge class="mb-2" :path="badgePath"/>
+      <empty-backet v-if="!countOrder"></empty-backet>
+      <Orders v-else></Orders>
+      <h5 class="mt-3 mb-3">Вам может быть интересно</h5>
+      <SalesRoll/>
+    </section>
+  </loader>
+
 </template>
 
 <script>
@@ -14,11 +17,12 @@ import Badge from "@/components/shared/Badge.vue";
 // import EmptyBacket from "@/components/backet/emptyBacket";
 import Orders from "@/components/backet/orders";
 import EmptyBacket from "@/components/backet/emptyBacket";
+import {mapActions, mapGetters, mapMutations} from "vuex";
+import Loader from "@/components/loading/loader";
 
 export default {
   data() {
     return {
-      buttonDisabled: true,
       badgePath: [
         {
           name: "Главная",
@@ -29,16 +33,32 @@ export default {
           path: "/cart",
         },
       ],
-      itemInfo: {
-        oldPrice: "3 071 880",
-        price: "2 898 000",
-        name: "Смартфон Samsung Galaxy A12 (SM-A125) 3/32 ГБ RU, красный",
-        picture:
-            "https://www.lg.com/in/images/tvs/md06117716/gallery/Desk-02.jpg",
-      },
     };
   },
-  components: {EmptyBacket, Badge, SalesRoll, Orders},
+  computed: {
+    ...mapGetters({
+      countOrder: "prepareBasketModule/countOrders"
+    })
+  },
+  methods: {
+    ...mapActions({
+      getOrders: "prepareBasketModule/getOrders",
+    }),
+
+    ...mapMutations({
+      cleanDelivery: 'deliveryInfoModule/cleanAll',
+      cleanPrepare: 'registrationOrderModule/clean',
+      cleanPayment: 'wayOfPaymentModule/clean'
+    })
+  },
+  components: {Loader, EmptyBacket, Badge, SalesRoll, Orders},
+  created() {
+    this.getOrders();
+    this.cleanDelivery();
+    this.cleanPrepare();
+    this.cleanPayment();
+  },
+
 };
 </script>
 

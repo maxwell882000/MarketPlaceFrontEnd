@@ -3,21 +3,36 @@
     <h6>Доставка 2 посылок курьером</h6>
     <hr>
     <div class="d-flex">
-      <div class="mr-4">
-        <location-pin></location-pin>
+      <div v-show="status.NOT_CHOSEN !== currentStatus" class="mr-4">
+        <location-pin v-if="status.DELIVERY === currentStatus"></location-pin>
+        <box-time v-else-if="status.SELF_DELIVERY === currentStatus"></box-time>
       </div>
       <div class="w-100">
         <div class="mb-3">
-          <span class="bold">Курьером</span>
+          <span class="bold">{{
+              status.DELIVERY === currentStatus ? "Курьером"
+                  : status.SELF_DELIVERY === currentStatus ? "Самовызов" : 'Адрес доставки'
+            }} </span>
         </div>
-        <router-link to="/cart/selectAddress" class="mb-3 remove-link d-flex w-100 justify-content-between align-items-center">
-          <div>
-                <span>
-            ул. Аккурган, 23А, Ташкент
+        <router-link to="/cart/selectAddress"
+                     class="mb-3 remove-link d-flex w-100 justify-content-between align-items-center">
+          <div v-if="currentStatus === status.NOT_CHOSEN">
+            <span>
+              Добавить адрес доставки
+            </span>
+          </div>
+          <div v-else-if="currentStatus === status.SELF_DELIVERY">
+            <div class="mt-3">
+              <span class="text-blue">Изменить способ доставки</span>
+            </div>
+          </div>
+          <div v-else-if="status.DELIVERY === currentStatus">
+            <span>
+            {{ address }}
              </span>
             <br>
             <span class=" text-gray">
-            25 дом, 3 подъезд, 2 этаж, 13 квартира
+            {{ homeInfo }}
           </span>
             <br>
             <div class="mt-3">
@@ -32,9 +47,16 @@
     </div>
   </section>
 </template>
-<script>
+<script setup>
 import LocationPin from "@/components/icons/locationPin";
-export default {
-  components: {LocationPin}
-}
+import {useStore} from "vuex";
+import {computed} from "vue";
+import deliveryStatusConstant from "@/constants/delivery/deliveryStatusConstant";
+import BoxTime from "@/components/icons/box-time";
+
+const store = useStore();
+const status = deliveryStatusConstant;
+const address = computed(() => store.getters['registrationOrderModule/fullAddress']);
+const homeInfo = computed(() => store.getters['registrationOrderModule/h  omeInfo'])
+const currentStatus = computed(() => store.getters['deliveryInfoModule/status']);
 </script>
