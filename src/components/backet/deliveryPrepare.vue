@@ -1,7 +1,7 @@
 <template>
   <section class="section-container mb-3">
-    <h6>Доставка 2 посылок курьером</h6>
-    <hr>
+<!--    <h6>Доставка</h6>-->
+<!--    <hr>-->
     <div class="d-flex">
       <div v-show="status.NOT_CHOSEN !== currentStatus" class="mr-4">
         <location-pin v-if="status.DELIVERY === currentStatus"></location-pin>
@@ -57,6 +57,7 @@ import BoxTime from "@/components/icons/box-time";
 const store = useStore();
 const status = deliveryStatusConstant;
 const address = computed(() => store.getters['registrationOrderModule/fullAddress']);
-const homeInfo = computed(() => store.getters['registrationOrderModule/h  omeInfo'])
+const homeInfo = computed(() => store.getters['registrationOrderModule/homeInfo'])
+// const numberOfProduct = computed(() => store.getters['prepareBasketModule/selectedOrders'])
 const currentStatus = computed(() => store.getters['deliveryInfoModule/status']);
 </script>

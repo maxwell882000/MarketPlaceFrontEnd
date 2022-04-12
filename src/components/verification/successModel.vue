@@ -1,5 +1,6 @@
 <template>
   <ModalView
+      v-show="success"
       @closeModal="closeModal"
       style="width: 25rem"
       title="Отправленно"
@@ -18,8 +19,12 @@
 import ModalView from "@/components/modal/modalView";
 import ButtonBlue from "@/components/helper/button/buttonBlue";
 import {useRouter} from "vue-router";
+import {computed} from "vue";
+import {useStore} from "vuex";
 
 const route = useRouter();
+const store = useStore();
+const success = computed(() => store.getters['verificationModule/success']);
 
 function closeModal() {
   route.replace({

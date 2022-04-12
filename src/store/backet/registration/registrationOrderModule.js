@@ -49,8 +49,8 @@ export const registrationOrderModule = {
         }
     },
     getters: {
-        wayOfPayment(state){
-          return state.wayOfPayment;
+        wayOfPayment(state) {
+            return state.wayOfPayment;
         },
         deliveryCost(state) {
             return state.deliveryCost
@@ -67,11 +67,19 @@ export const registrationOrderModule = {
     },
     mutations: {
         cleanDelivery(state) {
-            state.deliveryCost = {};
+            state.deliveryCost = {
+                different_shop: false
+            };
             state.deliveryInfo = {};
         },
         clean(state) {
-            state.deliveryCost = {};
+            state.deliveryCost = {
+                different_shop: false
+            };
+            state.deliveryInfo = {}
+            state.wayOfPayment = {
+                type: wayOfPaymentConstant.NOT_CHOSEN,
+            }
             state.form = {};
         },
         deleteWayOfPayment(state, key) {

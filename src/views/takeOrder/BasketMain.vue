@@ -13,7 +13,10 @@ export default {
     ...mapMutations({
       hideCategoryLine: 'hideCategoryLine',
       openCategoryLine: 'openCategoryLine',
-      clean: 'prepareBasketModule/clean'
+      clean: 'prepareBasketModule/clean',
+      cleanAddress: "deliveryInfoModule/clean",
+      cleanRegistration: "registrationOrderModule/clean",
+      cleanPayment: "wayOfPaymentModule/clean"
     })
   },
   mounted() {
@@ -22,6 +25,9 @@ export default {
   unmounted() {
     this.openCategoryLine();
     this.clean();
+    this.cleanAddress();
+    this.cleanRegistration();
+    this.cleanPayment();
   }
 }
 </script>

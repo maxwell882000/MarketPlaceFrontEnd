@@ -37,7 +37,7 @@
                   title="Назад"></ButtonGray>
     </router-link>
     <router-link :to="isFullNextPath ? next :'/verification' + next " replace>
-      <ButtonBlue class="w-20 mb-3 py-2" title="Далее"></ButtonBlue>
+      <ButtonBlue @click="$emit('nextPage')" class="w-20 mb-3 py-2" title="Далее"></ButtonBlue>
     </router-link>
   </loader>
 
@@ -50,13 +50,13 @@ import ButtonBlue from "@/components/helper/button/buttonBlue";
 let sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 export default {
   components: {ButtonBlue, ButtonGray, Loader},
-  emits: ['image-upload'],
+  emits: ['image-upload', 'nextPage'],
   props: ['initialImage', 'waiting',
     'title', 'decs', 'assetImage', "next", 'back', 'isFullNextPath'],
   data() {
     return {
       filelist: {},
-        image: this.initialImage
+      image: this.initialImage
     }
   },
   methods: {
@@ -89,7 +89,7 @@ export default {
 
 .image-min-height {
   width: 100%;
-  height:  13rem;
+  height: 13rem;
   //min-height: 13rem;
   //width: 100%;
 }

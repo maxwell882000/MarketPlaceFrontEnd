@@ -19,7 +19,7 @@ export const authModule = {
             return !!state.token;
         },
         isUserData(state) {
-            return state.user_credit;
+            return state.user.user_credit;
         }
     },
     actions: {
@@ -105,9 +105,10 @@ export const authModule = {
         },
         setInitialUser(state, user) {
             state.user = user;
+            console.log(state.user);
         },
         setUserData(state) {
-          state.user.user_data = true;
+          state.user.user_credit = true;
         },
         setUser(state, user) {
             state.user.name = user.name;

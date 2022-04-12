@@ -10,7 +10,7 @@ class TokenService {
         console.log(token);
         if (token) {
             return token;
-        } else if (token.token) {
+        } else if (token && token.token) {
             return token.token;
         } else {
             console.error('[TokenService]: No token found!');

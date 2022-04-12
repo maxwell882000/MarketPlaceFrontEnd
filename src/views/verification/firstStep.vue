@@ -1,5 +1,4 @@
 <template>
-  <success-model></success-model>
   <section class="bg-white p-3 rounded-st mb-3">
     <h6>Общая информация</h6>
     <b-row>
@@ -81,7 +80,6 @@ import InputValidation from "@/components/helper/input/inputValidation";
 import validation from "@/mixins/validation";
 import DropdownChoose from "@/components/helper/dropdown/dropdownChoose";
 import sexItems from "@/constants/helper/dropDown/sexItems";
-import SuccessModel from "@/components/verification/successModel";
 
 const isDept = ref(false);
 const nextPage = ref(1);

@@ -7,6 +7,7 @@ export const verificationModule = {
     namespaced: true,
     state() {
         const state = {
+            success: false,
             userData: {
                 // "avatar->name" => "asd"
                 // "phone" => "asfasf"
@@ -54,13 +55,15 @@ export const verificationModule = {
                     ...getters[verificationConstant.USER_PASSPORT],
                     ...getters[verificationConstant.PASSPORT_REVERSE]
                 };
+                console.log(request);
                 await userDataService.createUserData(request); // get some unnecessary result
                 // if there is no error, so go to the next
                 commit("setUserData", null, {root: true});
+                commit('setSuccess');
             } catch (e) {
                 console.log(e);
             }
-            commit("wait/END", "complete_validation", {root: false});
+            commit("wait/END", "complete_validation", {root: true});
         },
         validation({getters}) {
             const type = verificationConstant;
@@ -85,12 +88,17 @@ export const verificationModule = {
         userData(state) {
             return state.userData;
         },
+        success(state) {
+            return state.success;
+        },
         errorData(state) {
             return state.errorData;
         }
     },
     mutations: {
-
+        setSuccess(state) {
+            state.success = true;
+        },
         [verificationConstant.USER_PASSPORT](state, {id_server, img}) {
             state[verificationConstant.USER_PASSPORT] = id_server;
             state[verificationConstant.USER_PASSPORT].image = img
