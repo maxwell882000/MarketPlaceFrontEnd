@@ -1,5 +1,6 @@
 import deliveryService from "@/services/purchase/deliveryService";
 import deliveryConstant from "@/constants/delivery/deliveryConstant";
+import wayOfPaymentConstant from "@/constants/payment/wayOfPaymentConstant";
 
 export const registrationOrderModule = {
     namespaced: true,
@@ -8,6 +9,16 @@ export const registrationOrderModule = {
             deliveryCost: {
                 different_shop: false
                 //'price' => $price, 'days' => $day, 'different_shop' => $products->count() > 1
+            },
+            wayOfPayment: {
+                type: wayOfPaymentConstant.NOT_CHOSEN,
+                // additional info will be sent depending on what option was selected
+                //credit_id -- will be deleted if not installment
+                //initial_price -- will be deleted if not installment
+                // also will be deleted from selected orders -- wrong
+                // all will be stored here
+                // price
+                // real_price --- must be set using discount_percent from price
             },
             deliveryInfo: {},
             form: {
@@ -22,11 +33,11 @@ export const registrationOrderModule = {
         }
     },
     actions: {
-        async getCostOfDelivery({commit, rootGetters}) {
+        async getCostOfDelivery({commit, getters, rootGetters}) {
             commit("wait/START", "delivery_price_loaded", {root: true});
             try {
                 const form = {
-                    ...rootGetters['deliveryInfoModule/deliveryInfo'],
+                    ...getters.deliveryInfo,
                     "order_ids": rootGetters['prepareBasketModule/ordersId']
                 };
                 const result = await deliveryService.calculateDeliveryPrice(form);
@@ -38,6 +49,9 @@ export const registrationOrderModule = {
         }
     },
     getters: {
+        wayOfPayment(state){
+          return state.wayOfPayment;
+        },
         deliveryCost(state) {
             return state.deliveryCost
         },
@@ -52,13 +66,16 @@ export const registrationOrderModule = {
         },
     },
     mutations: {
-        cleanDelivery(state){
+        cleanDelivery(state) {
             state.deliveryCost = {};
             state.deliveryInfo = {};
         },
         clean(state) {
             state.deliveryCost = {};
             state.form = {};
+        },
+        deleteWayOfPayment(state, key) {
+            delete state.wayOfPayment[key];
         },
         setDeliveryInfo(state, deliveryInfo) {
             state.deliveryInfo = deliveryInfo;

@@ -1,12 +1,12 @@
 <template>
   <div class="relative block">
-    <div @click="isShow = !isShow">
+    <div @click="toggle">
       <slot name="button"></slot>
     </div>
     <div>
       <div v-click-away="onClickAway" v-if="isShow" class="absolute section-container shadow-md"
-           style="width: 15rem; z-index: 10;margin-top: 0.2rem; right: -0.4rem;">
-        <h6>{{ label }}</h6>
+           :style="styleDropDown">
+        <h6 class="text-dark">{{ label }}</h6>
         <hr>
         <slot name="items"></slot>
       </div>
@@ -20,15 +20,44 @@ import InputRadio from "@/components/helper/input/inputRadio";
 export default {
   // eslint-disable-next-line vue/no-unused-components
   components: {InputRadio},
-  props: ['label'],
+  emits: ['update:modelValue'],
+  props: {
+    label: String,
+    modelValue: String,
+    styleDropDown: {
+      type: Object,
+      default() {
+        return {
+          width: "15rem",
+          "z-index": 10,
+          marginTop: "0.2rem",
+          right: "-0.4rem"
+        }
+      }
+    },
+
+  },
   data() {
     return {
-      isShow: false
+      isShow: !!this.modelValue
+    }
+  },
+  watch: {
+    modelValue(val) {
+      this.isShow = !!val;
     }
   },
   methods: {
+    emitValue() {
+      this.$emit('update:modelValue', this.isShow ? "true" : "");
+    },
+    toggle() {
+      this.isShow = !this.isShow
+      this.emitValue();
+    },
     onClickAway() {
       this.isShow = false;
+      this.emitValue();
     }
   }
 }

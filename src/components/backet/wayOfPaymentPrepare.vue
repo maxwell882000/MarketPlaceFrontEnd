@@ -5,14 +5,32 @@
         <div class="mb-3">
           <span class="bold block">Способ оплаты</span>
         </div>
-        <div>
-          <span>Рассрочка, тариф  <span class="bold">«Без переплаты»</span></span>
+        <div v-if="wayOfPayment.type === type.INSTALLMENT">
+          <span>Рассрочка, тариф  <span class="bold">«{{ wayOfPayment.name }}»</span></span>
+        </div>
+        <div v-else-if="wayOfPayment.type === type.NOT_CHOSEN">
+          <span>Выберите способ оплаты</span>
+        </div>
+        <div v-else-if="wayOfPayment.type === type.CASH">
+          <span>Наличными по факту доставки</span>
+        </div>
+        <div v-else-if="wayOfPayment.type === type.CARD">
+          <span>Картой Uzcard или HUMO</span>
         </div>
       </div>
       <div>
         <b-icon icon="chevron-right"/>
       </div>
     </router-link>
-    <span>План оплаты рассрочки 21.11.2021 – 20.02.2022</span>
+    <!--    <span>План оплаты рассрочки 21.11.2021 – 20.02.2022</span>-->
   </section>
 </template>
+<script setup>
+import {useStore} from "vuex";
+import {computed} from "vue";
+import wayOfPaymentConstant from "@/constants/payment/wayOfPaymentConstant";
+
+const store = useStore();
+const type = wayOfPaymentConstant;
+const wayOfPayment = computed(() => store.getters['registrationOrderModule/wayOfPayment']);
+</script>

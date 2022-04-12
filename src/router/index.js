@@ -3,6 +3,10 @@ import Home from "../views/Home.vue";
 import basket from "@/middlewares/basket";
 import store from "@/store";
 import middlewarePipeline from "@/router/middlewarePipeline";
+import userCredit from "@/middlewares/userCredit";
+import isFirstPageSuccess from "@/middlewares/validation/isFirstPageSuccess";
+import isSecondPageSuccess from "@/middlewares/validation/isSecondPageSuccess";
+import isThirdPageSuccess from "@/middlewares/validation/isThirdPageSuccess";
 
 const routes = [
     {
@@ -28,19 +32,31 @@ const routes = [
         children: [
             {
                 path: "1",
+                name: "start_verification",
                 component: () => import("../views/verification/firstStep"),
             },
             {
                 path: "2",
+                name: "second_step",
                 component: () => import("../views/verification/secondStep"),
+                meta: {
+                    middleware: [isFirstPageSuccess]
+                }
             },
             {
                 path: "3",
+                name: "third_step",
                 component: () => import("../views/verification/thirdStep"),
+                meta: {
+                    middleware: [isFirstPageSuccess, isSecondPageSuccess]
+                }
             },
             {
                 path: "4",
                 component: () => import("../views/verification/fourthStep"),
+                meta: {
+                    middleware: [isFirstPageSuccess, isSecondPageSuccess, isThirdPageSuccess]
+                }
             }
         ]
     },
@@ -98,6 +114,7 @@ const routes = [
                 name: "basket",
                 component: () =>
                     import("../views/takeOrder/Basket"),
+
             },
             {
                 path: "selectAddress",
@@ -117,7 +134,7 @@ const routes = [
                 path: "prepareOrder",
                 component: () => import("../views/takeOrder/prepareOrder"),
                 meta: {
-                    middleware: [basket]
+                    middleware: [basket, userCredit]
                 }
             },
             {

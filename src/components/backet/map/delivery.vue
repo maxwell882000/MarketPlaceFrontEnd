@@ -11,7 +11,7 @@
         <Location></Location>
       </template>
     </InputValidation>
-    <div v-show="onFocus" class="border-st bg-white p-2 w-100 shadow mt-1"
+    <div v-show="onFocus" class="rounded-st bg-white p-2 w-100 shadow mt-1"
          style="position: absolute; z-index: 100;">
       <loader :div-style="{height: '10vw'}" waiting="map_city_loaded">
         <div v-if="cities.length === 0">

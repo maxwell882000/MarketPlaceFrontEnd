@@ -15,6 +15,10 @@ export const prepareBasketModule = {
                 //
             ],
             selectedOrders: {
+                // the price and real_price will be set when
+                // way of payment will be chosen
+                //
+                //
                 // order_id
                 // quantity
                 // order
@@ -40,9 +44,6 @@ export const prepareBasketModule = {
         },
         calculatePrice(state) {
             return (name) => {
-                if (state.selectedOrders[name]) {
-                    return state.selectedOrders[name];
-                }
                 let selectedOrders = Object.entries(state.selectedOrders);
                 if (selectedOrders.length === 1) {
                     let order = selectedOrders[0][1];
@@ -204,6 +205,9 @@ export const prepareBasketModule = {
         },
         cleanSelectedOrders(state) {
             state.selectedOrders = {};
+        },
+        deleteSelectedOrders(state, key) {
+            delete state.selectedOrders[key];
         },
         clean(state) {
             state.count = 0;

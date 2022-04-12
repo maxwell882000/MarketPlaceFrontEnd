@@ -2,7 +2,7 @@
   <section class="container">
     <back-button title="Назад в оформление"></back-button>
     <h4>Предоставьте карточные данные</h4>
-    <div class="bg-white border-st p-4">
+    <div class="bg-white rounded-st p-4">
       <div class="w-60 text-sm">
               <span class="mb-4">
         Предоставьте реквизиты банковской карты, на которую переводится ваш доход,
@@ -26,7 +26,7 @@
           </div>
           <div class="mini-card ">
             <div
-                class="d-flex flex-column align-items-center justify-content-center p-1 back-gray h-100 w-100 border-st">
+                class="d-flex flex-column align-items-center justify-content-center p-1 back-gray h-100 w-100 rounded-st">
               <card-add style="stroke: var(--dark)"></card-add>
               <span class="text-sm">Новая карта</span>
             </div>

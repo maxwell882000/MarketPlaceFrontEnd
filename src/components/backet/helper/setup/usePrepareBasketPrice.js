@@ -4,11 +4,19 @@ import {computed} from "vue";
 export default function () {
     const store = useStore();
     const selectedOrders = computed(() => store.getters['prepareBasketModule/isSelectedEmpty']);
-    const overallPrice = computed(() => store.getters['prepareBasketModule/calculatePrice']('real_price'));
-    const overallOldPrice = computed(() => store.getters['prepareBasketModule/calculatePrice']('price'));
+    const wayOfPayment = computed(() => store.getters['registrationOrderModule/wayOfPayment']);
+    const price = computed(() => store.getters['prepareBasketModule/calculatePrice']('price'));
+    const overallPrice = computed(() => {
+        if (wayOfPayment.value.real_price) {
+            return wayOfPayment.value.real_price;
+        }
+        return store.getters['prepareBasketModule/calculatePrice']('real_price')
+    });
+    const discountPrice = computed(() => store.getters['prepareBasketModule/calculatePrice']('discount_price'));
     return {
         overallPrice: overallPrice,
-        overallOldPrice: overallOldPrice,
-        selectedLength: selectedOrders
+        selectedLength: selectedOrders,
+        discountPrice: discountPrice,
+        price: price
     }
 }

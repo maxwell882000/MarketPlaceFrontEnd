@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute shadow border-st bg-white search-helper">
+  <div class="absolute shadow rounded-st bg-white search-helper">
     <router-link :to="'/search/' + item.search"
                  :key="'search_key_results' + item.id" v-for="item in searchHelpers"
                  class="d-flex remove-link justify-content-between  align-items-center">

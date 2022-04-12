@@ -1,4 +1,4 @@
-import {computed, ref} from "vue";
+import {computed, ref, watch} from "vue";
 
 export default function (props) {
     const index = ref(0);
@@ -10,12 +10,15 @@ export default function (props) {
             index.value = val;
         }
     });
+    // reset input
+    watch(() => props.reset, () => {
+        index.value = 0;
+    })
+
     const input = computed({
         get: () => {
             try {
-                console.log(index.value);
-                console.log(props.values[index.value - 1]);
-                return props.values[index.value - 1];
+                return props.values[index.value];
             } catch (e) {
                 return 0;
             }

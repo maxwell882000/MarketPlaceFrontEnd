@@ -8,8 +8,8 @@ export const wayOfPaymentModule = {
             credits: [],
             chosenCredit: {
                 type: wayOfPaymentConstant.NOT_CHOSEN,
-                credits: []
-            }
+                credits: [] // here is info for choosing appropriate tariff in wayOfPaymentPrice
+            },
         }
     },
     actions: {
@@ -17,9 +17,7 @@ export const wayOfPaymentModule = {
             commit("wait/START", "credit_loaded", {root: true});
             try {
                 const product_id = rootGetters['prepareBasketModule/productIds'];
-                console.log(product_id);
                 const result = await wayOfPaymentService.getCredits(product_id);
-                console.log(result);
                 commit("setCredits", result.credit);
             } catch (e) {
                 console.log(e);
@@ -54,9 +52,9 @@ export const wayOfPaymentModule = {
         },
         getMonth(state) {
             const credit = state.chosenCredit.credits;
-            if (credit.length)
+            if (credit && credit.length)
                 return {
-                    length: credit.length,
+                    length: credit.length - 1,
                     max: credit.at(-1).month ?? 0,
                     min: credit.at(0).month ?? 0,
                     value: 0,

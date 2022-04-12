@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white border-st">
+  <div class="bg-white rounded-st">
     <b-container class="w-100">
       <loader :div-style="{height: '10vh'}" waiting="rate">
         <b-row class="text-rate justify-content-center">

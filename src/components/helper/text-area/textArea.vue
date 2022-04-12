@@ -6,7 +6,7 @@
          :style="{'border-color' : error && 'var(--red)'}"
          :value="modelValue"
          @input="$emit('update:modelValue', $event.target.value)"
-         class="style border-st form-control"></textarea>
+         class="style rounded-st form-control"></textarea>
     <span class="text-red text-sm pl-2" v-show="error">{{ error }}</span>
   </div>
 

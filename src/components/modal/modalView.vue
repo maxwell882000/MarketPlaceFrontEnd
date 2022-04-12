@@ -6,6 +6,7 @@
           <b-icon @click="$emit('closeModal')" style="cursor: pointer; color: var(--gray300)" icon="x"
                   font-scale="1.7"></b-icon>
         </div>
+        <slot name="prefix"></slot>
         <h5 v-if="title">{{ title }}</h5>
         <p v-if="description" class="text-font">{{ description }}</p>
         <slot name="body"></slot>
@@ -46,7 +47,7 @@ export default {
   z-index: 20000;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  /*width: 100vw;*/
   background-color: #000000da;
 }
 

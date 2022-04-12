@@ -447,7 +447,10 @@ input[type=number] {
   border-radius: var(--borderRadius);
   margin-top: var(--marinTop);
 }
+.border-only {
+  border: 1px solid var(--gray100);
 
+}
 .border-input {
   border: 1px solid var(--gray100);
   border-radius: var(--borderRadius);
@@ -462,12 +465,15 @@ input[type=number] {
   border-radius: 50%;
 }
 
-.border-st {
+.rounded-st {
   border-radius: var(--borderRadius);
 }
 
 .back-gray {
   background-color: var(--gray100);
+}
+.back-gray300 {
+  background-color: var(--gray300);
 }
 
 .inline {
@@ -477,7 +483,6 @@ input[type=number] {
 .text-blue {
   color: var(--blue);
 }
-
 .text-dark {
   color: var(--dark);
 }

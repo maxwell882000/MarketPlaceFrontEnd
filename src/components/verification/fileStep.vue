@@ -1,44 +1,46 @@
 <template>
-  <section class="border-st p-3 bg-white mb-3">
-    <div class="w-70">
-      <h6>{{ title }}</h6>
-      <div class="mb-3">
+  <loader waiting="file_loaded">
+    <section class="rounded-st p-3 bg-white mb-3">
+      <div class="w-70">
+        <h6>{{ title }}</h6>
+        <div class="mb-3">
       <span class="text-sm">
-      {{ desc }}
+      {{ decs }}
       </span>
-      </div>
-      <loader :div-style="{height: 'auto'}" :waiting="waiting">
-        <div
-            @click="$refs.input_file.click()"
-            @dragover.prevent="dragover" @dragleave="dragleave" @drop.prevent="drop"
-            class="input-file  border-st  pointer" :class="image || 'p-3'">
-          <input @change="onChange" type="file" ref="input_file" style="display: none">
-          <template v-if="!image">
-            <div class="h-50">
-              <img class="img-res" :src="require('@/assets/' + assetImage)">
-            </div>
-            <span>
-       <span class="text-blue">Нажмите  </span> чтобы выбрать фотографии или просто перетащите их сюда
-      </span>
-          </template>
-          <template v-else>
-            <div>
-              <img class="img-res border-st" :src="image">
-            </div>
-          </template>
         </div>
-      </loader>
-    </div>
-  </section>
+        <loader :div-style="{height: 'auto'}" :waiting="waiting">
+          <div
+              @click="$refs.input_file.click()"
+              @dragover.prevent="dragover" @dragleave="dragleave" @drop.prevent="drop"
+              class="input-file  rounded-st  pointer" :class="image || 'p-3'">
+            <input @change="onChange" type="file" ref="input_file" style="display: none">
+            <template v-if="!image">
+              <div class="h-50">
+                <img class="img-res" :src="require('@/assets/' + assetImage)">
+              </div>
+              <span>
+              <span class="text-blue">Нажмите  </span> чтобы выбрать фотографии или просто перетащите их сюда
+            </span>
+            </template>
+            <template v-else>
+              <div class="image-min-height">
+                <img class="img-res rounded-st" :src="image">
+              </div>
+            </template>
+          </div>
+        </loader>
+      </div>
+    </section>
 
-  <router-link :to="'/verification' + back" replace>
-    <ButtonGray style="background-color: var(--gray600)" :title-style="{color: 'white'}" class="mr-2 w-20 mb-3 py-2"
-                title="Назад"></ButtonGray>
-  </router-link>
+    <router-link :to="'/verification' + back" replace>
+      <ButtonGray style="background-color: var(--gray600)" :title-style="{color: 'white'}" class="mr-2 w-20 mb-3 py-2"
+                  title="Назад"></ButtonGray>
+    </router-link>
+    <router-link :to="isFullNextPath ? next :'/verification' + next " replace>
+      <ButtonBlue class="w-20 mb-3 py-2" title="Далее"></ButtonBlue>
+    </router-link>
+  </loader>
 
-  <router-link :to="'/verification' + next" replace>
-    <ButtonBlue class="w-20 mb-3 py-2" title="Далее"></ButtonBlue>
-  </router-link>
 </template>
 <script>
 import Loader from "@/components/loading/loader";
@@ -48,12 +50,13 @@ import ButtonBlue from "@/components/helper/button/buttonBlue";
 let sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 export default {
   components: {ButtonBlue, ButtonGray, Loader},
+  emits: ['image-upload'],
   props: ['initialImage', 'waiting',
-    'title', 'decs', 'assetImage', "next", 'back'],
+    'title', 'decs', 'assetImage', "next", 'back', 'isFullNextPath'],
   data() {
     return {
       filelist: {},
-      image: this.initialImage
+        image: this.initialImage
     }
   },
   methods: {
@@ -84,6 +87,12 @@ export default {
 </script>
 <style scoped lang="scss">
 
+.image-min-height {
+  width: 100%;
+  height:  13rem;
+  //min-height: 13rem;
+  //width: 100%;
+}
 
 .input-file {
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='9' ry='9' stroke='%23BDBDBDFF' stroke-width='2' stroke-dasharray='13' stroke-dashoffset='57' stroke-linecap='square'/%3e%3c/svg%3e");

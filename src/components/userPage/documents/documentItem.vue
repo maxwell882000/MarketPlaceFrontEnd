@@ -1,10 +1,10 @@
 <template>
-  <section class="bg-white  p-3 border-st mb-3">
+  <section class="bg-white  p-3 rounded-st mb-3">
     <h6>
       <slot name="title"></slot>
     </h6>
     <div class="d-flex w-70 align-items-center">
-      <div style="flex: 1; height: 13rem !important;" class=" border-st p-3 mx-2 back-gray">
+      <div style="flex: 1; height: 13rem !important;" class=" rounded-st p-3 mx-2 back-gray">
         <img class="img-res" src="@/assets/passport.svg"/>
       </div>
       <div class="w-50">

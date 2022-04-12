@@ -11,7 +11,7 @@
         <bought-product></bought-product>
       </b-row>
     </section>
-    <section class="back-gray border-st p-2">
+    <section class="back-gray rounded-st p-2">
       <div class="d-flex justify-content-between align-items-center">
         <div>
           <span class="text-center text-xs-l"><info></info> Чтобы получить рассрочку, вам нужно добавить поручителя</span>

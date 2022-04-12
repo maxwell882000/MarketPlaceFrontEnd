@@ -23,8 +23,10 @@ const emits = defineEmits(rangePropAndEmit.emits);
 // eslint-disable-next-line no-undef,no-unused-vars
 const props = defineProps({
   ...rangePropAndEmit.props,
-  values: Array
+  values: Array,
+  reset: Boolean //reset input when necessary
 });
+
 
 const {inputValue, sliderValues} = useRangeValues(props, emits);
 </script>

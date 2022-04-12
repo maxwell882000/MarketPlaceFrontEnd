@@ -2,7 +2,7 @@
   <div class="orders">
     <section>
       <order-header>
-        <div class="border-st back-gray text-sm p-1 ">
+        <div class="rounded-st back-gray text-sm p-1 ">
           <span>Обрабатывается</span>
         </div>
       </order-header>

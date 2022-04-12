@@ -17,6 +17,9 @@ export const authModule = {
         authToken: (state) => () => state.token,
         isAuthenticated(state) {
             return !!state.token;
+        },
+        isUserData(state) {
+            return state.user_credit;
         }
     },
     actions: {
@@ -102,6 +105,9 @@ export const authModule = {
         },
         setInitialUser(state, user) {
             state.user = user;
+        },
+        setUserData(state) {
+          state.user.user_data = true;
         },
         setUser(state, user) {
             state.user.name = user.name;

@@ -1,10 +1,14 @@
 <template>
-  <router-view></router-view>
+  <loader waiting="user">
+    <router-view></router-view>
+  </loader>
 </template>
 <script>
 import {mapMutations} from "vuex";
+import Loader from "@/components/loading/loader";
 
 export default {
+  components: {Loader},
   methods: {
     ...mapMutations({
       hideCategoryLine: 'hideCategoryLine',

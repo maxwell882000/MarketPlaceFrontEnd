@@ -2,7 +2,7 @@
   <section class="container">
     <b-row class="mb-4">
       <b-col cols="9" class="cols">
-        <div class="comment border-st">
+        <div class="comment rounded-st">
           <h5>Отзывы {{product.num_comment}}(количество)</h5>
           <loader waiting="comment">
             <remained-comment  :comment="item" v-for="item in comment" :key="'commment_unique_s' + item.id"></remained-comment>

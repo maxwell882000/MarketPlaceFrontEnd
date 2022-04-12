@@ -38,6 +38,7 @@ export default {
   },
   created() {
     this.getHeader();
+    this.getUser();
   },
   mounted() {
     window.setInterval(() => {

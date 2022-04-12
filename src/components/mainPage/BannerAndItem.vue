@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-xl-9 col-12">
       <Splide class="splide" :options="{ autoplay: true, type: 'loop' }">
-        <SplideSlide class="border-st" v-for="item in banners" :key="'banners_id' + item.id"
+        <SplideSlide class="rounded-st" v-for="item in banners" :key="'banners_id' + item.id"
                      data-splide-interval="3000">
           <div class="banner_image" :href="item.link">
-            <b-img fluid :src="item.image" class="border-st img-res"
+            <b-img fluid :src="item.image" class="rounded-st img-res"
                    alt="Sample 1"/>
           </div>
         </SplideSlide>

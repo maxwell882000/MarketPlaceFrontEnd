@@ -1,5 +1,5 @@
 <template>
-  <div class="border-st border-input  w-100 main-block" ref="container">
+  <div class="rounded-st border-input  w-100 main-block" ref="container">
     <div ref="back" :style="back"
          class="back-move"></div>
     <div style="position: relative" class="d-flex  justify-content-between m-0 align-items-center">

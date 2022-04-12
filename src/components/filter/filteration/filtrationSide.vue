@@ -1,5 +1,5 @@
 <template>
-  <b-col cols="3" class="ml-r bg-white border-st p-4">
+  <b-col cols="3" class="ml-r bg-white rounded-st p-4">
     <filter-chosen></filter-chosen>
     <filter-item :is-show="true" collapse="category" title="Категории">
       <filter-category></filter-category>

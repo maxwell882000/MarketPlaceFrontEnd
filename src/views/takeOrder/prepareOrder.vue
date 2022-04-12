@@ -11,7 +11,6 @@
                 class="ml-2 text-500 text-sm">Внимание, мы разделили заказ, потому что товары будут отправлены с разных складов</span>
           </div>
         </div>
-
         <delivery-prepare/>
         <way-of-payment-prepare/>
         <section class="text-sm section-container mb-3">
@@ -24,6 +23,7 @@
             <price-already-calculated
                 title="Ваш заказ"
                 :delivery-price="deliveryCost.price"
+                :over-payment-price="wayOfPayment.over_payment"
             >
             </price-already-calculated>
             <router-link to="/cart/plasticCard">
@@ -71,6 +71,8 @@ import Info from "@/components/icons/info";
 const store = useStore();
 const deliveryCost = computed(() => store.getters['registrationOrderModule/deliveryCost']);
 const orders = computed(() => Object.entries(store.getters['prepareBasketModule/selectedOrders']));
+const wayOfPayment = computed(() => store.getters['registrationOrderModule/wayOfPayment']);
+console.log(orders.value);
 </script>
 <style>
 .img-product {

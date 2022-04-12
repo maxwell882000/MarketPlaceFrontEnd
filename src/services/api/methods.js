@@ -27,9 +27,9 @@ class Methods {
         }
     }
 
-    async uploadFile(formData) {
+    async uploadFile(path , formData) {
         try {
-            return await api.post('/single-file',
+            return await api.post(path,
                 formData,
                 {
                     headers: {

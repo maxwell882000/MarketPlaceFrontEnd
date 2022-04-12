@@ -1,6 +1,6 @@
 <template>
   <b-row>
-    <b-col cols="3" class="ml-r bg-white border-st p-4">
+    <b-col cols="3" class="ml-r bg-white rounded-st p-4">
       <category :column="12" :item="category"></category>
     </b-col>
     <b-col cols="9">
