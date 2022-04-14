@@ -28,11 +28,11 @@ class ErrorService {
     }
 
     logError() {
-        console.log("=============ERROR LOG \n");
+        console.log("\n\n\n\n========================ERROR LOG==================== \n");
         console.log(this.error.response);
         console.log(this.input);
         console.log(this.error.response.data.errors);
-        console.log("=============FINISH ERROR LOG \n")
+        console.log("=====================FINISH ERROR LOG================ \n\n\n\n")
     }
 
     sendError(method, input, error) {

@@ -20,6 +20,7 @@ import {deliveryInfoModule} from "@/store/backet/registration/deliveryInfoModule
 import {registrationOrderModule} from "@/store/backet/registration/registrationOrderModule";
 import {wayOfPaymentModule} from "@/store/backet/registration/wayOfPaymentModule";
 import {verificationModule} from "@/store/verification/verificationModule";
+import {plasticCardModule} from "@/store/plasticCard/plasticCardModule";
 
 export default createStore({
     modules: {
@@ -43,6 +44,7 @@ export default createStore({
         deliveryInfoModule: deliveryInfoModule,
         registrationOrderModule: registrationOrderModule,
         wayOfPaymentModule: wayOfPaymentModule,
-        verificationModule: verificationModule
+        verificationModule: verificationModule,
+        plasticCardModule: plasticCardModule
     }
 });

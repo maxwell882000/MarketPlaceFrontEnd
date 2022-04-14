@@ -26,8 +26,8 @@
                 :over-payment-price="wayOfPayment.over_payment"
             >
             </price-already-calculated>
-            <router-link to="/cart/plasticCard">
-              <ButtonBlue title="Оплатить"></ButtonBlue>
+            <router-link :to="canBePaid ? '/cart/plasticCard': ''">
+              <ButtonForm :is-entered="canBePaid" title="Оплатить"></ButtonForm>
             </router-link>
             <div class="text-center mt-3">
               <div class="d-flex justify-content-center align-items-end text-sm">
@@ -59,7 +59,6 @@ import BackButton from "@/components/helper/button/backButton";
 import DeliveryPrepare from "@/components/backet/deliveryPrepare";
 import WayOfPaymentPrepare from "@/components/backet/wayOfPaymentPrepare";
 import ProductPrepareItem from "@/components/backet/productPrepareItem";
-import ButtonBlue from "@/components/helper/button/buttonBlue";
 import Shields from "@/components/icons/shields";
 import SalesRoll from "@/components/shared/SalesRoll";
 import PriceAlreadyCalculated from "@/components/backet/helper/priceAlreadyCalculated";
@@ -67,12 +66,20 @@ import Loader from "@/components/loading/loader";
 import {computed} from "vue";
 import {useStore} from "vuex";
 import Info from "@/components/icons/info";
+import deliveryStatusConstant from "@/constants/delivery/deliveryStatusConstant";
+import wayOfPaymentConstant from "@/constants/payment/wayOfPaymentConstant";
+import ButtonForm from "@/components/helper/button/buttonForm";
 
 const store = useStore();
 const deliveryCost = computed(() => store.getters['registrationOrderModule/deliveryCost']);
 const orders = computed(() => Object.entries(store.getters['prepareBasketModule/selectedOrders']));
 const wayOfPayment = computed(() => store.getters['registrationOrderModule/wayOfPayment']);
-console.log(orders.value);
+const currentStatus = computed(() => store.getters['deliveryInfoModule/status']);
+const status = deliveryStatusConstant;
+
+const canBePaid = computed(() =>
+    currentStatus.value !== status.NOT_CHOSEN
+    && wayOfPayment.value.type !== wayOfPaymentConstant.NOT_CHOSEN);
 </script>
 <style>
 .img-product {

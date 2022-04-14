@@ -10,6 +10,7 @@
           <way-of-payment-item :key="'way_of_payment_' + item.id" v-for="item in credits"
                                :title="item.name"
                                name="installment"
+                               v-model="selected[item.id]"
                                @change="setInstallment(item)"
                                :desc="item.helper_text"
                                :aria-describedby="ariaDescribedby">
@@ -20,11 +21,13 @@
           <way-of-payment-item title="Картой Uzcard или HUMO"
                                name="installment"
                                @change="setCard()"
+                               v-model="selected[status.CARD - RE_MAP_STATUS_VALUE]"
                                desc="Без комиссии, мгновенная оплата"
                                :aria-describedby="ariaDescribedByPrice"></way-of-payment-item>
           <way-of-payment-item title="Наличными по факту доставки"
                                name="installment"
                                @change="setCash()"
+                               v-model="selected[status.CASH - RE_MAP_STATUS_VALUE]"
                                desc="Без процентов"
                                :aria-describedby="ariaDescribedByPrice">
 
@@ -50,8 +53,21 @@ import Info from "@/components/icons/info";
 import {useStore} from "vuex";
 import {computed} from "vue";
 import WayOfPaymentPrice from "@/components/backet/wayOfPayment/wayOfPaymentPrice";
+import wayOfPaymentConstant from "@/constants/payment/wayOfPaymentConstant";
 
+const RE_MAP_STATUS_VALUE = 200;
 const store = useStore();
+const selected = computed({
+  get: () => {
+    const object = {}
+    object[selectedCreditMainly.value.credit_id] = true;
+    object[selectedCreditMainly.value.type - RE_MAP_STATUS_VALUE] = true;
+    console.log(object);
+    return object;
+  },
+});
+const status = wayOfPaymentConstant;
+const selectedCreditMainly = computed(() => store.getters['registrationOrderModule/wayOfPayment']);
 const credits = computed(() => store.getters["wayOfPaymentModule/credits"]);
 const getCredits = () => store.dispatch('wayOfPaymentModule/getWayOfPayment');
 const setInstallment = (credit) => store.commit("wayOfPaymentModule/setChosenCreditsInstallment", credit);

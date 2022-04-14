@@ -57,7 +57,6 @@ export const authWindow = {
             state.isVerifyRegister = false;
             state.isVerifyForget = false;
             state.isNewPassword = false;
-
             state.error = "";
             state.success = "";
         },

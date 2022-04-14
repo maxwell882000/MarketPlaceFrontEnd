@@ -8,7 +8,7 @@
 <script>
 import Button from "@/components/helper/button/button";
 
-export default {
+export default  {
   components: {Button},
   props: ['title']
 }

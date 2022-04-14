@@ -7,6 +7,7 @@ import userCredit from "@/middlewares/userCredit";
 import isFirstPageSuccess from "@/middlewares/validation/isFirstPageSuccess";
 import isSecondPageSuccess from "@/middlewares/validation/isSecondPageSuccess";
 import isThirdPageSuccess from "@/middlewares/validation/isThirdPageSuccess";
+import auth from "@/middlewares/auth";
 
 const routes = [
     {
@@ -18,7 +19,10 @@ const routes = [
     {
         path: "/favourite",
         name: "Favourites",
-        component: () => import("../views/favourites/favourites")
+        component: () => import("../views/favourites/favourites"),
+        meta: {
+            middleware: [auth]
+        }
     },
     {
         path: "/search/:search",
@@ -29,6 +33,9 @@ const routes = [
         path: "/verification",
         name: "VerificationAccount",
         component: () => import("../views/verification/verificationAccount"),
+        meta: {
+            middleware: [auth]
+        },
         children: [
             {
                 path: "1",
@@ -74,7 +81,12 @@ const routes = [
             {
                 path: "comment",
                 name: "Comment",
-                component: () => import("../views/product/RemainComment.vue")
+                component: () => import("../views/product/RemainComment.vue"),
+                meta: {
+                    middleware: [
+                        auth
+                    ]
+                }
             },
             {
                 path: "description",
@@ -108,6 +120,9 @@ const routes = [
         path: "/cart",
         component: () =>
             import("../views/takeOrder/BasketMain"),
+        meta: {
+            middleware: [auth],
+        },
         children: [
             {
                 path: "",
