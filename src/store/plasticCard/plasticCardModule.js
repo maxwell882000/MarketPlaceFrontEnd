@@ -76,13 +76,14 @@ export const plasticCardModule = {
             }
             commit("wait/END", "card_loaded", {root: true});
         },
-        async revokeCard({commit}, plastic_id) {
+        async revokeCard({commit, getters}, plastic_id) {
             commit("wait/START", "revoke_card_" + plastic_id, {root: true});
             try {
                 await plasticCardService.revokeCard(plastic_id);
-
+                commit("setCards", getters.cards.filter(e => e.id !== plastic_id));// cleaning deleting card from the front
             } catch (e) {
                 console.log(e);
+                commit("setErrors", e);
             }
             commit("wait/END", "revoke_card_" + plastic_id, {root: true});
         }

@@ -172,6 +172,38 @@ const routes = [
         path: "/user",
         name: "User",
         component: () => import("../views/user/User.vue"),
+        children: [
+            {
+                path: "",
+                name: "profile",
+                component: () => import("../components/userPage/settings/userSettings")
+            },
+            {
+                path: "orders",
+                name: "orders",
+                component: () => import("../components/userPage/orders/ordersUser")
+            },
+            {
+                path: "plasticCard",
+                name: "credit",
+                component: () => import("../components/userPage/payments/chooseCard")
+            },
+            {
+                path: "documents",
+                name: "documents",
+                component: () => import("../components/userPage/documents/documents")
+            },
+            {
+                path: "notification",
+                name: "notification",
+                component: () => import("../components/userPage/notification/notification")
+            },
+            {
+                path: "questionAndAnswers",
+                name: "questionAndAnswers",
+                component: () => import("../components/userPage/question/questions")
+            },
+        ]
     }
 ];
 

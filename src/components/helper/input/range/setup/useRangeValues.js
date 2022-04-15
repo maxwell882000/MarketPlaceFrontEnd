@@ -1,13 +1,14 @@
 import {computed, ref, watch} from "vue";
 
 export default function (props) {
-    const index = ref(0);
+    const index = ref(props.initialValue >= 0 ? props.initialValue : 0);
     const sliderValues = computed({
         get: () => {
             return index.value;
         },
         set: (val) => {
             index.value = val;
+
         }
     });
     // reset input
@@ -24,7 +25,7 @@ export default function (props) {
             }
         },
         set: () => {
-
+            console.log("IS SETTED");
         }
     })
     return {

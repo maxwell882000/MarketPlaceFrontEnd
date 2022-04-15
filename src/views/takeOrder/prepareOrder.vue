@@ -26,8 +26,8 @@
                 :over-payment-price="wayOfPayment.over_payment"
             >
             </price-already-calculated>
-            <router-link :to="canBePaid ? '/cart/plasticCard': ''">
-              <ButtonForm :is-entered="canBePaid" title="Оплатить"></ButtonForm>
+            <router-link :to="canBePaid ? routerPath: ''">
+              <ButtonForm @submit="purchaseOrders" :is-entered="canBePaid" title="Оплатить"></ButtonForm>
             </router-link>
             <div class="text-center mt-3">
               <div class="d-flex justify-content-center align-items-end text-sm">
@@ -80,6 +80,11 @@ const status = deliveryStatusConstant;
 const canBePaid = computed(() =>
     currentStatus.value !== status.NOT_CHOSEN
     && wayOfPayment.value.type !== wayOfPaymentConstant.NOT_CHOSEN);
+const routerPath = "/cart/plasticCard";
+
+function purchaseOrders() {
+
+}
 </script>
 <style>
 .img-product {

@@ -24,6 +24,7 @@ const emits = defineEmits(rangePropAndEmit.emits);
 const props = defineProps({
   ...rangePropAndEmit.props,
   values: Array,
+  initialValue: Number,
   reset: Boolean //reset input when necessary
 });
 

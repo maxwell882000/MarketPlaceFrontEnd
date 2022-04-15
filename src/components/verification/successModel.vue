@@ -4,7 +4,8 @@
       @closeModal="closeModal"
       style="width: 25rem"
       title="Отправленно"
-      description="Ваши данные успешно отправленны">
+      description="Ваши данные успешно отправленны"
+  >
     <template #prefix>
       <img src="@/assets/modal/accepted.png" alt="check sign">
     </template>

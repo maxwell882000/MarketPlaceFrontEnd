@@ -21,7 +21,10 @@ import rangePropAndEmit from "@/components/helper/input/range/setup/rangePropAnd
 // eslint-disable-next-line no-undef,no-unused-vars
 const emits = defineEmits(rangePropAndEmit.emits);
 // eslint-disable-next-line no-undef,no-unused-vars
-const props = defineProps(rangePropAndEmit.props);
+const props = defineProps({
+  ...rangePropAndEmit.props,
+  initialValue: null
+});
 
 const {value} = useRange(props, emits);
 

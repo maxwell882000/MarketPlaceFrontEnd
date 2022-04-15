@@ -1,0 +1,39 @@
+<template>
+  <ModalView
+      v-show="isSuccess"
+      @closeModal="closeModal"
+      title="Ваш заказ №1234 принят!"
+      description="Ожидайте, скоро с вами свяжется оператор, для подтверждения.">
+    <template #prefix>
+      <img src="@/assets/modal/accepted.png" alt="check sign">
+    </template>
+    <template #buttons>
+      <div class="w-60 m-auto">
+        <ButtonBlue title="Посмотреть заказ">
+        </ButtonBlue>
+        <router-link to="/" class="remove-link">
+          <span class="text-sm">
+              Продолжить покупки
+          </span>
+        </router-link>
+      </div>
+    </template>
+  </ModalView>
+</template>
+<script setup>
+import ModalView from "@/components/modal/modalView";
+import ButtonBlue from "@/components/helper/button/buttonBlue";
+import {useStore} from "vuex";
+import {computed} from "vue";
+import {useRouter} from "vue-router";
+
+const store = useStore();
+const route = useRouter();
+const isSuccess = computed(() => store.getters['registrationOrderModule/successPurchase']);
+
+function closeModal() {
+  route.replace({
+    name: "basket"
+  });
+}
+</script>

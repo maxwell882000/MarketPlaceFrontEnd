@@ -1,4 +1,6 @@
 <template>
+<!--  <accept-policies-and-agreement></accept-policies-and-agreement>-->
+  <success-purchase-modal></success-purchase-modal>
   <loader waiting="user">
     <router-view></router-view>
   </loader>
@@ -6,9 +8,12 @@
 <script>
 import {mapMutations} from "vuex";
 import Loader from "@/components/loading/loader";
+import AcceptPoliciesAndAgreement from "@/components/backet/modal/acceptPoliciesAndAgreement";
+import SuccessPurchaseModal from "@/components/backet/modal/successPurchaseModal";
 
 export default {
-  components: {Loader},
+  // eslint-disable-next-line vue/no-unused-components
+  components: {SuccessPurchaseModal, AcceptPoliciesAndAgreement, Loader},
   methods: {
     ...mapMutations({
       hideCategoryLine: 'hideCategoryLine',

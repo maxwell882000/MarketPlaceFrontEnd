@@ -1,6 +1,6 @@
 <template>
   <way-of-payment-price-accept
-      v-show="selected.type === status.NOT_CHOSEN"
+      v-show="mainCredit.type === status.NOT_CHOSEN"
       title="Выберите способ оплаты"
       button-name="Выберите способ оплаты"
   >
@@ -10,7 +10,7 @@
   </way-of-payment-price-accept>
 
   <way-of-payment-price-accept
-      v-show="selected.type === status.CARD"
+      v-show="mainCredit.type === status.CARD"
       title="Картой Uzcard или HUMO"
       :is-entered="true"
       @accept="acceptCard"
@@ -19,7 +19,7 @@
   </way-of-payment-price-accept>
 
   <way-of-payment-price-accept
-      v-show="selected.type === status.CASH"
+      v-show="mainCredit.type === status.CASH"
       title="Наличными по факту доставки"
       :is-entered="true"
       @accept="acceptCash"
@@ -27,22 +27,13 @@
   >
   </way-of-payment-price-accept>
 
-  <!--  <section v-show="selected.type === status.CARD" class="section-container mb-3">-->
-  <!--    <div class="d-flex  align-items-end">-->
-  <!--      <div class="mr-4">-->
-  <!--        <Info style="fill: var(&#45;&#45;gray300)"></Info>-->
-  <!--      </div>-->
-  <!--      <span class="text-sm"> Выберите способ оплаты</span>-->
-  <!--    </div>-->
-  <!--    <ButtonGray title="Выберите способ оплаты"></ButtonGray>-->
-  <!--  </section>-->
 
-  <section v-show="selected.type === status.INSTALLMENT" class="section-container">
-    <div v-show="selected.initial_percent" class="mb-3">
+  <section v-show="mainCredit.type === status.INSTALLMENT" class="section-container">
+    <div v-show="mainCredit.initial_percent" class="mb-3">
       <span class="mb-1 block">Первый взнос</span>
       <range-input-one
           @update:modelValue="getInitialPayment"
-          :model-value="parseFloat(initialPriceWithPercents.toFixed(2))"
+          :initial-value="parseFloat(initialPriceValue().toFixed(2))"
           :min="initialPriceWithPercents"
           :max="priceWithPercents"
           :labelMin="initialPriceWithPercents.toFixed(2)"
@@ -54,6 +45,7 @@
       <range-input-one-values
           @range-change="setOverallPriceWithPercentage"
           :disable-input="true"
+          :initial-value="installment.index"
           :reset="resetIndex"
           :label-min="credits.min"
           :label-max="credits.max"
@@ -99,7 +91,7 @@
 import ButtonBlue from "@/components/helper/button/buttonBlue";
 import RangeInputOne from "@/components/helper/input/range/rangeInputOne";
 import {useStore} from "vuex";
-import {computed, reactive, ref, watch} from "vue";
+import {computed, onBeforeMount, onBeforeUnmount, reactive, ref, watch} from "vue";
 import wayOfPaymentConstant from "@/constants/payment/wayOfPaymentConstant";
 import Info from "@/components/icons/info";
 import RangeInputOneValues from "@/components/helper/input/range/rangeInputOneValues";
@@ -108,7 +100,8 @@ import useSelectedWayOfPayment from "@/components/backet/wayOfPayment/setup/useS
 
 const store = useStore();
 const status = wayOfPaymentConstant;
-const selected = computed(() => store.getters['wayOfPaymentModule/chosenCredit']);
+const mainCredit = computed(() => store.getters['wayOfPaymentModule/mainCredit']);
+const wayOfPayment = computed(() => store.getters['registrationOrderModule/wayOfPayment']);
 const credits = computed(() => store.getters['wayOfPaymentModule/getMonth']);
 const overallPrice = ref(store.getters['prepareBasketModule/calculatePrice']('real_price'));
 const fixed_price = overallPrice.value;
@@ -122,22 +115,63 @@ const priceWithPercents = computed(() => {
 });
 
 const initialPriceWithPercents = computed(() => {
-  return overallPrice.value * (selected.value.initial_percent ?? 0) / 100;
+  return overallPrice.value * (mainCredit.value.initial_percent ?? 0) / 100;
 });
 const installment = reactive({
   currentPercentage: 0,
   percentageOverPayment: 0,
   eachMonthPayment: 0,
   initialPayment: initialPriceWithPercents.value,
-  currentCredit: {}
+  currentCredit: {},
+  index: 0,
 });
 
+function initialPriceValue() {
+  if (wayOfPayment.value.initial_price && wayOfPayment.value.initial_price <= priceWithPercents.value
+      && wayOfPayment.value.initial_price >= initialPriceWithPercents.value) {
+    return wayOfPayment.value.initial_price;
+  }
+  return initialPriceWithPercents.value;
+}
+
+function onStart() {
+  if (wayOfPayment.value.index_of_credit >= 0) {
+    console.log("STARTEDD");
+    setOverallPriceWithPercentage(wayOfPayment.value.index_of_credit);
+    getInitialPayment(wayOfPayment.value.initial_price);
+    calculateEachMonthPayment();
+  }
+}
+
+onStart();
+
+function checkIsIndexOnInstallment(index) {
+  if (mainCredit.value.type === status.INSTALLMENT
+      && (index === 0 || index)
+      && mainCredit.value.credits.length) {
+    installment.index = index;
+    return true;
+  }
+  return false;
+}
+
+function setCurrentCredit() {
+  console.log(mainCredit.value);
+  installment.currentCredit = mainCredit.value.credits[installment.index]; // getting correct current credit from index
+
+}
+
+function setOverallPrice() {
+  installment.currentPercentage = installment.currentCredit.percent / 100;
+  installment.percentageOverPayment = fixed_price * installment.currentPercentage;
+  overallPrice.value = fixed_price + installment.percentageOverPayment;
+}
+
 function setOverallPriceWithPercentage(index) {
-  if (selected.value.type === status.INSTALLMENT && (index === 0 || index) && selected.value.credits.length) {
-    installment.currentCredit = selected.value.credits[index];
-    installment.currentPercentage = installment.currentCredit.percent / 100;
-    installment.percentageOverPayment = fixed_price * installment.currentPercentage;
-    overallPrice.value = fixed_price + installment.percentageOverPayment;
+  console.log(`INDEX OF THE FILE ${index}`);
+  if (checkIsIndexOnInstallment(index)) {
+    setCurrentCredit();
+    setOverallPrice();
     calculateEachMonthPayment();
   }
   resetSliderForPrice(index);
@@ -149,13 +183,25 @@ function resetSliderForPrice(index) { // when we change credit we have to return
   }
 }
 
-watch(selected, () => { // when we change the credit we have to put appropriate prices
-  setOverallPriceWithPercentage(0);       // give correct percent , so he is able to choose price
-}, {immediate: true});
+let unWatch;
+onBeforeMount(() => {
+  console.log("MOUNTED ELEMENT");
+  unWatch = watch(() => store.getters['wayOfPaymentModule/mainCredit'], () => { // when we change the credit we have to put appropriate prices
+    console.log("START WATCH");
+    setOverallPriceWithPercentage(0);       // give correct percent , so he is able to choose price
+  });
+})
+onBeforeUnmount(() => {
+  unWatch();
+})
 
 function calculateEachMonthPayment() {
+
   installment.eachMonthPayment = (overallPrice.value - installment.initialPayment) / installment.currentCredit.month;
+  console.log(`MONTH ${installment.currentCredit}`);
+  console.log(`INITIAL PAYMENT ${installment.initialPayment}`);
 }
+
 
 // get initial payment if it is installment
 function getInitialPayment(price) {
@@ -168,5 +214,5 @@ const {
   acceptCash,
   acceptCard,
   acceptInstallment
-} = useSelectedWayOfPayment(installment, overallPrice, selected);
+} = useSelectedWayOfPayment(installment, overallPrice, mainCredit);
 </script>

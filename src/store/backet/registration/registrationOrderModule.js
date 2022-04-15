@@ -1,6 +1,7 @@
 import deliveryService from "@/services/purchase/deliveryService";
 import deliveryConstant from "@/constants/delivery/deliveryConstant";
 import wayOfPaymentConstant from "@/constants/payment/wayOfPaymentConstant";
+import purchaseService from "@/services/purchase/purchaseService";
 
 export const registrationOrderModule = {
     namespaced: true,
@@ -12,6 +13,7 @@ export const registrationOrderModule = {
             },
             wayOfPayment: {
                 type: wayOfPaymentConstant.NOT_CHOSEN,
+                index_of_credit: -1
                 // additional info will be sent depending on what option was selected
                 //credit_id -- will be deleted if not installment
                 //initial_price -- will be deleted if not installment
@@ -19,6 +21,13 @@ export const registrationOrderModule = {
                 // all will be stored here
                 // price
                 // real_price --- must be set using discount_percent from price
+                // index_of_credit = installment.index;
+                // credit_id = installment.currentCredit.id;
+                // initial_price = installment.initialPayment;
+                // real_price = overallPrice.value;
+                // over_payment = installment.percentageOverPayment;
+                // name = mainCredit.value.name;
+                // main_credit_id = mainCredit.value.id;
             },
             deliveryInfo: {},
             form: {
@@ -29,7 +38,8 @@ export const registrationOrderModule = {
                 // "purchase->delivery_address->house" => "1244"
                 // "purchase->delivery_address->flat" => "2421"
                 // "purchase->delivery_address->instructions" => "124214214124"
-            }
+            },
+            successPurchase: false
         }
     },
     actions: {
@@ -46,6 +56,26 @@ export const registrationOrderModule = {
                 console.log(e);
             }
             commit("wait/END", "delivery_price_loaded", {root: true});
+        },
+
+        // in this step everything must be ideal
+        // because we are validating all data before submitting !
+        async purchaseOrders({commit, getters}) {
+            commit("wait/START", "create_purchases_loaded", {root: true});
+            try {
+                const form = {
+                    ...getters.wayOfPayment,
+                    ...getters.deliveryCost,
+                    ...getters.form,
+                };
+                form['way_of_payment'] = getters.wayOfPayment.type === wayOfPaymentConstant.INSTALLMENT ?
+                    wayOfPaymentConstant.INSTALLMENT + wayOfPaymentConstant.RE_MAP_STATUS_VALUE : getters.wayOfPayment.type;
+                await purchaseService.createPurchases(form);
+                commit('setSuccessPurchase');
+            } catch (e) {
+                console.log(e);
+            }
+            commit("wait/END", "create_purchases_loaded", {root: true});
         }
     },
     getters: {
@@ -54,6 +84,9 @@ export const registrationOrderModule = {
         },
         deliveryCost(state) {
             return state.deliveryCost
+        },
+        successPurchase(state) {
+            return state.successPurchase;
         },
         deliveryInfo(state) {
             return state.deliveryInfo;
@@ -81,6 +114,10 @@ export const registrationOrderModule = {
                 type: wayOfPaymentConstant.NOT_CHOSEN,
             }
             state.form = {};
+            state.successPurchase = false;
+        },
+        setSuccessPurchase(state) {
+            state.successPurchase = true;
         },
         deleteWayOfPayment(state, key) {
             delete state.wayOfPayment[key];

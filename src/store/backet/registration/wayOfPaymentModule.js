@@ -6,7 +6,7 @@ export const wayOfPaymentModule = {
     state() {
         return {
             credits: [],
-            chosenCredit: {
+            mainCredit: {
                 type: wayOfPaymentConstant.NOT_CHOSEN,
                 credits: [] // here is info for choosing appropriate tariff in wayOfPaymentPrice
             },
@@ -26,17 +26,18 @@ export const wayOfPaymentModule = {
         }
     },
     mutations: {
-        setChosenCreditsInstallment(state, credit) {
-            state.chosenCredit = credit;
-            state.chosenCredit.type = wayOfPaymentConstant.INSTALLMENT;
+        setMainCreditInstallment(state, credit) {
+            state.mainCredit = credit;
+            console.log("CHANGED");
+            state.mainCredit.type = wayOfPaymentConstant.INSTALLMENT;
         },
-        setChosenCreditCash(state, credit) {
-            state.chosenCredit = credit;
-            state.chosenCredit.type = wayOfPaymentConstant.CASH;
+        setMainCreditCash(state, credit) {
+            state.mainCredit = credit;
+            state.mainCredit.type = wayOfPaymentConstant.CASH;
         },
-        setChosenCreditCard(state, credit) {
-            state.chosenCredit = credit;
-            state.chosenCredit.type = wayOfPaymentConstant.CARD;
+        setMainCreditCard(state, credit) {
+            state.mainCredit = credit;
+            state.mainCredit.type = wayOfPaymentConstant.CARD;
         },
         setCredits(state, credits) {
             state.credits = credits;
@@ -47,11 +48,11 @@ export const wayOfPaymentModule = {
         }
     },
     getters: {
-        chosenCredit(state) {
-            return state.chosenCredit;
+        mainCredit(state) {
+            return state.mainCredit;
         },
         getMonth(state) {
-            const credit = state.chosenCredit.credits;
+            const credit = state.mainCredit.credits;
             if (credit && credit.length)
                 return {
                     length: credit.length - 1,

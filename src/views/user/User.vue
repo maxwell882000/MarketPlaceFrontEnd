@@ -5,60 +5,23 @@
         pills
         card
         vertical
+        v-model="currentTab"
         nav-wrapper-class="bg-transparent border-0 w-30"
         active-nav-item-class="bg-white transparent-nav-active"
-        class="user-tabs"
-    >
-      <b-tab @click="clicked" active title-link-class="transparent-tab-passive">
+        class="user-tabs">
+      <b-tab
+          :key="'user_item_tab_' + index" v-for="(item , index) in tabs"
+          @click="$router.push({
+                        name:item.pathName})"
+          title-link-class="transparent-tab-passive">
         <template #title>
-          <b-icon icon="person-fill" scale="1.5" class="me-2"/>
-          Пользователь
+          <b-icon :icon="item.icon" scale="1.5" class="me-2"/>
+          {{ item.title }}
         </template>
-        <user-settings class="w-100"/>
-      </b-tab>
-      <b-tab title-link-class="transparent-tab-passive">
-        <template #title>
-          <b-icon icon="bag-fill" scale="1.5" class="me-2"/>
-          Мои заказы
-        </template>
-        <order-user></order-user>
-      </b-tab>
-      <b-tab title="Tab 3" title-link-class="transparent-tab-passive">
-        <template #title>
-          <b-icon icon="credit-card-fill" scale="1.5" class="me-2"/>
-          Оплата
-        </template>
-        <b-card-text>
-          <choose-card></choose-card>
-        </b-card-text>
-      </b-tab>
-      <b-tab title="Tab 3" title-link-class="transparent-tab-passive">
-        <template #title>
-          <b-icon icon="file-earmark-text-fill" scale="1.5" class="me-2"></b-icon>
-          Мои документы
-        </template>
-        <b-card-text>
-          <documents></documents>
-        </b-card-text>
-      </b-tab>
-      <b-tab title="Tab 3" title-link-class="transparent-tab-passive">
-        <template #title>
-          <b-icon icon="bell-fill" scale="1.5" class="me-2"></b-icon>
-          Уведомления
-        </template>
-        <notification></notification>
-      </b-tab>
-      <b-tab title="Tab 3" title-link-class="transparent-tab-passive">
-        <template #title>
-          <b-icon icon="chat-fill" scale="1.5" class="me-2"></b-icon>
-          Вопросы и ответы
-        </template>
-        <b-card-text>
-          <questions></questions>
-        </b-card-text>
+        <router-view></router-view>
+        <!--        <user-settings class="w-100"/>-->
       </b-tab>
     </b-tabs>
-
   </div>
 </template>
 
@@ -84,7 +47,41 @@ export default {
         path: "/user",
       },
     ],
+    currentTab: 3,
+    tabs: [
+      {
+        pathName: "profile",
+        title: "Пользователь",
+        icon: "person-fill",
+      },
+      {
+        pathName: "orders",
+        title: "Мои заказы",
+        icon: "bag-fill",
+      },
+      {
+        pathName: "credit",
+        title: "Оплата",
+        icon: "credit-card-fill",
+      },
+      {
+        pathName: "documents",
+        title: "Мои документы",
+        icon: "file-earmark-text-fill",
+      },
+      {
+        pathName: "notification",
+        title: "Уведомления",
+        icon: "bell-fill",
+      },
+      {
+        pathName: "questionAndAnswers",
+        title: "Вопросы и ответы",
+        icon: "chat-fill",
+      },
+    ]
   }),
+  // eslint-disable-next-line vue/no-unused-components
   components: {Questions, Notification, Documents, ChooseCard, OrderUser, Badge, UserSettings},
   computed: {
     ...mapGetters({
@@ -93,17 +90,24 @@ export default {
   },
   watch: {
     isAuthenticated(val) {
-      if(!val){
+      if (!val) {
         this.$router.replace("/");
       }
     }
   },
   methods: {
-    clicked() {
+    setCorrectTab() {
+      this.tabs.forEach((e, i) => {
+            if (e.pathName === this.$route.name) {
+              this.currentTab = i;
+            }
+          }
+      );
     }
   },
   created() {
-    if(!this.isAuthenticated){
+    this.setCorrectTab();
+    if (!this.isAuthenticated) {
       this.$router.replace("/");
     }
   }

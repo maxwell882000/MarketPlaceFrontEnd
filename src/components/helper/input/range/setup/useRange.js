@@ -3,7 +3,7 @@ import useDebounce from "@/components/helper/debounce/useDebounce";
 
 export default function (props, emits) {
 
-    const value = ref(props.modelValue);
+    const value = ref(props.initialValue || props.modelValue);
     const {debounce} = useDebounce();
     watch(() => props.modelValue, (val) => {
         value.value = val;
@@ -17,6 +17,12 @@ export default function (props, emits) {
         emits('update:modelValue', value.value);
     }
 
+    watch(() => props.max, () => {
+        checkAndSendValue();
+    });
+    watch(() => props.min, () => {
+        checkAndSendValue();
+    });
     watch(() => value.value, (val) => {
         if (parseFloat(props.max.toFixed(2)) < val || parseFloat(props.min.toFixed(2)) > val)
             debounce(checkAndSendValue, 400);
