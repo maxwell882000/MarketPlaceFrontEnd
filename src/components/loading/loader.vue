@@ -9,7 +9,7 @@
   </v-wait>
 </template>
 <script>
-export default {
+export default  {
   inheritAttrs: false,
   props: {
     waiting: {

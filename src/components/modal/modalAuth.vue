@@ -1,23 +1,18 @@
 <template>
   <ModalView @close-modal="close()" style="width: 25%">
     <template #body>
-      <v-wait :for="waiting">
-        <template #waiting>
-          <div>
-            <!-- <Circle style="color: var(--blue)"></Circle> -->
-          </div>
-        </template>
-        <Status />
+      <loader :div-style="{height: 'max-content'}" :waiting="waiting">
+        <Status/>
         <slot name="inputs"></slot>
-      </v-wait>
+      </loader>
     </template>
   </ModalView>
 </template>
 <script>
 import ModalView from "@/components/modal/modalView";
-import { mapMutations, mapState } from "vuex";
-// import Circle from "vue-loading-spinner/src/components/Circle";
+import {mapMutations, mapState} from "vuex";
 import Status from "@/components/helper/status/status";
+import Loader from "@/components/loading/loader";
 
 export default {
   props: ["waiting"],
@@ -31,7 +26,6 @@ export default {
       close: "authWindow/close",
     }),
   },
-  // components: {Status, ModalView, Circle}
-  components: { Status, ModalView },
+  components: {Loader, Status, ModalView,},
 };
 </script>

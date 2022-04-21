@@ -2,8 +2,7 @@ import methods from "@/services/api/methods";
 
 class PurchaseService {
     async createPurchases(data) {
-        console.log(data);
-        const result = await methods.post("purchase/store/");
+        const result = await methods.post("purchase/store/", data);
         return result.data.result;
     }
 }

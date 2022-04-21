@@ -1,9 +1,9 @@
 <template>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
   <div>
-    <AppHeader v-if="show"/>
+    <AppHeader v-show="show"/>
     <router-view/>
-    <AppFooter v-if="show"/>
+    <AppFooter v-show="show"/>
   </div>
 </template>
 
@@ -37,8 +37,8 @@ export default {
     }),
   },
   created() {
-    this.getHeader();
     this.getUser();
+    this.getHeader();
   },
   mounted() {
     window.setInterval(() => {

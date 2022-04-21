@@ -2,6 +2,7 @@ import deliveryService from "@/services/purchase/deliveryService";
 import deliveryConstant from "@/constants/delivery/deliveryConstant";
 import wayOfPaymentConstant from "@/constants/payment/wayOfPaymentConstant";
 import purchaseService from "@/services/purchase/purchaseService";
+import agreementAndPolicies from "@/constants/basket/agreementAndPolicies";
 
 export const registrationOrderModule = {
     namespaced: true,
@@ -9,7 +10,9 @@ export const registrationOrderModule = {
         return {
             deliveryCost: {
                 different_shop: false
-                //'price' => $price, 'days' => $day, 'different_shop' => $products->count() > 1
+                //'price' => $price,
+                // 'days' => $day,
+                // 'different_shop' => $products->count() > 1
             },
             wayOfPayment: {
                 type: wayOfPaymentConstant.NOT_CHOSEN,
@@ -39,7 +42,10 @@ export const registrationOrderModule = {
                 // "purchase->delivery_address->flat" => "2421"
                 // "purchase->delivery_address->instructions" => "124214214124"
             },
-            successPurchase: false
+            successPurchase: false,
+            policies: agreementAndPolicies.NOT_CHOSEN
+            // set to Choosing , when cash selected or
+            // after selecting
         }
     },
     actions: {
@@ -60,16 +66,19 @@ export const registrationOrderModule = {
 
         // in this step everything must be ideal
         // because we are validating all data before submitting !
-        async purchaseOrders({commit, getters}) {
+        async purchaseOrders({commit, getters, rootGetters}) {
             commit("wait/START", "create_purchases_loaded", {root: true});
             try {
                 const form = {
                     ...getters.wayOfPayment,
-                    ...getters.deliveryCost,
+                    ...getters.deliveryInfo,
                     ...getters.form,
+                    orders: rootGetters['prepareBasketModule/ordersId']
                 };
+                console.log("DATA SENDING");
                 form['way_of_payment'] = getters.wayOfPayment.type === wayOfPaymentConstant.INSTALLMENT ?
-                    wayOfPaymentConstant.INSTALLMENT + wayOfPaymentConstant.RE_MAP_STATUS_VALUE : getters.wayOfPayment.type;
+                    wayOfPaymentConstant.INSTALLMENT + wayOfPaymentConstant.RE_MAP_STATUS_VALUE
+                    : getters.wayOfPayment.type === wayOfPaymentConstant.CASH ? 1 : 2;
                 await purchaseService.createPurchases(form);
                 commit('setSuccessPurchase');
             } catch (e) {
@@ -84,6 +93,9 @@ export const registrationOrderModule = {
         },
         deliveryCost(state) {
             return state.deliveryCost
+        },
+        policies(state) {
+            return state.policies === agreementAndPolicies.CHOOSING;
         },
         successPurchase(state) {
             return state.successPurchase;
@@ -115,6 +127,10 @@ export const registrationOrderModule = {
             }
             state.form = {};
             state.successPurchase = false;
+            state.policies = agreementAndPolicies.NOT_CHOSEN;
+        },
+        setPolicies(state, policy) {
+            state.policies = policy;
         },
         setSuccessPurchase(state) {
             state.successPurchase = true;

@@ -12,7 +12,6 @@
           Забыли пароль?
         </p>
       </div>
-
     </template>
   </ModalAuth>
 </template>

@@ -1,4 +1,4 @@
-export default function ({next, store}) {
+export default function userCredit({next, store}) {
     const isUserData = store.getters['isUserData'];
     if (!isUserData) {
         return next({

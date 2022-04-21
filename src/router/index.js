@@ -129,7 +129,6 @@ const routes = [
                 name: "basket",
                 component: () =>
                     import("../views/takeOrder/Basket"),
-
             },
             {
                 path: "selectAddress",
@@ -233,6 +232,7 @@ router.beforeEach((to, from, next) => {
     }
     return middleware[0]({
         ...context,
+        route: next,
         next: middlewarePipeline(context, middleware, 1)
     })
 });

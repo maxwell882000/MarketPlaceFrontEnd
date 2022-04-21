@@ -63,27 +63,32 @@ import Shields from "@/components/icons/shields";
 import SalesRoll from "@/components/shared/SalesRoll";
 import PriceAlreadyCalculated from "@/components/backet/helper/priceAlreadyCalculated";
 import Loader from "@/components/loading/loader";
-import {computed} from "vue";
+import {computed, ref} from "vue";
 import {useStore} from "vuex";
 import Info from "@/components/icons/info";
 import deliveryStatusConstant from "@/constants/delivery/deliveryStatusConstant";
 import wayOfPaymentConstant from "@/constants/payment/wayOfPaymentConstant";
 import ButtonForm from "@/components/helper/button/buttonForm";
+import agreementAndPolicies from "@/constants/basket/agreementAndPolicies";
 
 const store = useStore();
 const deliveryCost = computed(() => store.getters['registrationOrderModule/deliveryCost']);
 const orders = computed(() => Object.entries(store.getters['prepareBasketModule/selectedOrders']));
 const wayOfPayment = computed(() => store.getters['registrationOrderModule/wayOfPayment']);
 const currentStatus = computed(() => store.getters['deliveryInfoModule/status']);
+const openAgreement = () => store.commit("registrationOrderModule/setPolicies", agreementAndPolicies.CHOOSING);
 const status = deliveryStatusConstant;
 
 const canBePaid = computed(() =>
     currentStatus.value !== status.NOT_CHOSEN
     && wayOfPayment.value.type !== wayOfPaymentConstant.NOT_CHOSEN);
-const routerPath = "/cart/plasticCard";
+const routerPath = ref("/cart/plasticCard");
 
 function purchaseOrders() {
-
+  if (wayOfPayment.value.type === wayOfPaymentConstant.CASH) {
+    routerPath.value = "";
+    openAgreement();
+  }
 }
 </script>
 <style>

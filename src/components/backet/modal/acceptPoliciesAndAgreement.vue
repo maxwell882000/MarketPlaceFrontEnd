@@ -1,5 +1,8 @@
 <template>
-  <ModalView style="width: 32vw">
+  <ModalView
+      v-show="isAgreement"
+      @close-modal="close"
+      style="width: 32vw">
     <template #prefix>
       <span class="block bold text-center">Условия и положения</span>
       <div class="text-left">
@@ -20,12 +23,29 @@
           организация снижает риск невозврата ссуды.
         </p>
       </div>
-      <ButtonBlue title="Я прочитал и согласен"></ButtonBlue>
+      <ButtonBlue @click="agree" title="Я прочитал и согласен"></ButtonBlue>
     </template>
   </ModalView>
 </template>
 <script setup>
 import ModalView from "@/components/modal/modalView";
 import ButtonBlue from "@/components/helper/button/buttonBlue";
+import {useStore} from "vuex";
+import {computed} from "vue";
+import agreementAndPolicies from "@/constants/basket/agreementAndPolicies";
 
+const store = useStore();
+const isAgreement = computed(() => store.getters['registrationOrderModule/policies']);
+const setAgreement = (val) => store.commit("registrationOrderModule/setPolicies", val);
+const purchaseOrder = () => store.dispatch("registrationOrderModule/purchaseOrders");
+
+// const setSuccess = computed(() => store.get)
+function close() {
+  setAgreement(agreementAndPolicies.NOT_CHOSEN);
+}
+
+function agree() {
+  setAgreement(agreementAndPolicies.AGREE);
+  purchaseOrder();
+}
 </script>

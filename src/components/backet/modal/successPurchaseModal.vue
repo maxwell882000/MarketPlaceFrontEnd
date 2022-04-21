@@ -1,5 +1,6 @@
 <template>
   <ModalView
+      style="width: 30vw"
       v-show="isSuccess"
       @closeModal="closeModal"
       title="Ваш заказ №1234 принят!"
@@ -9,8 +10,10 @@
     </template>
     <template #buttons>
       <div class="w-60 m-auto">
-        <ButtonBlue title="Посмотреть заказ">
-        </ButtonBlue>
+        <router-link :to="{name: 'orders'}">
+          <ButtonBlue title="Посмотреть заказ">
+          </ButtonBlue>
+        </router-link>
         <router-link to="/" class="remove-link">
           <span class="text-sm">
               Продолжить покупки

@@ -10,6 +10,7 @@ export const authModule = {
             user: {
                 name: "",
                 phone: "",
+                // user_credit: true,
             },
         }
     },
