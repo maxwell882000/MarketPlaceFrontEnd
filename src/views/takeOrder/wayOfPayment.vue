@@ -54,7 +54,7 @@ import WayOfPaymentItem from "@/components/backet/wayOfPayment/wayOfPaymentItem"
 import Info from "@/components/icons/info";
 
 import {useStore} from "vuex";
-import {computed, ref, watch} from "vue";
+import {computed, ref} from "vue";
 import WayOfPaymentPrice from "@/components/backet/wayOfPayment/wayOfPaymentPrice";
 import wayOfPaymentConstant from "@/constants/payment/wayOfPaymentConstant";
 
@@ -80,19 +80,7 @@ const setInstallment = (credit) => store.commit("wayOfPaymentModule/setMainCredi
 const setCash = () => store.commit("wayOfPaymentModule/setMainCreditCash", {});
 const setCard = () => store.commit("wayOfPaymentModule/setMainCreditCard", {});
 const selected = ref(selectedCreditMainly.value.main_credit_id);
-watch(selected, () => {
-      console.log("CHANGINGGG");
-      console.log(selected.value);
-    }
-)
-//
-// function setSelected() {
-//   selected.value = selectedCreditMainly.value.main_credit_id;
-// }
-//
-// watch(selectedCreditMainly, () => {
-//   setSelected();
-// }, {immediate: true});
+
 getCredits();
 
 </script>

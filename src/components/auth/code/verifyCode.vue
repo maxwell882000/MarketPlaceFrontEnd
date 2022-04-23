@@ -1,6 +1,6 @@
 <template>
-  <ModalAuth waiting="code" title="Введите код"
-             :description="'Введите код подтверждения, который мы отправили на номер ' + phone">
+  <ModalAuth :custom-close="customClose" waiting="code" title="Введите код"
+             :description="description || ('Введите код подтверждения, который мы отправили на номер ' + phone)">
     <template #inputs>
       <OtpInput class="mt-4" @on-change="setCode"></OtpInput>
       <ButtonForm @submit="submit" title="Отправить" :is-entered="isCodeEntered"></ButtonForm>
@@ -14,7 +14,13 @@ import ButtonForm from "@/components/helper/button/buttonForm";
 
 export default {
   components: {ButtonForm, ModalAuth, OtpInput},
-  props: ['phone'],
+  props: {
+    phone: String,
+    customClose: Function,
+    description: {
+      type: String,
+    }
+  },
   data() {
     return {
       code: "",

@@ -12,12 +12,9 @@ class PasswordService {
         return await methods.post("forgetPassword/", password);
     }
 
-    async changePassword({password, password_new, password_rep}) {
-        let form = new FormData();
-        form.append("password", password);
-        form.append("password_new", password_new);
-        form.append("password_rep", password_rep);
-        return await methods.post("changePassword/", form);
+    async changePassword(data) {
+        const result = await methods.post("changePassword/", data);
+        return result.data.result;
     }
 }
 

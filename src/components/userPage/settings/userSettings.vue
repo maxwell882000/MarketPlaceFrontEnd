@@ -1,81 +1,156 @@
 <template>
-  <div>
-    <div class="buyshop-card mb-3">
-      <h6>Фото профиля</h6>
-      <div class="d-flex flex-column justify-content-start align-items-start ">
-        <b-avatar  size="5rem"></b-avatar>
-        <input type="file" ref="file" style="display: none">
-        <b-button size="sm" @click="$refs.file.click()" variant="link"
-                  style="text-decoration: none">Изменить</b-button>
-      </div>
-    </div>
+  <loader waiting="">
+    <div>
+      <div class="buyshop-card mb-3">
+        <loader :div-style="{height: '20vh'}" waiting="avatar">
+          <h6>Фото профиля</h6>
+          <div class="d-flex flex-column justify-content-start align-items-start ">
+            <b-avatar :src="user.avatar" size="5rem"></b-avatar>
+            <input @change="uploadImage"
+                   type="file"
+                   ref="file"
+                   style="display: none">
+            <b-button size="sm"
+                      @click="$refs.file.click()"
+                      variant="link"
+                      style="text-decoration: none">
+              Изменить
+            </b-button>
+          </div>
+        </loader>
 
-    <div class="buyshop-card mb-3">
-      <h6>Персональные данные</h6>
-      <div style="width: 35%">
-        <Input
-            class="input"
-            v-model="userName"
-            placeholder="Имя и Фамилия*"
-        />
-        <InputPhone
-            class="input"
-            v-model="phone"
-            placeholder="Телефон*"
-        />
-        <ButtonForm title="Изменить" class="p-2"></ButtonForm>
       </div>
-      <!--      <div class="d-flex flex-wrap">-->
-      <!--        <input-field-->
-      <!--            type="date"-->
-      <!--            class="input-sm"-->
-      <!--            v-model="birth"-->
-      <!--            placeholder="День рождения"-->
-      <!--        />-->
-      <!--        <b-dropdown-->
-      <!--            id="dropdown-1"-->
-      <!--            :text="gender == 'm' ? `Мужчина` : `Женщина`"-->
-      <!--            variant="white"-->
-      <!--            class="custom-dropdown"-->
-      <!--        >-->
-      <!--          <b-dropdown-item @click="gender = 'm'">Мужчина</b-dropdown-item>-->
-      <!--          <b-dropdown-item @click="gender = 'f'">Женщина</b-dropdown-item>-->
-      <!--        </b-dropdown>-->
-      <!--      </div>-->
-    </div>
-    <div class="buyshop-card">
-      <h6>Аккаунт</h6>
-      <div style="width: 35%">
-        <InputPassword v-model="gender" placeholder="Старый пароль">
-        </InputPassword>
-        <InputPassword placeholder="Новый пароль">
-        </InputPassword>
-        <InputPassword placeholder="Подтвердите новый пароль"/>
-        <ButtonForm title="Подтвердить изменение пароля" class="p-2"></ButtonForm>
+      <div class="buyshop-card mb-3">
+        <h6>Персональные данные</h6>
+        <loader :div-style="{height: '20vh'}" waiting="user_data_loaded">
+          <div style="width: 35%">
+            <Input
+                class="input"
+                v-model="userName"
+                placeholder="Имя и Фамилия*"/>
+            <InputPhone
+                class="input"
+                v-model="phone"
+                placeholder="Телефон*"/>
+            <ButtonForm :is-entered="isEnteredUserData()"
+                        @submit="changeUserData({name: userName,phone: phone})"
+                        title="Изменить" class="p-2">
+            </ButtonForm>
+          </div>
+        </loader>
+        <!--      <div class="d-flex flex-wrap">-->
+        <!--        <input-field-->
+        <!--            type="date"-->
+        <!--            class="input-sm"-->
+        <!--            v-model="birth"-->
+        <!--            placeholder="День рождения"-->
+        <!--        />-->
+        <!--        <b-dropdown-->
+        <!--            id="dropdown-1"-->
+        <!--            :text="gender == 'm' ? `Мужчина` : `Женщина`"-->
+        <!--            variant="white"-->
+        <!--            class="custom-dropdown"-->
+        <!--        >-->
+        <!--          <b-dropdown-item @click="gender = 'm'">Мужчина</b-dropdown-item>-->
+        <!--          <b-dropdown-item @click="gender = 'f'">Женщина</b-dropdown-item>-->
+        <!--        </b-dropdown>-->
+        <!--      </div>-->
+      </div>
+      <div class="buyshop-card">
+        <h6>Аккаунт</h6>
+        <div class="password" style="width: 35%">
+          <loader waiting="password_loaded">
+            <Error :error="errorPassword"></Error>
+            <Success :success="successPassword"></Success>
+            <InputPassword v-model="password.password" placeholder="Старый пароль">
+            </InputPassword>
+            <InputPassword :error="password.password_new_error"
+                           v-model="password.password_new" placeholder="Новый пароль">
+            </InputPassword>
+            <InputPassword :error="password.password_new_error"
+                           v-model="password.password_rep"
+                           placeholder="Подтвердите новый пароль"/>
+            <ButtonForm @submit="submitPassword"
+                        :is-entered="isEnteredPassword()"
+                        title="Подтвердить изменение пароля"
+                        class="p-2">
+            </ButtonForm>
+          </loader>
+        </div>
       </div>
     </div>
-  </div>
+  </loader>
 </template>
 
-<script>
+<script setup>
 import Input from "@/components/helper/input/input";
 import InputPhone from "@/components/helper/input/inputPhone";
 import InputPassword from "@/components/helper/input/inputPassword";
 import ButtonForm from "@/components/helper/button/buttonForm";
+import {computed, onBeforeUnmount, ref, watch} from "vue";
+import Loader from "@/components/loading/loader";
+import {useStore} from "vuex";
+import Error from "@/components/helper/error/error";
+import Success from "@/components/helper/status/success";
 
-export default {
-  data: () => ({
-    userName: "Hello",
-    phone: "998",
-    email: "",
-    birth: "",
-    gender: "m",
-  }),
-  components: {ButtonForm, InputPassword, InputPhone, Input},
-};
+const user = computed(() => store.getters['user']);
+const store = useStore();
+const userName = ref(user.value.name);
+const phone = ref(user.value.phone);
+const password = computed(() => store.getters['passwordModule/passwordChange']);
+const changePassword = () => store.dispatch("passwordModule/changePassword");
+const cleanPassword = () => store.commit("passwordModule/cleanPassword");
+const cleanSuccess = () => store.commit("passwordModule/setSuccessPassword", "");
+const changeUserData = (data) => store.dispatch("changeUserData", data);
+const errorPassword = computed(() => store.getters['passwordModule/error']);
+const successPassword = computed(() => store.getters['passwordModule/success']);
+// eslint-disable-next-line no-unused-vars
+const uploadAvatar = (val) => store.dispatch("changeAvatar", val);
+
+cleanPassword();
+watch(user, function () {
+  userName.value = user.value.name;
+  phone.value = user.value.phone;
+});
+
+function isEnteredUserData() {
+  return userName.value && phone.value;
+}
+
+function isEnteredPassword() {
+  return password.value.password_rep.length
+      && password.value.password_new.length
+      && password.value.password.length;
+}
+
+// eslint-disable-next-line no-unused-vars
+function uploadImage(event) {
+  console.log(event.target.files[0]);
+  // uploadAvatar(event.target.files);
+  uploadAvatar(event.target.files[0]);
+}
+
+function submitPassword() {
+  if (password.value.password_new !== password.value.password_rep) {
+    password.value.password_new_error = "Пароли не совпадают";
+  } else {
+    password.value.password_new_error = "";
+  }
+  if (!password.value.password_new_error.length)
+    changePassword();
+}
+
+onBeforeUnmount(() => {
+  cleanSuccess();
+});
 </script>
 
 <style scoped>
+.password .input-validation {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
 .profile-photo {
   width: 83px;
   height: 83px;

@@ -21,7 +21,8 @@ export default {
       clean: 'prepareBasketModule/clean',
       cleanAddress: "deliveryInfoModule/clean",
       cleanRegistration: "registrationOrderModule/clean",
-      cleanPayment: "wayOfPaymentModule/clean"
+      cleanPayment: "wayOfPaymentModule/clean",
+      cleanCard: "plasticCardModule/clean"
     })
   },
   mounted() {
@@ -33,6 +34,7 @@ export default {
     this.cleanAddress();
     this.cleanRegistration();
     this.cleanPayment();
+    this.cleanCard();
   }
 }
 </script>

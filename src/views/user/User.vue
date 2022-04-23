@@ -11,12 +11,12 @@
         class="user-tabs">
       <b-tab
           :key="'user_item_tab_' + index" v-for="(item , index) in tabs"
-          @click="$router.push({
-                        name:item.pathName})"
           title-link-class="transparent-tab-passive">
         <template #title>
-          <b-icon :icon="item.icon" scale="1.5" class="me-2"/>
-          {{ item.title }}
+          <div>
+            <b-icon :icon="item.icon" scale="1.5" class="me-2"/>
+            {{ item.title }}
+          </div>
         </template>
         <router-view></router-view>
         <!--        <user-settings class="w-100"/>-->
@@ -93,6 +93,14 @@ export default {
       if (!val) {
         this.$router.replace("/");
       }
+    },
+    currentTab(val) {
+      this.tabs.forEach((e, i) => {
+        if (i === val)
+          this.$router.push({
+            name: e.pathName
+          })
+      });
     }
   },
   methods: {

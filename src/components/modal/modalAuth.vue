@@ -1,5 +1,5 @@
 <template>
-  <ModalView @close-modal="close()" style="width: 25%">
+  <ModalView @close-modal="customClose ? customClose() : close()" style="width: 25%">
     <template #body>
       <loader :div-style="{height: 'max-content'}" :waiting="waiting">
         <Status/>
@@ -15,7 +15,7 @@ import Status from "@/components/helper/status/status";
 import Loader from "@/components/loading/loader";
 
 export default {
-  props: ["waiting"],
+  props: ["waiting", "customClose"],
   computed: {
     ...mapState({
       loading: (state) => state.auth.loading,

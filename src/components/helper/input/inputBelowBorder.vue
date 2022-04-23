@@ -21,7 +21,7 @@ export default {
 }
 
 .input-below-border .border-input input:focus {
-  border-bottom: 1px solid var(--blue) !important;
+  border-bottom: 1px solid var(--blue);
 }
 
 .input-below-border .border-input input:focus + .label {

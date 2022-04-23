@@ -1,5 +1,6 @@
 <template>
-  <VerifyCode @codeSubmit="codeSubmit" :phone="user.phone" v-show="isVerifyRegister"></VerifyCode>
+  <VerifyCode :custom-close="logoutAndClose" @codeSubmit="codeSubmit" :phone="user.phone"
+              v-show="isVerifyRegister"></VerifyCode>
 </template>
 <script>
 import VerifyCode from "@/components/auth/code/verifyCode";
@@ -15,8 +16,12 @@ export default {
   },
   methods: {
     ...mapActions({
-      phoneVerify:'phoneCodeVerify'
+      phoneVerify: 'phoneCodeVerify',
+      logout: "logoutAndClose"
     }),
+    logoutAndClose() {
+      this.logout();
+    },
     codeSubmit(value) {
       this.phoneVerify(value)
     }

@@ -1,18 +1,19 @@
 <template>
-  <Input v-bind="$attrs" :type="type()" :placeholder="$attrs.placeholder || 'Пароль'">
+  <InputValidation v-bind="Object.assign({},$attrs, $props )" :type="type()"
+                   :placeholder="$attrs.placeholder || 'Пароль'">
     <template #suffix>
-      <span  class="px-2" style="cursor: pointer">
+      <span class="px-2" style="cursor: pointer">
              <b-icon
                  @click="hide()" :icon="icon()"></b-icon>
       </span>
     </template>
-  </Input>
+  </InputValidation>
 </template>
 <script>
-import Input from "@/components/helper/input/input";
+import InputValidation from "@/components/helper/input/inputValidation";
 
 export default {
-  components: {Input},
+  components: {InputValidation},
   inheritAttrs: false,
   data() {
     return {

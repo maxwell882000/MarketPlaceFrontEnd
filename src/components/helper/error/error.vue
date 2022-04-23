@@ -1,7 +1,7 @@
 <template>
-  <div class="text-red text-sm ml-2">
-    <span v-show="error"> {{ error }} </span>
-  </div>
+    <div class="text-red text-sm ml-2">
+      <span v-show="error" v-html="error"></span>
+    </div>
 </template>
 
 <script setup>

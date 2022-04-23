@@ -6,13 +6,37 @@ export const passwordModule = {
     state() {
         return {
             passwordToken: "",
-            phone: ""
+            phone: "",
+            errorPassword: "",
+            successPassword: "",
+            passwordChange: {
+                password: "",
+                password_new: "",
+                password_rep: "",
+                password_new_error: ""
+            }
         }
     },
     getters: {
-        passToken: (state) => () => state.passwordToken
+        error: (state) => state.errorPassword,
+        success: (state) => state.successPassword,
+        passToken: (state) => () => state.passwordToken,
+        passwordChange: (state) => state.passwordChange
     },
     actions: {
+        async changePassword({commit, getters}) {
+            commit("wait/START", "password_loaded", {root: true});
+            commit('setErrorPassword', "");
+            try {
+                await passwordService.changePassword(getters.passwordChange);
+                commit('setSuccessPassword', "Пароль успешно обновлен");
+                commit('cleanPassword');
+            } catch (e) {
+                console.log(e);
+                commit("setErrorPassword", e);
+            }
+            commit("wait/END", "password_loaded", {root: true});
+        },
         async issueToken({commit}, phone) {
             commit("wait/START", "issue_password", {root: true});
             try {
@@ -54,8 +78,22 @@ export const passwordModule = {
             state.passwordToken = "";
             state.phone = "";
         },
+        setSuccessPassword(state, success) {
+            state.successPassword = success;
+        },
+        setErrorPassword(state, error) {
+            state.errorPassword = error;
+        },
         setPasswordToken(state, token) {
             state.passwordToken = token.token;
+        },
+        cleanPassword(state) {
+            state.passwordChange = {
+                password: "",
+                password_new: "",
+                password_rep: "",
+                password_new_error: ""
+            };
         },
         setPhone(state, phone) {
             state.phone = phone;

@@ -43,7 +43,7 @@ export const wayOfPaymentModule = {
             state.credits = credits;
         },
         clean(state) {
-            state.status = wayOfPaymentConstant.NOT_CHOSEN;
+            state.mainCredit.type = wayOfPaymentConstant.NOT_CHOSEN;
             state.credits = []
         }
     },

@@ -73,12 +73,16 @@ export const registrationOrderModule = {
                     ...getters.wayOfPayment,
                     ...getters.deliveryInfo,
                     ...getters.form,
-                    orders: rootGetters['prepareBasketModule/ordersId']
+                    ...rootGetters["plasticCardModule/plasticId"],
+                    orders: rootGetters['prepareBasketModule/ordersId'],
+                    payment_type: true, // remove in production IMPORTANT !!!
                 };
                 console.log("DATA SENDING");
+                console.log("REMOVE PAYMENT TYPE IN PRODUCTION !!!!!!!!");
                 form['way_of_payment'] = getters.wayOfPayment.type === wayOfPaymentConstant.INSTALLMENT ?
                     wayOfPaymentConstant.INSTALLMENT + wayOfPaymentConstant.RE_MAP_STATUS_VALUE
                     : getters.wayOfPayment.type === wayOfPaymentConstant.CASH ? 1 : 2;
+                console.log(JSON.stringify(form));
                 await purchaseService.createPurchases(form);
                 commit('setSuccessPurchase');
             } catch (e) {
@@ -129,7 +133,11 @@ export const registrationOrderModule = {
             state.successPurchase = false;
             state.policies = agreementAndPolicies.NOT_CHOSEN;
         },
+        openPolicies(state) {
+            state.policies = agreementAndPolicies.CHOOSING;
+        },
         setPolicies(state, policy) {
+            console.log("SETTED");
             state.policies = policy;
         },
         setSuccessPurchase(state) {

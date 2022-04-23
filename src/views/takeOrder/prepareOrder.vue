@@ -76,9 +76,9 @@ const deliveryCost = computed(() => store.getters['registrationOrderModule/deliv
 const orders = computed(() => Object.entries(store.getters['prepareBasketModule/selectedOrders']));
 const wayOfPayment = computed(() => store.getters['registrationOrderModule/wayOfPayment']);
 const currentStatus = computed(() => store.getters['deliveryInfoModule/status']);
+const getCard = () => store.dispatch('plasticCardModule/getCards');
 const openAgreement = () => store.commit("registrationOrderModule/setPolicies", agreementAndPolicies.CHOOSING);
 const status = deliveryStatusConstant;
-
 const canBePaid = computed(() =>
     currentStatus.value !== status.NOT_CHOSEN
     && wayOfPayment.value.type !== wayOfPaymentConstant.NOT_CHOSEN);
@@ -89,7 +89,10 @@ function purchaseOrders() {
     routerPath.value = "";
     openAgreement();
   }
+
 }
+
+getCard();// dispatching beforehand
 </script>
 <style>
 .img-product {

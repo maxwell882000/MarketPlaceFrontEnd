@@ -4,51 +4,94 @@ export const plasticCardModule = {
     namespaced: true,
     state() {
         return {
-            transaction_id: null,
             cards: [],
-            errors: ""
-        }
-    },
-    getters: {
-        transaction_id(state) {
-            return state.transaction_id;
-        },
-        cards(state) {
-            return state.cards;
-        },
-        errors(state) {
-            return state.errors;
+            selectedCard: {
+                id: -1,
+                card_number: "",
+                expiry: "",
+                // "id" => $this->id,
+                // "pan" => $this->pan,
+                // "expiry" => $this->expiry,
+                // "card_holder" => $this->card_holder
+            },
+            transaction_id: null,
+            error: null,
+            showVerification: false,
         }
     },
     actions: {
-        async getCards({commit}) {
+        validatePlasticCard({commit, getters, dispatch}) {
+            if (getters.selectedCard.id === -1) {
+                if (getters.selectedCard.card_number.length < 16) {
+                    getters.selectedCard.card_error = "Номер карты должен быть как минимум 16 цифр";
+                } else {
+                    getters.selectedCard.card_error = "";
+                }
+                if (getters.selectedCard.expiry.length < 5) {
+                    getters.selectedCard.expiry_error = "Срок действия карты необходима";
+                } else {
+                    getters.selectedCard.expiry_error = "";
+                }
+                if (!getters.selectedCard.expiry_error && !getters.selectedCard.card_error) {
+                    dispatch("startTransaction");
+                }
+            } else {
+                console.log("GET POLICIES");
+                commit("registrationOrderModule/openPolicies", null, {root: true})
+            }
+
+        },
+        async getCards({commit}) { // dispatched beforehand
             commit("wait/START", "card_loaded", {root: true});
             try {
                 const result = await plasticCardService.getCards();
-                commit('setCards', result.cards);
+                commit("setCards", result.cards);
             } catch (e) {
                 console.log(e);
-                commit('setErrors', e);
             }
             commit("wait/END", "card_loaded", {root: true});
         },
-        async getTransactionForPlastic({commit}, {card_number, expiry}) {
-            commit("wait/START", "plastic_transaction_send", {root: true});
+        async startTransaction({commit, getters}) {
+            commit("wait/START", "start_transaction_loaded", {root: true});
+            commit("setError", "");
             try {
-                const result = await plasticCardService.getTransactionForPlastic(
-                    {
-                        card_number: card_number,
-                        expiry: expiry
-                    }
-                );
+                const result = await plasticCardService.getTransactionForPlastic({
+                    card_number: getters.selectedCard.card_number,
+                    expiry: getters.selectedCard.expiry
+                });
                 commit('setTransactionId', result.transaction_id);
+                commit('openVerification');
             } catch (e) {
-                commit('setErrors', e);
+                console.log(e);
+                commit('setError', e);
             }
-            commit("wait/END", "plastic_transaction_send", {root: true});
+            commit("wait/END", "start_transaction_loaded", {root: true});
+        },
+        async insertCard({commit, getters}, {code}) {
+            commit("wait/START", "code", {root: true});
+            commit("setError", "");
+            try {
+                const result = await plasticCardService.insertPlasticCard(
+                    {
+                        code: code,
+                        card_number: getters['selectedCard'].card_number,
+                        transaction_id: getters['transactionId']
+                    }
+                )
+                commit('setSelectedCard', result);
+                commit("addToSelectedCard", result);
+                commit("closeVerification");
+                commit("registrationOrderModule/openPolicies", true, {root: true})
+            } catch (e) {
+                console.log(e);
+                commit('setError', e);
+            }
+            commit("wait/END", "code", {root: true});
         },
         async dialCode({commit, getters}) {
-            commit("wait/START", "dial_code_loaded", {root: true});
+            commit("wait/START", "code", {root: true});
+            commit("setError", "");
+
             try {
                 const transaction_id = getters.transaction_id;
                 await plasticCardService.dialCode({transaction_id: transaction_id});
@@ -56,28 +99,12 @@ export const plasticCardModule = {
                 console.log(e);
                 commit('setErrors', e);
             }
-            commit('wait/END', "card_loaded", {root: true});
-        },
-        async insertCard({commit, getters}, {code, card_number}) {
-            commit("wait/START", "plastic_card_insert_loaded", {root: true});
-            try {
-                const transaction_id = getters.transaction_id;
-                const result = await plasticCardService.insertPlasticCard({
-                    transaction_id: transaction_id,
-                    code: code,
-                    card_number: card_number
-                });
-                getters.cards.push(result); // insert newly added plastic card to show in front end
-                commit('setTransactionId', null) // cleaning transaction id , so it will not be used again
-                return result; // returning newly inserted card
-            } catch (e) {
-                console.log(e);
-                commit("setErrors", e);
-            }
-            commit("wait/END", "card_loaded", {root: true});
+            commit('wait/END', "code", {root: true});
         },
         async revokeCard({commit, getters}, plastic_id) {
             commit("wait/START", "revoke_card_" + plastic_id, {root: true});
+            commit("setError", "");
+
             try {
                 await plasticCardService.revokeCard(plastic_id);
                 commit("setCards", getters.cards.filter(e => e.id !== plastic_id));// cleaning deleting card from the front
@@ -88,15 +115,60 @@ export const plasticCardModule = {
             commit("wait/END", "revoke_card_" + plastic_id, {root: true});
         }
     },
+    getters: {
+        error(state) {
+            return state.error;
+        },
+        cards(state) {
+            return state.cards;
+        },
+        selectedCard(state) {
+            return state.selectedCard;
+        },
+        showVerification(state) {
+            return state.showVerification;
+        },
+        plasticId(state) {
+            if (state.selectedCard.id !== -1)
+                return {
+                    plastic_id: state.selectedCard.id
+                }
+            return {}
+        },
+        transactionId(state) {
+            return state.transaction_id;
+        }
+    },
     mutations: {
+        clean(state) {
+            state.cards = [];
+            state.selectedCard = {
+                id: -1
+            };
+            state.transaction_id = null;
+            state.error = null;
+        },
+        setCards(state, card) {
+            state.cards = card;
+        },
+        setError(state, error) {
+            state.error = error;
+        },
+        openVerification(state) {
+            state.showVerification = true;
+        },
+        closeVerification(state) {
+            state.showVerification = false;
+            state.transaction_id = null;
+        },
+        addToSelectedCard(state, card) {
+            state.cards.push(card);
+        },
+        setSelectedCard(state, card) {
+            state.selectedCard = card;
+        },
         setTransactionId(state, transaction_id) {
             state.transaction_id = transaction_id;
-        },
-        setErrors(state, errors) {
-            state.errors = errors;
-        },
-        setCards(state, cards) {
-            state.cards = cards;
         }
     }
 }

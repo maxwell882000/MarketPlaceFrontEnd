@@ -1,34 +1,30 @@
 <template>
   <way-of-payment-price-accept
-      v-show="mainCredit.type === status.NOT_CHOSEN"
+      v-if="mainCredit.type === status.NOT_CHOSEN"
       title="Выберите способ оплаты"
-      button-name="Выберите способ оплаты"
-  >
+      button-name="Выберите способ оплаты">
     <div class="mr-4">
       <Info style="fill: var(--gray300)"></Info>
     </div>
   </way-of-payment-price-accept>
-
   <way-of-payment-price-accept
-      v-show="mainCredit.type === status.CARD"
+      v-else-if="mainCredit.type === status.CARD"
       title="Картой Uzcard или HUMO"
       :is-entered="true"
       @accept="acceptCard"
-      button-name="Подтвердить"
-  >
+      button-name="Подтвердить">
   </way-of-payment-price-accept>
 
   <way-of-payment-price-accept
-      v-show="mainCredit.type === status.CASH"
+      v-else-if="mainCredit.type === status.CASH"
       title="Наличными по факту доставки"
       :is-entered="true"
       @accept="acceptCash"
-      button-name="Подтвердить"
-  >
+      button-name="Подтвердить">
   </way-of-payment-price-accept>
 
 
-  <section v-show="mainCredit.type === status.INSTALLMENT" class="section-container">
+  <section v-else-if="mainCredit.type === status.INSTALLMENT" class="section-container">
     <div v-show="mainCredit.initial_percent" class="mb-3">
       <span class="mb-1 block">Первый взнос</span>
       <range-input-one
@@ -37,8 +33,8 @@
           :min="initialPriceWithPercents"
           :max="priceWithPercents"
           :labelMin="initialPriceWithPercents.toFixed(2)"
-          :labelMax="priceWithPercents.toFixed(2)"
-      ></range-input-one>
+          :labelMax="priceWithPercents.toFixed(2)">
+      </range-input-one>
     </div>
     <div>
       <span class="mb-1 block">Срок рассрочки</span>
@@ -51,7 +47,8 @@
           :label-max="credits.max"
           :values="credits.values"
           :min="0"
-          :max="credits.length"></range-input-one-values>
+          :max="credits.length">
+      </range-input-one-values>
     </div>
     <div class="mt-3 section-container back-gray text-sm">
       <div class="d-flex justify-content-between mb-2">
@@ -109,6 +106,12 @@ const percent = ref(0); // in selected credit we have percent which additionally
 const resetIndex = ref(true);// resetting slider when credit changed
 
 
+function setInitialType() {
+  mainCredit.value.type = wayOfPayment.value.type;
+  console.log(mainCredit.value);
+  console.log(wayOfPayment.value);
+}
+
 const priceWithPercents = computed(() => {
   const percentPrice = percent.value * overallPrice.value;
   return percentPrice + overallPrice.value;
@@ -135,6 +138,7 @@ function initialPriceValue() {
 }
 
 function onStart() {
+  setInitialType();
   if (wayOfPayment.value.index_of_credit >= 0) {
     console.log("STARTEDD");
     setOverallPriceWithPercentage(wayOfPayment.value.index_of_credit);

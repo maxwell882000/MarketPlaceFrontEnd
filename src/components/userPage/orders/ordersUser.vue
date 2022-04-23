@@ -15,11 +15,9 @@
     <b-tab title="Завершенные"></b-tab>
   </b-tabs>
 </template>
-<script>
+<script setup>
 import Order from "@/components/userPage/orders/order";
 import Instalment from "@/components/userPage/orders/instalment";
 
-export default {
-  components: {Instalment, Order}
-}
+
 </script>

@@ -1,4 +1,5 @@
 <template>
+
   <header :class="[scrolled ? 'fixed' : '']">
     <headerUpperLine/>
     <nav>
@@ -31,8 +32,8 @@
       </div>
     </nav>
     <headerDownLine class="down-line"/>
+    <auth-modals></auth-modals>
   </header>
-  <auth-modals></auth-modals>
 
 </template>
 

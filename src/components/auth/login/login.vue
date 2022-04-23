@@ -2,7 +2,9 @@
   <ModalAuth waiting="login" v-show="isLogin" title="Вход">
     <template #inputs>
       <InputPhone v-model="phone" placeholder="Номер телефона"/>
-      <InputPassword v-model="password"/>
+      <div class="mt-2">
+        <InputPassword v-model="password"/>
+      </div>
       <ButtonForm title="Войти" :isEntered="isEntered()" @submit="login()"></ButtonForm>
       <div class="mt-2">
         <p @click="setRegister()" class="text-font text-link">

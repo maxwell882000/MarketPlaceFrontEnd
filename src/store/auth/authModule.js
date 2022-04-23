@@ -1,6 +1,7 @@
 import authService from "@/services/auth/authService";
 import codeService from "@/services/auth/codeService";
 import tokenService from "@/services/auth/tokenService";
+import userService from "@/services/user/userService";
 
 export const authModule = {
     state() {
@@ -11,6 +12,7 @@ export const authModule = {
                 name: "",
                 phone: "",
                 // user_credit: true,
+                // phone_verified
             },
         }
     },
@@ -21,6 +23,9 @@ export const authModule = {
         },
         isUserData(state) {
             return state.user.user_credit;
+        },
+        user(state) {
+            return state.user;
         }
     },
     actions: {
@@ -29,8 +34,40 @@ export const authModule = {
                 commit("wait/START", "user");
                 let result = await authService.getUser();
                 commit('setInitialUser', result);
+                if (!result.phone_verified) {
+                    commit("authWindow/setVerifyRegister");
+                }
                 commit("wait/END", "user");
             }
+        },
+        async changeAvatar({commit, getters}, avatar) {
+            commit("wait/START", "avatar");
+            try {
+                console.log(avatar);
+                const result = await userService.avatar(avatar);
+                console.log(result);
+                getters.user.avatar = result.avatar;
+            } catch (e) {
+                console.log(e);
+            }
+            commit("wait/END", "avatar");
+        },
+        async changeUserData({commit, getters}, {phone, name}) {
+            const request = {
+                name: name,
+                phone: phone
+            }
+            commit("wait/START", "user_data_loaded");
+            try {
+                await userService.userData(request);
+                if (getters.user.phone !== phone)
+                    commit("authWindow/setVerifyRegister");
+                getters.user.phone = phone;
+                getters.user.name = phone;
+            } catch (e) {
+                console.log(e);
+            }
+            commit("wait/END", "user_data_loaded");
         },
         async logout({commit}) {
             await authService.logout();
@@ -87,6 +124,10 @@ export const authModule = {
                 commit("wait/END", "code");
             }
         },
+        logoutAndClose({commit, dispatch}) {
+            commit("authWindow/close");
+            dispatch("logout");
+        },
         async phoneCodeVerify({commit}, code) {
             commit("wait/START", "code");
             try {
@@ -109,7 +150,7 @@ export const authModule = {
             console.log(state.user);
         },
         setUserData(state) {
-          state.user.user_credit = true;
+            state.user.user_credit = true;
         },
         setUser(state, user) {
             state.user.name = user.name;
