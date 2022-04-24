@@ -33,7 +33,7 @@ import ChooseCard from "@/components/userPage/payments/chooseCard";
 import Documents from "@/components/userPage/documents/documents";
 import Notification from "@/components/userPage/notification/notification";
 import Questions from "@/components/userPage/question/questions";
-import {mapGetters} from "vuex";
+import {mapActions, mapGetters, mapMutations} from "vuex";
 
 export default {
   data: () => ({
@@ -104,6 +104,12 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      getCard: "purchaseModule/getPurchases",
+    }),
+    ...mapMutations({
+      cleanCard: "purchaseModule/clean"
+    }),
     setCorrectTab() {
       this.tabs.forEach((e, i) => {
             if (e.pathName === this.$route.name) {
@@ -118,6 +124,10 @@ export default {
     if (!this.isAuthenticated) {
       this.$router.replace("/");
     }
+    this.getCard();
+  },
+  unmounted() {
+    this.cleanCard();
   }
 };
 </script>

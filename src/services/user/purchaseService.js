@@ -15,8 +15,9 @@ class PurchaseService {
         const result = await methods.post(`purchase/cancel/installment/${installment_id}/`, reason);
         return result.data.result;
     }
-    async payForMonth(month_paid_id) {
-        const result = await methods.post(`purchase/pay/installment/${month_paid_id}/`);
+
+    async payForMonth({month_paid_id, plastic}) {
+        const result = await methods.post(`purchase/pay/installment/${month_paid_id}/`, plastic);
         return result.data.result;
     }
 }

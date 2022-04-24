@@ -8,7 +8,8 @@ export const purchaseModule = {
         return {
             purchases: [],
             errorPayment: {},
-            errorInstallment: {}
+            errorInstallment: {},
+            chosePlasticCard: false,
         }
     },
     actions: {
@@ -34,10 +35,15 @@ export const purchaseModule = {
             }
             commit("wait/END", "payment_" + purchase.id, {root: true});
         },
-        async paidForMonth({commit}, {purchase, month_paid}) {
+        async paidForMonth({commit}, {purchase, month_paid, plastic}) {
             commit("wait/START", "month_paid_loaded_" + purchase.id, {root: true});
             try {
-                const result = await purchaseService.payForMonth(month_paid.id);
+                const result = await purchaseService.payForMonth({
+                    month_paid_id: month_paid.id,
+                    plastic: {
+                        plastic_id: plastic
+                    }
+                });
                 month_paid.paid = result.paid;
                 purchase.next_paid_month = result.next_paid_month;
             } catch (e) {
@@ -58,11 +64,23 @@ export const purchaseModule = {
         }
     },
     mutations: {
+        setChosePlasticCard(state, plastic) {
+            state.chosePlasticCard = plastic;
+        },
         setPurchases(state, purchases) {
             state.purchases = purchases;
+        },
+        clean(state) {
+            state.purchases = [];
+            state.errorPayment = {};
+            state.errorInstallment = {};
+            state.chosePlasticCard = false;
         }
     },
     getters: {
+        chosePlasticCard(state) {
+            return state.chosePlasticCard;
+        },
         onlyInstallment(state) {
             return state.purchases.filter(e => e.status === wayOfPaymentConstant.INSTALLMENT);
         },

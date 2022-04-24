@@ -5,14 +5,25 @@
           Ежемесячный платеж
         </span>
       <span class="bold">
-          150 000 сум
+          {{purchase.payble.month_paid}} сум
         </span>
     </div>
     <div class="text-end">
         <span class="text-gray block">
           Осталось
         </span>
-      <span class="bold">4 платежа</span>
+      <span class="bold">{{ purchase.payble.rest_month }} платежа</span>
     </div>
   </section>
 </template>
+<script setup>
+// eslint-disable-next-line no-undef,no-unused-vars
+const props = defineProps({
+  purchase: {
+    type: Object,
+    default() {
+      return {}
+    }
+  }
+});
+</script>
