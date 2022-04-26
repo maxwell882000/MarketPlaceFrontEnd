@@ -29,9 +29,9 @@
           :data="wayOfPayment">
         <card></card>
       </data-about-product>
-            <data-about-product :header="'Покупатель'" :data="'Data about this staff'">
-              <profile></profile>
-            </data-about-product>
+<!--      <data-about-product :header="'Покупатель'" :data="'Data about this staff'">-->
+<!--        <profile></profile>-->
+<!--      </data-about-product>-->
       <data-about-product
           v-show="instructions"
           :header="'Комментарий'"
@@ -47,7 +47,7 @@ import Clock from "@/components/icons/clock";
 import Location from "@/components/icons/location";
 import Truck from "@/components/icons/truck";
 import Card from "@/components/icons/card";
-import Profile from "@/components/icons/profile";
+// import Profile from "@/components/icons/profile";
 import CommentIcon from "@/components/icons/commentIcon";
 import ArrowMove from "@/components/icons/arrowMove";
 

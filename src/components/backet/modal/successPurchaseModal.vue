@@ -3,7 +3,7 @@
       style="width: 30vw"
       v-show="isSuccess"
       @closeModal="closeModal"
-      title="Ваш заказ №1234 принят!"
+      :title="`Ваш заказ № ${createdId} принят!`"
       description="Ожидайте, скоро с вами свяжется оператор, для подтверждения.">
     <template #prefix>
       <img src="@/assets/modal/accepted.png" alt="check sign">
@@ -33,6 +33,7 @@ import {useRouter} from "vue-router";
 const store = useStore();
 const route = useRouter();
 const isSuccess = computed(() => store.getters['registrationOrderModule/successPurchase']);
+const createdId = computed(() => store.getters['registrationOrderModule/createdId']);
 
 function closeModal() {
   route.replace({

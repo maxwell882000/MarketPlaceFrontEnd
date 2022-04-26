@@ -10,6 +10,7 @@
         active-nav-item-class="bg-white transparent-nav-active"
         class="user-tabs">
       <b-tab
+          lazy
           :key="'user_item_tab_' + index" v-for="(item , index) in tabs"
           title-link-class="transparent-tab-passive">
         <template #title>
@@ -19,7 +20,6 @@
           </div>
         </template>
         <router-view></router-view>
-        <!--        <user-settings class="w-100"/>-->
       </b-tab>
     </b-tabs>
   </div>
@@ -34,6 +34,7 @@ import Documents from "@/components/userPage/documents/documents";
 import Notification from "@/components/userPage/notification/notification";
 import Questions from "@/components/userPage/question/questions";
 import {mapActions, mapGetters, mapMutations} from "vuex";
+import {watch} from "vue";
 
 export default {
   data: () => ({
@@ -94,6 +95,13 @@ export default {
         this.$router.replace("/");
       }
     },
+    $route() {
+      this.tabs.forEach((e, i) => {
+        if (e.pathName === this.$route.name) {
+          this.currentTab = i;
+        }
+      });
+    },
     currentTab(val) {
       this.tabs.forEach((e, i) => {
         if (i === val)
@@ -105,7 +113,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      getCard: "purchaseModule/getPurchases",
+      getPurchases: "purchaseModule/getPurchases",
+      getCard: "plasticCardModule/getCards"
     }),
     ...mapMutations({
       cleanCard: "purchaseModule/clean"
@@ -117,13 +126,17 @@ export default {
             }
           }
       );
-    }
+    },
   },
   created() {
     this.setCorrectTab();
     if (!this.isAuthenticated) {
       this.$router.replace("/");
     }
+    watch(() => this.$router, function () {
+
+    });
+    this.getPurchases();
     this.getCard();
   },
   unmounted() {

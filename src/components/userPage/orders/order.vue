@@ -73,7 +73,7 @@ import OrderHeader from "@/components/userPage/orders/orderHeader";
 import OrderDetail from "@/components/userPage/orders/orderDetail";
 import statusPaymentToFront from "@/constants/payment/statusPaymentToFront";
 import statusPayment from "@/constants/payment/statusPayment";
-import {computed, ref} from "vue";
+import {computed} from "vue";
 
 
 // eslint-disable-next-line no-undef,no-unused-vars
@@ -109,7 +109,4 @@ const props = defineProps({
 });
 const discount = computed(() => props.purchase.originalPrice - props.purchase.productPrice);
 const status = statusPaymentToFront[props.purchase.payble.status];
-if (props.purchase.payble.status === statusPayment.DECLINED) {
-  status.text = ref(props.purchase.payble.reason);
-}
 </script>

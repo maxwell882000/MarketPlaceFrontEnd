@@ -10,6 +10,9 @@ export const purchaseModule = {
             errorPayment: {},
             errorInstallment: {},
             chosePlasticCard: false,
+            selectedMonth: null,
+            successModalView: null,
+            errorModalView: null,
         }
     },
     actions: {
@@ -35,20 +38,44 @@ export const purchaseModule = {
             }
             commit("wait/END", "payment_" + purchase.id, {root: true});
         },
-        async paidForMonth({commit}, {purchase, month_paid, plastic}) {
+        closeModal({commit}) {
+            commit('setChosePlasticCard', false);
+            commit("setSelectedMonth", null);
+        },
+        //  purchase:purchase,
+        //  month: item.id
+        startPayment({commit}, selectedMonth) {
+            commit('setSelectedMonth', selectedMonth);
+            commit('setChosePlasticCard', true);
+            console.log("STARTED PAYMENT");
+        },
+        async paidForMonth({commit, getters, dispatch}, plastic) {
+            const month = getters.selectedMonth.month;
+            const purchase = getters.selectedMonth.purchase;
             commit("wait/START", "month_paid_loaded_" + purchase.id, {root: true});
             try {
+                console.log('get getters');
+                console.log(getters);
                 const result = await purchaseService.payForMonth({
-                    month_paid_id: month_paid.id,
+                    month_paid_id: month.id,
                     plastic: {
                         plastic_id: plastic
                     }
                 });
-                month_paid.paid = result.paid;
-                purchase.next_paid_month = result.next_paid_month;
+                console.log(result);
+                console.log(getters.selectedMonth);
+                month.paid = result.paid;
+                console.log(month.paid);
+                purchase.payble.next_paid_month = result.next_paid_month;
+                purchase.payble.already_paid = parseInt(purchase.payble.already_paid) + result.paid;
+                commit('setSuccessModalView', "Успешно произошла оплата");
+                /// show success window
             } catch (e) {
                 console.log(e);
+                commit('setErrorModalView', e);
+                /// show error window
             }
+            dispatch("closeModal");
             commit("wait/END", "month_paid_loaded_" + purchase.id, {root: true});
         },
         async cancelInstallment({commit, getters}, {purchase, reason}) {
@@ -64,22 +91,44 @@ export const purchaseModule = {
         }
     },
     mutations: {
+        setSuccessModalView(state, success) {
+            state.successModalView = success;
+        },
+        setErrorModalView(state, error) {
+            state.errorModalView = error;
+        },
         setChosePlasticCard(state, plastic) {
             state.chosePlasticCard = plastic;
         },
         setPurchases(state, purchases) {
             state.purchases = purchases;
         },
+        setSelectedMonth(state, selectedMonth) {
+            console.log(selectedMonth);
+            state.selectedMonth = selectedMonth;
+        },
         clean(state) {
             state.purchases = [];
             state.errorPayment = {};
             state.errorInstallment = {};
             state.chosePlasticCard = false;
+            state.selectedMonth = null;
+            state.successModalView = null;
+            state.errorModalView = null;
         }
     },
     getters: {
+        successModalView(state) {
+            return state.successModalView;
+        },
+        errorModalView(state) {
+            return state.errorModalView;
+        },
         chosePlasticCard(state) {
             return state.chosePlasticCard;
+        },
+        selectedMonth(state) {
+            return state.selectedMonth;
         },
         onlyInstallment(state) {
             return state.purchases.filter(e => e.status === wayOfPaymentConstant.INSTALLMENT);
@@ -90,13 +139,15 @@ export const purchaseModule = {
         errorInstallment(state) {
             return state.errorInstallment;
         },
-        waitingPurchases(state) {
+        waitingAnswer(state) {
             return state.purchases.filter(e => e.payble.status === statusPayment.WAIT_ANSWER);
         },
+        waitingToPurchase(state) {
+            return state.purchases.filter(e => e.payble.status === statusPayment.ACCEPTED
+                && e.status !== wayOfPaymentConstant.INSTALLMENT)
+        },
         finishedPurchases(state) {
-            return state.purchases.filter(e => e.payble.status === statusPayment.FINISHED
-                || (e.status === wayOfPaymentConstant.CARD || e.status === wayOfPaymentConstant.CASH
-                    && e.payble.status === statusPayment.ACCEPTED));
+            return state.purchases.filter(e => e.payble.status === statusPayment.FINISHED);
         },
         declinedPurchases(state) {
             return state.purchases.filter(e => e.payble.status === statusPayment.DECLINED);

@@ -5,29 +5,21 @@
           :key="'table_installment_'+ item.id"
           v-for="(item, index) in purchase.payble.months"
           class="table-installment"
-          :class="index%2 === 0 && 'table-gray'">
+          :class="index % 2 === 0 && 'table-gray'">
         <td>{{ item.month }}</td>
         <td>{{ item.paid }}</td>
         <td>
           <ButtonBlue
-              v-if="item.must_pay !== item.paid && item.id === purchase.payble.next_paid_month"
+              v-if="item.must_pay !== item.paid && item.id <= purchase.payble.next_paid_month"
+              @click="payment({
+                  purchase:purchase,
+                  month: item
+              })"
               class="button m-0" title="Оплатить"></ButtonBlue>
           <span v-else-if="item.must_pay === item.paid"> Оплачено!</span>
           <span v-else> Не оплачено</span>
         </td>
       </tr>
-      <!--      <tr class="table-installment ">-->
-      <!--        <td>28 Июн 2021</td>-->
-      <!--        <td>150 000</td>-->
-      <!--        <td>-->
-      <!--          <ButtonBlue class="button m-0" title="Оплатить"></ButtonBlue>-->
-      <!--        </td>-->
-      <!--      </tr>-->
-      <!--      <tr class="table-installment table-gray">-->
-      <!--        <td>28 Июн 2021</td>-->
-      <!--        <td>150 000</td>-->
-      <!--        <td>Оплачено!</td>-->
-      <!--      </tr>-->
     </table>
   </section>
   <hr>
@@ -35,6 +27,7 @@
 <script setup>
 import ButtonBlue from "@/components/helper/button/buttonBlue";
 import {defineProps} from "vue";
+import {useStore} from "vuex";
 
 // eslint-disable-next-line no-unused-vars
 const props = defineProps({
@@ -44,11 +37,13 @@ const props = defineProps({
       return {}
     }
   }
-})
+});
+const store = useStore();
+const payment = (selectedMonth) => store.dispatch('purchaseModule/startPayment', selectedMonth);
 </script>
+
 <style lang="scss" scoped>
 @import "../../../assets/style/order.scss";
-
 
 .table-gray {
   background-color: var(--gray100);

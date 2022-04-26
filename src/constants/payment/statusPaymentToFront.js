@@ -11,15 +11,15 @@ statusPaymentToFront[statusPayment.ACCEPTED] = {
     color: "back-green text-white",
 }
 statusPaymentToFront[statusPayment.FINISHED] = {
-    text: "Завершен",
+    text: "Оплачено",
     color: "back-green text-white",
 }
 statusPaymentToFront[statusPayment.DECLINED] = {
-    text: "",
-    color: "back-red text-white"
+    text: "Отказано",
+    color: "bg-red text-white"
 }
 statusPaymentToFront[statusPayment.REQUIRED_SURETY] = {
-    text:"Первышен Лимит",
+    text: "Первышен Лимит",
     color: "back-red text-white"
 }
 

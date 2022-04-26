@@ -23,9 +23,11 @@
   --borderRadius17: 17px;
   --marinTop: 20px;
 }
+
 .mt-custom {
   margin-top: var(--marinTop);
 }
+
 .button-clear {
   color: var(--dark);
   border: none;
@@ -248,6 +250,10 @@ hr {
 
 .text-gray300 {
   color: var(--gray300);
+}
+
+.bg-red {
+  background-color: var(--red);
 }
 
 .bg-gray300 {
@@ -521,4 +527,13 @@ input[type=number] {
 
 .circle-singleline {
   min-width: 20px !important;
+}
+.text-button{
+  background: none;
+
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }

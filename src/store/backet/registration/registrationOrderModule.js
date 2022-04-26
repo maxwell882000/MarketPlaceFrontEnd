@@ -43,6 +43,7 @@ export const registrationOrderModule = {
                 // "purchase->delivery_address->instructions" => "124214214124"
             },
             successPurchase: false,
+            createdId: null,
             policies: agreementAndPolicies.NOT_CHOSEN
             // set to Choosing , when cash selected or
             // after selecting
@@ -83,8 +84,8 @@ export const registrationOrderModule = {
                     wayOfPaymentConstant.INSTALLMENT + wayOfPaymentConstant.RE_MAP_STATUS_VALUE
                     : getters.wayOfPayment.type === wayOfPaymentConstant.CASH ? 1 : 2;
                 console.log(JSON.stringify(form));
-                await purchaseService.createPurchases(form);
-                commit('setSuccessPurchase');
+                const result = await purchaseService.createPurchases(form);
+                commit('setSuccessPurchase', result.id);
             } catch (e) {
                 console.log(e);
             }
@@ -92,6 +93,9 @@ export const registrationOrderModule = {
         }
     },
     getters: {
+        createdId(state){
+           return state.createdId;
+        },
         wayOfPayment(state) {
             return state.wayOfPayment;
         },
@@ -132,6 +136,7 @@ export const registrationOrderModule = {
             state.form = {};
             state.successPurchase = false;
             state.policies = agreementAndPolicies.NOT_CHOSEN;
+            state.createdId = null;
         },
         openPolicies(state) {
             state.policies = agreementAndPolicies.CHOOSING;
@@ -140,8 +145,9 @@ export const registrationOrderModule = {
             console.log("SETTED");
             state.policies = policy;
         },
-        setSuccessPurchase(state) {
+        setSuccessPurchase(state, id) {
             state.successPurchase = true;
+            state.createdId = id; // after we got purchase;
         },
         deleteWayOfPayment(state, key) {
             delete state.wayOfPayment[key];
