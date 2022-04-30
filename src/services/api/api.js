@@ -2,7 +2,7 @@ import axios from "axios";
 // import tokenService from "@/services/auth/tokenService";
 import store from "../../store/index";
 
-const SERVER = "http://127.0.0.1:8000";
+const SERVER = "http://100.65.118.235:8000";
 const instance = axios.create({
     baseURL: SERVER + "/api/",
     headers: {
@@ -12,7 +12,6 @@ const instance = axios.create({
 });
 instance.interceptors.request.use((config) => {
     let token = store.getters["passwordModule/passToken"]() || store.getters.authToken();
-    console.log(token);
     if (token) {
         config.headers["Authorization"] = 'Bearer ' + token;
     }

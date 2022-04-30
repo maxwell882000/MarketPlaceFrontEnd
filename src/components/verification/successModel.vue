@@ -4,15 +4,13 @@
       @closeModal="closeModal"
       style="width: 25rem"
       title="Отправленно"
-      description="Ваши данные успешно отправленны"
+      :description="description"
   >
     <template #prefix>
       <img src="@/assets/modal/accepted.png" alt="check sign">
     </template>
     <template #buttons>
-      <router-link to="/cart/" class="remove-link" replace>
-        <ButtonBlue class="w-60" title="Вернуться в корзину"></ButtonBlue>
-      </router-link>
+      <ButtonBlue @click="closeModal" class="w-60" :title="buttonTitle"></ButtonBlue>
     </template>
   </ModalView>
 </template>
@@ -25,11 +23,20 @@ import {useStore} from "vuex";
 
 const route = useRouter();
 const store = useStore();
-const success = computed(() => store.getters['verificationModule/success']);
+const success = computed(() => store.getters['verificationModule/' + props.successShow]);
+const clean = () => store.commit("verificationModule/clean");
+// eslint-disable-next-line no-undef
+const props = defineProps({
+  description: String,
+  buttonTitle: String,
+  pathName: String,
+  successShow: String,
+});
 
 function closeModal() {
+  clean();
   route.replace({
-    name: "basket"
+    name: props.pathName
   });
 }
 

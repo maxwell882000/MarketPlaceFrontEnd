@@ -95,17 +95,16 @@ import Loader from "@/components/loading/loader";
 import Error from "@/components/helper/error/error";
 import ButtonBlue from "@/components/helper/button/buttonBlue";
 import VerifyCardModal from "@/components/plasticCard/verifyCardModal";
+import usePlastic from "@/components/helper/input/setup/usePlastic";
 
 const type = wayOfPaymentConstant;
 const store = useStore();
 const wayOfPayment = computed(() => store.getters['registrationOrderModule/wayOfPayment']);
 const cards = computed(() => store.getters['plasticCardModule/cards']);
-const selectedCard = computed(() => store.getters['plasticCardModule/selectedCard']);
 const setSelectedCard = (val) => store.commit("plasticCardModule/setSelectedCard", val);
-const validateCard = () => store.dispatch("plasticCardModule/validatePlasticCard");
-const error = computed(() => store.getters['plasticCardModule/error']);
 const errorCheck = ref("");
 const checked = ref(false);
+const {selectedCard, setCardNumber, setExpiry, validateCard, error} = usePlastic();
 
 function validate() {
   console.log("CLICKED");
@@ -119,15 +118,6 @@ function validate() {
     validateCard();
   }
 }
-
-function setExpiry(val) {
-  selectedCard.value.expiry = val;
-}
-
-function setCardNumber(val) {
-  selectedCard.value.card_number = val;
-}
-
 </script>
 <style>
 .mini-card {

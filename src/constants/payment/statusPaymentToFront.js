@@ -20,7 +20,7 @@ statusPaymentToFront[statusPayment.DECLINED] = {
 }
 statusPaymentToFront[statusPayment.REQUIRED_SURETY] = {
     text: "Первышен Лимит",
-    color: "back-red text-white"
+    color: "bg-red text-white"
 }
 
 export default statusPaymentToFront;

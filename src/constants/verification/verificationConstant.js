@@ -1,11 +1,13 @@
 export default {
     ADDITIONAL_PHONE: "additional_phone",
+    PHONE: "phone",
     FIRST_NAME: "crucialData->firstname",
     LAST_NAME: "crucialData->lastname",
     SEX: "sex",
     SERIES: "crucialData->series",
     DATE_OF_BIRTH: "crucialData->date_of_birth",
     PNFL: "crucialData->pnfl",
+    FATHER_NAME: "crucialData->father_name",
     DEPT_SUM: "crucialData->dept_sum",
     PASSPORT: "crucialData->passport",
     PASSPORT_REVERSE: "crucialData->passport_reverse",

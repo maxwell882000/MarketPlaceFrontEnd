@@ -28,7 +28,7 @@
             </div>
             <div class="item-of-day-info">
               <p class="item-of-day__description mb-1">
-                {{ product.title }} fdfa lsk lfk fl;dk l;fk ds;lfkds;lf k;l sdkl;f
+                {{ product.title }}
               </p>
               <ItemPrice :basket="product.basket" :id="product.id" :credit="product.credit"/>
             </div>

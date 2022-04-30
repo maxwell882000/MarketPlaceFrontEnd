@@ -32,11 +32,11 @@
       </div>
     </section>
 
-    <router-link :to="'/verification' + back" replace>
+    <router-link :to="correctPath + back" replace>
       <ButtonGray style="background-color: var(--gray600)" :title-style="{color: 'white'}" class="mr-2 w-20 mb-3 py-2"
                   title="Назад"></ButtonGray>
     </router-link>
-    <router-link :to="isFullNextPath ? next :'/verification' + next " replace>
+    <router-link :to="isFullNextPath ? next : correctPath + next " replace>
       <ButtonBlue @click="$emit('nextPage')" class="w-20 mb-3 py-2" title="Далее"></ButtonBlue>
     </router-link>
   </loader>
@@ -57,6 +57,12 @@ export default {
     return {
       filelist: {},
       image: this.initialImage
+    }
+  },
+  computed: {
+    correctPath() {
+      const path = this.$route.path.split("/");
+      return path.slice(0, path.length - 1).join("/");
     }
   },
   methods: {

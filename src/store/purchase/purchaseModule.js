@@ -26,11 +26,11 @@ export const purchaseModule = {
             }
             commit("wait/END", "purchases_loaded", {root: true});
         },
-        async cancelPayment({commit, getters}, purchase) {
+        async cancelPayment({commit, getters}, {purchase, reason}) {
             commit("wait/START", "payment_" + purchase.id, {root: true});
             delete getters.errorPayment[purchase.id];
             try {
-                await purchaseService.cancelPayment(purchase.id);
+                await purchaseService.cancelPayment(purchase.id, reason);
                 purchase.status = statusPayment.DECLINED;
             } catch (e) {
                 console.log(e);
@@ -67,6 +67,7 @@ export const purchaseModule = {
                 month.paid = result.paid;
                 console.log(month.paid);
                 purchase.payble.next_paid_month = result.next_paid_month;
+                purchase.payble.status = result.status;
                 purchase.payble.already_paid = parseInt(purchase.payble.already_paid) + result.paid;
                 commit('setSuccessModalView', "Успешно произошла оплата");
                 /// show success window
@@ -131,7 +132,9 @@ export const purchaseModule = {
             return state.selectedMonth;
         },
         onlyInstallment(state) {
-            return state.purchases.filter(e => e.status === wayOfPaymentConstant.INSTALLMENT);
+            return state.purchases.filter(e =>
+                e.status === wayOfPaymentConstant.INSTALLMENT
+                && (e.payble.status === statusPayment.ACCEPTED || e.payble.status === statusPayment.REQUIRED_SURETY + statusPayment.ACCEPTED));
         },
         errorPayment(state) {
             return state.errorPayment;
@@ -140,7 +143,8 @@ export const purchaseModule = {
             return state.errorInstallment;
         },
         waitingAnswer(state) {
-            return state.purchases.filter(e => e.payble.status === statusPayment.WAIT_ANSWER);
+            return state.purchases.filter(e => e.payble.status === statusPayment.WAIT_ANSWER ||
+                e.payble.status === statusPayment.REQUIRED_SURETY);
         },
         waitingToPurchase(state) {
             return state.purchases.filter(e => e.payble.status === statusPayment.ACCEPTED

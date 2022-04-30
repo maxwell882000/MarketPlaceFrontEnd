@@ -37,7 +37,6 @@ export const backetModule = {
         },
     },
     mutations: {
-
         setOrder(state, {id, key, value}) {
             state.order[id] = state.order[id] || {};
             state.order[id][key] = value;
@@ -47,12 +46,11 @@ export const backetModule = {
         }
     },
     actions: {
-
-
         async addToBasket({commit, getters}, id) {
             try {
                 let data = await backetService.addToBasket(id, getters.getPreOrder(id));
                 commit("productModule/setProductOrder", data.id, {root: true});
+                return data;
             } catch (e) {
                 console.log(e);
             }

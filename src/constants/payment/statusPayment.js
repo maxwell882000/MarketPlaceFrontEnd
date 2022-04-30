@@ -4,4 +4,5 @@ export default {
     DECLINED: 2,
     FINISHED: 3,
     REQUIRED_SURETY: 10,
+    REQUIRED_SURETY_ACCEPTED : 20,
 }

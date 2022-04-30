@@ -2,10 +2,10 @@
   <section class="container mb-4">
     <back-button title="Назад в оформление"></back-button>
     <h4>Способ оплаты</h4>
-    <h6 v-show="credits.length">Тарифы рассрочки</h6>
+    <h6 v-show="showCredit">Тарифы рассрочки</h6>
     <b-row class="">
       <b-col cols="8">
-        <b-form-group v-show="credits.length" name="radio-options1" id="installment_number" class="mb-3"
+        <b-form-group v-show="showCredit" name="radio-options1" id="installment_number" class="mb-3"
                       v-slot="{ ariaDescribedby }">
           <way-of-payment-item :key="'way_of_payment_' + item.id" v-for="item in credits"
                                :title="item.name"
@@ -17,8 +17,9 @@
                                :aria-describedby="ariaDescribedby">
           </way-of-payment-item>
         </b-form-group>
-        <h6>Оплата сразу</h6>
-        <b-form-group name="radio-options2" id="way_of_payment" v-slot="{ariaDescribedByPrice}">
+        <h6 v-show="showPayment">Оплата сразу</h6>
+        <b-form-group v-show="showPayment"
+                      name="radio-options2" id="way_of_payment" v-slot="{ariaDescribedByPrice}">
           <way-of-payment-item title="Картой Uzcard или HUMO"
                                name="installment"
                                @change="setCard()"
@@ -45,7 +46,6 @@
         <way-of-payment-price></way-of-payment-price>
       </b-col>
     </b-row>
-
   </section>
 </template>
 <script setup>
@@ -78,6 +78,8 @@ const credits = computed(() => store.getters["wayOfPaymentModule/credits"]);
 const getCredits = () => store.dispatch('wayOfPaymentModule/getWayOfPayment');
 const setInstallment = (credit) => store.commit("wayOfPaymentModule/setMainCreditInstallment", credit);
 const setCash = () => store.commit("wayOfPaymentModule/setMainCreditCash", {});
+const showCredit = computed(() => store.getters['wayOfPaymentModule/showCredit']);
+const showPayment = computed(() => store.getters['wayOfPaymentModule/showPayment']);
 const setCard = () => store.commit("wayOfPaymentModule/setMainCreditCard", {});
 const selected = ref(selectedCreditMainly.value.main_credit_id);
 

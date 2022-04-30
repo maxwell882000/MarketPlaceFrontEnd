@@ -6,10 +6,12 @@ import {useRouter} from "vue-router";
 export default function (installment, overallPrice, mainCredit) {
     const store = useStore();
     const wayOfPayment = computed(() => store.getters['registrationOrderModule/wayOfPayment']);
+    const clean = () => store.commit('wayOfPaymentModule/cleanShow');
     const deleteWayOfPaymentKey = (key) => store.commit("registrationOrderModule/deleteWayOfPayment", key);
     const route = useRouter();
 
     function selectAndGoToPrepare() {
+        clean();
         route.replace("/cart/prepareOrder");
     }
 

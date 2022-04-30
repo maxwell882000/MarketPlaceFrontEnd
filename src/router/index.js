@@ -8,7 +8,38 @@ import isFirstPageSuccess from "@/middlewares/validation/isFirstPageSuccess";
 import isSecondPageSuccess from "@/middlewares/validation/isSecondPageSuccess";
 import isThirdPageSuccess from "@/middlewares/validation/isThirdPageSuccess";
 import auth from "@/middlewares/auth";
+import checkTakenCredit from "@/middlewares/checkTakenCredit";
 
+const validationChildren = [
+    {
+        path: "1",
+        name: "start_verification",
+        component: () => import("../views/verification/firstStep"),
+    },
+    {
+        path: "2",
+        name: "second_step",
+        component: () => import("../views/verification/secondStep"),
+        meta: {
+            middleware: [isFirstPageSuccess]
+        }
+    },
+    {
+        path: "3",
+        name: "third_step",
+        component: () => import("../views/verification/thirdStep"),
+        meta: {
+            middleware: [isFirstPageSuccess, isSecondPageSuccess]
+        }
+    },
+    {
+        path: "4",
+        component: () => import("../views/verification/fourthStep"),
+        meta: {
+            middleware: [isFirstPageSuccess, isSecondPageSuccess, isThirdPageSuccess]
+        }
+    }
+];
 const routes = [
     {
         path: '/',
@@ -36,36 +67,16 @@ const routes = [
         meta: {
             middleware: [auth]
         },
-        children: [
-            {
-                path: "1",
-                name: "start_verification",
-                component: () => import("../views/verification/firstStep"),
-            },
-            {
-                path: "2",
-                name: "second_step",
-                component: () => import("../views/verification/secondStep"),
-                meta: {
-                    middleware: [isFirstPageSuccess]
-                }
-            },
-            {
-                path: "3",
-                name: "third_step",
-                component: () => import("../views/verification/thirdStep"),
-                meta: {
-                    middleware: [isFirstPageSuccess, isSecondPageSuccess]
-                }
-            },
-            {
-                path: "4",
-                component: () => import("../views/verification/fourthStep"),
-                meta: {
-                    middleware: [isFirstPageSuccess, isSecondPageSuccess, isThirdPageSuccess]
-                }
-            }
-        ]
+        children: validationChildren,
+    },
+    {
+        path: "/verification/surety",
+        name: "VerificationAccountSurety",
+        component: () => import("../views/verification/verificationAccount"),
+        meta: {
+            middleware: [auth, checkTakenCredit]
+        },
+        children: validationChildren
     },
     {
         path: "/item/:id",
@@ -183,6 +194,11 @@ const routes = [
                 component: () => import("../components/userPage/orders/ordersUser")
             },
             {
+                path: "insertCard",
+                name: "insert_card",
+                component: () => import("../components/userPage/payments/insertCard")
+            },
+            {
                 path: "plasticCard",
                 name: "credit",
                 component: () => import("../components/userPage/payments/chooseCard")
@@ -228,6 +244,7 @@ router.beforeEach((to, from, next) => {
         to,
         from,
         next,
+        route: next,
         store
     }
     return middleware[0]({

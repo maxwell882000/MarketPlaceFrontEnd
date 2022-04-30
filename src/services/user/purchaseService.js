@@ -6,8 +6,10 @@ class PurchaseService {
         return result.data.result;
     }
 
-    async cancelPayment(payment_id) {
-        const result = await methods.get(`purchase/cancel/payment/${payment_id}/`);
+    async cancelPayment(payment_id, data) {
+        console.log()
+        console.log(data);
+        const result = await methods.post(`purchase/cancel/payment/${payment_id}/`, data);
         return result.data.result;
     }
 

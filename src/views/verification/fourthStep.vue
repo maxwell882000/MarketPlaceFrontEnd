@@ -1,5 +1,6 @@
 <template>
-  <success-model></success-model>
+  <success-modal-to-order></success-modal-to-order>
+  <success-modal-to-basket></success-modal-to-basket>
   <file-step
       @image-upload="getImage"
       :initial-image="initialImage"
@@ -19,16 +20,30 @@ import FileStep from "@/components/verification/fileStep";
 import useFileUpload from "@/components/verification/setup/useFileUpload";
 import verificationConstant from "@/constants/verification/verificationConstant";
 import {useStore} from "vuex";
-import SuccessModel from "@/components/verification/successModel";
+import {useRoute} from "vue-router";
+import SuccessModalToOrder from "@/components/verification/successModalToOrder";
+import SuccessModalToBasket from "@/components/verification/successModalToBasket";
 
 const {getImage, isNext, initialImage} = useFileUpload(verificationConstant.USER_PASSPORT);
 const store = useStore();
 const submitData = () => store.dispatch("verificationModule/submitData");
+const submitSuretyData = () => store.dispatch("verificationModule/suretySubmitData");
 
 function submitForm() {
   if (isNext.value) {
-    submitData();
+    if (isSurety()) {
+      submitSuretyData();
+    } else
+      submitData();
     // open here modal window and go to the next page;
   }
+}
+
+const route = useRoute();
+
+function isSurety() {
+  const path = route.path.split("/");
+  console.log(path.slice(-2)[0]);
+  return path.slice(-2)[0] === "surety";
 }
 </script>

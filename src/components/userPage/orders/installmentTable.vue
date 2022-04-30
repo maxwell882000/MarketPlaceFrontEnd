@@ -9,13 +9,19 @@
         <td>{{ item.month }}</td>
         <td>{{ item.paid }}</td>
         <td>
+          <span v-if="status.WAIT_ANSWER === purchase.payble.status">
+            Обрабатываеться
+          </span>
           <ButtonBlue
-              v-if="item.must_pay !== item.paid && item.id <= purchase.payble.next_paid_month"
+              v-else-if="item.must_pay !== item.paid
+              && status.ACCEPTED === purchase.payble.status
+              && item.id <= purchase.payble.next_paid_month"
               @click="payment({
                   purchase:purchase,
                   month: item
               })"
               class="button m-0" title="Оплатить"></ButtonBlue>
+          <span v-else-if="status.DECLINED === purchase.payble.status">Отказано</span>
           <span v-else-if="item.must_pay === item.paid"> Оплачено!</span>
           <span v-else> Не оплачено</span>
         </td>
@@ -26,10 +32,10 @@
 </template>
 <script setup>
 import ButtonBlue from "@/components/helper/button/buttonBlue";
-import {defineProps} from "vue";
 import {useStore} from "vuex";
+import statusPayment from "@/constants/payment/statusPayment";
 
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars,no-undef
 const props = defineProps({
   purchase: {
     type: Object,
@@ -40,6 +46,7 @@ const props = defineProps({
 });
 const store = useStore();
 const payment = (selectedMonth) => store.dispatch('purchaseModule/startPayment', selectedMonth);
+const status = statusPayment;
 </script>
 
 <style lang="scss" scoped>

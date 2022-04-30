@@ -1,5 +1,12 @@
 <template>
   <div class="w-100  buy-now">
-    <button class="w-100">Купить сразу</button>
+    <button @click="buyImmediately" class="w-100">Купить сразу</button>
   </div>
 </template>
+
+<script setup>
+import usePay from "@/components/product/button/setup/usePay";
+
+const {buyImmediately} = usePay("setShowCredit");
+
+</script>

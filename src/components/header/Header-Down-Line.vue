@@ -44,7 +44,10 @@
         <!--            Скидки-->
         <!--          </a>-->
         <!--        </div>-->
-        <div v-for="item in nav_bar" :key="item.slug" class="header-link"><a href="#">{{ item.name }}</a></div>
+        <div v-for="item in nav_bar" :key="item.slug" class="header-link">
+          <router-link :to="'/category/parent/' + item.slug">{{ item.name }}
+          </router-link>
+        </div>
         <!--        <div class="header-link"><a href="#">Детям</a></div>-->
         <!--        <div class="header-link"><a href="#">Спорт</a></div>-->
         <!--        <div class="header-link"><a href="#">Продукты</a></div>-->

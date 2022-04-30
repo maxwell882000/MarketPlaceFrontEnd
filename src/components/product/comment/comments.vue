@@ -3,7 +3,7 @@
     <b-row class="mb-4">
       <b-col cols="9" class="cols">
         <div class="comment rounded-st">
-          <h5>Отзывы {{product.num_comment}}(количество)</h5>
+          <h5>Отзывы <span class="text-gray">{{product.num_comment}}</span></h5>
           <loader waiting="comment">
             <remained-comment  :comment="item" v-for="item in comment" :key="'commment_unique_s' + item.id"></remained-comment>
             <loader :div-style="{height: '5vh'}" waiting="new_comment">

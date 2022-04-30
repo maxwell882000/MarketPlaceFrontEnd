@@ -77,7 +77,6 @@ export default {
     checkAll(event) {
       this.checkALlOrder = event.target.checked;
     },
-
   }
 };
 

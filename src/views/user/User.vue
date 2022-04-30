@@ -34,7 +34,6 @@ import Documents from "@/components/userPage/documents/documents";
 import Notification from "@/components/userPage/notification/notification";
 import Questions from "@/components/userPage/question/questions";
 import {mapActions, mapGetters, mapMutations} from "vuex";
-import {watch} from "vue";
 
 export default {
   data: () => ({
@@ -62,19 +61,20 @@ export default {
       },
       {
         pathName: "credit",
+        secondName: "insert_card",
         title: "Оплата",
         icon: "credit-card-fill",
       },
-      {
-        pathName: "documents",
-        title: "Мои документы",
-        icon: "file-earmark-text-fill",
-      },
-      {
-        pathName: "notification",
-        title: "Уведомления",
-        icon: "bell-fill",
-      },
+      // {
+      //   pathName: "documents",
+      //   title: "Мои документы",
+      //   icon: "file-earmark-text-fill",
+      // },
+      // {
+      //   pathName: "notification",
+      //   title: "Уведомления",
+      //   icon: "bell-fill",
+      // },
       {
         pathName: "questionAndAnswers",
         title: "Вопросы и ответы",
@@ -97,7 +97,7 @@ export default {
     },
     $route() {
       this.tabs.forEach((e, i) => {
-        if (e.pathName === this.$route.name) {
+        if (this.check(e)) {
           this.currentTab = i;
         }
       });
@@ -119,9 +119,12 @@ export default {
     ...mapMutations({
       cleanCard: "purchaseModule/clean"
     }),
+    check(item) {
+      return item.secondName === this.$route.name || item.pathName === this.$route.name
+    },
     setCorrectTab() {
       this.tabs.forEach((e, i) => {
-            if (e.pathName === this.$route.name) {
+            if (this.check(e)) {
               this.currentTab = i;
             }
           }
@@ -133,9 +136,6 @@ export default {
     if (!this.isAuthenticated) {
       this.$router.replace("/");
     }
-    watch(() => this.$router, function () {
-
-    });
     this.getPurchases();
     this.getCard();
   },

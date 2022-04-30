@@ -104,7 +104,6 @@ export const plasticCardModule = {
         async revokeCard({commit, getters}, plastic_id) {
             commit("wait/START", "revoke_card_" + plastic_id, {root: true});
             commit("setError", "");
-
             try {
                 await plasticCardService.revokeCard(plastic_id);
                 commit("setCards", getters.cards.filter(e => e.id !== plastic_id));// cleaning deleting card from the front
@@ -118,6 +117,9 @@ export const plasticCardModule = {
     getters: {
         error(state) {
             return state.error;
+        },
+        isEmptyCard(state) {
+            return !state.cards.length;
         },
         cards(state) {
             return state.cards;

@@ -10,6 +10,8 @@ export const wayOfPaymentModule = {
                 type: wayOfPaymentConstant.NOT_CHOSEN,
                 credits: [] // here is info for choosing appropriate tariff in wayOfPaymentPrice
             },
+            showCredit: true,
+            showPayment: true
         }
     },
     actions: {
@@ -31,6 +33,12 @@ export const wayOfPaymentModule = {
             console.log("CHANGED");
             state.mainCredit.type = wayOfPaymentConstant.INSTALLMENT;
         },
+        setShowCredit(state, show) {
+            state.showCredit = show;
+        },
+        setShowPayment(state, show) {
+            state.showPayment = show;
+        },
         setMainCreditCash(state, credit) {
             state.mainCredit = credit;
             state.mainCredit.type = wayOfPaymentConstant.CASH;
@@ -42,12 +50,22 @@ export const wayOfPaymentModule = {
         setCredits(state, credits) {
             state.credits = credits;
         },
+        cleanShow(state) {
+          state.showPayment = true;
+          state.showCredit = true;
+        },
         clean(state) {
             state.mainCredit.type = wayOfPaymentConstant.NOT_CHOSEN;
             state.credits = []
         }
     },
     getters: {
+        showCredit(state) {
+            return state.credits.length && state.showCredit;
+        },
+        showPayment(state) {
+            return state.showPayment;
+        },
         mainCredit(state) {
             return state.mainCredit;
         },

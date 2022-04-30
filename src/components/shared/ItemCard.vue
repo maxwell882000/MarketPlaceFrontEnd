@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/item/${product.id}`" class="item-card">
+  <router-link :to="`/item/${product.id}`" class="item-card d-flex flex-column">
     <div class="item-card__image">
       <div class="item-card__image__like">
         <Like :id="product.id" :favourite="product.favourite"/>
@@ -12,13 +12,13 @@
         <span>-{{ product.discount }}%</span>
       </div>
     </div>
-    <div class="item-card__content">
+    <div class="item-card__content d-flex flex-column h-100 justify-content-around">
       <div class="item-card__rating">
         <b-icon
             class="item-card__rating__star"
             icon="star-fill"
-            size="sm"
-        ></b-icon>
+            size="sm">
+        </b-icon>
         <small class="mx-1">{{ product.mark }}</small>
         <small class="mx-2">{{ product.num_comment }} отзывов</small>
       </div>
@@ -91,7 +91,7 @@ export default {
   padding: 12px;
   background-color: white;
   border-radius: 12px;
-  max-width: 228px;
+  width: 14rem;
   box-shadow: 0 0 0 transparent;
 
   .item-card__image {

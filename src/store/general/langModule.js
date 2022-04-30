@@ -13,6 +13,7 @@ export const langModule = {
         setLang(state, lang) {
             state.lang = lang;
             langService.setLang(lang);
+            window.location.reload();
         }
     }
 }

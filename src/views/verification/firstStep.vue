@@ -18,6 +18,16 @@
                          placeholder="Фамилия*"/>
       </b-col>
       <b-col cols="6">
+        <InputValidation :error="errorData[type.FATHER_NAME]"
+                         v-model="userData[type.FATHER_NAME]"
+                         placeholder="Отчество*"/>
+      </b-col>
+      <b-col v-show="isSurety()" cols="6">
+        <InputValidation :error="errorData[type.PHONE]"
+                         v-model="userData[type.PHONE]"
+                         placeholder="Номер телефона*"/>
+      </b-col>
+      <b-col cols="6">
         <InputValidation :error="errorData[type.ADDITIONAL_PHONE]"
                          v-model="userData[type.ADDITIONAL_PHONE]"
                          placeholder="Доп. номер телефона*"/>
@@ -44,7 +54,7 @@
       </b-col>
     </b-row>
   </section>
-  <section class="bg-white p-3 rounded-st">
+  <section v-show="!isSurety()" class="bg-white p-3 rounded-st">
     <h6>У вас есть рассрочка в других местах в данный момент?</h6>
     <div class="d-flex w-30">
       <ButtonForm
@@ -66,7 +76,7 @@
                        placeholder="Сумма рассрочки"/>
     </div>
   </section>
-  <router-link :to="`/verification/${nextPage}`" replace>
+  <router-link :to="correctPath() +'/' + nextPage" replace>
     <ButtonBlue @click="goNextPage" class="w-20 mb-3 py-2" title="Далее"></ButtonBlue>
   </router-link>
 </template>
@@ -80,6 +90,7 @@ import InputValidation from "@/components/helper/input/inputValidation";
 import validation from "@/mixins/validation";
 import DropdownChoose from "@/components/helper/dropdown/dropdownChoose";
 import sexItems from "@/constants/helper/dropDown/sexItems";
+import {useRoute} from "vue-router";
 
 const isDept = ref(false);
 const nextPage = ref(1);
@@ -89,9 +100,24 @@ const errorData = computed(() => store.getters['verificationModule/errorData']);
 const validate = () => store.dispatch('verificationModule/validation');
 const type = verificationConstant;
 const sex = sexItems;
+const route = useRoute();
+
+function isSurety() {
+  const path = route.path.split("/");
+  console.log(path.slice(-2)[0]);
+  return path.slice(-2)[0] === "surety";
+}
+
+function correctPath() {
+  const path = route.path.split("/");
+  return path.slice(0, path.length - 1).join("/");
+}
 
 function goNextPage() {
   validate();
+  if (isSurety()) {
+    validation(userData, errorData, type.PHONE, "Номер телефона");
+  }
   if (isDept.value) {
     validation(userData.value, errorData.value, type.DEPT_SUM, "Если вы выбрали 'ДА', то cумма рассрочки");
   }

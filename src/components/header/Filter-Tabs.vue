@@ -6,9 +6,8 @@
       class="nav-tabs"
       content-class="w-100"
       active-nav-item-class="bg-light text-violet"
-      active-tab-class="text-uppercase text-dark"
-  >
-    <b-tab v-for="item in drop_bar" :key="item.slug + '32'">
+      active-tab-class="text-uppercase text-dark">
+    <b-tab v-for="item in drop_bar" :key="item.slug + '_tabs_in_category'">
       <template #title>
         <div class="d-flex justify-content-between align-items-center w-100">
           <div>
@@ -25,8 +24,6 @@
 </template>
 
 <script>
-
-
 import {mapGetters,} from "vuex";
 import Category from "@/components/header/category";
 
