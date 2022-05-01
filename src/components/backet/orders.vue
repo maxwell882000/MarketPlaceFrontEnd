@@ -7,7 +7,7 @@
     <div class="col col-12 col-lg-8">
       <div class="card py-2 px-3 ">
         <div class="w-100 d-flex align-items-center">
-          <div class="w-30">
+          <div style="flex: 1">
             <b-form-checkbox v-model="checkALlOrder">
              <span class="text-sm text-center">
                       Выбрать все товары

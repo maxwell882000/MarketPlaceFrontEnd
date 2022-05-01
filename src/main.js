@@ -9,6 +9,7 @@ import VueAxios from 'vue-axios'
 import {createVueWait} from 'vue-wait'
 import VueClickAway from "vue3-click-away";
 import VueLazyLoad from 'vue3-lazyload'
+import VueVirtualScroller from 'vue-virtual-scroller'
 
 // bootstrap css
 import 'bootstrap/dist/css/bootstrap.css'
@@ -17,9 +18,12 @@ import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
 import "./fonts.scss";
 import "./styles.scss";
 import "./override.scss";
+import i18n from './i18n'
 
 const VueWait = createVueWait({useVuex: true, registerDirective: true})
 createApp(App)
+    .use(VueVirtualScroller)
+    .use(i18n)
     .use(store)
     .use(router)
     .use(VueClickAway)

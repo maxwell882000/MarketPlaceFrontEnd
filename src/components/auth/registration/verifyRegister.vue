@@ -1,6 +1,8 @@
 <template>
-  <VerifyCode :custom-close="logoutAndClose" @codeSubmit="codeSubmit" :phone="user.phone"
-              v-show="isVerifyRegister"></VerifyCode>
+  <VerifyCode :custom-close="logoutAndClose"
+              @codeSubmit="codeSubmit" :phone="user.phone"
+              v-show="isVerifyRegister">
+  </VerifyCode>
 </template>
 <script>
 import VerifyCode from "@/components/auth/code/verifyCode";

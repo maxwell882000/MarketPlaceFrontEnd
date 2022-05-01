@@ -1,8 +1,10 @@
 <template>
-  <ModalAuth waiting="issue_password" v-show="isPassword" title="Введите ваш номер телефона">
+  <ModalAuth waiting="issue_password" v-show="isPassword" :title="$t('Введите ваш номер телефона')">
     <template #inputs>
-      <InputPhone v-model="phone" placeholder="Номер телефона"/>
-      <ButtonForm title="Получить код" @submit="submit" :is-entered="isEntered()"></ButtonForm>
+      <div class="mt-2">
+        <InputPhone v-model="phone" :placeholder="$t('Номер телефона')"/>
+      </div>
+      <ButtonForm :title="$t('Получить код')" @submit="submit" :is-entered="isEntered()"></ButtonForm>
     </template>
   </ModalAuth>
 </template>
@@ -33,7 +35,7 @@ export default {
       }
     },
     phone(newVal) {
-      this.isPhoneEntered = newVal !== "";
+      this.isPhoneEntered = newVal !== "" && newVal.length === 13;
     },
   },
   methods: {

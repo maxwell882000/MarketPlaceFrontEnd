@@ -5,8 +5,12 @@
 </template>
 <script setup>
 import usePay from "@/components/product/button/setup/usePay";
+import {useStore} from "vuex";
 
-const {buyImmediately} = usePay("setShowPayment");
+const store = useStore();
+const getCredits = () => store.dispatch('wayOfPaymentModule/getWayOfPayment');
+const {buyImmediately} = usePay("setShowPayment", getCredits);
+
 </script>
 <style scoped lang="scss">
 .installment-buy {

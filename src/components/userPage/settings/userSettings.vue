@@ -1,5 +1,5 @@
 <template>
-  <loader waiting="">
+  <loader waiting="user">
     <div>
       <div class="buyshop-card mb-3">
         <loader :div-style="{height: '20vh'}" waiting="avatar">
@@ -23,15 +23,19 @@
       <div class="buyshop-card mb-3">
         <h6>Персональные данные</h6>
         <loader :div-style="{height: '20vh'}" waiting="user_data_loaded">
-          <div style="width: 35%">
+          <div class="form-account">
             <Input
                 class="input"
                 v-model="userName"
                 placeholder="Имя и Фамилия*"/>
-            <InputPhone
-                class="input"
-                v-model="phone"
-                placeholder="Телефон*"/>
+            <div class="mt-3">
+              <InputPhone
+                  class="input"
+                  v-model="phone"
+                  placeholder="Телефон*"
+              />
+            </div>
+
             <ButtonForm :is-entered="isEnteredUserData()"
                         @submit="changeUserData({name: userName,phone: phone})"
                         title="Изменить" class="p-2">
@@ -56,18 +60,18 @@
         <!--        </b-dropdown>-->
         <!--      </div>-->
       </div>
-      <div class="buyshop-card">
+      <form @submit.prevent="" class="buyshop-card">
         <h6>Аккаунт</h6>
-        <div class="password" style="width: 35%">
+        <div class="password form-account">
           <loader waiting="password_loaded">
             <Error :error="errorPassword"></Error>
             <Success :success="successPassword"></Success>
-            <InputPassword v-model="password.password" placeholder="Старый пароль">
+            <InputPassword autocomplete="password" v-model="password.password" placeholder="Старый пароль">
             </InputPassword>
-            <InputPassword :error="password.password_new_error"
+            <InputPassword autocomplete="password_new" :error="password.password_new_error"
                            v-model="password.password_new" placeholder="Новый пароль">
             </InputPassword>
-            <InputPassword :error="password.password_new_error"
+            <InputPassword autocomplete="password_rep" :error="password.password_new_error"
                            v-model="password.password_rep"
                            placeholder="Подтвердите новый пароль"/>
             <ButtonForm @submit="submitPassword"
@@ -77,7 +81,7 @@
             </ButtonForm>
           </loader>
         </div>
-      </div>
+      </form>
     </div>
   </loader>
 </template>
@@ -101,11 +105,12 @@ const password = computed(() => store.getters['passwordModule/passwordChange']);
 const changePassword = () => store.dispatch("passwordModule/changePassword");
 const cleanPassword = () => store.commit("passwordModule/cleanPassword");
 const cleanSuccess = () => store.commit("passwordModule/setSuccessPassword", "");
-const changeUserData = (data) => store.dispatch("changeUserData", data);
 const errorPassword = computed(() => store.getters['passwordModule/error']);
 const successPassword = computed(() => store.getters['passwordModule/success']);
 // eslint-disable-next-line no-unused-vars
 const uploadAvatar = (val) => store.dispatch("changeAvatar", val);
+const changeUserData = (data) => store.dispatch("changeUserData", data);
+
 
 cleanPassword();
 watch(user, function () {
@@ -114,7 +119,7 @@ watch(user, function () {
 });
 
 function isEnteredUserData() {
-  return userName.value && phone.value;
+  return userName.value && phone.value && phone.value.length === 13;
 }
 
 function isEnteredPassword() {
@@ -149,6 +154,22 @@ onBeforeUnmount(() => {
 .password .input-validation {
   margin-bottom: 1rem;
   margin-top: 1rem;
+}
+
+.form-account {
+  width: 35%;
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .form-account {
+    width: 45%;
+  }
+}
+
+@media (max-width: 767px) {
+  .form-account {
+    width: 60%;
+  }
 }
 
 .profile-photo {

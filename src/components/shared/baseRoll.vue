@@ -34,18 +34,18 @@ export default {
             perMove: 2,
             padding: "1rem",
           },
-          992: {
-            perPage: this.perPage - 1 || 3,
+          1024: {
+            perPage: this.perPage - 2 || 3,
             perMove: 2,
             padding: "0.5rem",
           },
           768: {
-            perPage: this.perPage - 2 || 3,
+            perPage: this.perPage - 3 || 2,
             perMove: 1,
             padding: "1rem",
           },
           500: {
-            perPage: this.perPage - 3 || 3,
+            perPage: this.perPage - 3 || 2,
             perMove: 1,
             padding: "1rem",
           },

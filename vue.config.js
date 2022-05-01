@@ -1,6 +1,15 @@
-//
-// module.exports = {
-//     devServer: {
-//         public: '0.0.0.0:45832',
-//     },
-// }
+module.exports = {
+    pluginOptions: {
+        i18n: {
+            locale: 'ru',
+            fallbackLocale: 'en',
+            localeDir: './locales',
+            enableInSFC: true
+        }
+    },
+    configureWebpack: {
+        output: {
+            libraryExport: 'default'
+        }
+    }
+}

@@ -6,12 +6,16 @@
         Купите, пока это выгодно <span class="timer">{{ getTime }}</span>
       </h5>
       <SalesRoll :per-page="5" slide-key="product_day" :products="products"/>
-      <h5 class="mt-4 mb-3">Акции и предложения</h5>
-      <StocksTabs/>
-      <discount-roll></discount-roll>
+      <section v-show="discount.length">
+        <h5 class="mt-4 mb-3">Акции и предложения</h5>
+        <StocksTabs/>
+      </section>
       <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
-        <h5 class="mt-4 mb-3">{{ item.text }}</h5>
-        <SalesRoll :per-page="5" slide-key="product_day" :products="item.products"/>
+        <section v-show="item.products.length">
+          <h5 class="mt-4 mb-3">{{ item.text }}</h5>
+          <SalesRoll :per-page="5" slide-key="product_day" :products="item.products"/>
+        </section>
+
       </div>
     </div>
   </loader>
@@ -26,10 +30,9 @@ import SalesRoll from "@/components/shared/SalesRoll";
 import StocksTabs from "@/components/mainPage/StocksTabs";
 import {mapActions, mapGetters} from "vuex";
 import Loader from "@/components/loading/loader";
-import DiscountRoll from "@/components/shared/discountRoll";
 
 export default {
-  components: {DiscountRoll, Loader, StocksTabs, SalesRoll, BannerAndItem},
+  components: {Loader, StocksTabs, SalesRoll, BannerAndItem},
   data() {
     return {
       products: []
@@ -39,6 +42,7 @@ export default {
     ...mapGetters('mainModule', [
       'getTime',
       'product_of_day',
+      'discount',
       'lenta'
     ])
   },

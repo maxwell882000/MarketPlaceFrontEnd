@@ -8,22 +8,25 @@
           :class="index % 2 === 0 && 'table-gray'">
         <td>{{ item.month }}</td>
         <td>{{ item.paid }}</td>
-        <td>
-          <span v-if="status.WAIT_ANSWER === purchase.payble.status">
+        <td class="w-70">
+          <div class="w-50">
+               <span v-if="status.WAIT_ANSWER === purchase.payble.status">
             Обрабатываеться
           </span>
-          <ButtonBlue
-              v-else-if="item.must_pay !== item.paid
+            <ButtonBlue
+                v-else-if="item.must_pay !== item.paid
               && status.ACCEPTED === purchase.payble.status
               && item.id <= purchase.payble.next_paid_month"
-              @click="payment({
+                @click="payment({
                   purchase:purchase,
                   month: item
               })"
-              class="button m-0" title="Оплатить"></ButtonBlue>
-          <span v-else-if="status.DECLINED === purchase.payble.status">Отказано</span>
-          <span v-else-if="item.must_pay === item.paid"> Оплачено!</span>
-          <span v-else> Не оплачено</span>
+                class="button m-0 w-50" title="Оплатить"></ButtonBlue>
+            <span v-else-if="status.DECLINED === purchase.payble.status">Отказано</span>
+            <span v-else-if="item.must_pay === item.paid"> Оплачено!</span>
+            <span v-else> Не оплачено</span>
+          </div>
+
         </td>
       </tr>
     </table>

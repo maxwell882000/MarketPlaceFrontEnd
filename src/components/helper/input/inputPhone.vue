@@ -1,11 +1,11 @@
 <template>
-  <Input :value="value" @input="input($event)" pattern="\w{3}-\d{3}"></Input>
+  <InputValidation :value="value" @input="input($event)" pattern="\w{3}-\d{3}"></InputValidation>
 </template>
 <script>
-import Input from "@/components/helper/input/input";
+import InputValidation from "@/components/helper/input/inputValidation";
 
 export default {
-  components: {Input},
+  components: {InputValidation},
   props: ['modelValue'],
   emits: ['update:modelValue'],
   data() {
@@ -14,7 +14,7 @@ export default {
     }
   },
   watch: {
-    modelValue(){
+    modelValue() {
       this.value = this.modelValue;
     }
   },

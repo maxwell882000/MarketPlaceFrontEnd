@@ -2,24 +2,29 @@
   <verify-card-modal></verify-card-modal>
   <back-button title="Назад в оплату"></back-button>
   <section class="rounded-st bg-white p-3">
-    <div class="w-40">
-      <h5> Привязка банковской карты</h5>
-      <br>
-      <input-card
-          :error_card="selectedCard.card_error"
-          :error_expiry="selectedCard.expiry_error"
-          @card-input="setCardNumber"
-          @expiry-input="setExpiry">
-      </input-card>
-      <Error :error="error"></Error>
-      <br>
-      <span>Нажимая на кнопку «Привязать», вы соглашаетесь
+    <!--    <div class="w-40">-->
+    <b-row>
+      <b-col cols="8" class="col-xl-4 col-lg-5 col-md-6 col-sm-7">
+        <h5> Привязка банковской карты</h5>
+        <br>
+        <input-card
+            :error_card="selectedCard.card_error"
+            :error_expiry="selectedCard.expiry_error"
+            @card-input="setCardNumber"
+            @expiry-input="setExpiry">
+        </input-card>
+        <Error :error="error"></Error>
+        <br>
+        <span>Нажимая на кнопку «Привязать», вы соглашаетесь
       с   <span class="text-blue">   условиями привязки карты </span></span>
-      <ButtonForm :is-entered="isEntered()"
-                  class="p-2"
-                  @submit="validateCard()"
-                  title="Привязать"></ButtonForm>
-    </div>
+        <ButtonForm :is-entered="isEntered()"
+                    class="p-2"
+                    @submit="validateCard()"
+                    title="Привязать"></ButtonForm>
+      </b-col>
+    </b-row>
+
+    <!--    </div>-->
   </section>
 </template>
 <script setup>

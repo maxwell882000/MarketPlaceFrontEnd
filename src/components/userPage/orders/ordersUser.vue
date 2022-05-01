@@ -5,37 +5,37 @@
   <error-payment-modal></error-payment-modal>
   <loader waiting="purchases_loaded">
     <b-tabs class="custom-tabs order-user" pills>
-      <b-tab title="Все">
+      <b-tab lazy active title="Все">
         <div :key="'all_purchases_' + purchase.id" v-for="purchase in purchases">
           <order v-if="purchase.status !== payment.INSTALLMENT" :purchase="purchase"></order>
           <instalment v-else :purchase="purchase"></instalment>
         </div>
       </b-tab>
-      <b-tab title="Ожидают модерации">
+      <b-tab  lazy  title="Ожидают модерации">
         <div :key="'all_waiting_' + waiting.id" v-for="waiting in waitingAnswers">
           <order v-if="waiting.status !== payment.INSTALLMENT"
                  :purchase="waiting"></order>
           <instalment v-else :purchase="waiting"></instalment>
         </div>
       </b-tab>
-      <b-tab title="Ожидают оплаты">
+      <b-tab lazy title="Ожидают оплаты">
         <div :key="'all_waiting_' + waiting.id" v-for="waiting in waitingPurchase">
           <order v-if="waiting.status !== payment.INSTALLMENT"
                  :purchase="waiting"></order>
           <instalment v-else :purchase="waiting"></instalment>
         </div>
       </b-tab>
-      <b-tab title="Рассрочка">
+      <b-tab lazy  title="Рассрочка">
         <instalment :key="'all_installments_' + installment.id"
                     :purchase="installment" v-for="installment in installments"></instalment>
       </b-tab>
-      <b-tab title="Завершенные">
+      <b-tab lazy title="Завершенные">
         <div :key="'all_finished_' + purchase.id" v-for="purchase in finishedPurchases">
           <order :purchase="purchase" v-if="purchase.status !== payment.INSTALLMENT"></order>
           <instalment v-else :purchase="purchase"></instalment>
         </div>
       </b-tab>
-      <b-tab title="Откланеные">
+      <b-tab lazy title="Откланеные">
         <div :key="'all_declined_' + purchase.id" v-for="purchase in declinedPurchases">
           <order :purchase="purchase" v-if="purchase.status !== payment.INSTALLMENT"></order>
           <instalment v-else :purchase="purchase"></instalment>

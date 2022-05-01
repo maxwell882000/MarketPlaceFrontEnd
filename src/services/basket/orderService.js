@@ -7,6 +7,11 @@ class OrderService {
         return result.data.result;
     }
 
+    async getInteristingProduct() {
+        const result = await methods.get('basket/additionalProducts/');
+        return result.data.result;
+    }
+
     async updateOrder(order_id, data) {
         await methods.put(`action/basket/${order_id}/`, data);
     }

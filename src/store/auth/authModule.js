@@ -76,6 +76,7 @@ export const authModule = {
         },
         async login({commit}, request) {
             commit("wait/START", "login");
+            commit("authWindow/cleanStatus");
             try {
                 let token = await authService.login(request);
                 commit('setToken', token.token);
@@ -89,6 +90,7 @@ export const authModule = {
         // eslint-disable-next-line no-unused-vars
         async register({commit}, request) {
             commit("wait/START", "register");
+            commit("authWindow/cleanStatus");
             try {
                 let result = await authService.register(request);
                 result.phone = request.phone;
@@ -97,6 +99,7 @@ export const authModule = {
                 tokenService.setToken(result.token);
                 commit("authWindow/setVerifyRegister");
             } catch (e) {
+
                 commit('authWindow/setError', e);
             } finally {
                 commit("wait/END", "register");

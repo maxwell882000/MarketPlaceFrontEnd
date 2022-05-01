@@ -1,14 +1,15 @@
 <template>
+
   <section>
-    <div class="d-flex">
-      <div class="bg-white information w-30">
+    <b-row gutter-y="0px" gutter-x="0px">
+      <b-col cols="10" class="bg-white information col-xl-4 col-lg-5 col-md-6  ">
         <back-button title="Назад"></back-button>
         <h4>Способ доставки</h4>
         <switch-button @changed="setDelivery" class="mb-3"></switch-button>
         <delivery v-if="isDelivery"></delivery>
         <self-delivery v-else></self-delivery>
-      </div>
-      <div style="max-width: 70%">
+      </b-col>
+      <b-col class="map col-xl-8 col-lg-7 col-md-6 	d-sm-none d-md-block">
         <open-layer v-if="isDelivery"></open-layer>
         <open-layer v-else>
           <template #markers>
@@ -18,9 +19,31 @@
             </l-marker>
           </template>
         </open-layer>
-      </div>
-    </div>
+      </b-col>
+    </b-row>
   </section>
+  <!--  <section>-->
+  <!--    <div class="d-flex">-->
+  <!--      <div class="bg-white information w-30">-->
+  <!--        <back-button title="Назад"></back-button>-->
+  <!--        <h4>Способ доставки</h4>-->
+  <!--        <switch-button @changed="setDelivery" class="mb-3"></switch-button>-->
+  <!--        <delivery v-if="isDelivery"></delivery>-->
+  <!--        <self-delivery v-else></self-delivery>-->
+  <!--      </div>-->
+  <!--      <div style="max-width: 70%">-->
+  <!--        <open-layer v-if="isDelivery"></open-layer>-->
+  <!--        <open-layer v-else>-->
+  <!--          <template #markers>-->
+  <!--            <l-marker :key="'shop_self_delivery_marker_' + item.id"-->
+  <!--                      v-for="item in shops" :lat-lng="[item.latitude, item.longitude]">-->
+  <!--              <l-popup :content="item.name + ' ' + item.address"/>-->
+  <!--            </l-marker>-->
+  <!--          </template>-->
+  <!--        </open-layer>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </section>-->
 </template>
 <script>
 import BackButton from "@/components/helper/button/backButton";
@@ -68,6 +91,9 @@ export default {
 }
 </script>
 <style scoped>
+.map {
+  padding-left: 0 !important;
+}
 
 .information {
   padding-left: 2rem;

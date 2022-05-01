@@ -14,6 +14,7 @@ export const prepareBasketModule = {
                 // ]
                 //
             ],
+            interistingProduct: [],
             selectedOrders: {
                 // the price and real_price will be set when
                 // way of payment will be chosen
@@ -26,6 +27,9 @@ export const prepareBasketModule = {
         }
     },
     getters: {
+        interistingProduct(state) {
+            return state.interistingProduct;
+        },
         allSelected(state) {
             return Object.entries(state.selectedOrders).length === state.count;
         },
@@ -85,7 +89,10 @@ export const prepareBasketModule = {
                 }
             });
         },
-
+        async getInteristingProduct({commit}) {
+            const result = await orderService.getInteristingProduct();
+            commit('setInteristingProduct', result.products);
+        },
         async deleteSelectedOrders({dispatch, getters, commit}) {
             let selected = Object.entries(getters.selectedOrders);
             selected.forEach(e => {
@@ -138,6 +145,9 @@ export const prepareBasketModule = {
         }
     },
     mutations: {
+        setInteristingProduct(state, product) {
+            state.interistingProduct = product;
+        },
         setAllOrders(state, orders) {
             state.allOrders = orders;
         },
@@ -210,6 +220,7 @@ export const prepareBasketModule = {
             delete state.selectedOrders[key];
         },
         clean(state) {
+            state.interistingProduct = [];
             state.count = 0;
             state.allOrders = [
                 // shops

@@ -6,7 +6,7 @@
         <InputPhone v-model="phone" placeholder="Номер телефона"/>
       </div>
       <div class="mt-custom">
-        <InputPassword v-model="password"/>
+        <InputPassword autocomplete="password" v-model="password"/>
       </div>
       <ButtonForm @submit="register" :is-entered="isEntered()" title="Зарегистрироваться"></ButtonForm>
       <div class="mt-2">
@@ -67,7 +67,7 @@ export default {
       this.setRegister(request);
     },
     isEntered() {
-      return this.isPhoneEntered && this.isPasswordEntered && this.isNameEntered;
+      return this.isPhoneEntered && this.isPasswordEntered && this.isNameEntered && this.phone.length === 13;
     },
   },
   computed: {

@@ -15,16 +15,16 @@
             </button>
             <router-link to="/favourite">
               <img src="@/assets/icons/heart.svg" alt="heart icon"/>
-              Избранное
+              {{ $t('Избранное') }}
             </router-link>
             <router-link to="/cart">
               <img src="@/assets/icons/cart.svg" alt="cart icon"/>
-              Корзина
+              {{ $t('Корзина') }}
             </router-link>
             <AuthProfile>
               <a href="#">
                 <img src="@/assets/icons/user.svg" alt="cart icon"/>
-                Профиль
+                {{ $t('Профиль') }}
               </a>
             </AuthProfile>
           </div>

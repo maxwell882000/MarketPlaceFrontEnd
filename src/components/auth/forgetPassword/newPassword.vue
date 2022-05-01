@@ -1,8 +1,8 @@
 <template>
   <ModalAuth waiting="new_password" v-show="isNewPassword" title="Введите новый пароль">
     <template #inputs>
-      <Input type="password" v-model="password" placeholder="Новый пароль"/>
-      <Input type="password" v-model="repPassword" placeholder="Повторите новый пароль"></Input>
+      <Input type="password" autocomplete="password" v-model="password" placeholder="Новый пароль"/>
+      <Input type="password" autocomplete="repPassword" v-model="repPassword" placeholder="Повторите новый пароль"></Input>
       <ButtonForm title="Отправить" @submit="submit" :is-entered="isEntered()"></ButtonForm>
     </template>
   </ModalAuth>

@@ -1,10 +1,14 @@
 <template>
-  <ModalView @close-modal="customClose ? customClose() : close()" style="width: 25%">
+  <ModalView
+      class="responsive-modal"
+      @close-modal="customClose ? customClose() : close()">
     <template #body>
-      <loader :div-style="{height: 'max-content'}" :waiting="waiting">
-        <Status/>
-        <slot name="inputs"></slot>
-      </loader>
+      <form @submit.prevent="">
+        <loader :div-style="{height: 'max-content'}" :waiting="waiting">
+          <Status/>
+          <slot name="inputs"></slot>
+        </loader>
+      </form>
     </template>
   </ModalView>
 </template>
@@ -29,3 +33,8 @@ export default {
   components: {Loader, Status, ModalView,},
 };
 </script>
+<style>
+.responsive-modal {
+  width: 30% !important;
+}
+</style>

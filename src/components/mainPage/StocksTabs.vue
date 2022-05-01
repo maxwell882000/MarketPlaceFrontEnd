@@ -24,7 +24,7 @@
 import {mapGetters} from "vuex";
 import DiscountItem from "@/components/discount/discountItem";
 
-export default {
+export default  {
   components: {DiscountItem},
   computed: {
     ...mapGetters('mainModule', {

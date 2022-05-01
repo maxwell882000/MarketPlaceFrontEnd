@@ -1,9 +1,11 @@
 <template>
   <ModalAuth waiting="login" v-show="isLogin" title="Вход">
     <template #inputs>
-      <InputPhone v-model="phone" placeholder="Номер телефона"/>
       <div class="mt-2">
-        <InputPassword v-model="password"/>
+        <InputPhone v-model="phone" placeholder="Номер телефона"/>
+      </div>
+      <div class="mt-2">
+        <InputPassword autocomplete="password" v-model="password"/>
       </div>
       <ButtonForm title="Войти" :isEntered="isEntered()" @submit="login()"></ButtonForm>
       <div class="mt-2">

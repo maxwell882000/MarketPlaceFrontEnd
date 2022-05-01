@@ -1,9 +1,11 @@
 <template>
-  <ModalAuth :custom-close="customClose" waiting="code" title="Введите код"
-             :description="description || ('Введите код подтверждения, который мы отправили на номер ' + phone)">
+  <ModalAuth
+
+      :custom-close="customClose" waiting="code" :title="$t('Введите код')"
+      :description="description || ($t('Введите код подтверждения, который мы отправили на номер ') + phone)">
     <template #inputs>
       <OtpInput class="mt-4" @on-change="setCode"></OtpInput>
-      <ButtonForm @submit="submit" title="Отправить" :is-entered="isCodeEntered"></ButtonForm>
+      <ButtonForm @submit="submit" :title="$t('Отправить')" :is-entered="isCodeEntered"></ButtonForm>
     </template>
   </ModalAuth>
 </template>

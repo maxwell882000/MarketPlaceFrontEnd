@@ -23,7 +23,7 @@
       <input
           id="global_search"
           v-model="search"
-          v-on:keyup.enter="() => $router.push('/search/' + search)"
+          v-on:keyup.enter="() => search && $router.push('/search/' + search)"
           autocomplete="false"
           @focus="onFocus = true"
           @focusout="leaveFocus"
@@ -33,7 +33,7 @@
       <button class="icon_container" disabled>
         <b-icon v-show="search" @click="clearSearch" icon="x-lg" class="pointer text-gray300"></b-icon>
         <span class="pr-3"></span>
-        <router-link :to="'/search/' + search" class="remove-link">
+        <router-link :to="search ? '/search/' + search : ''" class="remove-link">
           <b-icon icon="search" class=" text-gray300" variant="secondary"></b-icon>
         </router-link>
       </button>

@@ -56,7 +56,9 @@ export const wayOfPaymentModule = {
         },
         clean(state) {
             state.mainCredit.type = wayOfPaymentConstant.NOT_CHOSEN;
-            state.credits = []
+            state.credits = [];
+            state.showPayment = true;
+            state.showCredit = true;
         }
     },
     getters: {

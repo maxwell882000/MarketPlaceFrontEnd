@@ -22,10 +22,10 @@
         </div>
       </div>
       <div
-          class=" count-btns
+          class="count-btns
           col col-5 col-sm-4 col-md-3
           d-flex
-          justify-content-center
+
         ">
         <p class="mb-0">
           <button :style="styleQuantity" @click="decrementQuantity" class="btn btn-light">-</button>
@@ -116,7 +116,14 @@ export default {
   width: 5.9rem;
   height: 5.6rem;
 }
-
+.count-btns {
+  justify-content: center;
+}
+@media (max-width: 767px) {
+  .count-btns {
+    justify-content: start;
+  }
+}
 .count-btns button {
   border-radius: 12px;
   font-weight: 500;

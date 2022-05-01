@@ -3,24 +3,6 @@
     <SplideSlide v-for="item in products" :key="slideKey + item.id ">
       <item-card :product="item"/>
     </SplideSlide>
-    <SplideSlide>
-      <item-card/>
-    </SplideSlide>
-    <SplideSlide>
-      <item-card/>
-    </SplideSlide>
-    <SplideSlide>
-      <item-card/>
-    </SplideSlide>
-    <SplideSlide>
-      <item-card/>
-    </SplideSlide>
-    <SplideSlide>
-      <item-card/>
-    </SplideSlide>
-    <SplideSlide>
-      <item-card/>
-    </SplideSlide>
   </BaseRoll>
 </template>
 <script>

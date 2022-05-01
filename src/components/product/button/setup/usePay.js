@@ -2,7 +2,7 @@ import {useStore} from "vuex";
 import {computed} from "vue";
 import {useRouter} from "vue-router";
 
-export default function (name) {
+export default function (name, additional) {
     const store = useStore();
     const createOrder = () => store.dispatch("backetModule/addToBasket", product.value.id);
     const remove = () => store.commit('wayOfPaymentModule/' + name, false);
@@ -15,6 +15,9 @@ export default function (name) {
         remove();
         const order = await createOrder();
         addSelectedOrder(order);
+        if (additional) {
+            additional();
+        }
         router.push({
             name: "WayOfPayment"
         })

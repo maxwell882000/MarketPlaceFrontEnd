@@ -24,7 +24,7 @@
         {{ comment.message }}
     </span>
     </div>
-<!--    <LikeDislikeComment></LikeDislikeComment>-->
+    <!--    <LikeDislikeComment></LikeDislikeComment>-->
     <hr>
   </div>
 

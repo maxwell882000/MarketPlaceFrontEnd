@@ -38,7 +38,7 @@
             />
           </svg>
           <a class="px-3" href="tel:998971234567">998 97 123-45-67</a>
-          <dropdown label="Выберите язык">
+          <dropdown :label="$t('Выберите язык')">
             <template #button>
               <button v-if="language === 'ru' " class="dropdown-toggle">
                 <span class="h-1 w-1 border-circle mr-1">
@@ -50,13 +50,13 @@
                 <span class="h-1 w-1 border-circle mr-1">
                   <uzbek></uzbek>
                 </span>
-                Русский
+                O’zbekcha
               </button>
               <button v-else-if="language === 'en' " class="dropdown-toggle">
                 <span class="h-1 w-1 border-circle mr-1">
                   <english></english>
                 </span>
-                Русский
+                English
               </button>
               <!--              <button v-else-if="language === 'uz'" class="dropdown-toggle">-->
               <!--&lt;!&ndash;                <img src="@/assets/icons/flag_uz.png" alt="" class="mx-1"/>&ndash;&gt;-->

@@ -9,10 +9,9 @@
         nav-wrapper-class="bg-transparent border-0 w-30"
         active-nav-item-class="bg-white transparent-nav-active"
         class="user-tabs">
-      <b-tab
-          lazy
-          :key="'user_item_tab_' + index" v-for="(item , index) in tabs"
-          title-link-class="transparent-tab-passive">
+      <b-tab lazy
+             :key="'user_item_tab_' + index" v-for="(item , index) in tabs"
+             title-link-class="transparent-tab-passive">
         <template #title>
           <div>
             <b-icon :icon="item.icon" scale="1.5" class="me-2"/>
@@ -77,7 +76,7 @@ export default {
       // },
       {
         pathName: "questionAndAnswers",
-        title: "Вопросы и ответы",
+        title: "Вопросы",
         icon: "chat-fill",
       },
     ]

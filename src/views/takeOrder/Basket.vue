@@ -2,13 +2,21 @@
   <loader waiting="basket">
     <section class="container py-3">
       <Badge class="mb-2" :path="badgePath"/>
+
       <empty-backet v-if="!countOrder"></empty-backet>
-      <Orders v-else></Orders>
-      <h5 class="mt-3 mb-3">Вам может быть интересно</h5>
-      <SalesRoll/>
+      <template  v-else>
+        <Orders></Orders>
+        <section v-show="product.length > 0">
+          <h5 class="mt-3 mb-3">Вам может быть интересно</h5>
+          <SalesRoll :products="product"/>
+        </section>
+      </template>
+
     </section>
   </loader>
+  <div style="height: 4rem">
 
+  </div>
 </template>
 
 <script>
@@ -37,12 +45,14 @@ export default {
   },
   computed: {
     ...mapGetters({
-      countOrder: "prepareBasketModule/countOrders"
+      countOrder: "prepareBasketModule/countOrders",
+      product: "prepareBasketModule/interistingProduct"
     })
   },
   methods: {
     ...mapActions({
       getOrders: "prepareBasketModule/getOrders",
+      getProducts: "prepareBasketModule/getInteristingProduct"
     }),
 
     ...mapMutations({
@@ -54,6 +64,7 @@ export default {
   components: {Loader, EmptyBacket, Badge, SalesRoll, Orders},
   created() {
     this.getOrders();
+    this.getProducts();
     this.cleanDelivery();
     this.cleanPrepare();
     this.cleanPayment();
