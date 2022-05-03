@@ -1,8 +1,8 @@
 <template>
   <ModalView
-      v-show="success"
+      v-model="success"
       @closeModal="closeModal"
-      style="width: 25rem"
+      style-modal="width: 25rem"
       title="Отправленно"
       :description="description"
   >

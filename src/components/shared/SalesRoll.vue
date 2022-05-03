@@ -1,35 +1,50 @@
 <template>
-  <BaseRoll :perPage="perPage">
+  <!--  <div ref="sizeDetermine">-->
+  <!--    <Flicking ref="flicking" :options="{align:'prev',panelsPerView: numberOFItems}">-->
+  <!--      <div v-for="item in products" :key="slideKey + item.id ">-->
+  <!--        <div class="w-100 m-auto d-flex justify-content-center">-->
+  <!--          <item-card :product="item"/>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </Flicking>-->
+  <!--  </div>-->
+  <BaseRoll :breakpoints="breakpoints" :perPage="perPage">
     <SplideSlide v-for="item in products" :key="slideKey + item.id ">
-      <item-card :product="item"/>
+      <div class="w-100 m-auto d-flex justify-content-center">
+        <item-card :product="item"/>
+      </div>
     </SplideSlide>
   </BaseRoll>
 </template>
-<script>
+<script setup>
 import ItemCard from "../shared/ItemCard";
+
+// eslint-disable-next-line no-undef
 import BaseRoll from "@/components/shared/baseRoll";
 
-export default {
-  props: {
-    slideKey: {
-      type: String,
-      default() {
-        return "slider";
-      }
-    },
-    products: {
-      type: Array,
-      default() {
-        return []
-      }
-    },
-    perPage: {
-      type: Number,
-      default() {
-        return 4;
-      }
+// eslint-disable-next-line no-undef
+defineProps({
+  slideKey: {
+    type: String,
+    default() {
+      return "slider";
     }
   },
-  components: {BaseRoll, ItemCard},
-}
+  breakpoints: {
+    type: Object
+  },
+  products: {
+    type: Array,
+    default() {
+      return []
+    }
+  },
+  perPage: {
+    type: Number,
+    default() {
+      return 5;
+    }
+  }
+});
+
 </script>

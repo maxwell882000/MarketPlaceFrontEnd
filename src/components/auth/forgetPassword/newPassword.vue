@@ -1,5 +1,5 @@
 <template>
-  <ModalAuth waiting="new_password" v-show="isNewPassword" title="Введите новый пароль">
+  <ModalAuth waiting="new_password" v-model="isNewPassword" title="Введите новый пароль">
     <template #inputs>
       <Input type="password" autocomplete="password" v-model="password" placeholder="Новый пароль"/>
       <Input type="password" autocomplete="repPassword" v-model="repPassword" placeholder="Повторите новый пароль"></Input>

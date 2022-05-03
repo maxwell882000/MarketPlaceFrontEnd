@@ -8,7 +8,9 @@
           <router-link to="/">
             <img src="@/assets/logo.png" alt="buy-shop logo"/>
           </router-link>
-          <search-header></search-header>
+          <div class="d-none d-sm-none d-md-block">
+            <search-header></search-header>
+          </div>
           <div class="btns-row">
             <button class="search-button">
               <b-icon icon="search" variant="dark"></b-icon>
@@ -29,7 +31,13 @@
             </AuthProfile>
           </div>
         </div>
+        <div class="d-block d-sm-block d-md-none">
+          <div v-show="!scrolled">
+            <search-header  class="justify-content-center w-100"></search-header>
+          </div>
+        </div>
       </div>
+
     </nav>
     <headerDownLine class="down-line"/>
     <auth-modals></auth-modals>
@@ -193,15 +201,15 @@ form {
   }
 }
 
-@media (max-width: 767px) {
-  .search-form {
-    display: none !important;
-  }
-  .search-button {
-    display: block !important;
-    margin-top: -6px;
-    padding: 0 10px;
-    background-color: transparent !important;
-  }
-}
+//@media (max-width: 767px) {
+//  .search-form {
+//    display: none !important;
+//  }
+//  .search-button {
+//    display: block !important;
+//    margin-top: -6px;
+//    padding: 0 10px;
+//    background-color: transparent !important;
+//  }
+//}
 </style>

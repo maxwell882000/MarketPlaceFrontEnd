@@ -1,4 +1,6 @@
 <template>
+  <success-insertion>
+  </success-insertion>
   <loader waiting="card_loaded">
     <empty-card v-if="isEmptyCard">
     </empty-card>
@@ -8,15 +10,16 @@
       <!--    <b-form-group class="w-30" v-slot="{ ariaDescribedby }">-->
       <!--      <input-radio  :aria-describedby="ariaDescribedby" name="some-radios" value="A">-->
       <div class="mb-2">
-        <div :key="'plastic_card_pan_' + item.id" v-for="item in cards"
-             class="d-flex justify-content-between align-items-center w-30">
-          <span class="text-sm">{{ item.pan }}</span>
-          <div @click="revokeCard(item.id)" class="pointer">
-            <trash></trash>
-          </div>
-        </div>
+        <b-row class="flex-column">
+          <b-col cols="12" :key="'plastic_card_pan_' + item.id" v-for="item in cards"
+                 class="col-xl-3 col-lg-4 col-md-5 col-sm-6 d-flex justify-content-between align-items-center mb-1">
+            <span class="text-sm">{{ item.pan }}</span>
+            <div @click="revokeCard(item.id)" class="pointer">
+              <trash></trash>
+            </div>
+          </b-col>
+        </b-row>
       </div>
-
       <!--      </input-radio>-->
       <!--    </b-form-group>-->
       <router-link :to="{
@@ -40,6 +43,7 @@ import CardAdd from "@/components/icons/card-add";
 import {computed} from "vue";
 import {useStore} from "vuex";
 import Loader from "@/components/loading/loader";
+import SuccessInsertion from "@/components/userPage/payments/modal/successInsertion";
 
 const store = useStore();
 const isEmptyCard = computed(() => store.getters['plasticCardModule/isEmptyCard']);

@@ -1,5 +1,5 @@
 <template>
-  <ModalAuth waiting="register" v-show="isRegister" title="Регистрация">
+  <ModalAuth waiting="register" v-model="isRegister" title="Регистрация">
     <template #inputs>
       <Input v-model="name" placeholder="Введите имя"/>
       <div class="mt-custom">

@@ -1,14 +1,14 @@
 <template>
+
   <b-row>
     <filtration-side></filtration-side>
-    <b-col cols="9">
+    <b-col cols="12" class="col-xl-9 col-lg-9 col-md-8 col-sm-12">
       <slot></slot>
       <loader waiting="product_wrapper_load">
         <product-wrapper></product-wrapper>
       </loader>
     </b-col>
   </b-row>
-
 </template>
 <script>
 import FiltrationSide from "@/components/filter/filteration/filtrationSide";

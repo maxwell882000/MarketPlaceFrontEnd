@@ -1,11 +1,11 @@
 <template>
-  <div class="row">
-    <div class="col-xl-9 col-12">
+  <div class="row w-100 m-auto">
+    <div class="col-xl-9 col-12 h-max">
       <Splide class="splide" :options="{ autoplay: true, type: 'loop' }">
         <SplideSlide class="rounded-st" v-for="item in banners" :key="'banners_id' + item.id"
                      data-splide-interval="3000">
           <div class="banner_image" :href="item.link">
-            <b-img fluid :src="item.image" class="rounded-st img-res"
+            <b-img :src="item.image" class="rounded-st img-res"
                    alt="Sample 1"/>
           </div>
         </SplideSlide>
@@ -132,7 +132,7 @@ export default {
 }
 
 .banner_image {
-  height: 20rem;
+  height: 25rem
 }
 
 @media (max-width: 1200px) {

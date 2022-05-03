@@ -1,12 +1,14 @@
 <template>
   <div class="left-part">
-    <div class="image_con p-1">
+    <div class="d-none d-sm-none d-md-block image_con p-1">
       <img class="img-res rounded-st main-image" :src="activeImageUrl"/>
     </div>
     <div class="ml-1 d-flex justify-content-center">
-      <Splide @splide:move="splideMove" :options="splideOptions" class="splide custom-arrows">
+      <Splide @splide:move="splideMove" :options="splideOptions" class="splide custom-arrows w-100">
         <SplideSlide v-for="(element, index) in picturesList" :key="'splide_' + index" class="splide-slide">
-          <img class="" :src="element" alt="xiaomi">
+          <div class="image-size">
+            <img class="img-res" :src="element" alt="xiaomi">
+          </div>
         </SplideSlide>
       </Splide>
     </div>
@@ -36,6 +38,8 @@ export default {
         breakpoints: {
           767: {
             perPage: 1,
+            arrows: false,
+            pagination: true
           },
           991: {
             perPage: 2,
@@ -83,10 +87,13 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 767px) {
 
-    img {
-      width: 100%;
+      .image-size {
+        height: 25rem;
+      }
     }
+
   }
 }
 </style>

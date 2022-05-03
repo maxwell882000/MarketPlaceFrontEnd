@@ -1,5 +1,6 @@
 <template>
-  <ModalAuth waiting="login" v-show="isLogin" title="Вход">
+  <ModalAuth
+      waiting="login" v-model="isLogin" title="Вход">
     <template #inputs>
       <div class="mt-2">
         <InputPhone v-model="phone" placeholder="Номер телефона"/>

@@ -10,7 +10,6 @@
     </div>
     <hr>
   </div>
-
 </template>
 <script>
 import InputToggle from "@/components/helper/input/inputToggle";

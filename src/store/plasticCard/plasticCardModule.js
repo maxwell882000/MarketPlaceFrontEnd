@@ -17,6 +17,7 @@ export const plasticCardModule = {
             transaction_id: null,
             error: null,
             showVerification: false,
+            showSuccessCard: false,
         }
     },
     actions: {
@@ -81,7 +82,6 @@ export const plasticCardModule = {
                 commit('setSelectedCard', result);
                 commit("addToSelectedCard", result);
                 commit("closeVerification");
-                commit("registrationOrderModule/openPolicies", true, {root: true})
             } catch (e) {
                 console.log(e);
                 commit('setError', e);
@@ -118,6 +118,9 @@ export const plasticCardModule = {
         error(state) {
             return state.error;
         },
+        showSuccessCard(state) {
+            return state.showSuccessCard;
+        },
         isEmptyCard(state) {
             return !state.cards.length;
         },
@@ -150,6 +153,9 @@ export const plasticCardModule = {
             state.transaction_id = null;
             state.error = null;
         },
+        setShowSuccessCard(state, card) {
+            state.showSuccessCard = card;
+        },
         setCards(state, card) {
             state.cards = card;
         },
@@ -165,6 +171,9 @@ export const plasticCardModule = {
         },
         addToSelectedCard(state, card) {
             state.cards.push(card);
+        },
+        cleanSelectedCard(state) {
+           state.selectedCard.id = -1;
         },
         setSelectedCard(state, card) {
             state.selectedCard = card;

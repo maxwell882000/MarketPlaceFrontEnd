@@ -1,8 +1,8 @@
 <template>
   <ModalView
-      v-show="isAgreement"
+      v-model="isAgreement"
       @close-modal="close"
-      style="width: 32vw">
+      style-modal="width: 32vw">
     <template #prefix>
       <span class="block bold text-center">Условия и положения</span>
       <div class="text-left">

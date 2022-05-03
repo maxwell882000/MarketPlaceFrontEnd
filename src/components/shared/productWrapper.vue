@@ -1,7 +1,10 @@
 <template>
-  <div class="d-flex flex-wrap justify-content-start items-list">
-    <ItemCard :product="item" :key="'product_keys_id' + item.id" v-for="item in products"/>
-  </div>
+  <b-row class="items-list">
+    <b-col :key="'product_keys_id' + item.id" v-for="item in products" cols="6" class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+      <ItemCard :product="item" />
+
+    </b-col>
+  </b-row>
   <pagination-product v-show="checkPagination"></pagination-product>
 </template>
 <script>
@@ -20,7 +23,7 @@ export default {
 }
 </script>
 <style scoped>
-.items-list > * {
-  margin: 0 10px 20px;
+.items-list {
+  gap: 10px;
 }
 </style>

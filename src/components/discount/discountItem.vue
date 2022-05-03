@@ -1,6 +1,6 @@
 <template>
   <div class="image-stock">
-    <b-img class="img-res" :src="item.des_image" alt=""/>
+    <b-img class="img-res rounded-st" :src="item.des_image" alt=""/>
   </div>
 </template>
 
@@ -10,9 +10,9 @@ export default {
 }
 </script>
 <style scoped>
+
 .image-stock {
   height: 13rem;
   width: 20rem;
-  margin-left: 10px;
 }
 </style>

@@ -7,7 +7,7 @@ class LangService {
             return lang;
         } else {
             console.error('[LangService]: No lang found!');
-            return "";
+            return "ru";
         }
     }
 

@@ -19,7 +19,7 @@ export default {
   }
 }
 </script>
-<style scoped >
+<style scoped>
  button {
    padding: 0;
    margin: 1rem 0;

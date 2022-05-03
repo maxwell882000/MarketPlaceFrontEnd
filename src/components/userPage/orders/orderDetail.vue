@@ -29,9 +29,9 @@
           :data="wayOfPayment">
         <card></card>
       </data-about-product>
-<!--      <data-about-product :header="'Покупатель'" :data="'Data about this staff'">-->
-<!--        <profile></profile>-->
-<!--      </data-about-product>-->
+      <!--      <data-about-product :header="'Покупатель'" :data="'Data about this staff'">-->
+      <!--        <profile></profile>-->
+      <!--      </data-about-product>-->
       <data-about-product
           v-show="instructions"
           :header="'Комментарий'"

@@ -7,6 +7,7 @@ class ProductService {
     }
 
     async getProducts(query) {
+        console.log(query);
         let result = await methods.get('filter/product/?' + query);
         return result.data.result;
     }

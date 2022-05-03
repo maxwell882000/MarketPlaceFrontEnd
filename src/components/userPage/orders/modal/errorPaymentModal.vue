@@ -1,8 +1,7 @@
 <template>
   <ModalView
-      style="width: 30vw"
       @close-modal="close()"
-      v-show="showError"
+      v-model="showModal"
       title="Произошла ошибка!"
       :description="showError">
     <template #prefix>
@@ -22,6 +21,11 @@ import {useStore} from "vuex";
 import {computed} from "vue";
 
 const store = useStore();
+const showModal = computed({
+  get: () => {
+    return showError.value !== null && showError.value.length > 0;
+  }
+})
 const showError = computed(() => store.getters['purchaseModule/errorModalView']);
 const close = () => store.commit("purchaseModule/setErrorModalView", null);
 </script>

@@ -3,6 +3,7 @@
     <filter-select>
       <b-form-group v-slot="{ ariaDescribedby }">
         <input-select :aria-describedby="ariaDescribedby"
+                      class="text-left"
                       v-model="isCollected" :value="item"
                       :name="prefix"
                       :key=" prefix + '_filter_select_' + item.id"

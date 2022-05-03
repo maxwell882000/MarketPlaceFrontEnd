@@ -1,56 +1,32 @@
 <template>
-  <b-col cols="3" class="ml-r bg-white rounded-st p-4">
-    <filter-chosen></filter-chosen>
-    <filter-item :is-show="true" collapse="category" title="Категории">
-      <filter-category></filter-category>
-    </filter-item>
-    <filter-price></filter-price>
-    <filter-toggle prefix="exists" name="В наличии"></filter-toggle>
-    <filter-toggle prefix="rate_high" name="Высокий рейтинг"></filter-toggle>
-    <filter-toggle prefix="discount_exists" name="Со скидкой продавца"></filter-toggle>
-    <filter-manufacture></filter-manufacture>
-    <filter-color></filter-color>
-    <filter-shop></filter-shop>
+  <modal-filter @closeModal="closeModal" v-model="modal"></modal-filter>
+  <b-col cols="12" class="d-block d-sm-block d-md-none">
+    <button @click="showModal" class="button-clear w-100 mb-3 text-right">
+          <span class="">
+       <Filter></Filter> Фильтры
+    </span>
+    </button>
+  </b-col>
+  <b-col cols="0" class="col-xl-3 col-lg-3 col-md-4 d-none d-sm-none d-md-block ml-r bg-white rounded-st p-4">
+    <FiltrationHolder></FiltrationHolder>
   </b-col>
 </template>
 
-<script>
+<script setup>
+import FiltrationHolder from "@/components/filter/filteration/filterationHolder";
+import Filter from "@/components/icons/filter";
+import {ref} from "vue";
+import ModalFilter from "@/components/filter/modal/modalFilter";
 
-import RangeWithInputs from "@/components/helper/input/range/rangeWithInputs";
-import FilterItem from "@/components/filter/filteration/filterItem";
-import FilterToggle from "@/components/filter/filteration/filterToggle";
-import {mapMutations} from "vuex";
-import FilterCategory from "@/components/filter/filteration/fliterCategory/filterCategory";
-import FilterChosen from "@/components/filter/filteration/filterChosen";
-import FilterManufacture from "@/components/filter/filteration/filterSelect/filterBrand";
-import FilterColor from "@/components/filter/filteration/filterSelect/filterColor";
-import FilterShop from "@/components/filter/filteration/filterSelect/filterShop";
-import FilterPrice from "@/components/filter/filteration/filterPrice";
+const modal = ref(false);
 
-export default {
-  components: {
-    FilterPrice,
-    FilterShop,
-    FilterColor,
-    FilterManufacture,
-    FilterChosen: FilterChosen,
-    FilterCategory,
-    FilterToggle,
-    FilterItem,
-    // eslint-disable-next-line vue/no-unused-components
-    RangeWithInputs,
-  },
-  methods: {
-    ...mapMutations({
-      addFilter: "productFilterByModule/addFilterBy"
-    }),
-    addMinPrice(price) {
-      this.addFilter({key: "min_price", item: price});
-    },
-    addMaxPrice(price) {
-      this.addFilter({key: "max_price", item: price});
-    }
-  }
+function showModal() {
+  modal.value = true;
+}
+
+function closeModal() {
+  console.log('CLOSEED');
+  modal.value = false;
 }
 </script>
 <style>

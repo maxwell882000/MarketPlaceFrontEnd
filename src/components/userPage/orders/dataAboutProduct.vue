@@ -1,5 +1,5 @@
 <template>
-  <b-col cols="4" class="py-1">
+  <b-col cols="6"  class="col-xl-4 col-lg-4 col-md-4 col-sm-6 py-1">
     <div class="d-flex justify-content-start align-items-start">
       <div class="pr-1">
         <slot></slot>

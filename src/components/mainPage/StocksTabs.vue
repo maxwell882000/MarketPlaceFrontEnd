@@ -1,31 +1,37 @@
 <template>
-  <div v-for="item in discount.items" :key="item.id" class="row stocks">
-    <discount-item :item="item" class="col-lg-4 col col-md-6 col-sm-12"></discount-item>
+  <div class="d-none d-sm-none d-md-block">
+    <div v-for="item in discount.items" :key="'disciont_' + item.id" class="row stocks">
+      <discount-item :item="item" class="col-lg-4 col col-md-6 col-sm-12"></discount-item>
+    </div>
   </div>
-  <!--  <b-tabs-->
-  <!--      pills-->
-  <!--      content-class="mt-1"-->
-  <!--      lazy-->
-  <!--      active-nav-item-class="tab-header-active"-->
-  <!--      active-tab-class="tab-active"-->
-  <!--      class="main-page__custom-tabs"-->
-  <!--  >-->
 
+  <div class="d-block d-sm-block d-md-none">
+    <Flicking :options="{panelsPerView: 1}">
+      <div v-for="item in discount.items" :key="'disciont_' + item.id" class="d-flex justify-content-center">
+        <discount-item :item="item"  class="p-2"></discount-item>
+      </div>
+    </Flicking>
+    <!--    <BaseRoll :perPage="1">-->
 
-  <!--    &lt;!&ndash;    <b-tab title="">&ndash;&gt;-->
+    <!--      <SplideSlide v-for="item in discount.items" :key="'discount_small_' + item.id" class="w-100">-->
+    <!--        &lt;!&ndash;        <div class="row stocks">&ndash;&gt;-->
+    <!--        <div class="w-100 m-auto d-flex justify-content-center ">-->
+    <!--          <discount-item style="flex: 1" :item="item"></discount-item>-->
+    <!--        </div>-->
+    <!--        &lt;!&ndash;        </div>&ndash;&gt;-->
+    <!--      </SplideSlide>-->
+    <!--    </BaseRoll>-->
+  </div>
 
-  <!--    &lt;!&ndash;    </b-tab>&ndash;&gt;-->
-  <!--    &lt;!&ndash;    <b-tab title="Подарок за покупку"></b-tab>&ndash;&gt;-->
-  <!--    &lt;!&ndash;    <b-tab title="Промокоды"></b-tab>&ndash;&gt;-->
-  <!--    &lt;!&ndash;    <b-tab title="Скидки"></b-tab>&ndash;&gt;-->
-  <!--  </b-tabs>-->
 </template>
 <script>
 import {mapGetters} from "vuex";
 import DiscountItem from "@/components/discount/discountItem";
+import BaseRoll from "@/components/shared/baseRoll";
 
-export default  {
-  components: {DiscountItem},
+export default {
+  // eslint-disable-next-line vue/no-unused-components
+  components: {BaseRoll, DiscountItem},
   computed: {
     ...mapGetters('mainModule', {
       discount: 'discount'

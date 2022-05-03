@@ -6,22 +6,20 @@
           v-for="(item, index) in purchase.payble.months"
           class="table-installment"
           :class="index % 2 === 0 && 'table-gray'">
-        <td>{{ item.month }}</td>
-        <td>{{ item.paid }}</td>
-        <td class="w-70">
-          <div class="w-50">
+        <td class="text-nowrap">{{ item.month }}</td>
+        <td class="text-nowrap">{{ item.paid }}</td>
+        <td class="w-100">
+          <div class="w-100 text-nowrap text-right">
                <span v-if="status.WAIT_ANSWER === purchase.payble.status">
-            Обрабатываеться
+            Ожидаеться
           </span>
             <ButtonBlue
-                v-else-if="item.must_pay !== item.paid
-              && status.ACCEPTED === purchase.payble.status
-              && item.id <= purchase.payble.next_paid_month"
-                @click="payment({
-                  purchase:purchase,
-                  month: item
-              })"
-                class="button m-0 w-50" title="Оплатить"></ButtonBlue>
+                v-else-if="checkIfInstallment(item)"
+                @click="payForMonth(item)"
+                class="button m-0"
+                title="Оплатить">
+
+            </ButtonBlue>
             <span v-else-if="status.DECLINED === purchase.payble.status">Отказано</span>
             <span v-else-if="item.must_pay === item.paid"> Оплачено!</span>
             <span v-else> Не оплачено</span>
@@ -34,9 +32,10 @@
   <hr>
 </template>
 <script setup>
-import ButtonBlue from "@/components/helper/button/buttonBlue";
 import {useStore} from "vuex";
 import statusPayment from "@/constants/payment/statusPayment";
+import ButtonBlue from "@/components/helper/button/buttonBlue";
+// import ButtonBlue from "@/components/helper/button/buttonBlue";
 
 // eslint-disable-next-line no-unused-vars,no-undef
 const props = defineProps({
@@ -50,6 +49,19 @@ const props = defineProps({
 const store = useStore();
 const payment = (selectedMonth) => store.dispatch('purchaseModule/startPayment', selectedMonth);
 const status = statusPayment;
+
+function checkIfInstallment(item) {
+  return item.must_pay !== item.paid
+      && status.ACCEPTED === props.purchase.payble.status
+      && item.id <= props.purchase.payble.next_paid_month
+}
+
+function payForMonth(item) {
+  payment({
+    purchase: props.purchase,
+    month: item
+  })
+}
 </script>
 
 <style lang="scss" scoped>
@@ -73,6 +85,7 @@ const status = statusPayment;
 .table-installment .button {
   margin: 0;
   padding: 0.2rem;
+  width: max-content!important;
 }
 
 table tr td:nth-child(1) {

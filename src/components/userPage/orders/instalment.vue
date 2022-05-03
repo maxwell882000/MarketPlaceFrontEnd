@@ -48,7 +48,6 @@
 .about-installment {
   display: flex;
   justify-content: space-between;
-  width: 50%;
 }
 </style>
 <script setup>

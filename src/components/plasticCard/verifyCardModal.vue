@@ -1,7 +1,7 @@
 <template>
   <VerifyCode
       :custom-close="close"
-      v-show="show"
+      v-model="show"
       @code-submit="submit"
       description="Введите код подтверждения">
   </VerifyCode>
@@ -17,6 +17,7 @@ let show = computed(() => store.getters['plasticCardModule/showVerification']);
 const close = () => store.commit("plasticCardModule/closeVerification");
 const submitCard = (code) => store.dispatch("plasticCardModule/insertCard", code);
 const openPolicies = () => store.commit("registrationOrderModule/openPolicies", true);
+const openSuccessCard = () => store.commit("plasticCardModule/setShowSuccessCard", true);
 const route = useRoute();
 const router = useRouter();
 
@@ -25,6 +26,7 @@ async function submit(code) {
   if (route.name !== "insert_card")
     openPolicies();
   else {
+    openSuccessCard();
     router.back();
   }
 }

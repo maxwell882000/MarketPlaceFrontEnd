@@ -85,7 +85,8 @@ export const registrationOrderModule = {
                     : getters.wayOfPayment.type === wayOfPaymentConstant.CASH ? 1 : 2;
                 console.log(JSON.stringify(form));
                 const result = await purchaseService.createPurchases(form);
-                commit('setSuccessPurchase', result.id);
+                console.log(result);
+                commit('setSuccessPurchase', result.purchase_id);
             } catch (e) {
                 console.log(e);
             }

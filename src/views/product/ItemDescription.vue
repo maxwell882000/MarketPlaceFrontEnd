@@ -1,8 +1,8 @@
 <template>
   <header-product>
     <section class="section-container mt-3 p-4">
-      <div class="w-40 mt-4" :key="'characteristics_item_' + main.id" v-for="main in product.characteristics">
-        <h6>{{main.header}}</h6>
+      <div class=" mt-4" :key="'characteristics_item_' + main.id" v-for="main in product.characteristics">
+        <h6>{{ main.header }}</h6>
         <table class="dotted-table text-dark">
           <tr v-for="(items, index) in main.values" :key="'char_'  + index">
             <th><span>{{ items.key }}</span></th>

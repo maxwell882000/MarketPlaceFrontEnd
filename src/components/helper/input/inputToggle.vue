@@ -61,6 +61,7 @@ input[type="checkbox"] {
   position: absolute;
   width: $circle;
   height: $circle;
+  left: 0;
   top: -3px;
   background-color: #fff;
   border-radius: 50%;

@@ -1,28 +1,28 @@
 <template>
   <section class="container price-desc mb-3">
     <back-button class="mb-3" title="К описанию товара"></back-button>
-    <section class="section-container d-flex justify-content-between">
-      <div class="d-flex align-items-center">
-        <div class="mr-4">
-          <img src="">
-        </div>
+    <section
+        class="section-container d-flex justify-content-between flex-wrap flex-sm-wrap flex-md-wrap flex-lg-nowrap">
+      <div class
+               ="title_product d-flex align-items-center">
         <div>
           <span class="bold">{{ name }}</span>
-          <header-product class="header-product"></header-product>
+          <header-product class="header-product flex-md-wrap"></header-product>
         </div>
       </div>
-      <div class="d-flex align-items-center ">
+      <div class="d-flex align-items-center price-com w-sm-100 w-max">
         <div>
           <price-component></price-component>
         </div>
       </div>
-      <div class="d-flex buttons align-items-center">
-        <div class="w-100 mr-2">
+      <div class="d-flex buttons align-items-center w-max">
+        <div class="button-install  w-100 flex-fill">
           <buy-installment-button></buy-installment-button>
         </div>
-        <buy-fast-button class="mr-2"></buy-fast-button>
-        <bag-button></bag-button>
-        <!--        <buy-fast-and-bag/>-->
+        <div class="d-flex linked w-100">
+          <buy-fast-button class="flex-fill"></buy-fast-button>
+          <bag-button></bag-button>
+        </div>
       </div>
     </section>
     <slot></slot>
@@ -65,8 +65,37 @@ export default {
     margin-bottom: 0 !important;
   }
 
+  .title_product {
+    flex: 0.6;
+    @media (max-width: 991px) {
+      flex: 1;
+    }
+  }
+
   .buttons {
-    width: 35%;
+    white-space: nowrap;
+
+    .button-install {
+      margin-right: 10px;
+    }
+
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+    @media (max-width: 349px) {
+      flex-wrap: wrap-reverse;
+      flex: 1;
+      .button-install {
+        margin-right: 0;
+      }
+      .linked {
+        margin-bottom: 0.1rem;
+
+      }
+      .buy-now {
+        margin-right: 3px;
+      }
+    }
   }
 
   .header-product {
@@ -76,6 +105,13 @@ export default {
   .price {
     padding-bottom: 0 !important;
     border-bottom: 0 !important;
+  }
+
+  .price-com {
+    white-space: nowrap;
+    @media (max-width: 767px) {
+      width: 100% !important;
+    }
   }
 }
 

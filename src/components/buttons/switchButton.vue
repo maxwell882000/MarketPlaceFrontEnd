@@ -30,17 +30,12 @@ export default {
       let right = this.$refs.right;
       let offset = this.getOffset(this.$refs.container.parentNode);
       this.back.left = right.getBoundingClientRect().left + offset.left + 'px';
-
-      // this.back.width = right.clientWidth + 'px';
-      // this.isRight = true;
-      // this.calculateHeight()
       if (this.isRight)
         this.onRight();
       else {
         this.onLeft();
       }
     },
-
     onRight() {
       let right = this.$refs.right;
       this.back.width = right.clientWidth + 'px';
@@ -62,8 +57,7 @@ export default {
     getDifference() {
       return this.$refs.left.getBoundingClientRect().left - this.$refs.right.getBoundingClientRect().left;
     },
-    // eslint-disable-next-line no-unused-vars
-    onLeft(ev) {
+    onLeft() {
       let left = this.$refs.left;
       this.back.width = left.clientWidth + 'px';
       let difference = this.getDifference();

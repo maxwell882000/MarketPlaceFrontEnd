@@ -1,10 +1,13 @@
 <template>
-  <b-icon
-      v-for="(star, iconI) in starsIcons"
-      :key="'icon_' + iconI"
-      :icon="star"
-      class="star mx-1"
-  />
+  <div style="white-space: nowrap">
+    <b-icon
+        v-for="(star, iconI) in starsIcons"
+        :key="'icon_' + iconI"
+        :icon="star"
+        class="star mx-1"
+    />
+  </div>
+
 </template>
 <script>
 export default {

@@ -55,3 +55,24 @@ export default {
   methods: {}
 }
 </script>
+<style lang="scss">
+.about-content {
+  @media (max-width: 767px) {
+    ul.nav-tabs {flex-direction: row !important;
+      flex-wrap: nowrap;
+      overflow: scroll;
+      padding-bottom: 5px;
+
+      li.nav-item {
+        width: max-content;
+        white-space: nowrap;
+        //min-width: 160px;
+        flex: 1;
+        a {
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+</style>

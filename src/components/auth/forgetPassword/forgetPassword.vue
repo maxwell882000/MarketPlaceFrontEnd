@@ -1,5 +1,5 @@
 <template>
-  <ModalAuth waiting="issue_password" v-show="isPassword" :title="$t('Введите ваш номер телефона')">
+  <ModalAuth waiting="issue_password" v-model="isPassword" :title="$t('Введите ваш номер телефона')">
     <template #inputs>
       <div class="mt-2">
         <InputPhone v-model="phone" :placeholder="$t('Номер телефона')"/>

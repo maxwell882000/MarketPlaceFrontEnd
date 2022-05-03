@@ -18,7 +18,7 @@
       <!--        </li>-->
       <!--      </ul>-->
     </div>
-    <form autocomplete="off" @submit.stop.prevent>
+    <form class="w-100" autocomplete="off" @submit.stop.prevent>
       <div class="line"></div>
       <input
           id="global_search"
@@ -31,7 +31,9 @@
           placeholder="Искать товары"
       />
       <button class="icon_container" disabled>
-        <b-icon v-show="search" @click="clearSearch" icon="x-lg" class="pointer text-gray300"></b-icon>
+        <span class="d-none d-sm-none d-md-inline ">
+                  <b-icon v-show="search" @click="clearSearch" icon="x-lg" class="pointer text-gray300"></b-icon>
+        </span>
         <span class="pr-3"></span>
         <router-link :to="search ? '/search/' + search : ''" class="remove-link">
           <b-icon icon="search" class=" text-gray300" variant="secondary"></b-icon>
@@ -178,10 +180,18 @@ form {
 }
 
 @media (max-width: 767px) {
-  .search-form {
-    display: none !important;
+  //.search-form {
+  //  display: none !important;
+  //}
+  //.dropdown{
+  //  padding-left: 1rem;
+  //}
+  //form{
+  //  padding-right: 1rem;
+  //}
+  form > input {
+    width: 100%;
   }
-
   .search-button {
     display: block !important;
     margin-top: -6px;

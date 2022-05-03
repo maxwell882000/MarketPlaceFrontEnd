@@ -1,9 +1,7 @@
 <template>
   <ModalView
-      style="width: 30vw"
-
       @close-modal="close()"
-      v-show="showSuccess"
+      v-model="showModal"
       title="Успешно оплачено"
       :description="showSuccess">
     <template #prefix>
@@ -23,6 +21,11 @@ import {useStore} from "vuex";
 import {computed} from "vue";
 
 const store = useStore();
+const showModal = computed({
+  get: () => {
+    return showSuccess.value !== null && showSuccess.value.length > 0;
+  }
+})
 const showSuccess = computed(() => store.getters['purchaseModule/successModalView']);
 const close = () => store.commit('purchaseModule/setSuccessModalView', null);
 </script>

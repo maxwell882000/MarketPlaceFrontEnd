@@ -239,7 +239,6 @@ router.beforeEach((to, from, next) => {
     }
     const middleware = to.meta.middleware;
     console.log("MIDDLEWARE");
-    console.log(middleware);
     const context = {
         to,
         from,

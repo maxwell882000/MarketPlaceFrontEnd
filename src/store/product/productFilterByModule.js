@@ -50,15 +50,12 @@ export const productFilterByModule = {
                 let val = []; // is the array, from checkbox model
                 Object.entries(state.showChosen).forEach(item => {
                     let key = item[0].split(SEPARATOR);
-                    console.log(prefix_key);
-                    console.log(key);
                     if (prefix_key === key[0]) {
                         let first = values.filter(e => e.id === parseInt(key[1]));
                         if (first[0]) // add to the array first element if it exists
                             val.push(first[0]);
                     }
                 });
-                console.log(val);
                 return val;
             }
         },
@@ -126,7 +123,6 @@ export const productFilterByModule = {
                 commit('addFilterBy', {key: 'page', item: val});
             try {
                 let result = await productService.getProducts(constructKeys(getters.filterBy));
-
                 commit('setProducts', result);
             } catch (e) {
                 console.log(e);
@@ -145,11 +141,13 @@ export const productFilterByModule = {
                 dispatch('removeChosen', key);
             });
         },
-        removeChosen({commit, getters}, key) {
+        removeChosen({commit, getters}, key) { // here the key which
             let seperated = key.split(SEPARATOR);
             let filterBy = getters.filterBy;
             try {
-                let filtered = filterBy[seperated[0]].filter(e => e !== seperated[1]);
+                let filtered = filterBy[seperated[0]].filter(e => {
+                    return e.id !== parseInt(seperated[1]) // seperated[1] is the id of element
+                });
                 commit("addFilterBy", {key: seperated[0], item: filtered});
             } catch (e) {
                 if (seperated[0] in filterBy)
@@ -160,12 +158,12 @@ export const productFilterByModule = {
             }
             commit('removeChosen', key);
         },
-        removeAndGetProducts({commit, dispatch}, key) {
-            commit('removeChosen', key);
+        removeAndGetProducts({dispatch}, key) {
+            dispatch('removeChosen', key);
             dispatch("getProducts");
         },
         addToChosenFilterAndGetProduct({commit, dispatch}, value) {
-            dispatch("cleanSpecificKeys", value);
+            dispatch("cleanSpecificKeys", value); // value is array
             commit("addShowChosen", value);
             dispatch('getProducts');
         },

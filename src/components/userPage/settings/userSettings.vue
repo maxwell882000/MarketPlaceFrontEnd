@@ -21,66 +21,77 @@
 
       </div>
       <div class="buyshop-card mb-3">
-        <h6>Персональные данные</h6>
-        <loader :div-style="{height: '20vh'}" waiting="user_data_loaded">
-          <div class="form-account">
-            <Input
-                class="input"
-                v-model="userName"
-                placeholder="Имя и Фамилия*"/>
-            <div class="mt-3">
-              <InputPhone
-                  class="input"
-                  v-model="phone"
-                  placeholder="Телефон*"
-              />
-            </div>
 
-            <ButtonForm :is-entered="isEnteredUserData()"
-                        @submit="changeUserData({name: userName,phone: phone})"
-                        title="Изменить" class="p-2">
-            </ButtonForm>
-          </div>
-        </loader>
-        <!--      <div class="d-flex flex-wrap">-->
-        <!--        <input-field-->
-        <!--            type="date"-->
-        <!--            class="input-sm"-->
-        <!--            v-model="birth"-->
-        <!--            placeholder="День рождения"-->
-        <!--        />-->
-        <!--        <b-dropdown-->
-        <!--            id="dropdown-1"-->
-        <!--            :text="gender == 'm' ? `Мужчина` : `Женщина`"-->
-        <!--            variant="white"-->
-        <!--            class="custom-dropdown"-->
-        <!--        >-->
-        <!--          <b-dropdown-item @click="gender = 'm'">Мужчина</b-dropdown-item>-->
-        <!--          <b-dropdown-item @click="gender = 'f'">Женщина</b-dropdown-item>-->
-        <!--        </b-dropdown>-->
-        <!--      </div>-->
+        <b-row>
+          <b-col cols="12" class="col-xl-4 col-lg-6 col-md-8 col-sm-12">
+            <h6>Персональные данные</h6>
+            <loader :div-style="{height: '20vh'}" waiting="user_data_loaded">
+              <div class="">
+                <Input
+                    class="input"
+                    v-model="userName"
+                    placeholder="Имя и Фамилия*"/>
+                <div class="mt-3">
+                  <InputPhone
+                      class="input"
+                      v-model="phone"
+                      placeholder="Телефон*"
+                  />
+                </div>
+
+                <ButtonForm :is-entered="isEnteredUserData()"
+                            @submit="changeUserData({name: userName,phone: phone})"
+                            title="Изменить" class="p-2">
+                </ButtonForm>
+              </div>
+            </loader>
+            <!--      <div class="d-flex flex-wrap">-->
+            <!--        <input-field-->
+            <!--            type="date"-->
+            <!--            class="input-sm"-->
+            <!--            v-model="birth"-->
+            <!--            placeholder="День рождения"-->
+            <!--        />-->
+            <!--        <b-dropdown-->
+            <!--            id="dropdown-1"-->
+            <!--            :text="gender == 'm' ? `Мужчина` : `Женщина`"-->
+            <!--            variant="white"-->
+            <!--            class="custom-dropdown"-->
+            <!--        >-->
+            <!--          <b-dropdown-item @click="gender = 'm'">Мужчина</b-dropdown-item>-->
+            <!--          <b-dropdown-item @click="gender = 'f'">Женщина</b-dropdown-item>-->
+            <!--        </b-dropdown>-->
+            <!--      </div>-->
+
+          </b-col>
+        </b-row>
       </div>
       <form @submit.prevent="" class="buyshop-card">
-        <h6>Аккаунт</h6>
-        <div class="password form-account">
-          <loader waiting="password_loaded">
-            <Error :error="errorPassword"></Error>
-            <Success :success="successPassword"></Success>
-            <InputPassword autocomplete="password" v-model="password.password" placeholder="Старый пароль">
-            </InputPassword>
-            <InputPassword autocomplete="password_new" :error="password.password_new_error"
-                           v-model="password.password_new" placeholder="Новый пароль">
-            </InputPassword>
-            <InputPassword autocomplete="password_rep" :error="password.password_new_error"
-                           v-model="password.password_rep"
-                           placeholder="Подтвердите новый пароль"/>
-            <ButtonForm @submit="submitPassword"
-                        :is-entered="isEnteredPassword()"
-                        title="Подтвердить изменение пароля"
-                        class="p-2">
-            </ButtonForm>
-          </loader>
-        </div>
+
+        <b-row>
+          <b-col cols="12" class="col-xl-4 col-lg-6 col-md-8  col-sm-12">
+            <h6>Аккаунт</h6>
+            <div class="password">
+              <loader waiting="password_loaded">
+                <Error :error="errorPassword"></Error>
+                <Success :success="successPassword"></Success>
+                <InputPassword autocomplete="password" v-model="password.password" placeholder="Старый пароль">
+                </InputPassword>
+                <InputPassword autocomplete="password_new" :error="password.password_new_error"
+                               v-model="password.password_new" placeholder="Новый пароль">
+                </InputPassword>
+                <InputPassword autocomplete="password_rep" :error="password.password_new_error"
+                               v-model="password.password_rep"
+                               placeholder="Подтвердите пароль"/>
+                <ButtonForm @submit="submitPassword"
+                            :is-entered="isEnteredPassword()"
+                            title="Изменение пароля"
+                            class="p-2">
+                </ButtonForm>
+              </loader>
+            </div>
+          </b-col>
+        </b-row>
       </form>
     </div>
   </loader>

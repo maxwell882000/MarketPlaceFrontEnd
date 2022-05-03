@@ -16,20 +16,23 @@
       </order-detail>
       <hr>
     </section>
-    <div class="w-40 py-2">
-      <div class="key-value">
-        <span class="text-400">Срок рассрочки</span>
-        <span>{{ purchase.payble.number_month }} месяцев</span>
-      </div>
-      <div class="key-value">
-        <span class="text-400">Оплачено</span>
-        <span>{{ paid }} сум</span>
-      </div>
-      <div class="key-value">
-        <span class="text-400">Общая оплата</span>
-        <span>{{ purchase.payble.price }} сум</span>
-      </div>
-    </div>
+    <b-row class="py-2">
+      <b-col cols="12" class="col-xl-5 col-lg-6 col-md-7 col-sm-12">
+        <div class="key-value">
+          <span class="text-400">Срок рассрочки</span>
+          <span>{{ purchase.payble.number_month }} месяцев</span>
+        </div>
+        <div class="key-value">
+          <span class="text-400">Оплачено</span>
+          <span>{{ paid }} сум</span>
+        </div>
+        <div class="key-value">
+          <span class="text-400">Общая оплата</span>
+          <span>{{ purchase.payble.price }} сум</span>
+        </div>
+      </b-col>
+
+    </b-row>
   </section>
 </template>
 <style scoped>

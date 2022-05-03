@@ -1,7 +1,7 @@
 <template>
   <VerifyCode :custom-close="logoutAndClose"
               @codeSubmit="codeSubmit" :phone="user.phone"
-              v-show="isVerifyRegister">
+              v-model="isVerifyRegister">
   </VerifyCode>
 </template>
 <script>

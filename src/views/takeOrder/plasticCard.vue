@@ -5,71 +5,72 @@
       <back-button title="Назад в оформление"></back-button>
       <h4>Предоставьте карточные данные</h4>
       <div class="bg-white rounded-st p-4">
-        <div class="w-60 text-sm">
-          <div v-show="type.INSTALLMENT === wayOfPayment.type">
+        <b-row class="text-sm">
+          <b-col cols="12" class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
+            <div v-show="type.INSTALLMENT === wayOfPayment.type">
           <span class="mb-4">
             Предоставьте реквизиты банковской карты, на которую переводится ваш доход,
               и мы будем использовать ее для автоматического удержания ваших платежей в рассрочку.
              </span>
-            <br>
-            <br>
-            <span class="mb-4">
+              <br>
+              <br>
+              <span class="mb-4">
         Мы мгновенно вычтем ваш первый платеж в размере {{ wayOfPayment.initial_price }} сум.
         Пожалуйста, убедитесь что у вас есть необходимые средства.
-      </span>
+          </span>
+              <br>
+              <br>
+            </div>
+            <span class="text-blue">К оплате принимаются только UZCARD и HUMO</span>
             <br>
             <br>
-          </div>
-          <span class="text-blue">К оплате принимаются только UZCARD и HUMO</span>
-          <br>
-          <br>
-          <div v-show="cards.length !==0">
-            <span class="bold">Ваша карта</span>
-            <div class="d-flex">
-              <div @click="setSelectedCard(item)" :key="'plastic_card_insert_' + item.id" v-for="item in cards"
-                   class="mini-card" :class="item.id === selectedCard.id && 'active-card'">
-                <plastic-card-item-mini :card="item"></plastic-card-item-mini>
-              </div>
-              <!--           can be clicked only if it was not selected before
-                              if it was, do nothing not to clean entered info-->
-              <div @click="selectedCard.id === -1 ? ()=>{} : setSelectedCard({
+            <div v-show="cards.length !==0">
+              <span class="bold">Ваша карта</span>
+              <div class="d-flex overflow-scroll">
+                <div @click="setSelectedCard(item)" :key="'plastic_card_insert_' + item.id" v-for="item in cards"
+                     class="mini-card" :class="item.id === selectedCard.id && 'active-card'">
+                  <plastic-card-item-mini :card="item"></plastic-card-item-mini>
+                </div>
+                <!--           can be clicked only if it was not selected before
+                                if it was, do nothing not to clean entered info-->
+                <div @click="selectedCard.id === -1 ? ()=>{} : setSelectedCard({
               id: -1,
               card_number:'',
               expiry: ''})" class="mini-card" :class="selectedCard.id === -1 && 'active-card'">
-                <div
-                    class="d-flex flex-column align-items-center justify-content-center p-1 back-gray h-100 w-100 rounded-st">
-                  <card-add style="stroke: var(--dark)"></card-add>
-                  <span class="text-sm">Новая карта</span>
+                  <div
+                      class="d-flex flex-column align-items-center justify-content-center p-1 back-gray h-100 w-100 rounded-st">
+                    <card-add style="stroke: var(--dark)"></card-add>
+                    <span class="text-sm">Новая карта</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div v-if="selectedCard.id === -1" class="selected-card">
-            <input-card
-                :error_card="selectedCard.card_error"
-                :error_expiry="selectedCard.expiry_error"
-                @card-input="setCardNumber"
-                @expiry-input="setExpiry"
-                class="w-100 h-100">
-            </input-card>
-          </div>
-          <div v-else class="selected-card">
-            <plastic-card-item :card="selectedCard"></plastic-card-item>
-          </div>
-          <Error :error="error"></Error>
-          <InputSelect v-model="checked" class="my-2">
-            <div class="text-sm w-50">
-              Запомнить карту. Это безопасно. Сохраняя карту, вы соглашаетесь с
-              <span class="text-blue">условиями привязки карты</span>
+            <div v-if="selectedCard.id === -1" class="selected-card">
+              <input-card
+                  :error_card="selectedCard.card_error"
+                  :error_expiry="selectedCard.expiry_error"
+                  @card-input="setCardNumber"
+                  @expiry-input="setExpiry"
+                  class="w-100 h-100">
+              </input-card>
             </div>
-          </InputSelect>
-          <div class="d-flex align-items-center">
-            <shields class="mr-1"></shields>
-            <span>Безопасность гарантирована</span>
-          </div>
-          <Error :error="errorCheck"></Error>
-        </div>
+            <div v-else class="selected-card">
+              <plastic-card-item :card="selectedCard"></plastic-card-item>
+            </div>
+            <Error :error="error"></Error>
+            <InputSelect v-model="checked" class="my-2">
+              <div class="text-sm ">
+                Запомнить карту. Это безопасно. Сохраняя карту, вы соглашаетесь с
+                <span class="text-blue">условиями привязки карты</span>
+              </div>
+            </InputSelect>
+            <div class="d-flex align-items-center">
+              <shields class="mr-1"></shields>
+              <span>Безопасность гарантирована</span>
+            </div>
+            <Error :error="errorCheck"></Error>
+          </b-col>
+        </b-row>
       </div>
       <ButtonBlue
           class="p-2 w-20 mb-3"
@@ -121,7 +122,7 @@ function validate() {
 </script>
 <style>
 .mini-card {
-  width: 8rem;
+  min-width: 7rem;
   height: 5rem;
   margin: 0.4rem 0.2rem 0.4rem 0;
   font-size: 8px;
@@ -137,7 +138,7 @@ function validate() {
 }
 
 .selected-card {
-  width: 20rem;
+  /*width: 20rem;*/
   height: 12rem;
   border-radius: var(--borderRadius);
   margin-top: 0.4rem;

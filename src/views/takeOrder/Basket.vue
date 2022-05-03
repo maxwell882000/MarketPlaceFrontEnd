@@ -4,10 +4,10 @@
       <Badge class="mb-2" :path="badgePath"/>
 
       <empty-backet v-if="!countOrder"></empty-backet>
-      <template  v-else>
+      <template v-else>
         <Orders></Orders>
         <section v-show="product.length > 0">
-          <h5 class="mt-3 mb-3">Вам может быть интересно</h5>
+          <h5 class="mt-3 mb-3 text-sm-center">Вам может быть интересно</h5>
           <SalesRoll :products="product"/>
         </section>
       </template>
@@ -15,7 +15,6 @@
     </section>
   </loader>
   <div style="height: 4rem">
-
   </div>
 </template>
 

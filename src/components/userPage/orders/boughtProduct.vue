@@ -1,5 +1,5 @@
 <template>
-  <b-col cols="4" class="my-1">
+  <b-col cols="6" class="col-xl-3 col-lg-3 col-md-4 col-sm-6 my-1">
     <div class="d-flex justify-content-start">
       <div class="mini-order-image pr-3">
         <img class="img-res" :src="product.image" alt="">

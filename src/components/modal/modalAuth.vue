@@ -1,14 +1,15 @@
 <template>
   <ModalView
-      class="responsive-modal"
+      class-modal=""
       @close-modal="customClose ? customClose() : close()">
     <template #body>
-      <form @submit.prevent="">
-        <loader :div-style="{height: 'max-content'}" :waiting="waiting">
-          <Status/>
-          <slot name="inputs"></slot>
-        </loader>
-      </form>
+
+          <form @submit.prevent="">
+            <loader :div-style="{height: 'max-content'}" :waiting="waiting">
+              <Status/>
+              <slot name="inputs"></slot>
+            </loader>
+          </form>
     </template>
   </ModalView>
 </template>
@@ -37,4 +38,5 @@ export default {
 .responsive-modal {
   width: 30% !important;
 }
+
 </style>

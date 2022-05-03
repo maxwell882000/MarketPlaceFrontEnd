@@ -46,7 +46,7 @@ export default createStore({
         registrationOrderModule: registrationOrderModule,
         wayOfPaymentModule: wayOfPaymentModule,
         verificationModule: verificationModule,
-        plasticCardModule: plasticCardModule,
+            plasticCardModule: plasticCardModule,
         purchaseModule: purchaseModule
     }
 });

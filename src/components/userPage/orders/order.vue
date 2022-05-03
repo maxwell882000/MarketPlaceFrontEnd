@@ -28,32 +28,34 @@
         </order-detail>
         <hr>
       </section>
-      <section class="w-40 text-500">
-        <p class="bold mb-1">Состав заказа</p>
-        <div class="key-value">
-          <span>Товары - {{ purchase.allQuantity }} шт.</span>
-          <span>{{ purchase.originalPrice }} сум</span>
-        </div>
-        <div v-show="discount">
-          <div class="key-value">
-            <span>Скидка</span>
-            <span class="text-green">{{ discount }} сум</span>
-          </div>
-        </div>
+      <section class="row text-500">
+        <b-col cols="12" class="col-xl-5 col-lg-6 col-md-7">
 
-        <div v-show="purchase.sumDelivery > 0">
+          <p class="bold mb-1">Состав заказа</p>
           <div class="key-value">
-            <span>Доставка</span>
-            <span class="">{{ purchase.sumDelivery }} сум</span>
+            <span>Товары - {{ purchase.allQuantity }} шт.</span>
+            <span>{{ purchase.originalPrice }} сум</span>
           </div>
-        </div>
+          <div v-show="discount">
+            <div class="key-value">
+              <span>Скидка</span>
+              <span class="text-green">{{ discount }} сум</span>
+            </div>
+          </div>
 
-        <div class="key-value py-2 last">
-          <span class="bold">Итого к оплате</span>
-          <span class="text-blue">{{ purchase.payble.price }} сум</span>
-        </div>
+          <div v-show="purchase.sumDelivery > 0">
+            <div class="key-value">
+              <span>Доставка</span>
+              <span class="">{{ purchase.sumDelivery }} сум</span>
+            </div>
+          </div>
+
+          <div class="key-value py-2 last">
+            <span class="bold">Итого к оплате</span>
+            <span class="text-blue">{{ purchase.payble.price }} сум</span>
+          </div>
+        </b-col>
       </section>
-
       <section
           class="button-order d-flex">
         <ButtonGray

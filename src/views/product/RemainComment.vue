@@ -13,25 +13,28 @@
           <b-col cols="6" class="mb-3">
             <h6 v-show="error" v-html="error" class="text-error text-font"></h6>
             <h6 class="bold">Общая оценка</h6>
-            <b-icon :key="'star_index_' + index" v-for="index in 5" size="2x"
-                    :class="index!==1 && 'mx-2'"
-                    :style="{color: isSelected(index), cursor: 'pointer'}"
-                    @click="putMark(index)"
-                    icon="star-fill"/>
+            <div class="text-nowrap">
+              <b-icon :key="'star_index_' + index" v-for="index in 5" size="2x"
+                      :class="index!==1 && 'mx-2'"
+                      :style="{color: isSelected(index), cursor: 'pointer'}"
+                      @click="putMark(index)"
+                      icon="star-fill"/>
+            </div>
+
           </b-col>
           <div class="w-100"></div>
-          <b-col cols="6">
+          <b-col cols="12" class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
             <h6 class="bold">Расскажите подробнее</h6>
             <TextArea v-model="comment" placeholder="Ваш комментарий"></TextArea>
           </b-col>
           <div class="w-100"></div>
-          <b-col cols="6">
+          <b-col cols="12" class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
             <ButtonForm :is-entered="isEntered" @click="submitComment" title="Опубликовать отзыв"></ButtonForm>
           </b-col>
         </b-row>
       </div>
     </loader>
-    <SuccessComment v-if="showSuccess"></SuccessComment>
+    <SuccessComment v-model="showSuccess"></SuccessComment>
   </section>
 </template>
 <script>

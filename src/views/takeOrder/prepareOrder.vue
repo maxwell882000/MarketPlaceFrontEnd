@@ -18,7 +18,7 @@
         </section>
       </b-col>
       <b-col cols="12" class="col-xl-3 col-lg-4">
-        <section class="section-container">
+        <section class="section-container mb-3 ">
           <loader :div-style="{height: '10vh'}" waiting="delivery_price_loaded">
             <price-already-calculated
                 title="Ваш заказ"

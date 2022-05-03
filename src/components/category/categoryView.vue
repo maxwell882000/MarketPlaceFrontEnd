@@ -1,9 +1,9 @@
 <template>
   <b-row>
-    <b-col cols="3" class="ml-r bg-white rounded-st p-4">
+    <b-col cols="0" class="col-xl-3 col-lg-3 col-md-3 d-none d-sm-none d-md-block  ml-r bg-white rounded-st p-4">
       <category :column="12" :item="category"></category>
     </b-col>
-    <b-col cols="9">
+    <b-col cols="12" class="col-xl-9 col-lg-9 col-md-9">
       <slot></slot>
     </b-col>
   </b-row>

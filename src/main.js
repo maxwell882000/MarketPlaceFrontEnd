@@ -10,6 +10,7 @@ import {createVueWait} from 'vue-wait'
 import VueClickAway from "vue3-click-away";
 import VueLazyLoad from 'vue3-lazyload'
 import VueVirtualScroller from 'vue-virtual-scroller'
+import "@egjs/vue3-flicking/dist/flicking.css";
 
 // bootstrap css
 import 'bootstrap/dist/css/bootstrap.css'
@@ -19,6 +20,7 @@ import "./fonts.scss";
 import "./styles.scss";
 import "./override.scss";
 import i18n from './i18n'
+import Flicking from "@egjs/vue3-flicking";
 
 const VueWait = createVueWait({useVuex: true, registerDirective: true})
 createApp(App)
@@ -32,5 +34,6 @@ createApp(App)
     .use(VueWait)
     .use(BootstrapVue3)
     .use(VueAxios, axios)
+    .component("Flicking", Flicking)
     .mount("#app");
 

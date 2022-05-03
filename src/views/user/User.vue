@@ -1,12 +1,12 @@
 <template>
-  <div class="container pt-3 pb-5">
+  <section class="container pt-3 pb-5">
     <badge :path="path"/>
     <b-tabs
         pills
         card
         vertical
         v-model="currentTab"
-        nav-wrapper-class="bg-transparent border-0 w-30"
+        nav-wrapper-class="bg-transparent border-0 w-max text-nowrap"
         active-nav-item-class="bg-white transparent-nav-active"
         class="user-tabs">
       <b-tab lazy
@@ -21,7 +21,7 @@
         <router-view></router-view>
       </b-tab>
     </b-tabs>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -76,7 +76,7 @@ export default {
       // },
       {
         pathName: "questionAndAnswers",
-        title: "Вопросы",
+        title: "Вопросы и ответы",
         icon: "chat-fill",
       },
     ]
@@ -103,7 +103,7 @@ export default {
     },
     currentTab(val) {
       this.tabs.forEach((e, i) => {
-        if (i === val)
+        if (i === val && e.secondName !== this.$route.name)
           this.$router.push({
             name: e.pathName
           })

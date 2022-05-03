@@ -12,7 +12,7 @@
         ></price-already-calculated>
       </div>
       <!--        <router-link to="/cart/prepareOrder" class='remove-link'>-->
-      <ButtonForm @submit="$router.push('/cart/prepareOrder')" :is-entered="isSelectedEmpty"
+      <ButtonForm @submit="()=>$router.push('/cart/prepareOrder/')" :is-entered="isSelectedEmpty"
                   title="Перейти в оформлению"></ButtonForm>
       <!--        </router-link>-->
     </div>

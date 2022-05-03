@@ -1,32 +1,29 @@
 <template>
-  <transition style="z-index: 4000" name="modal-fade">
-    <div class="modal-overlay-first">
-      <div v-bind="$attrs" class="modal-second" @click.stop>
-        <div class="left-corner">
-          <b-icon @click="$emit('closeModal')" style="cursor: pointer; color: var(--gray300)" icon="x"
-                  font-scale="1.7"></b-icon>
-        </div>
-        <slot name="prefix"></slot>
-        <h5 v-if="title">{{ title }}</h5>
-        <p v-if="description" class="text-font">{{ description }}</p>
-        <slot name="body"></slot>
-        <slot name="buttons"></slot>
-      </div>
+  <modal-base>
+    <div class="left-corner">
+      <b-icon @click="$emit('closeModal')" style="cursor: pointer; color: var(--gray300)" icon="x"
+              font-scale="1.7"></b-icon>
     </div>
-  </transition>
+    <slot name="prefix"></slot>
+    <h5 v-if="title">{{ title }}</h5>
+    <p v-if="description" class="text-font">{{ description }}</p>
+    <slot name="body"></slot>
+    <slot name="buttons"></slot>
+  </modal-base>
 </template>
 
 <script>
 
+import ModalBase from "@/components/modal/modalBase";
+
 export default {
-  inheritAttrs: false,
   props: {
     title: String,
     description: String,
     heightModal: undefined,
     widthModal: undefined,
   },
-  components: {}
+  components: {ModalBase}
 }
 </script>
 
@@ -36,30 +33,6 @@ export default {
   justify-content: flex-end;
   margin-bottom: calc(-0.9 * var(--marinTop));
 }
-
-.modal-overlay-first {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  z-index: 20000;
-  justify-content: center;
-  align-items: center;
-  /*width: 100vw;*/
-  background-color: #000000da;
-}
-
-.modal-second {
-  text-align: center;
-  background-color: white;
-  z-index: 30000;
-  /*width: 100vw;*/
-  border-radius: var(--borderRadius);
-  padding: 15px 15px;
-}
-
 h5 {
   font-weight: 600;
   font-size: 16px;
@@ -83,13 +56,4 @@ button {
   margin-top: 50px;
 }
 
-.modal-fade-enter,
-.modal-fade-leave-to {
-  opacity: 0;
-}
-
-.modal-fade-enter-active,
-.modal-fade-leave-active {
-  transition: opacity 0.5s ease;
-}
 </style>

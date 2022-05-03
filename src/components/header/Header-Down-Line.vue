@@ -2,7 +2,7 @@
   <div v-if="showCategoryLine" class="down-line">
     <div class="container">
       <div class="d-flex align-items-center justify-content-between links-row">
-        <div>
+        <div class="d-none d-md-block">
           <b-button
               @click="toggle()"
               variant="primary"
@@ -48,7 +48,8 @@
           <router-link :to="'/category/parent/' + item.slug">{{ item.name }}
           </router-link>
         </div>
-        <!--        <div class="header-link"><a href="#">Детям</a></div>-->
+
+<!--        <div class="header-link"><a href="#">Детям</a></div>-->
         <!--        <div class="header-link"><a href="#">Спорт</a></div>-->
         <!--        <div class="header-link"><a href="#">Продукты</a></div>-->
         <!--        <div class="header-link"><a href="#">Красота</a></div>-->

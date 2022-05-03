@@ -20,7 +20,7 @@ export default {
     ...mapActions(['addRemoveFavourite']),
     clicked() {
       if (this.id && this.isAuthenticated()) {
-        this.addRemoveFavourite(this.id);
+        this.addRemoveFavourite({id: this.id, name: this.$route.name});
         this.fill = !this.fill;
         if (!this.fill)
           this.$root.$emit("like-updated")

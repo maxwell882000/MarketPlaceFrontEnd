@@ -1,9 +1,10 @@
 <template>
-  <accept-policies-and-agreement></accept-policies-and-agreement>
-  <success-purchase-modal></success-purchase-modal>
+
   <loader waiting="user">
     <router-view></router-view>
   </loader>
+  <accept-policies-and-agreement></accept-policies-and-agreement>
+  <success-purchase-modal></success-purchase-modal>
 </template>
 <script>
 import {mapMutations} from "vuex";

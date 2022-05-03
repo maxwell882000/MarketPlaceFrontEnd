@@ -1,5 +1,5 @@
 <template>
-  <VerifyCode @codeSubmit="codeSubmit" :phone="phone" v-show="isVerifyForget"></VerifyCode>
+  <VerifyCode @codeSubmit="codeSubmit" :phone="phone" v-model="isVerifyForget"></VerifyCode>
 </template>
 <script>
 import VerifyCode from "@/components/auth/code/verifyCode";

@@ -1,6 +1,5 @@
 <template>
   <ModalAuth
-
       :custom-close="customClose" waiting="code" :title="$t('Введите код')"
       :description="description || ($t('Введите код подтверждения, который мы отправили на номер ') + phone)">
     <template #inputs>

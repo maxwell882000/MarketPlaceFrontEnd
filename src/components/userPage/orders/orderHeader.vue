@@ -1,10 +1,11 @@
 <template>
-
   <div class="d-flex justify-content-between align-items-center">
-    <div>
+    <div class="text-wrap">
       <h6 class="p-0 m-0"> Заказ № {{ idOrder }} </h6>
     </div>
-    <slot></slot>
+    <div class="text-wrap">
+      <slot></slot>
+    </div>
   </div>
 </template>
 

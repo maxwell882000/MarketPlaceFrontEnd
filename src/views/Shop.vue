@@ -1,12 +1,12 @@
 <template>
   <loader waiting="shop_loaded">
 
-    <div class="container">
+    <section class="container">
       <div class="margin-cont">
         <div
             v-bind:style="{ 'background-image': 'url(' + shop.image + ')' }"
             class="thumbnail row align-items-end">
-          <div class="col col-12 col-md-8 col-lg-5">
+          <div class="col col-12 col-md-8 col-lg-5 col-sm-12">
             <div class="seller-cart">
               <img :src="shop.logo" class="logo p-3" alt=""/>
               <h6 class="mt-3 mb-1">{{ shop.name }}</h6>
@@ -34,7 +34,7 @@
       </div>
 
       <!--    <product-wrapper></product-wrapper>-->
-    </div>
+    </section>
   </loader>
 
 </template>
@@ -61,23 +61,30 @@ useFilterWithComponent(useFilterBy({key: "shop_id", item: shop.value.id}))
 .star {
   color: var(--yellow) !important;
 }
+
 .margin-cont {
   margin-bottom: 2rem;
 }
+
 .thumbnail {
   width: 100%;
   margin-top: 2rem;
   margin-bottom: 2rem;
   height: 300px;
   //background-image: url("../assets/shop_cover.png");
+  background-size: cover; /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;
   border-radius: 12px;
+  @media (max-width: 575px) {
+    margin-left: 2px;
+  }
 
   .seller-cart {
     background-color: white;
     border-radius: 12px;
     height: 10rem;
     box-shadow: 10px 9px 19px rgba(0, 0, 0, 0.17);
-    margin-bottom: -20px;
     padding: 20px;
 
     img.logo {

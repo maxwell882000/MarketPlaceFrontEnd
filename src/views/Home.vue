@@ -2,17 +2,19 @@
   <loader waiting="main">
     <div class="container">
       <BannerAndItem/>
-      <h5 class="mt-4 mb-3">
-        Купите, пока это выгодно <span class="timer">{{ getTime }}</span>
-      </h5>
+      <div class="my-3 ">
+        <h5 class="text-sm-center">
+          Купите, пока это выгодно <span class="timer mt-sm-2 d-inline-block">{{ getTime }}</span>
+        </h5>
+      </div>
       <SalesRoll :per-page="5" slide-key="product_day" :products="products"/>
-      <section v-show="discount.length">
-        <h5 class="mt-4 mb-3">Акции и предложения</h5>
+      <section v-show="discount.items.length">
+        <h5 class="mt-4 mb-3 text-sm-center">Акции и предложения</h5>
         <StocksTabs/>
       </section>
       <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
         <section v-show="item.products.length">
-          <h5 class="mt-4 mb-3">{{ item.text }}</h5>
+          <h5 class="text-sm-center mt-4 mb-3">{{ item.text }}</h5>
           <SalesRoll :per-page="5" slide-key="product_day" :products="item.products"/>
         </section>
 
@@ -69,6 +71,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .container {
   padding: 24px 0;
 

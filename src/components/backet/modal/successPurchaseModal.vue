@@ -1,7 +1,7 @@
 <template>
   <ModalView
-      style="width: 30vw"
-      v-show="isSuccess"
+      style-modal="width: 30vw"
+      v-model="isSuccess"
       @closeModal="closeModal"
       :title="`Ваш заказ № ${createdId} принят!`"
       description="Ожидайте, скоро с вами свяжется оператор, для подтверждения.">
@@ -10,7 +10,7 @@
     </template>
     <template #buttons>
       <div class="w-60 m-auto">
-        <router-link :to="{name: 'orders'}">
+        <router-link :to="isSuccess ? {name: 'orders'} : {}">
           <ButtonBlue title="Посмотреть заказ">
           </ButtonBlue>
         </router-link>

@@ -6,10 +6,10 @@
     <header-product></header-product>
   </section>
   <section class="container">
-    <div class="row cols">
-      <div class="col-lg-9">
+    <b-row class="row cols">
+      <b-col cols="12" class="col-xl-9 col-lg-8 col-md-12 col-sm-12 ">
         <div class="product-content">
-          <pictures-part class="pictures"></pictures-part>
+          <pictures-part class="flex-fill flex-sm-fill flex-md- pictures"></pictures-part>
           <div class="w-100">
             <color-component button="color-btn"></color-component>
             <select-component v-for="(component, index) in selectComponent"
@@ -20,12 +20,12 @@
           </div>
         </div>
         <about-product></about-product>
-      </div>
-      <div class="col-lg-3">
+      </b-col>
+      <b-col cols="12" class="col-xl-3 col-lg-4 col-md-12 col-sm-12  mb-4">
         <installment-product></installment-product>
         <!--          <delivery-product></delivery-product>-->
-      </div>
-    </div>
+      </b-col>
+    </b-row>
   </section>
   <comments/>
 
@@ -81,4 +81,61 @@ export default {
 
 };
 </script>
+<style lang="scss">
+.product-content {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  display: flex;
+
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+  }
+
+  .pictures {
+    width: 50%;
+    min-width: 50%;
+  }
+
+  .color-select {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .color-btn, .param-option {
+    background-color: transparent;
+    border: 1px solid #f2f2f2;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 4px;
+
+    img {
+      height: 62px;
+      width: 62px;
+      left: 9px;
+      top: 5px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+
+    small {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    &.active {
+      border-color: transparent;
+      box-shadow: 0 0 0 2px #007aff;
+    }
+  }
+
+  .param-option {
+    padding: 3px 15px;
+  }
+}
+
+</style>
 

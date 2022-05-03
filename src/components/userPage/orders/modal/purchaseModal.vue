@@ -1,5 +1,5 @@
 <template>
-  <ModalView @close-modal="close()" v-show="showPlastic" title="Выберите способ оплаты">
+  <ModalView @close-modal="close()" v-model="showPlastic" title="Выберите способ оплаты">
     <template #body>
       <loader waiting="card_loaded">
         <input-radio :key="'plastic_card_selected_' + item.id"
@@ -38,14 +38,13 @@ function isEntered() {
 const showPlastic = computed(() => store.getters['purchaseModule/chosePlasticCard']);
 const store = useStore();
 const plastic = computed(() => store.getters['plasticCardModule/cards']);
-console.log(plastic);
 const close = () => store.dispatch("purchaseModule/closeModal");
 const pay = () => store.dispatch("purchaseModule/paidForMonth", selectedPlastic.value);
+// eslint-disable-next-line no-unused-vars
 const route = useRouter();
+
 function goToPlastic() {
   close();
-  route.push({
-    name: "credit"
-  })
+  route.push("/user/insertCard");
 }
 </script>

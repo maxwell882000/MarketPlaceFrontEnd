@@ -5,7 +5,7 @@
           Ежемесячный платеж
         </span>
       <span class="bold">
-          {{purchase.payble.month_paid}} сум
+          {{ purchase.payble.month_paid }} сум
         </span>
     </div>
     <div class="text-end">

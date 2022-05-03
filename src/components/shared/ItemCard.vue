@@ -87,7 +87,7 @@ export default {
   text-decoration: none;
   color: black;
   cursor: pointer;
-  height: 100%;
+  height: 23.5rem;
   padding: 12px;
   background-color: white;
   border-radius: 12px;

@@ -23,17 +23,15 @@
       </div>
       <div
           class="count-btns
-          col col-5 col-sm-4 col-md-3
-          d-flex
-
-        ">
+          col col-7 col-sm-10 col-md-3
+          d-flex">
         <p class="mb-0">
           <button :style="styleQuantity" @click="decrementQuantity" class="btn btn-light">-</button>
           <span class="px-3 fw-bold">{{ quantity }}</span>
           <button @click="incrementQuantity" class="btn btn-light">+</button>
         </p>
       </div>
-      <div class="col col-7 col-sm-8 col-md-2 d-flex justify-content-end">
+      <div class="col col-5 col-sm-2 col-md-2 d-flex justify-content-end">
         <trash @click="deleteOrder({order_id: order.id, index:index})"></trash>
       </div>
     </div>

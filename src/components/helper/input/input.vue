@@ -20,8 +20,9 @@
   </div>
 
 </template>
+
 <script>
-export default  {
+export default {
   inheritAttrs: false,
   props: {
     modelValue: {},
@@ -31,17 +32,63 @@ export default  {
   },
   data() {
     return {
-      style: {}
+      style: {},
+      globalRef: null
     }
   },
-  mounted() {
-    this.style['margin-left'] = this.$refs.prefix.clientWidth + "px";
-    let width;
-    let prefixWidth = this.widthPrefix || this.$refs.prefix.clientWidth;
-    let suffixWidth = this.widthSuffix || this.$refs.suffix.clientWidth;
+  methods: {
+    setWidth() {
+      if (this.$refs.input.offsetParent !== null) {
+        this.style['margin-left'] = this.$refs.prefix.clientWidth + "px";
+        let width;
+        let prefixWidth = this.widthPrefix || this.$refs.prefix.clientWidth;
+        let suffixWidth = this.widthSuffix || this.$refs.suffix.clientWidth || 30;
+        if ((width = (this.$refs.input.clientWidth - suffixWidth - prefixWidth)) > 0)
+          this.style['width'] = width + "px";
+      }else {
+        this.style['width'] = "90%";
+      }
+    },
+    test() {
+      function isHidden(el) {
+        return /display:*\s*none/.test(el.getAttribute('style'));
+      }
 
-    if ((width = (this.$refs.input.clientWidth - suffixWidth - prefixWidth)) > 0)
-      this.style['width'] = width + "px";
+      const input = this.$refs.input;
+      if (input.offsetParent !== null) {
+        this.setWidth();
+      } else {
+        let nextParent = input.parentNode;
+        let hiddenParent = null;
+        while (!isHidden(nextParent)) {
+          if (isHidden(nextParent.parentNode)) {
+            hiddenParent = nextParent.parentNode;
+            break;
+          } else nextParent = nextParent.parentNode;
+        }
+        var origStyle = hiddenParent.getAttribute('style');
+        var tempStyle = hiddenParent.getAttribute('style').replace(/display:*\s*none*/, '');
+        console.log(hiddenParent);
+        console.log(tempStyle);
+        hiddenParent.setAttribute('style', tempStyle);
+        // console.log(hiddenParent);
+        this.setWidth();
+        hiddenParent.setAttribute('style', origStyle);
+      }
+    },
+    ss() {
+      console.log(this.$refs.input.offsetWidth);
+    },
+  },
+  //
+  // unmounted() {
+  //   window.removeEventListener("resize", this.ss);
+  // },
+  // created() {
+  //   window.addEventListener("resize", this.ss);
+  // },
+  mounted() {
+    this.setWidth();
   },
   emits: ['update:modelValue']
 }

@@ -12,6 +12,9 @@ export default {
         return false;
       },
     },
+    breakpoints: {
+      type: Object
+    },
     perPage: {
       type: Number,
       default() {
@@ -28,26 +31,31 @@ export default {
         padding: "2rem",
         pagination: false,
         autoWidth: this.autoWidth,
-        breakpoints: {
+        breakpoints: this.breakpoints != null ? this.breakpoints : {
           1400: {
             perPage: this.perPage,
             perMove: 2,
-            padding: "1rem",
-          },
-          1024: {
-            perPage: this.perPage - 2 || 3,
-            perMove: 2,
             padding: "0.5rem",
+
           },
-          768: {
-            perPage: this.perPage - 3 || 2,
+          1200: {
+            perPage: this.perPage - 1 || 3,
+            perMove: 2,
+            padding: "2rem",
+          },
+          767: {
+            perPage: this.perPage - 2 || 2,
             perMove: 1,
-            padding: "1rem",
+            padding: "0.5rem",
+            arrows: false
           },
           500: {
-            perPage: this.perPage - 3 || 2,
+            perPage: this.perPage - 4 || 1,
             perMove: 1,
-            padding: "1rem",
+            gap: '10px',
+            padding: "0.5rem",
+            arrows: false
+
           },
         },
       },

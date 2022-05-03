@@ -83,6 +83,7 @@ export const authModule = {
                 commit("authWindow/close");
                 // window.location.reload();
             } catch (e) {
+                console.log(e.stack);
                 commit("authWindow/setError", e);
             }
             commit("wait/END", "login");

@@ -45,84 +45,12 @@ export default {
   margin-bottom: 4px;
 }
 
-.rating {
-  margin-bottom: 25px;
-  display: flex;
-  align-items: center;
-
-  .ratings-count {
-    margin-left: 5px;
-    margin-right: 8px;
-  }
-
-  .top-icon {
-    display: flex;
-    align-items: center;
-    margin-left: 15px;
-    cursor: pointer;
-
-    img {
-      margin-right: 8px;
-    }
-  }
-}
-
 .shop-link,
 .shop-link * {
   text-decoration: none;
   color: black;
 }
 
-.product-content {
-  background-color: white;
-  padding: 24px;
-  border-radius: 12px;
-  display: flex;
-
-  .pictures {
-    width: 50%;
-    min-width: 50%;
-  }
-
-  .color-select {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .color-btn, .param-option {
-    background-color: transparent;
-    border: 1px solid #f2f2f2;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    margin: 4px;
-
-    img {
-      height: 62px;
-      width: 62px;
-      left: 9px;
-      top: 5px;
-      border-radius: 8px;
-      object-fit: contain;
-    }
-
-    small {
-      display: block;
-      width: 100%;
-      text-align: center;
-    }
-
-    &.active {
-      border-color: transparent;
-      box-shadow: 0 0 0 2px #007aff;
-    }
-  }
-
-  .param-option {
-    padding: 3px 15px;
-  }
-}
 
 .seller {
   text-decoration: none;
