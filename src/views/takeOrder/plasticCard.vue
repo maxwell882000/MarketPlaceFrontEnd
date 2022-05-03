@@ -27,12 +27,6 @@
             <div v-show="cards.length !==0">
               <span class="bold">Ваша карта</span>
               <div class="d-flex overflow-scroll">
-                <div @click="setSelectedCard(item)" :key="'plastic_card_insert_' + item.id" v-for="item in cards"
-                     class="mini-card" :class="item.id === selectedCard.id && 'active-card'">
-                  <plastic-card-item-mini :card="item"></plastic-card-item-mini>
-                </div>
-                <!--           can be clicked only if it was not selected before
-                                if it was, do nothing not to clean entered info-->
                 <div @click="selectedCard.id === -1 ? ()=>{} : setSelectedCard({
               id: -1,
               card_number:'',
@@ -43,6 +37,13 @@
                     <span class="text-sm">Новая карта</span>
                   </div>
                 </div>
+                <div @click="setSelectedCard(item)" :key="'plastic_card_insert_' + item.id" v-for="item in cards"
+                     class="mini-card" :class="item.id === selectedCard.id && 'active-card'">
+                  <plastic-card-item-mini :card="item"></plastic-card-item-mini>
+                </div>
+                <!--           can be clicked only if it was not selected before
+                                if it was, do nothing not to clean entered info-->
+
               </div>
             </div>
             <div v-if="selectedCard.id === -1" class="selected-card">

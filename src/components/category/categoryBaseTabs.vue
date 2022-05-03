@@ -6,7 +6,7 @@
       </div>
       <div>
         <router-link :to="link" class="remove-link">
-          <b-button variant="link" class="decoration-none text-sm">
+          <b-button variant="link" class="text-nowrap decoration-none text-sm">
             Смотреть все
             <b-icon icon="arrow-right"/>
           </b-button>

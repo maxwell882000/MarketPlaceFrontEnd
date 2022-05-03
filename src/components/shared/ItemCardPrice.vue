@@ -1,13 +1,15 @@
 <template>
-  <div class="d-flex">
-    <div v-if="Object.keys(credit).length  !== 0" class="price">
+  <div class="d-flex align-items-center flex-wrap flex-sm-wrap flex-md-nowrap">
+    <div v-if="Object.keys(credit).length  !== 0" class="price ">
       <small> {{ credit.name }}</small>
       <p class="mb-0">
         <span class="numbers">{{ credit.price }}</span>
-        <small class="time"> x {{ credit.month }} мес</small>
+        <small class="time text-nowrap"> x {{ credit.month }} мес</small>
       </p>
     </div>
-    <CartButton :basket="basket" :id="id"/>
+    <div class="my-2 my-sm-2 my-md-0 basket">
+      <CartButton class="basket" :basket="basket" :id="id"/>
+    </div>
   </div>
 </template>
 <script>
@@ -44,6 +46,28 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width: 491px) {
+  .price {
+    display: none;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .price {
+    /*display: none;*/
+    margin-right: 0 !important;
+  }
+
+  p {
+    font-size: 12px !important;
+  }
+
+  .basket {
+    width: 100%;
+  }
+}
+
 .price {
   border: 1px solid #F2F2F2;
   border-radius: 8px;
@@ -54,7 +78,7 @@ export default {
 }
 
 .price small {
-  font-size: 13px;
+  font-size: 11px;
 }
 
 .price .numbers {

@@ -50,28 +50,35 @@ export default {
   },
   data() {
     return {
-      breakpoints:  {
-            1400: {
-              perPage: 3,
-              perMove: 2,
-              padding: "1rem",
-            },
-            1200: {
-              perPage: 2,
-              perMove: 2,
-              padding: "2rem",
-            },
-            768: {
-              perPage: 2,
-              perMove: 1,
-              padding: "0.5rem",
-            },
-            500: {
-              perPage: 1,
-              perMove: 1,
-              gap: '10px',
-              padding: "0.5rem",
-            }
+      breakpoints: {
+        1400: {
+          perPage: 3,
+          perMove: 2,
+          padding: "1rem",
+        },
+        1200: {
+          perPage: 2,
+          perMove: 2,
+          padding: "2rem",
+        },
+        768: {
+          perPage: 2,
+          perMove: 1,
+          padding: "0.5rem",
+        },
+        500: {
+          perPage: 1,
+          perMove: 1,
+          gap: '10px',
+          padding: "0.5rem",
+        },
+        375: {
+          perPage: 2,
+          perMove: 1,
+          gap: '10px',
+          padding: "0.5rem",
+          arrows: false
+        }
       },
       chosenCategory: this.category.children && this.category.children.length !== 0 && this.category.children[0].slug || ""
     }

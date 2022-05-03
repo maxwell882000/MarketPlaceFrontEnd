@@ -43,9 +43,16 @@ export default {
             perMove: 2,
             padding: "2rem",
           },
-          767: {
+          768: {
             perPage: this.perPage - 2 || 2,
             perMove: 1,
+            padding: "0.5rem",
+            arrows: false
+          },
+          577: {
+            perPage: this.perPage - 3 || 1,
+            perMove: 1,
+            gap: '10px',
             padding: "0.5rem",
             arrows: false
           },
@@ -57,6 +64,13 @@ export default {
             arrows: false
 
           },
+          375: {
+            perPage: 2,
+            perMove: 1,
+            gap: '10px',
+            padding: "0.5rem",
+            arrows: false
+          }
         },
       },
     };

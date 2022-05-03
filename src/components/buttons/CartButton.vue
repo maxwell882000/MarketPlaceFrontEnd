@@ -41,9 +41,6 @@ export default {
       remove: 'backetModule/removeFromBasket',
       add: 'backetModule/addToBasket'
     }),
-    styleButton() {
-      return;
-    },
     ...mapMutations({
       setLogin: 'authWindow/setLogin'
     }),

@@ -1,7 +1,7 @@
 <template>
   <div class="filter-start d-block d-sm-block d-md-none">
-    <modal-base v-bind="Object.assign( {},$props, $attrs)" class-modal="filter-full-class">
-      <div style="overflow-y:scroll;max-height: 100%; overflow-x:hidden; ">
+    <ModalOld v-bind="Object.assign( {},$props, $attrs)" class-modal="filter-full-class">
+      <div style="overflow-y:scroll; max-height: 100%; overflow-x:hidden; ">
         <h5 class="d-flex justify-content-between align-items-center">
           <button @click="$emit('closeModal')" class="button-clear block text-left">
             <b-icon style="cursor: pointer; color: var(--gray300)" icon="x"
@@ -16,7 +16,7 @@
           <filteration-holder></filteration-holder>
         </section>
       </div>
-    </modal-base>
+    </ModalOld>
   </div>
 </template>
 <script>
@@ -25,8 +25,9 @@ export default {
 }
 </script>
 <script setup>
-import ModalBase from "@/components/modal/modalBase";
+
 import FilterationHolder from "@/components/filter/filteration/filterationHolder";
+import ModalOld from "@/components/modal/modalOld";
 // eslint-disable-next-line no-undef
 defineEmits(['closeModal']);
 </script>

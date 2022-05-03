@@ -1,6 +1,6 @@
 <template>
   <div class="input-validation">
-    <Input :style-border="{'border-color': error && 'var(--red)'}" v-bind="$attrs">
+    <Input :default-prefix="true" :style-border="{'border-color': error && 'var(--red)'}" v-bind="$attrs">
       <template #suffix>
         <slot name="suffix"></slot>
       </template>

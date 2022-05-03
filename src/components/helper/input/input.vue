@@ -28,7 +28,8 @@ export default {
     modelValue: {},
     styleBorder: {},
     widthSuffix: undefined,
-    widthPrefix: undefined
+    widthPrefix: undefined,
+    defaultPrefix: null
   },
   data() {
     return {
@@ -42,10 +43,10 @@ export default {
         this.style['margin-left'] = this.$refs.prefix.clientWidth + "px";
         let width;
         let prefixWidth = this.widthPrefix || this.$refs.prefix.clientWidth;
-        let suffixWidth = this.widthSuffix || this.$refs.suffix.clientWidth || 30;
+        let suffixWidth = this.widthSuffix || this.$refs.suffix.clientWidth;
         if ((width = (this.$refs.input.clientWidth - suffixWidth - prefixWidth)) > 0)
           this.style['width'] = width + "px";
-      }else {
+      } else if (this.defaultPrefix) {
         this.style['width'] = "90%";
       }
     },

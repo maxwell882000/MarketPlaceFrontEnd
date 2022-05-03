@@ -6,7 +6,6 @@
       </div>
       <div class="">
         <b-img v-lazy="product.image" class="image_style" center fluid alt="item image"/>
-
       </div>
       <div v-show="product.discount" class="item-card__image__sale-amount">
         <span>-{{ product.discount }}%</span>
@@ -29,7 +28,7 @@
           {{ product.real_price }} сум
         </h6>
       </div>
-      <p class="item-card__description mb-1">{{ product.title }}</p>
+      <p class="item-card__description mb-1">{{ product.title }} asdggdasg sdgsg adg asdg adsg </p>
       <div class="item-card__price">
         <ItemCardPrice
             :basket="product.basket"
@@ -81,6 +80,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+
 .item-card {
   transition: all 0.3s;
   display: block;
@@ -93,6 +94,71 @@ export default {
   border-radius: 12px;
   width: 14rem;
   box-shadow: 0 0 0 transparent;
+  @media (max-width: 767px) {
+    .image_style {
+      height: 9rem;
+    }
+    .item-card__image__sale-amount {
+      font-size: 12px !important;
+      line-height: 13px;
+      margin-bottom: 0 !important;
+    }
+    .item-card__description {
+      font-size: 12px !important;
+      line-height: 13px;
+      margin-bottom: 0 !important;
+
+
+    }
+    .item-card__prices__ex-price {
+      font-size: 12px !important;
+      line-height: 13px;
+      margin-bottom: 0 !important;
+    }
+    .item-card__prices__new-price {
+      font-size: 15px !important;
+      line-height: 15px;
+      margin-bottom: 0 !important;
+
+    }
+  }
+  @media (max-width: 491px) {
+    height: 20.5rem;
+
+  }
+  @media (max-width: 491px) and (min-width: 420px) {
+    width: 12rem;
+    .image_style {
+      height: 8rem;
+    }
+  }
+  @media (max-width: 425px) {
+    width: 11.5rem;
+    .image_style {
+      height: 7.5rem;
+    }
+  }
+  @media (max-width: 375px) and (min-width: 321px) {
+    width: 10.2rem;
+    .image_style {
+      height: 7rem;
+    }
+  }
+  @media (max-width: 320px) {
+    width: 8.7rem;
+    .item-card__image__sale-amount {
+      font-size: 10px !important;
+    }
+    .item-card__description {
+      font-size: 10px !important;
+    }
+    .item-card__prices__ex-price {
+      font-size: 10px !important;
+    }
+    .item-card__prices__new-price {
+      font-size: 13px !important;
+    }
+  }
 
   .item-card__image {
     .item-card__image__like {
@@ -103,7 +169,7 @@ export default {
 
     img {
       width: 100%;
-      object-fit: cover;
+      object-fit: fill;
     }
 
     .item-card__image__sale-amount {
