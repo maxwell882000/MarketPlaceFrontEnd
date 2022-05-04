@@ -1,9 +1,8 @@
 <template>
   <div class="d-none d-sm-none d-md-block">
     <div class="row stocks">
-      <div v-for="item in discount.items" :key="'disciont_' + item.id" >
-        <discount-item :item="item" class="col-lg-4 col col-md-6 col-sm-12"></discount-item>
-      </div>
+      <discount-item :item="item" class="col-lg-4 col col-md-6 col-sm-12" v-for="item in discount.items"
+                     :key="'disciont_' + item.id"></discount-item>
     </div>
   </div>
 
