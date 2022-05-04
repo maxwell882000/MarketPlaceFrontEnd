@@ -5,9 +5,10 @@
         pills
         card
         vertical
+        nav-class="user-sheet"
         v-model="currentTab"
-        nav-wrapper-class="bg-transparent border-0 w-max text-nowrap"
-        active-nav-item-class="bg-white transparent-nav-active"
+        nav-wrapper-class="bg-transparent border-0 w-max"
+        active-nav-item-class="bg-white transparent-nav-active text-nowrap"
         class="user-tabs">
       <b-tab lazy
              :key="'user_item_tab_' + index" v-for="(item , index) in tabs"
@@ -143,7 +144,14 @@ export default {
   }
 };
 </script>
-
+<style lang="scss">
+.user-sheet {
+  .nav-item {
+    white-space: nowrap;
+    min-width: min-content !important;
+  }
+}
+</style>
 <style scoped>
 .container {
   min-height: 800px;

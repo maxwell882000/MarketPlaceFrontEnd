@@ -1,7 +1,9 @@
 <template>
   <category-base-tabs :name="category.name" :link="`/category/sub/${category.slug}`">
     <div>
-      <b-tabs nav-class="custom-tabs" pills>
+      <b-tabs nav-class="custom-tabs w-100"
+              nav-wrapper-class="overflow flex-nowrap category-tabs"
+              pills>
         <b-tab @click="setCategory(item.slug)" v-for="item in category.children" :key="'category_of_sub' + item.slug"
                :title="item.name" :active="chosenCategory === item.slug">
         </b-tab>
@@ -104,3 +106,10 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.category-tabs {
+  .nav-item {
+    white-space: nowrap;
+  }
+}
+</style>

@@ -430,6 +430,10 @@ small {
   height: 10rem;
 }
 
+.overflow {
+  overflow: scroll !important;
+}
+
 .buyshop-card {
   padding: 24px;
   border-radius: 12px;
