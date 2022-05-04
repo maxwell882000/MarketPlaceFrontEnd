@@ -12,7 +12,7 @@ export default {
 <style scoped>
 
 .image-stock {
-  height: 13rem;
-  width: 20rem;
+  height: 15rem;
+  /*width: 20rem;*/
 }
 </style>
