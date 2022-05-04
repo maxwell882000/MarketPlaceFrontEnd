@@ -1,14 +1,16 @@
 <template>
   <div class="d-none d-sm-none d-md-block">
-    <div v-for="item in discount.items" :key="'disciont_' + item.id" class="row stocks">
-      <discount-item :item="item" class="col-lg-4 col col-md-6 col-sm-12"></discount-item>
+    <div class="row stocks">
+      <div v-for="item in discount.items" :key="'disciont_' + item.id" >
+        <discount-item :item="item" class="col-lg-4 col col-md-6 col-sm-12"></discount-item>
+      </div>
     </div>
   </div>
 
   <div class="d-block d-sm-block d-md-none">
     <Flicking :options="{panelsPerView: 1}">
       <div v-for="item in discount.items" :key="'disciont_' + item.id" class="d-flex justify-content-center">
-        <discount-item :item="item"  class="p-2"></discount-item>
+        <discount-item :item="item" class="p-2"></discount-item>
       </div>
     </Flicking>
     <!--    <BaseRoll :perPage="1">-->
