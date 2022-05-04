@@ -132,7 +132,7 @@ export default {
 }
 
 .banner_image {
-  height: 25rem
+  height: 27rem
 }
 
 @media (max-width: 1200px) {
