@@ -28,7 +28,7 @@
           {{ product.real_price }} сум
         </h6>
       </div>
-      <p class="item-card__description mb-1">{{ product.title }} asdggdasg sdgsg adg asdg adsg </p>
+      <p class="item-card__description mb-1">{{ product.title }}</p>
       <div class="item-card__price">
         <ItemCardPrice
             :basket="product.basket"

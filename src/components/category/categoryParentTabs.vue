@@ -8,7 +8,7 @@
                :title="item.name" :active="chosenCategory === item.slug">
         </b-tab>
       </b-tabs>
-      <div>
+      <div class="mt-2">
         <loader :div-style="{height: '10vh'}" :waiting="'category_product' + chosenCategory">
           <SalesRoll :breakpoints="breakpoints" :per-page="4" :products="currentProducts"></SalesRoll>
         </loader>

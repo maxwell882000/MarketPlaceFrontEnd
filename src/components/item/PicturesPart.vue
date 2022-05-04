@@ -71,6 +71,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.image-size {
+  width: 6rem;
+}
 .image_con {
   height: 25rem;
 }
@@ -91,6 +94,7 @@ export default {
 
       .image-size {
         height: 25rem;
+        width: max-content;
       }
     }
 
