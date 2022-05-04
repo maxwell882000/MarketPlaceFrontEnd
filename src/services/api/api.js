@@ -2,7 +2,7 @@ import axios from "axios";
 // import tokenService from "@/services/auth/tokenService";
 import store from "../../store/index";
 
-const SERVER = "http://100.65.118.235:8000";
+const SERVER = "http://185.217.131.41:49153";
 const instance = axios.create({
     baseURL: SERVER + "/api/",
     headers: {
