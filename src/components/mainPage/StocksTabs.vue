@@ -7,21 +7,22 @@
   </div>
 
   <div class="d-block d-sm-block d-md-none">
-    <Flicking :options="{panelsPerView: 1}">
-      <div v-for="item in discount.items" :key="'disciont_' + item.id" class="d-flex justify-content-center">
-        <discount-item :item="item" class="p-2"></discount-item>
-      </div>
-    </Flicking>
-    <!--    <BaseRoll :perPage="1">-->
-
-    <!--      <SplideSlide v-for="item in discount.items" :key="'discount_small_' + item.id" class="w-100">-->
-    <!--        &lt;!&ndash;        <div class="row stocks">&ndash;&gt;-->
-    <!--        <div class="w-100 m-auto d-flex justify-content-center ">-->
-    <!--          <discount-item style="flex: 1" :item="item"></discount-item>-->
-    <!--        </div>-->
-    <!--        &lt;!&ndash;        </div>&ndash;&gt;-->
-    <!--      </SplideSlide>-->
-    <!--    </BaseRoll>-->
+<!--    <Flicking :options="{panelsPerView: 1}">-->
+<!--      <div v-for="item in discount.items" :key="'disciont_' + item.id">-->
+<!--        <div class="d-flex justify-content-center">-->
+<!--          <discount-item :item="item" class="p-2"></discount-item>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </Flicking>-->
+    <BaseRoll :perPage="1">
+      <SplideSlide v-for="item in discount.items" :key="'discount_small_' + item.id" class="w-100">
+        <!--        <div class="row stocks">-->
+        <div class="d-flex justify-content-center">
+          <discount-item :item="item" class="p-2"></discount-item>
+        </div>
+        <!--        </div>-->
+      </SplideSlide>
+    </BaseRoll>
   </div>
 
 </template>
