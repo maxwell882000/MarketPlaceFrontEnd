@@ -1,7 +1,7 @@
 <template>
   <category-base-tabs :name="category.name" :link="`/category/sub/${category.slug}`">
     <div>
-      <b-tabs nav-class="overflow flex-nowrap "
+      <b-tabs nav-class="overflow flex-nowrap"
               nav-wrapper-class=" custom-tabs w-100 category-tabs"
               pills>
         <b-tab @click="setCategory(item.slug)" v-for="item in category.children" :key="'category_of_sub' + item.slug"
