@@ -1,7 +1,7 @@
 <template>
   <div class="d-none d-sm-none d-md-block">
     <div class="row stocks">
-      <discount-item :item="item" class="col-lg-4 col col-md-6 col-sm-12" v-for="item in discount.items"
+      <discount-item :item="item" class="col-xl-4 col-lg-4 col col-md-6 col-sm-12" v-for="item in discount.items"
                      :key="'disciont_' + item.id"></discount-item>
     </div>
   </div>
