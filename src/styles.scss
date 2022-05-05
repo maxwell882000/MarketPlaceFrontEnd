@@ -340,6 +340,12 @@ small {
 
 .dotted-table {
   width: 100%;
+  @media (max-width: 468px) {
+    font-size: 0.7rem;
+  }
+  @media (max-width: 375px) {
+    font-size: 0.6rem;
+  }
   tr {
     th:first-child::before {
       width: 100%;

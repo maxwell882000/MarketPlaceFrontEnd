@@ -338,6 +338,16 @@ small {
 .dotted-table {
   width: 100%;
 }
+@media (max-width: 468px) {
+  .dotted-table {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 375px) {
+  .dotted-table {
+    font-size: 0.6rem;
+  }
+}
 .dotted-table tr th:first-child::before {
   width: 100%;
   border-bottom: 2px dotted #d1d1d1;
