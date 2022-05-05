@@ -346,6 +346,17 @@ small {
   margin-bottom: -16px;
   margin-top: 14px;
 }
+.dotted-table tr th:nth-child(2) {
+  text-align: right !important;
+}
+.dotted-table tr th:nth-child(2)::before {
+  width: 100%;
+  border-bottom: 2px dotted #d1d1d1;
+  content: "";
+  display: block;
+  margin-bottom: -16px;
+  margin-top: 14px;
+}
 .dotted-table span {
   font-weight: 400;
   background-color: white;

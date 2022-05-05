@@ -340,9 +340,19 @@ small {
 
 .dotted-table {
   width: 100%;
-
   tr {
     th:first-child::before {
+      width: 100%;
+      border-bottom: 2px dotted rgb(209, 209, 209);
+      content: "";
+      display: block;
+      margin-bottom: -16px;
+      margin-top: 14px;
+    }
+    th:nth-child(2) {
+      text-align: right !important;
+    }
+    th:nth-child(2)::before {
       width: 100%;
       border-bottom: 2px dotted rgb(209, 209, 209);
       content: "";
