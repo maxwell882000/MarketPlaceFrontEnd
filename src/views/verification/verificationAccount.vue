@@ -3,40 +3,43 @@
     <section class="container">
       <back-button title="Назад в оформление"></back-button>
       <h5>Верификация аккаунта</h5>
-      <b-row>
-        <div class="col col-xl-7 col-lg-8">
-          <div class="d-flex">
-            <step-header
-                name="Общая информация"
-                :is-flex="true" :number="1">
-              <template #number>
-                <span class="text-sm"> 1 </span>
-              </template>
-            </step-header>
-            <step-header
-                name="Фото паспорта"
-                :is-flex="true" :number="2">
-              <template #number>
-                <span class="text-sm"> 2 </span>
-              </template>
-            </step-header>
-            <step-header
-                name="Страница паспорта"
-                :is-flex="true" :number="3">
-              <template #number>
-                <span class="text-sm"> 3 </span>
-              </template>
-            </step-header>
-            <step-header
-                name="Селфи"
-                :number="4" :disable-line="true">
-              <template #number>
-                <span class="text-sm"> 4 </span>
-              </template>
-            </step-header>
-          </div>
-        </div>
-      </b-row>
+      <div class="container">
+        <b-row>
+          <b-col cols="12" class="col-xl-7 col-lg-8 overflow  my-2">
+            <div class="d-flex">
+              <step-header
+                  name="Общая информация"
+                  :is-flex="true" :number="1">
+                <template #number>
+                  <span class="text-sm"> 1 </span>
+                </template>
+              </step-header>
+              <step-header
+                  name="Фото паспорта"
+                  :is-flex="true" :number="2">
+                <template #number>
+                  <span class="text-sm"> 2 </span>
+                </template>
+              </step-header>
+              <step-header
+                  name="Страница паспорта"
+                  :is-flex="true" :number="3">
+                <template #number>
+                  <span class="text-sm"> 3 </span>
+                </template>
+              </step-header>
+              <step-header
+                  name="Селфи"
+                  :number="4" :disable-line="true">
+                <template #number>
+                  <span class="text-sm"> 4 </span>
+                </template>
+              </step-header>
+            </div>
+          </b-col>
+        </b-row>
+      </div>
+
 
       <div class="row">
         <div class="col col-xl-7 col-lg-8">

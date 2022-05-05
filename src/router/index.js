@@ -9,6 +9,9 @@ import isSecondPageSuccess from "@/middlewares/validation/isSecondPageSuccess";
 import isThirdPageSuccess from "@/middlewares/validation/isThirdPageSuccess";
 import auth from "@/middlewares/auth";
 import checkTakenCredit from "@/middlewares/checkTakenCredit";
+import isFirstPage from "@/middlewares/validation/account/isFirstPage";
+import isSecondPage from "@/middlewares/validation/account/isSecondPage";
+import isThirdPage from "@/middlewares/validation/account/isThirdPage";
 
 const validationChildren = [
     {
@@ -61,13 +64,42 @@ const routes = [
         component: () => import("../views/search/searchView")
     },
     {
-        path: "/verification",
+        path: "/verification/account/",
         name: "VerificationAccount",
         component: () => import("../views/verification/verificationAccount"),
         meta: {
             middleware: [auth]
         },
-        children: validationChildren,
+        children: [
+            {
+                path: "1",
+                name: "start_verify",
+                component: () => import("../views/verification/firstStep"),
+            },
+            {
+                path: "2",
+                name: "second_verify",
+                component: () => import("../views/verification/secondStep"),
+                meta: {
+                    middleware: [isFirstPage]
+                }
+            },
+            {
+                path: "3",
+                name: "third_verify",
+                component: () => import("../views/verification/thirdStep"),
+                meta: {
+                    middleware: [isFirstPage, isSecondPage]
+                }
+            },
+            {
+                path: "4",
+                component: () => import("../views/verification/fourthStep"),
+                meta: {
+                    middleware: [isFirstPage, isSecondPage, isThirdPage]
+                }
+            }
+        ],
     },
     {
         path: "/verification/surety",

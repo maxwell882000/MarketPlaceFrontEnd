@@ -1,5 +1,5 @@
 <template>
-  <div :style="addFlex" class="d-flex w-max align-items-center my-4">
+  <div :style="addFlex" class="d-flex w-max align-items-center mb-sm-1">
     <div v-bind="$attrs" :class="giveColor" class="circle-singleline text-white">
       <!--      <span>57</span>-->
       <slot name="number"></slot>

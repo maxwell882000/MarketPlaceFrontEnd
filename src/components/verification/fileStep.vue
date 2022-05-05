@@ -1,35 +1,37 @@
 <template>
   <loader waiting="file_loaded">
     <section class="rounded-st p-3 bg-white mb-3">
-      <div class="w-70">
-        <h6>{{ title }}</h6>
-        <div class="mb-3">
+      <b-row>
+        <b-col cols="12" class="col-xl-6 col-lg-7 col-md-12 col-sm-12">
+          <h6>{{ title }}</h6>
+          <div class="mb-3">
       <span class="text-sm">
       {{ decs }}
       </span>
-        </div>
-        <loader :div-style="{height: 'auto'}" :waiting="waiting">
-          <div
-              @click="$refs.input_file.click()"
-              @dragover.prevent="dragover" @dragleave="dragleave" @drop.prevent="drop"
-              class="input-file  rounded-st  pointer" :class="image || 'p-3'">
-            <input @change="onChange" type="file" ref="input_file" style="display: none">
-            <template v-if="!image">
-              <div class="h-50">
-                <img class="img-res" :src="require('@/assets/' + assetImage)">
-              </div>
-              <span>
+          </div>
+          <loader :div-style="{height: 'auto'}" :waiting="waiting">
+            <div
+                @click="$refs.input_file.click()"
+                @dragover.prevent="dragover" @dragleave="dragleave" @drop.prevent="drop"
+                class="input-file  rounded-st  pointer" :class="image || 'p-3'">
+              <input @change="onChange" type="file" ref="input_file" style="display: none">
+              <template v-if="!image">
+                <div class="h-50">
+                  <img class="img-res" :src="require('@/assets/' + assetImage)">
+                </div>
+                <span>
               <span class="text-blue">Нажмите  </span> чтобы выбрать фотографии или просто перетащите их сюда
             </span>
-            </template>
-            <template v-else>
-              <div class="image-min-height">
-                <img class="img-res rounded-st" :src="image">
-              </div>
-            </template>
-          </div>
-        </loader>
-      </div>
+              </template>
+              <template v-else>
+                <div class="image-min-height">
+                  <img class="img-res rounded-st" :src="image">
+                </div>
+              </template>
+            </div>
+          </loader>
+        </b-col>
+      </b-row>
     </section>
 
     <router-link :to="correctPath + back" replace>

@@ -2,7 +2,6 @@
   <ModalView
       v-model="success"
       @closeModal="closeModal"
-      style-modal="width: 25rem"
       title="Отправленно"
       :description="description"
   >

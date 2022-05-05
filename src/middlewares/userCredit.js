@@ -1,8 +1,8 @@
-export default function userCredit({next, store}) {
+export default function userCredit({next, route, store}) {
     const isUserData = store.getters['isUserData'];
     if (!isUserData) {
-        return next({
-            name: "start_verification"
+        return route({
+            name: "start_verify"
         })
     }
     return next();

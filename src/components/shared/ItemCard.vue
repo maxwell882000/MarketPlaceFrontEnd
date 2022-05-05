@@ -80,8 +80,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
-
+.item-card__prices__new-price {
+  margin-bottom: 0 !important;
+}
+.item-card__description {
+  font-size: 1rem;
+}
 .item-card {
   transition: all 0.3s;
   display: block;

@@ -3,8 +3,7 @@
       description="Ваши данные успешно отправленны"
       button-title="Вернуться в корзину"
       path-name="basket"
-      success-show="successToBasket"
-  >
+      success-show="successToBasket">
   </SuccessModel>
 </template>
 <script setup>
