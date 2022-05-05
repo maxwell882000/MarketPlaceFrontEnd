@@ -97,7 +97,7 @@ export const authModule = {
                 result.phone = request.phone;
                 result.name = request.name;
                 commit("setUser", result);
-                tokenService.setToken(result.token);
+                commit('setToken', result.token);
                 commit("authWindow/setVerifyRegister");
             } catch (e) {
 
@@ -159,7 +159,6 @@ export const authModule = {
         setUser(state, user) {
             state.user.name = user.name;
             state.user.phone = user.phone;
-            state.token = user.token;
         },
         logoutUser(state) {
             state.user = {name: "", phone: ""};
@@ -167,7 +166,6 @@ export const authModule = {
             tokenService.removeToken();
         },
         setToken(state, token) {
-            console.log(`GET TOKEN ${token}`);
             state.token = token;
             tokenService.setToken({token: token})
         },

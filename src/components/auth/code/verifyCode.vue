@@ -5,6 +5,7 @@
     <template #inputs>
       <OtpInput class="mt-4" @on-change="setCode"></OtpInput>
       <ButtonForm @submit="submit" :title="$t('Отправить')" :is-entered="isCodeEntered"></ButtonForm>
+<!--      <button class="button-clear"></button>-->
     </template>
   </ModalAuth>
 </template>

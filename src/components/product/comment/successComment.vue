@@ -3,7 +3,7 @@
     <template #body>
       <img alt="Star" src="@/assets/comment/star_comment.png">
       <br>
-      <span class="bold text-sm">Спасибо, ваш отзыв опубликован!</span>
+      <span class="bold text-sm">Спасибо, ваш отзыв скоро будет опубликован!</span>
       <router-link class="remove-link" :to='`/item/${$route.params.id}/`'>
         <ButtonBlue title="Понятно"></ButtonBlue>
       </router-link>

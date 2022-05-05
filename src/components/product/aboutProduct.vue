@@ -1,7 +1,7 @@
 <template>
   <div class="about-item mt-4">
     <b-tabs
-        class="about-content"
+        class=""
         active-nav-item-class="active-tab"
         active-tab-class=""
         content-class="mt-3"
@@ -18,7 +18,7 @@
         <template #title>
           <h5 class="tab-content">{{ firstChar.header }}</h5>
         </template>
-        <table class="dotted-table text-dark">
+        <table class="dotted-table about-content text-dark">
           <tr v-for="(items, index) in firstChar.values" :key="'char_'  + index">
             <th><span>{{ items.key }}</span></th>
             <th><span>{{ items.value }}</span></th>
