@@ -46,18 +46,21 @@
 
               </div>
             </div>
-            <div v-if="selectedCard.id === -1" class="selected-card">
-              <input-card
-                  :error_card="selectedCard.card_error"
-                  :error_expiry="selectedCard.expiry_error"
-                  @card-input="setCardNumber"
-                  @expiry-input="setExpiry"
-                  class="w-100 h-100">
-              </input-card>
-            </div>
-            <div v-else class="selected-card">
-              <plastic-card-item :card="selectedCard"></plastic-card-item>
-            </div>
+            <loader waiting="start_transaction_loaded">
+              <div v-if="selectedCard.id === -1" class="selected-card">
+                <input-card
+                    :error_card="selectedCard.card_error"
+                    :error_expiry="selectedCard.expiry_error"
+                    @card-input="setCardNumber"
+                    @expiry-input="setExpiry"
+                    class="w-100 h-100">
+                </input-card>
+              </div>
+              <div v-else class="selected-card">
+                <plastic-card-item :card="selectedCard"></plastic-card-item>
+              </div>
+            </loader>
+
             <Error :error="error"></Error>
             <InputSelect v-model="checked" class="my-2">
               <div class="text-sm ">
@@ -73,12 +76,19 @@
           </b-col>
         </b-row>
       </div>
-      <ButtonBlue
-          class="p-2 w-20 mb-3"
-          title="Подтвердить"
-          @click="validate"
-          :title-style="{color: 'white'}">
-      </ButtonBlue>
+      <loader :div-style="{height:'10vh'}" waiting="create_purchases_loaded">
+        <b-row>
+          <b-col cols="12" class="col-xl-3 col-lg-4 col-md-6 col-sm-12 ">
+            <ButtonBlue
+                class="p-2 mb-3"
+                title="Подтвердить"
+                @click="validate"
+                :title-style="{color: 'white'}">
+            </ButtonBlue>
+          </b-col>
+        </b-row>
+      </loader>
+
     </section>
   </loader>
 </template>

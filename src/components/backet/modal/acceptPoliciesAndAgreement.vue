@@ -2,7 +2,7 @@
   <ModalView
       v-model="isAgreement"
       @close-modal="close"
-      style-modal="width: 32vw">
+  >
     <template #prefix>
       <span class="block bold text-center">Условия и положения</span>
       <div class="text-left">

@@ -1,6 +1,5 @@
 <template>
   <ModalView
-      style-modal="width: 30vw"
       v-model="isSuccess"
       @closeModal="closeModal"
       :title="`Ваш заказ № ${createdId} принят!`"
