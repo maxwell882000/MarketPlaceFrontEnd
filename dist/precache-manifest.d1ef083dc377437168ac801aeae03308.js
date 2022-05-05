@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bd0483298e1e5c2d8e11",
-    "url": "/css/app.b298a08a.css"
+    "revision": "2e1eea6e984fac17a344",
+    "url": "/css/app.45be2298.css"
   },
   {
     "revision": "a2fae8fdacb3da209a48",
@@ -52,7 +52,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/chunk-63654e7d.6dd40ee0.css"
   },
   {
-    "revision": "4dc64132aea2e17317e5",
+    "revision": "313e48377b43498f9ef7",
     "url": "/css/chunk-670df958.b24348f3.css"
   },
   {
@@ -288,12 +288,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/xiaomi.e3904865.png"
   },
   {
-    "revision": "2982341806e799a402723c8cdcbda555",
+    "revision": "955f8d508aed8d4058edae031b222278",
     "url": "/index.html"
   },
   {
-    "revision": "bd0483298e1e5c2d8e11",
-    "url": "/js/app.0495e94f.js"
+    "revision": "2e1eea6e984fac17a344",
+    "url": "/js/app.bf29f9c2.js"
   },
   {
     "revision": "a2fae8fdacb3da209a48",
@@ -376,8 +376,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/chunk-63654e7d.24623f7c.js"
   },
   {
-    "revision": "4dc64132aea2e17317e5",
-    "url": "/js/chunk-670df958.35c5b0f8.js"
+    "revision": "313e48377b43498f9ef7",
+    "url": "/js/chunk-670df958.38af8270.js"
   },
   {
     "revision": "6ee971158f27770980f9",
