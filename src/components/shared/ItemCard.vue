@@ -83,9 +83,17 @@ export default {
 .item-card__prices__new-price {
   margin-bottom: 0 !important;
 }
+
 .item-card__description {
   font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+
 }
+
 .item-card {
   transition: all 0.3s;
   display: block;

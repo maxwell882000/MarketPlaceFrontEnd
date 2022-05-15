@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "de69629423a9fa7a29c0",
-    "url": "/css/app.f11f6d53.css"
+    "revision": "cb7e4ad39eb168e1aaa0",
+    "url": "/css/app.dd8b5493.css"
   },
   {
     "revision": "a2fae8fdacb3da209a48",
@@ -14,10 +14,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "363e5c0ec689c34a8cbf",
     "url": "/css/chunk-05e1763e.8adb1ac0.css"
-  },
-  {
-    "revision": "d5a28db962c976fdc215",
-    "url": "/css/chunk-1440b84a.d39550f9.css"
   },
   {
     "revision": "e4b3774c0c305cdb94a0",
@@ -50,6 +46,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "09d99d11e442402565eb",
     "url": "/css/chunk-54ce9506.5174b07d.css"
+  },
+  {
+    "revision": "11ea61d1afdf60e6d0b1",
+    "url": "/css/chunk-5ea07aee.d39550f9.css"
   },
   {
     "revision": "313e48377b43498f9ef7",
@@ -288,12 +288,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/xiaomi.e3904865.png"
   },
   {
-    "revision": "d4521e50bce126f3c35a36626d4d129d",
+    "revision": "0de59b83bbdd3a1cfb68fe70f618e81c",
     "url": "/index.html"
   },
   {
-    "revision": "de69629423a9fa7a29c0",
-    "url": "/js/app.81cb1df8.js"
+    "revision": "cb7e4ad39eb168e1aaa0",
+    "url": "/js/app.f376cf67.js"
   },
   {
     "revision": "a2fae8fdacb3da209a48",
@@ -306,10 +306,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "363e5c0ec689c34a8cbf",
     "url": "/js/chunk-05e1763e.7bcffdd7.js"
-  },
-  {
-    "revision": "d5a28db962c976fdc215",
-    "url": "/js/chunk-1440b84a.95710ef8.js"
   },
   {
     "revision": "e4b3774c0c305cdb94a0",
@@ -374,6 +370,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "09d99d11e442402565eb",
     "url": "/js/chunk-54ce9506.fc9da827.js"
+  },
+  {
+    "revision": "11ea61d1afdf60e6d0b1",
+    "url": "/js/chunk-5ea07aee.1d517577.js"
   },
   {
     "revision": "313e48377b43498f9ef7",
