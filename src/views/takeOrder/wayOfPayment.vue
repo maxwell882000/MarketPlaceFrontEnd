@@ -3,7 +3,7 @@
     <back-button title="Назад в оформление"></back-button>
     <h4>Способ оплаты</h4>
     <b-row class="flex-wrap-reverse flex-sm-wrap-reverse flex-md-nowrap">
-      <b-col cols="12" class="col-sm-12 col-md-7 col-lg-8 col-xl-9">
+      <b-col cols="12" class="col-sm-12 col-md-6 col-lg-7 col-xl-8">
         <h6 v-show="showCredit">Тарифы рассрочки</h6>
         <loader :div-style="{height: '20vh'}" waiting="credit_loaded">
           <b-form-group v-show="showCredit" name="radio-options1" id="installment_number" class="mb-3"
@@ -44,7 +44,7 @@
           </way-of-payment-item>
         </b-form-group>
       </b-col>
-      <b-col cols="12" class="col-sm-12 col-md-5 col-lg-4 col-xl-3">
+      <b-col cols="12" class="col-sm-12 col-md-6 col-lg-5 col-xl-4">
         <div style="height: 1.7rem"></div>
         <way-of-payment-price></way-of-payment-price>
       </b-col>

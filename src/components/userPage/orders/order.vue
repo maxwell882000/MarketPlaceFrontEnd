@@ -30,7 +30,6 @@
       </section>
       <section class="row text-500">
         <b-col cols="12" class="col-xl-5 col-lg-6 col-md-7">
-
           <p class="bold mb-1">Состав заказа</p>
           <div class="key-value">
             <span>Товары - {{ purchase.allQuantity }} шт.</span>
@@ -42,7 +41,6 @@
               <span class="text-green">{{ discount }} сум</span>
             </div>
           </div>
-
           <div v-show="purchase.sumDelivery > 0">
             <div class="key-value">
               <span>Доставка</span>
@@ -104,7 +102,7 @@ const props = defineProps({
     type: Object,
   }
 });
-const discount = computed(() => props.purchase.originalPrice - props.purchase.productPrice);
+const discount = computed(() => props.purchase.originalPrice * props.purchase.allQuantity - props.purchase.productPrice);
 const status = ref({});
 watch(() => props.purchase.payble.status, function (val) {
   status.value = {

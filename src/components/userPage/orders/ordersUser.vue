@@ -26,47 +26,6 @@
       </b-tab>
     </b-tabs>
   </loader>
-  <!--  <loader waiting="purchases_loaded">-->
-  <!--    <b-tabs class="custom-tabs order-user" pills>-->
-  <!--      <b-tab lazy active title="Все">-->
-  <!--        <div :key="'all_purchases_' + purchase.id" v-for="purchase in purchases">-->
-  <!--          <order v-if="purchase.status !== payment.INSTALLMENT" :purchase="purchase"></order>-->
-  <!--          <instalment v-else :purchase="purchase"></instalment>-->
-  <!--        </div>-->
-  <!--      </b-tab>-->
-  <!--      <b-tab  lazy  title="Ожидают модерации">-->
-  <!--        <div :key="'all_waiting_' + waiting.id" v-for="waiting in waitingAnswers">-->
-  <!--          <order v-if="waiting.status !== payment.INSTALLMENT"-->
-  <!--                 :purchase="waiting"></order>-->
-  <!--          <instalment v-else :purchase="waiting"></instalment>-->
-  <!--        </div>-->
-  <!--      </b-tab>-->
-  <!--      <b-tab lazy title="Ожидают оплаты">-->
-  <!--        <div :key="'all_waiting_' + waiting.id" v-for="waiting in waitingPurchase">-->
-  <!--          <order v-if="waiting.status !== payment.INSTALLMENT"-->
-  <!--                 :purchase="waiting"></order>-->
-  <!--          <instalment v-else :purchase="waiting"></instalment>-->
-  <!--        </div>-->
-  <!--      </b-tab>-->
-  <!--      <b-tab lazy  title="Рассрочка">-->
-  <!--        <instalment :key="'all_installments_' + installment.id"-->
-  <!--                    :purchase="installment" v-for="installment in installments"></instalment>-->
-  <!--      </b-tab>-->
-  <!--      <b-tab lazy title="Завершенные">-->
-  <!--        <div :key="'all_finished_' + purchase.id" v-for="purchase in finishedPurchases">-->
-  <!--          <order :purchase="purchase" v-if="purchase.status !== payment.INSTALLMENT"></order>-->
-  <!--          <instalment v-else :purchase="purchase"></instalment>-->
-  <!--        </div>-->
-  <!--      </b-tab>-->
-  <!--      <b-tab lazy title="Откланеные">-->
-  <!--        <div :key="'all_declined_' + purchase.id" v-for="purchase in declinedPurchases">-->
-  <!--          <order :purchase="purchase" v-if="purchase.status !== payment.INSTALLMENT"></order>-->
-  <!--          <instalment v-else :purchase="purchase"></instalment>-->
-  <!--        </div>-->
-  <!--      </b-tab>-->
-  <!--    </b-tabs>-->
-  <!--  </loader>-->
-
 </template>
 <script setup>
 // import Order from "@/components/userPage/orders/order";
@@ -90,3 +49,30 @@ const finishedPurchases = computed(() => store.getters['purchaseModule/finishedP
 const declinedPurchases = computed(() => store.getters['purchaseModule/declinedPurchases']);
 
 </script>
+
+
+
+<!--<b-tabs v-model="currentTab" class="custom-tabs order-user" pills>-->
+<!--<b-tab lazy active title="Все">-->
+<!--  <order-scroller key-field="all_purchases_"-->
+<!--                  :items="currentTab === 0 ? purchases : []"></order-scroller>-->
+<!--</b-tab>-->
+<!--<b-tab lazy title="Ожидают модерации">-->
+<!--  <order-scroller key-field="all_waiting_" :items=" currentTab === 1 ? waitingAnswers : [] "></order-scroller>-->
+<!--</b-tab>-->
+<!--<b-tab lazy title="Ожидают оплаты">-->
+<!--  <order-scroller key-field="all_waiting_answer_"-->
+<!--                  :items=" currentTab === 2 ? waitingPurchase : [] "></order-scroller>-->
+<!--</b-tab>-->
+<!--<b-tab lazy title="Рассрочка">-->
+<!--  <instalment :key="'all_installments_' + installment.id"-->
+<!--              :purchase="installment" v-for="installment in  currentTab === 3 ? installments : [] "></instalment>-->
+<!--</b-tab>-->
+<!--<b-tab lazy title="Завершенные">-->
+<!--  <order-scroller key-field="all_finished_"-->
+<!--                  :items=" currentTab === 4 ? finishedPurchases : []  "></order-scroller>-->
+<!--</b-tab>-->
+<!--<b-tab lazy title="Откланеные">-->
+<!--  <order-scroller key-field="all_declined_" :items=" currentTab === 5 ? declinedPurchases : [] "></order-scroller>-->
+<!--</b-tab>-->
+<!--</b-tabs>-->

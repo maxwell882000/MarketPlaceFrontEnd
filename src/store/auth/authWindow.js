@@ -15,8 +15,8 @@ export const authWindow = {
     },
     mutations: {
         cleanStatus(state) {
-          state.error = "";
-          state.success = "";
+            state.error = "";
+            state.success = "";
         },
         setError(state, error) {
             state.error = error;

@@ -4,8 +4,8 @@
     <b-row gutter-y="0px" gutter-x="0px">
       <b-col cols="12" class="bg-white information col-xl-4 col-lg-5 col-md-6  col-sm-12">
         <back-button title="Назад"></back-button>
-        <h4>Способ доставки</h4>
-        <switch-button @changed="setDelivery" class="mb-3"></switch-button>
+<!--        <h4>Способ доставки</h4>-->
+<!--        <switch-button @changed="setDelivery" class="mb-3"></switch-button>-->
         <delivery v-if="isDelivery"></delivery>
         <self-delivery v-else></self-delivery>
       </b-col>
@@ -58,6 +58,7 @@ import {
 } from "@vue-leaflet/vue-leaflet";
 
 export default {
+  // eslint-disable-next-line vue/no-unused-components
   components: {SelfDelivery, Delivery, OpenLayer, SwitchButton, BackButton, LMarker, LPopup},
   data() {
     return {

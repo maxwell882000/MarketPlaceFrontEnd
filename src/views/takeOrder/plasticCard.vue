@@ -75,7 +75,7 @@
             <Error :error="errorCheck"></Error>
           </b-col>
         </b-row>
-      </div>:
+      </div>
       <loader :div-style="{height:'10vh'}" waiting="create_purchases_loaded">
         <b-row>
           <b-col cols="12" class="col-xl-3 col-lg-4 col-md

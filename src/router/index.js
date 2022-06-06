@@ -1,7 +1,8 @@
 import {createRouter, createWebHistory,} from "vue-router";
 import Home from "../views/Home.vue";
-import basket from "@/middlewares/basket";
 import store from "@/store";
+
+import basket from "@/middlewares/basket";
 import middlewarePipeline from "@/router/middlewarePipeline";
 import userCredit from "@/middlewares/userCredit";
 import isFirstPageSuccess from "@/middlewares/validation/isFirstPageSuccess";

@@ -13,10 +13,10 @@
         <b-row class="flex-column">
           <b-col cols="12" :key="'plastic_card_pan_' + item.id" v-for="item in cards"
                  class="col-xl-3 col-lg-4 col-md-5 col-sm-6 d-flex justify-content-between align-items-center mb-1">
-            <span class="text-sm">{{ item.pan }}</span>
-            <div @click="revokeCard(item.id)" class="pointer">
-              <trash></trash>
-            </div>
+            <span >{{ item.pan }}</span>
+<!--            <div @click="revokeCard(item.id)" class="pointer">-->
+<!--              <trash></trash>-->
+<!--            </div>-->
           </b-col>
         </b-row>
       </div>
@@ -38,7 +38,7 @@
 <script setup>
 import EmptyCard from "@/components/userPage/payments/emptyCard";
 // import InputRadio from "@/components/helper/input/inputRadio";
-import Trash from "@/components/icons/trash";
+// import Trash from "@/components/icons/trash";
 import CardAdd from "@/components/icons/card-add";
 import {computed} from "vue";
 import {useStore} from "vuex";
@@ -48,5 +48,5 @@ import SuccessInsertion from "@/components/userPage/payments/modal/successInsert
 const store = useStore();
 const isEmptyCard = computed(() => store.getters['plasticCardModule/isEmptyCard']);
 const cards = computed(() => store.getters['plasticCardModule/cards']);
-const revokeCard = (id) => store.dispatch("plasticCardModule/revokeCard", id);
+// const revokeCard = (id) => store.dispatch("plasticCardModule/revokeCard", id);
 </script>

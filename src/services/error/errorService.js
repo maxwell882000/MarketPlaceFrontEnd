@@ -22,7 +22,7 @@ class ErrorService {
 
     middleware() {
         if (this.error.response.status === 401) {
-            // unauthorized
+            store.commit("logoutUser");
             store.commit("authWindow/setLogin");
         }
     }

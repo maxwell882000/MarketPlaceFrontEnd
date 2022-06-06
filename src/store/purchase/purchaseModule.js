@@ -32,6 +32,7 @@ export const purchaseModule = {
             try {
                 await purchaseService.cancelPayment(purchase.id, reason);
                 purchase.status = statusPayment.DECLINED;
+                purchase.reason = reason.reason;
             } catch (e) {
                 console.log(e);
                 getters.errorPayment[purchase.id] = e;
@@ -84,6 +85,8 @@ export const purchaseModule = {
             delete getters.errorInstallment[purchase.id];
             try {
                 await purchaseService.cancelInstallment(purchase.id, reason);
+                purchase.status = statusPayment.DECLINED;
+                purchase.reason = reason.reason;
             } catch (e) {
                 console.log(e);
                 getters.errorInstallment[purchase.id] = e;

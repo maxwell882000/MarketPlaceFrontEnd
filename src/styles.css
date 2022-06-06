@@ -335,6 +335,10 @@ small {
   background-color: var(--blue);
 }
 
+.max-40 {
+  max-width: 40%;
+}
+
 .dotted-table {
   width: 100%;
 }

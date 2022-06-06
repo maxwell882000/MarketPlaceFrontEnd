@@ -338,6 +338,10 @@ small {
   background-color: var(--blue);
 }
 
+.max-40 {
+  max-width: 40%;
+}
+
 .dotted-table {
   width: 100%;
   @media (max-width: 468px) {
@@ -346,6 +350,7 @@ small {
   @media (max-width: 375px) {
     font-size: 0.6rem;
   }
+
   tr {
     th:first-child::before {
       width: 100%;
@@ -355,9 +360,11 @@ small {
       margin-bottom: -16px;
       margin-top: 14px;
     }
+
     th:nth-child(2) {
       text-align: right !important;
     }
+
     th:nth-child(2)::before {
       width: 100%;
       border-bottom: 2px dotted rgb(209, 209, 209);
