@@ -30,6 +30,7 @@ export const authModule = {
     },
     actions: {
         async getUser({commit, getters}) {
+            console.log("GET USER HERE");
             if (getters.isAuthenticated) {
                 commit("wait/START", "user");
                 let result = await authService.getUser();
@@ -74,13 +75,14 @@ export const authModule = {
             commit("logoutUser");
             window.location.reload();
         },
-        async login({commit}, request) {
+        async login({commit, dispatch}, request) {
             commit("wait/START", "login");
             commit("authWindow/cleanStatus");
             try {
                 let token = await authService.login(request);
                 commit('setToken', token.token);
                 commit("authWindow/close");
+                dispatch('getUser');
                 // window.location.reload();
             } catch (e) {
                 console.log(e.stack);

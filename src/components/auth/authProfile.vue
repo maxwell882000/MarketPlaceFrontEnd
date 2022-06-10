@@ -44,7 +44,7 @@ export default {
       await this.logout();
     },
     toProfile() {
-      this.getUser();
+      // this.getUser();
       this.$router.push("/user");
     }
   }
