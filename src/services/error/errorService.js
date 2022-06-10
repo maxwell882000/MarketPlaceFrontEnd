@@ -25,6 +25,12 @@ class ErrorService {
             store.commit("logoutUser");
             store.commit("authWindow/setLogin");
         }
+        console.log("ERROR");
+        console.log(this.error.response);
+        if (this.error.response.data.code && this.error.response.status === 403) {
+            console.log("WORKED OUT USER DATA");
+            store.commit("authWindow/setVerifyRegister");
+        }
     }
 
     logError() {

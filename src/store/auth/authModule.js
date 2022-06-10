@@ -31,7 +31,7 @@ export const authModule = {
     actions: {
         async getUser({commit, getters}) {
             console.log("GET USER HERE");
-            if (getters.isAuthenticated) {
+            if (getters.isAuthenticated && getters.user.name === "") {
                 commit("wait/START", "user");
                 let result = await authService.getUser();
                 commit('setInitialUser', result);

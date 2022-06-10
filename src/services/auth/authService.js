@@ -8,6 +8,7 @@ class AuthService {
 
     async getUser() {
         let response = await methods.get("user/");
+        console.log(response);
         return response.data.result;
     }
 
