@@ -1,10 +1,11 @@
 <template>
   <div class="bg-white p-4 shadow-box ">
-    <InputBelowBorder @input="filterAndEmitCardNumber" class="w-100" :placeholder="'Номер карты'"/>
+    <InputBelowBorder @input="filterAndEmitCardNumber" :value="card_input" class="w-100" :placeholder="'Номер карты'"/>
     <error :error="error_card"></error>
     <br>
     <div class="w-30">
-      <input-below-border class="w-100" @input="filterAndEmitExpiry" placeholder="ММ/ГГ"></input-below-border>
+      <input-below-border class="w-100" @input="filterAndEmitExpiry" :value="expiry"
+                          placeholder="ММ/ГГ"></input-below-border>
     </div>
     <error :error="error_expiry"></error>
   </div>
@@ -16,7 +17,7 @@ import Error from "@/components/helper/error/error";
 // eslint-disable-next-line no-undef
 const emit = defineEmits(['card-input', 'expiry-input'])
 // eslint-disable-next-line no-undef,no-unused-vars
-const props = defineProps(['error_card', 'error_expiry']);
+const props = defineProps(['error_card', 'error_expiry', 'card_input', "expiry"]);
 
 function removeSpace(value) {
   return value.replace(/\s+/g, '');

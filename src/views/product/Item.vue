@@ -1,5 +1,4 @@
 <template>
-
   <section class="container">
     <Badge class="badges" :path="path"></Badge>
     <h4 class="my-3">{{ name }}</h4>
@@ -31,7 +30,7 @@
 
 </template>
 <script>
-import PicturesPart from "../../components/item/PicturesPart.vue";
+import PicturesPart from "../../components/product/PicturesPart.vue";
 import SelectComponent from "@/components/product/selectComponent";
 import HeaderProduct from "@/components/product/headerProduct";
 import ColorComponent from "@/components/product/colorComponent";

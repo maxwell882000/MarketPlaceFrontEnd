@@ -7,6 +7,8 @@
         <h5> Привязка банковской карты</h5>
         <br>
         <input-card
+            :card_input="selectedCard.card_number"
+            :expiry="selectedCard.expiry"
             :error_card="selectedCard.card_error"
             :error_expiry="selectedCard.expiry_error"
             @card-input="setCardNumber"

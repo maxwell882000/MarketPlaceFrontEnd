@@ -34,11 +34,11 @@ export default {
         height: 'auto',
         pagination: false,
         autoplay: false,
+        arrows: false,
         perMove: 1,
         breakpoints: {
           767: {
             perPage: 1,
-            arrows: false,
             pagination: true
           },
           991: {
