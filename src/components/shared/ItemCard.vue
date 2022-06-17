@@ -100,7 +100,7 @@ export default {
   text-decoration: none;
   color: black;
   cursor: pointer;
-  height: 20rem;
+  height: 20.5rem;
   padding: 12px;
   background-color: white;
   border-radius: 12px;
