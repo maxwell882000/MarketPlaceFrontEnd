@@ -15,7 +15,7 @@
       <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
         <section v-show="item.products.length">
           <h5 class="text-sm-center mt-4 mb-3">{{ item.text }}</h5>
-          <SalesRoll :per-page="5" slide-key="product_day" :products="item.products"/>
+          <SalesRoll :per-page="6" slide-key="product_day" :products="item.products"/>
         </section>
       </div>
     </div>

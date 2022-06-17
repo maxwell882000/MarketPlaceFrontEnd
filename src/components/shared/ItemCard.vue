@@ -100,12 +100,16 @@ export default {
   text-decoration: none;
   color: black;
   cursor: pointer;
-  height: 25rem;
+  height: 20rem;
   padding: 12px;
   background-color: white;
   border-radius: 12px;
-  width: 15rem;
+  width: 13.8rem;
   box-shadow: 0 0 0 transparent;
+
+  .image-sizing {
+    height: 10rem;
+  }
 
   .item-card__image__sale-amount {
     font-size: 12px !important;
@@ -138,25 +142,26 @@ export default {
     }
   }
   @media (max-width: 491px) {
-    height: 20.5rem;
+    height: 20.5rem !important;
 
   }
   @media (max-width: 491px) and (min-width: 420px) {
-    width: 15rem;
-    .image_style {
-      height: 8rem;
+    width: 12.5rem;
+    .image-sizing {
+      height: 10rem !important;
     }
+
   }
   @media (max-width: 425px) {
-    width: 17.5rem;
-    .image_style {
-      height: 7.5rem;
+    width: 12rem;
+    .image-sizing {
+      height: 10rem !important;
     }
   }
   @media (max-width: 375px) and (min-width: 321px) {
-    width: 16.5rem;
-    .image_style {
-      height: 7rem;
+    width: 11rem;
+    .image-sizing {
+      height: 7rem !important;
     }
   }
   @media (max-width: 320px) {
@@ -182,9 +187,6 @@ export default {
       margin-bottom: -24px;
     }
 
-    .image-sizing {
-      height: 13.5rem;
-    }
 
     img {
       height: 100%;
@@ -216,6 +218,7 @@ export default {
 
   .item-card__prices {
     line-height: 22px;
+
     .item-card__prices__ex-price {
       min-height: 17px;
       font-size: 14px;

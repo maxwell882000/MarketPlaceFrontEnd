@@ -11,7 +11,7 @@
   <div class="sales-roll">
     <BaseRoll :breakpoints="breakpoints" :perPage="perPage">
       <SplideSlide v-for="item in products" :key="slideKey + item.id ">
-        <div class="w-100 m-auto d-lg-block d-sm-flex justify-content-center">
+        <div class="w-100 m-auto d-lg-block d-sm-flex d-flex justify-content-center">
           <item-card :product="item"/>
         </div>
       </SplideSlide>
