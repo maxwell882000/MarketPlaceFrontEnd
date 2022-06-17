@@ -68,6 +68,7 @@ p:hover {
 .elements {
   color: var(--gray);
   font-size: small;
+  line-height: 1.2rem;
   margin-bottom: 0.2rem;
 }
 </style>

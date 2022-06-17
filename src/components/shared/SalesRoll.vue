@@ -8,13 +8,16 @@
   <!--      </div>-->
   <!--    </Flicking>-->
   <!--  </div>-->
-  <BaseRoll :breakpoints="breakpoints" :perPage="perPage">
-    <SplideSlide v-for="item in products" :key="slideKey + item.id ">
-      <div class="w-100 m-auto d-flex justify-content-center">
-        <item-card :product="item"/>
-      </div>
-    </SplideSlide>
-  </BaseRoll>
+  <div class="sales-roll">
+    <BaseRoll :breakpoints="breakpoints" :perPage="perPage">
+      <SplideSlide v-for="item in products" :key="slideKey + item.id ">
+        <div class="w-100 m-auto d-lg-block d-sm-flex justify-content-center">
+          <item-card :product="item"/>
+        </div>
+      </SplideSlide>
+    </BaseRoll>
+  </div>
+
 </template>
 <script setup>
 import ItemCard from "../shared/ItemCard";
@@ -48,3 +51,14 @@ defineProps({
 });
 
 </script>
+<style lang="scss">
+.sales-roll {
+  .splide__track {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+
+}
+
+</style>

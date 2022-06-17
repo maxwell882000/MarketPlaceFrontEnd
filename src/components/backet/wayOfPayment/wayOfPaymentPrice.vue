@@ -51,25 +51,25 @@
       </range-input-one-values>
     </div>
     <div class="mt-3 section-container back-gray text-sm">
-      <div class="d-flex justify-content-between mb-2">
+      <div class="d-flex justify-content-between mb-2 font-key">
         <span>Ежемесячный платеж:</span>
         <span class="text-500">
                 {{ installment.eachMonthPayment.toFixed(2) }} сум
               </span>
       </div>
-      <div class="d-flex justify-content-between mb-2">
+      <div class="d-flex justify-content-between mb-2 font-key">
         <span>Процент переплаты:</span>
         <span class="text-500 text-red">
              {{ installment.currentPercentage }}%
               </span>
       </div>
-      <div class="d-flex justify-content-between mb-2">
+      <div class="d-flex justify-content-between mb-2 font-key">
         <span>Сумма переплаты:</span>
         <span class="text-500 text-red">
                 {{ installment.percentageOverPayment.toFixed(2) }} сум
               </span>
       </div>
-      <div class="d-flex justify-content-between ">
+      <div class="d-flex justify-content-between  font-key">
         <span>Общая сумма оплаты:</span>
         <span class="text-500">
                   {{ overallPrice.toFixed(2) }} сум
@@ -77,9 +77,9 @@
       </div>
     </div>
     <div class="text-xs mt-2">
-      <em>Продолжная, вы соглашаетесь с
-        <span class="text-blue">Условиями
-              использования </span> и <span class="text-blue"> Политикой конфиденциальности</span> ByShop</em>
+      <em class="small-text">Продолжная, вы соглашаетесь с
+        <span class="text-blue small-text">Условиями
+              использования </span> и <span class="text-blue small-text"> Политикой конфиденциальности</span> ByShop</em>
     </div>
     <ButtonBlue @click="acceptInstallment" title="Подтвердить способ оплаты"></ButtonBlue>
   </section>
@@ -220,3 +220,15 @@ const {
   acceptInstallment
 } = useSelectedWayOfPayment(installment, overallPrice, mainCredit);
 </script>
+<style scoped>
+.font-key {
+  font-weight: 400;
+  font-size: 12px !important;
+  line-height: 20px;
+}
+.small-text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+}
+</style>

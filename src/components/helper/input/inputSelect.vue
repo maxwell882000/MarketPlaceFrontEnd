@@ -17,6 +17,7 @@ export default {}
 
 .form-check .form-check-label {
   display: block;
+  padding-top: 2px;
 }
 
 

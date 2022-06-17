@@ -8,7 +8,7 @@
     >
       <b-tab>
         <template #title>
-          <h5 class="tab-content"> {{ aboutProduct.header }}</h5>
+          <h5 class="tab-content header-part"> {{ aboutProduct.header }}</h5>
         </template>
         <p class="text-dark text-400">
           {{ aboutProduct.body }}
@@ -55,10 +55,24 @@ export default {
   methods: {}
 }
 </script>
-<style lang="scss">
+<style scoped lang="scss">
+
+.about-item {
+  .tab-content {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .header-part {
+    padding-left: 0 !important;
+  }
+}
+
 .about-content {
   @media (max-width: 767px) {
-    ul.nav-tabs {flex-direction: row !important;
+    ul.nav-tabs {
+      flex-direction: row !important;
       flex-wrap: nowrap;
       overflow: scroll;
       padding-bottom: 5px;
@@ -68,6 +82,7 @@ export default {
         white-space: nowrap;
         //min-width: 160px;
         flex: 1;
+
         a {
           height: 100%;
         }

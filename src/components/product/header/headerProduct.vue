@@ -6,7 +6,7 @@
       <div class
                ="title_product d-flex align-items-center">
         <div>
-          <span class="bold">{{ name }}</span>
+          <span class="bold product-name">{{ name }}</span>
           <header-product class="header-product flex-md-wrap"></header-product>
         </div>
       </div>
@@ -60,6 +60,10 @@ export default {
 </script>
 <style lang="scss">
 .price-desc {
+  .product-name {
+    font-size: 14px;
+    line-height: 17px;
+  }
 
   .rating {
     margin-bottom: 0 !important;

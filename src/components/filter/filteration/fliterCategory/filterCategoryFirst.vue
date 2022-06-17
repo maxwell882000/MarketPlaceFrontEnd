@@ -1,7 +1,7 @@
 <template>
   <span v-if="category"
         @click="addCategory(category.slug)"
-        class="text-link">
+        class="text-link text-sm">
     {{ category.name }}
   </span>
   <slot></slot>

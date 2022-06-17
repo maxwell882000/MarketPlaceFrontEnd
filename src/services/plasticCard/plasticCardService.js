@@ -9,6 +9,7 @@ class PlasticCardService {
     //card_number
     //expiry mm/yy
     async getTransactionForPlastic(data) {
+        console.log(data);
         const result = await methods.post("plastic-card/getTransactionForPlastic/", data);
         return result.data.result;
     }

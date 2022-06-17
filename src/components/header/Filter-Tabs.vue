@@ -47,7 +47,7 @@ export default {
 }
 
 .filter-tabs .scoped-sidebar {
-  width: 20%;
+  width: 30%;
 }
 
 .filter-tabs .scoped-sidebar span:hover {

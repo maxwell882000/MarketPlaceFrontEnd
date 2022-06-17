@@ -1,6 +1,6 @@
 <template>
   <loader waiting="main">
-    <div class="container">
+    <div class="container home">
       <BannerAndItem/>
       <div class="my-3 ">
         <h5 class="text-sm-center">
@@ -17,7 +17,6 @@
           <h5 class="text-sm-center mt-4 mb-3">{{ item.text }}</h5>
           <SalesRoll :per-page="5" slide-key="product_day" :products="item.products"/>
         </section>
-
       </div>
     </div>
   </loader>
@@ -69,6 +68,14 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+.home{
+  .splide__list {
+    width: 105%;
+  }
+}
+
+</style>
 
 <style scoped lang="scss">
 

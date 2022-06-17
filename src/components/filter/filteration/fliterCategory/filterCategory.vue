@@ -1,15 +1,12 @@
 <template>
-  <!--  <template>-->
-  <!--  </template>-->
   <filter-category-fourth v-if="($route.params.slug)" :category="category"></filter-category-fourth>
   <template v-else>
     <filter-category-first :key="'filter_categories_left_' + item.id"
                            v-for="item in categories"
-                           :category="item"
-    >
+                           :category="item">
       <br>
     </filter-category-first>
-    <filter-category-first :category="{name: 'Все категории', slug: false}"></filter-category-first>
+    <filter-category-first :category="{name: 'Все категории', slug: false}" class="bold"></filter-category-first>
   </template>
 </template>
 <script>

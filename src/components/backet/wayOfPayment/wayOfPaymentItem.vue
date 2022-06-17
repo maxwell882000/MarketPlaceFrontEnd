@@ -1,8 +1,9 @@
 <template>
   <section class="section-container mb-3">
     <input-radio   v-bind="Object.assign({},$attrs, $props)">
-      <div class="text-sm">
-        <span class="mb-2 block bold">{{ title }}</span>
+      <div class="payment-font">
+        <span class="pb-2 bold">{{ title }}</span>
+        <br>
         <span class="text-gray">{{ desc }}</span>
         <slot></slot>
       </div>
@@ -18,3 +19,13 @@ export default {
   components: {InputRadio},
 }
 </script>
+<style scoped>
+.payment-font {
+  font-size: 14px;
+  line-height: 17px;
+}
+.text-gray{
+  font-size: 12px;
+  line-height: 15px;
+}
+</style>

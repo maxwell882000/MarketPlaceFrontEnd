@@ -14,6 +14,7 @@ const {buyImmediately} = usePay("setShowPayment", getCredits);
 </script>
 <style scoped lang="scss">
 .installment-buy {
+
   background-color: #f71757 !important;
   color: white !important;
 

@@ -1,8 +1,8 @@
 <template>
   <div class="d-flex align-items-center flex-wrap flex-sm-wrap flex-md-nowrap">
-    <div v-if="Object.keys(credit).length  !== 0" class="price ">
+    <div v-if="Object.keys(credit).length  !== 0" class="price">
       <small> {{ credit.name }}</small>
-      <p class="mb-0">
+      <p class="mb-0 actual-number">
         <span class="numbers">{{ credit.price }}</span>
         <small class="time text-nowrap"> x {{ credit.month }} мес</small>
       </p>
@@ -59,13 +59,25 @@ export default {
     margin-right: 0 !important;
   }
 
-  p {
-    font-size: 12px !important;
-  }
-
   .basket {
     width: 100%;
   }
+}
+
+.price .actual-number {
+  font-size: 12px !important;
+  line-height: 15px;
+  font-weight: 400;
+}
+.price .actual-number span {
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 700;
+}
+.price .actual-number small {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 15px;
 }
 
 .price {

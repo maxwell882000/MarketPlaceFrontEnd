@@ -191,6 +191,20 @@ hr {
   margin-left: 0.4rem !important;
 }
 
+.ml-3 {
+  margin-left: 0.6rem !important;
+}
+
+@media (min-width: 425px) {
+  .container {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+.ml-4 {
+  margin-left: 0.8rem !important;
+}
+
 .mr-1 {
   margin-right: 0.2rem !important;
 }
@@ -275,13 +289,21 @@ hr {
   background-color: var(--blue);
 }
 
+.text-md {
+  font-size: 16px;
+  line-height: 19px;
+}
+
 .text-sm {
   font-size: 0.8rem !important;
   line-height: 0.9rem !important;
 }
 
-.text-md {
-  font-size: 1rem !important;
+h4 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.6rem !important;
+  line-height: 39px;
 }
 
 .text-lg {
@@ -314,15 +336,22 @@ body {
   background-color: #F2F3F5 !important;
   min-height: 80vh;
   width: 100% !important;
+  font-size: 14px;
   overflow-x: hidden;
 }
 
 p, li, a {
-  font-size: 14px;
+  font-size: 14px !important;
+}
+
+h5 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
 }
 
 small {
-  font-size: 12px;
+  font-size: 12px !important;
 }
 
 .section-container {
@@ -341,6 +370,7 @@ small {
 
 .dotted-table {
   width: 100%;
+  line-height: 18px;
 }
 @media (max-width: 468px) {
   .dotted-table {
@@ -351,6 +381,9 @@ small {
   .dotted-table {
     font-size: 0.6rem;
   }
+}
+.dotted-table tr {
+  height: 2rem;
 }
 .dotted-table tr th:first-child::before {
   width: 100%;

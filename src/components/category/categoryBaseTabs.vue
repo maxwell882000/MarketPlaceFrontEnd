@@ -2,7 +2,7 @@
   <div class="mb-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <div>
-        <h5>{{ name }}</h5>
+        <h5 class="category-sub">{{ name }}</h5>
       </div>
       <div>
         <router-link :to="link" class="remove-link">
@@ -21,3 +21,9 @@ export default {
   props: ['name', 'link']
 }
 </script>
+<style scoped lang="scss">
+.category-sub {
+  font-size: 24px;
+  line-height: 29px;
+}
+</style>

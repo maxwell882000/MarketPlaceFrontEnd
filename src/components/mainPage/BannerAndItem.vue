@@ -1,6 +1,6 @@
 <template>
-  <div class="row w-100 m-auto">
-    <div class="col-xl-9 col-12 h-max">
+  <div class="d-flex justify-content-between w-100 m-auto">
+    <div class="col-lg-9 col-sm-12 col-12 h-max p-0">
       <Splide class="splide" :options="{ autoplay: true, type: 'loop' }">
         <SplideSlide class="rounded-st" v-for="item in banners" :key="'banners_id' + item.id"
                      data-splide-interval="3000">
@@ -11,7 +11,7 @@
         </SplideSlide>
       </Splide>
     </div>
-    <div class="col-lg-3 item-of-day-col">
+    <div class="col-lg-3 d-lg-block d-sm-none d-none pl-3">
       <router-link :to="`/item/${product.id}`" class="route-delete">
         <div v-if="Object.keys(product).length !== 0" class="d-flex flex-column item-of-day">
           <div class="item-of-day-title">
@@ -23,7 +23,7 @@
               <Like style="position: absolute" :favourite="product.favourite" :id="product.id" class="like"/>
             </div>
             <!--             do not know why it is work -->
-            <div class="flex-grow-1">
+            <div class="flex-grow-1 w-max align-self-center">
               <b-img fluid class="img-res" center :src="product.image" alt="mi-band"/>
             </div>
             <div class="item-of-day-info">
@@ -66,18 +66,47 @@ export default {
   }
 }
 
+.img-res {
+  width: 95% !important;
+}
+
+.item-of-day-title {
+  h5 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
 .route-delete {
   text-decoration: none;
   color: inherit;
 }
 
+.col-lg-9 {
+  @media (min-width: 992px) {
+    width: 70% !important;
+  }
+}
+
+.col-lg-3 {
+  @media (min-width: 992px) {
+    width: 30% !important;
+  }
+}
+
 .item-of-day {
   text-decoration: none !important;
   transition: all 0.3s;
-  min-height: 100%;
+  //min-height: 100%;
+  height: 25rem;
   background-color: white;
   border-radius: 14px;
   padding: 10px 18px;
+
+  .item-of-day-content {
+    width: 100%;
+  }
 
   .item-of-day-title {
     display: flex;
@@ -118,7 +147,8 @@ export default {
   }
 
   .item-of-day__description {
-    line-height: 18px;
+    font-size: 14px;
+    line-height: 20px;
   }
 
   &:hover {
@@ -132,12 +162,8 @@ export default {
 }
 
 .banner_image {
-  height: 27rem
+  height: 25rem
 }
 
-@media (max-width: 1200px) {
-  .item-of-day-col {
-    display: none;
-  }
-}
+
 </style>

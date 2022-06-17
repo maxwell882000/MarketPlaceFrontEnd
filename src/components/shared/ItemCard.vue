@@ -4,7 +4,7 @@
       <div class="item-card__image__like">
         <Like :id="product.id" :favourite="product.favourite"/>
       </div>
-      <div class="">
+      <div class="image-sizing">
         <b-img v-lazy="product.image" class="image_style" center fluid alt="item image"/>
       </div>
       <div v-show="product.discount" class="item-card__image__sale-amount">
@@ -100,21 +100,24 @@ export default {
   text-decoration: none;
   color: black;
   cursor: pointer;
-  height: 23.5rem;
+  height: 25rem;
   padding: 12px;
   background-color: white;
   border-radius: 12px;
-  width: 14rem;
+  width: 15rem;
   box-shadow: 0 0 0 transparent;
+
+  .item-card__image__sale-amount {
+    font-size: 12px !important;
+    line-height: 15px;
+    margin-bottom: 0 !important;
+  }
+
   @media (max-width: 767px) {
     .image_style {
       height: 9rem;
     }
-    .item-card__image__sale-amount {
-      font-size: 12px !important;
-      line-height: 13px;
-      margin-bottom: 0 !important;
-    }
+
     .item-card__description {
       font-size: 12px !important;
       line-height: 13px;
@@ -139,19 +142,19 @@ export default {
 
   }
   @media (max-width: 491px) and (min-width: 420px) {
-    width: 12rem;
+    width: 15rem;
     .image_style {
       height: 8rem;
     }
   }
   @media (max-width: 425px) {
-    width: 11.5rem;
+    width: 17.5rem;
     .image_style {
       height: 7.5rem;
     }
   }
   @media (max-width: 375px) and (min-width: 321px) {
-    width: 10.2rem;
+    width: 16.5rem;
     .image_style {
       height: 7rem;
     }
@@ -179,7 +182,12 @@ export default {
       margin-bottom: -24px;
     }
 
+    .image-sizing {
+      height: 13.5rem;
+    }
+
     img {
+      height: 100%;
       width: 100%;
       object-fit: fill;
     }
@@ -207,17 +215,18 @@ export default {
   }
 
   .item-card__prices {
-    line-height: 17px;
-
+    line-height: 22px;
     .item-card__prices__ex-price {
       min-height: 17px;
+      font-size: 14px;
+      line-height: 17px;
       text-decoration: line-through;
       color: var(--red);
       margin: 0;
     }
 
     .item-card__prices__new-price {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 

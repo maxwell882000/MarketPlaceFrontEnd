@@ -1,18 +1,24 @@
 <template>
 
   <div class="rating">
-    <stars :rating="rating"></stars>
-    <span class="ratings-count">{{ rating }}</span>
-    <span class="reviews-count">{{ reviews }} отзывов</span>
-    <div class="rating__review top-icon">
-      <img src="@/assets/icons/review.png" alt="comparison icon"/>
-      <router-link class="remove-link" :to="`/item/${this.$route.params.id}/comment`"><span>Оставить отзыв</span>
-      </router-link>
+    <div class="mr-2 d-flex">
+      <stars :rating="rating"></stars>
+      <span class="ratings-count">{{ rating }}</span>
+      <span class="reviews-count">{{ reviews }} отзывов</span>
     </div>
-    <div class="rating__comparison top-icon">
-      <Like :id="favourite.id" :favourite="favourite.favourite"></Like>
-      <span>В избранное</span>
+
+    <div class="d-flex">
+      <div class="rating__review top-icon">
+        <img src="@/assets/icons/review.png" alt="comparison icon"/>
+        <router-link class="remove-link" :to="`/item/${this.$route.params.id}/comment`"><span>Оставить отзыв</span>
+        </router-link>
+      </div>
+      <div class="rating__comparison top-icon">
+        <Like :id="favourite.id" :favourite="favourite.favourite"></Like>
+        <span>В избранное</span>
+      </div>
     </div>
+
     <!--    <div class="rating__comparison top-icon">-->
     <!--      <img src="@/assets/icons/comparison.png" alt="comparison icon"/>-->
     <!--      <span>Сравнить</span>-->
@@ -55,7 +61,6 @@ export default {
   .top-icon {
     display: flex;
     align-items: center;
-    margin-left: 15px;
     cursor: pointer;
 
     img {

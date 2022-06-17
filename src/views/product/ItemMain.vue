@@ -124,8 +124,6 @@ export default {
 }
 
 .buttons {
-  margin: 0 -10px;
-
   .buy-now {
     margin-right: 10px;
   }

@@ -2,7 +2,7 @@
   <div class="bg-white rounded-st">
     <b-container class="w-100">
       <loader :div-style="{height: '10vh'}" waiting="rate">
-        <b-row class="text-rate justify-content-center">
+        <b-row class="text-rate justify-content-center p-4">
           <b-col cols="4" align-self="center">
             <div class="d-flex align-items-end p-0 m-0">
               <div>
@@ -14,7 +14,7 @@
             </div>
             <span>{{ rate.mark_num }} отзывов</span>
           </b-col>
-          <b-col cols="8">
+          <b-col cols="6">
             <div class="d-flex align-items-center">
               <div style="font-size: 10px">
                 <stars rating="5"></stars>
@@ -46,7 +46,7 @@
               <span>{{ rate.mark_1 }}</span>
             </div>
           </b-col>
-          <b-col cols="12">
+          <b-col cols="12" class="mt-4">
             <router-link :to='`/item/${$route.params.id}/comment`'>
               <ButtonGray style="margin-top: 5px!important;" title="Оставить отзыв"></ButtonGray>
             </router-link>

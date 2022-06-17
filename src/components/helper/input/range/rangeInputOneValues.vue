@@ -31,3 +31,8 @@ const props = defineProps({
 
 const {inputValue, sliderValues} = useRangeValues(props, emits);
 </script>
+<style scoped>
+.border-input {
+  margin-top: 0;
+}
+</style>
