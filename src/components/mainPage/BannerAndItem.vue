@@ -169,8 +169,7 @@ export default {
 
 
 </style>
-<style>
-
+<style >
 .banner-only-arrows .splide__arrow {
   opacity: 1;
   background: white;
@@ -181,5 +180,11 @@ export default {
 .banner-only-arrows .splide__arrow svg {
   height: 0.7rem;
   width: 0.7rem;
+}
+.banner-only-arrows .splide__arrow--prev {
+  left: 1em;
+}
+.banner-only-arrows .splide__arrow--next {
+  right: 1em;
 }
 </style>
