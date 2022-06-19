@@ -1,5 +1,5 @@
 <template>
-  <Splide class="splide orders" :has-slider-wrapper="true" :options="splideOptions">
+  <Splide class="splide orders-roll" :has-slider-wrapper="true" :options="splideOptions">
     <template #before-slider>
       <pagination-arrows></pagination-arrows>
     </template>
@@ -121,22 +121,22 @@ export default {
 /*}*/
 </style>
 <style>
-.orders .splide__arrow--prev {
+.orders-roll .splide__arrow--prev {
   left: -2em;
 }
 
-.orders .splide__arrow--next {
+.orders-roll .splide__arrow--next {
   right: -2em;
 }
 
-.orders .splide__arrow {
+.orders-roll .splide__arrow {
   background: transparent;
   opacity: 1;
   height: 3.5rem;
   width: 3.5rem;
 }
 
-.orders .splide__arrow svg {
+.orders-roll .splide__arrow svg {
   fill: transparent;
   height: 3rem;
   width: 3rem;

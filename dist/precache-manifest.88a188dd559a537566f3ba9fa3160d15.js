@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "efa74fcf9d96c6eb64b4",
-    "url": "/css/app.3dd7c2c0.css"
+    "revision": "504ee0a4e1964e6fd2e1",
+    "url": "/css/app.bf13f2ad.css"
   },
   {
     "revision": "a2fae8fdacb3da209a48",
@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/chunk-0f35a092.210ef10f.css"
   },
   {
-    "revision": "3c24b9b68ca99a98c525",
+    "revision": "d80ecb7afdffcd7c924e",
     "url": "/css/chunk-267a90b4.025632b5.css"
   },
   {
@@ -88,12 +88,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/chunk-a80f92ba.edd9f4aa.css"
   },
   {
-    "revision": "44a05c9356f6e399c9f5",
-    "url": "/css/chunk-c30ed67a.d1839ee4.css"
+    "revision": "3d58e848c630a33ceb4d",
+    "url": "/css/chunk-c25cf94e.d334f7d2.css"
   },
   {
-    "revision": "f023547242abd4626b57",
-    "url": "/css/chunk-c9ca4a92.d334f7d2.css"
+    "revision": "44a05c9356f6e399c9f5",
+    "url": "/css/chunk-c30ed67a.d1839ee4.css"
   },
   {
     "revision": "18d988a2a4f65cc67586",
@@ -292,12 +292,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/xiaomi.e3904865.png"
   },
   {
-    "revision": "f6efb1d5e999e99d4f1709146e55aa79",
+    "revision": "11f0580fa442d95b277e4df924254aef",
     "url": "/index.html"
   },
   {
-    "revision": "efa74fcf9d96c6eb64b4",
-    "url": "/js/app.849223f0.js"
+    "revision": "504ee0a4e1964e6fd2e1",
+    "url": "/js/app.4394fb17.js"
   },
   {
     "revision": "a2fae8fdacb3da209a48",
@@ -324,8 +324,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/chunk-0f35a092.4628be69.js"
   },
   {
-    "revision": "3c24b9b68ca99a98c525",
-    "url": "/js/chunk-267a90b4.78961ffa.js"
+    "revision": "d80ecb7afdffcd7c924e",
+    "url": "/js/chunk-267a90b4.6e2c9252.js"
   },
   {
     "revision": "0544d9d546096ad0ac77",
@@ -420,16 +420,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/chunk-a80f92ba.572f6e66.js"
   },
   {
+    "revision": "3d58e848c630a33ceb4d",
+    "url": "/js/chunk-c25cf94e.92660a71.js"
+  },
+  {
     "revision": "44a05c9356f6e399c9f5",
     "url": "/js/chunk-c30ed67a.9fe03f18.js"
   },
   {
     "revision": "8d5b3119582967f3dabc",
     "url": "/js/chunk-c626947a.727df19b.js"
-  },
-  {
-    "revision": "f023547242abd4626b57",
-    "url": "/js/chunk-c9ca4a92.2619a653.js"
   },
   {
     "revision": "18d988a2a4f65cc67586",

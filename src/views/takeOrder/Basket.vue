@@ -1,6 +1,6 @@
 <template>
   <loader waiting="basket">
-    <section class="container py-3">
+    <section class="container  py-3">
       <Badge class="mb-2" :path="badgePath"/>
       <empty-backet v-if="!countOrder"></empty-backet>
       <template v-else>

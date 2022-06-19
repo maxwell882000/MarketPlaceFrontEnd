@@ -20,7 +20,8 @@
           </div>
         </template>
         <category :item="item">
-          <router-link :to="'/category/parent/' + item.slug" class="remove-link"><h5 class="header">{{ item.name }}</h5>
+          <router-link :to="'/category/parent/' + item.slug" class="remove-link">
+            <h5 class="header">{{ item.name }}</h5>
           </router-link>
         </category>
       </b-tab>
@@ -46,7 +47,6 @@ export default {
 .filter-tabs .header {
   font-size: large;
   font-weight: 600;
-  margin-bottom: 0rem;
   text-transform: initial;
 }
 
