@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex justify-content-between w-100 m-auto">
     <div class="col-lg-9 col-sm-12 col-12 h-max p-0">
-      <Splide class="splide banner" :has-slider-wrapper="true" :options="{ autoplay: true, type: 'loop' }">
+      <Splide class="splide banner banner-only-arrows" :has-slider-wrapper="true" :options="{ autoplay: true, type: 'loop' }">
         <pagination-arrows></pagination-arrows>
         <SplideSlide class="rounded-st" v-for="item in banners" :key="'banners_id' + item.id"
                      data-splide-interval="3000">
@@ -171,14 +171,14 @@ export default {
 </style>
 <style>
 
-.banner .splide__arrow {
+.banner-only-arrows .splide__arrow {
   opacity: 1;
   background: white;
   height: 2rem;
   width: 2rem;
 }
 
-.banner .splide__arrow svg {
+.banner-only-arrows .splide__arrow svg {
   height: 0.7rem;
   width: 0.7rem;
 }
