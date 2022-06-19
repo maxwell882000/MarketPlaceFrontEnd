@@ -1,5 +1,5 @@
 <template>
-  <svg width="58" height="58" viewBox="0 0 58 58" fill="black" xmlns="http://www.w3.org/2000/svg">
+  <svg width="58" height="58" viewBox="0 0 58 58" style="fill: black" xmlns="http://www.w3.org/2000/svg">
     <g filter="url(#filter0_d_2437_113628)">
       <rect width="42" height="42" rx="21" transform="matrix(-1 0 0 1 50 6)" fill="white"/>
     </g>
