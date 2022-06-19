@@ -1,11 +1,11 @@
 <template>
-  <section class="container my-4">
-    <Badge :path="info.path"></Badge>
-    <h4 class="py-2">{{ info.name }}</h4>
-    <loader waiting="category_view">
+  <loader waiting="category_view">
+    <section class="container my-4">
+      <Badge :path="info.path"></Badge>
+      <h4 class="py-2">{{ info.name }}</h4>
       <router-view></router-view>
-    </loader>
-  </section>
+    </section>
+  </loader>
 </template>
 <script>
 import {mapActions, mapGetters, mapMutations} from "vuex";

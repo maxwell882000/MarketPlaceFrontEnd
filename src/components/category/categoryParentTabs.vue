@@ -113,3 +113,14 @@ export default {
   }
 }
 </style>
+<style >
+/*.custom-tabs .overflow::-webkit-scrollbar {*/
+/*  display: none!important;*/
+/*}*/
+/*.custom-tabs .overflow{*/
+/*  -ms-overflow-style: none; !* for Internet Explorer, Edge *!*/
+/*  scrollbar-width: none; !* for Firefox *!*/
+/*  overflow-y: scroll;*/
+/*}*/
+
+</style>

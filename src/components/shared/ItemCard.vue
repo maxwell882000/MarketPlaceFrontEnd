@@ -111,6 +111,8 @@ export default {
     height: 10rem;
   }
 
+
+
   .item-card__image__sale-amount {
     font-size: 12px !important;
     line-height: 15px;
@@ -183,6 +185,8 @@ export default {
   .item-card__image {
     .item-card__image__like {
       display: flex;
+      opacity: 0;
+      visibility: hidden;
       justify-content: flex-end;
       margin-bottom: -24px;
     }
@@ -236,6 +240,11 @@ export default {
   &:hover {
     box-shadow: 0 8px 14px rgba(0, 0, 0, 0.15);
     color: black;
+
+    .item-card__image__like {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 }
 </style>

@@ -1,7 +1,8 @@
 <template>
   <div class="d-flex justify-content-between w-100 m-auto">
     <div class="col-lg-9 col-sm-12 col-12 h-max p-0">
-      <Splide class="splide" :options="{ autoplay: true, type: 'loop' }">
+      <Splide class="splide banner" :has-slider-wrapper="true" :options="{ autoplay: true, type: 'loop' }">
+        <pagination-arrows></pagination-arrows>
         <SplideSlide class="rounded-st" v-for="item in banners" :key="'banners_id' + item.id"
                      data-splide-interval="3000">
           <div class="banner_image" :href="item.link">
@@ -43,9 +44,10 @@
 import Like from "../buttons/Like";
 import ItemPrice from "../shared/ItemCardPrice";
 import {mapGetters} from "vuex";
+import PaginationArrows from "@/components/helper/pagination/paginationArrows";
 
 export default {
-  components: {ItemPrice, Like},
+  components: {PaginationArrows, ItemPrice, Like},
 
   computed: {
     ...mapGetters('mainModule', [
@@ -166,4 +168,18 @@ export default {
 }
 
 
+</style>
+<style>
+
+.banner .splide__arrow {
+  opacity: 1;
+  background: white;
+  height: 2rem;
+  width: 2rem;
+}
+
+.banner .splide__arrow svg {
+  height: 0.7rem;
+  width: 0.7rem;
+}
 </style>

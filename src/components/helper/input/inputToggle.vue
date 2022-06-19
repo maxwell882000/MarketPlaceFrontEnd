@@ -65,14 +65,14 @@ input[type="checkbox"] {
   top: -3px;
   background-color: #fff;
   border-radius: 50%;
-  box-shadow: 2px 6px 25px #d7d7d7;
+  //box-shadow: 2px 6px 25px #d7d7d7;
   transform: translate(0px, 0px);
   border: 2px solid var(--gray200);
   transition: 0.6s ease transform, 0.6s box-shadow;
 }
 
 #_3rd-toggle-btn input[type="checkbox"]:checked + span:before {
-  box-shadow: 7px 6px 25px #e6e6e6;
+  //box-shadow: 7px 6px 25px #e6e6e6;
   border: 2px solid var(--blue);
   transform: translate($width * 0.42, 0px);
 }

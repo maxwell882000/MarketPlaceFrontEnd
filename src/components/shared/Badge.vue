@@ -25,6 +25,12 @@ export default {
   @media (max-width: 767px) {
     flex-wrap: wrap !important;
   }
+
+}
+
+
+.badge .link:last-child a {
+  color: var(--gray200);
 }
 
 .link {

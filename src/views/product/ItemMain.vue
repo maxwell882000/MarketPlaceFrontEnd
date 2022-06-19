@@ -132,14 +132,14 @@ export default {
     transition: all 0.3s;
     border: none;
     background-color: #f2f2f2;
-    padding: 8px;
+    padding: 0.65rem;
     border-radius: 9px;
     color: #282f3c;
     font-size: 14px;
     font-weight: 500;
 
     &:hover {
-      background-color: #e0e0e0;
+      background-color: var(--gray400);;
     }
   }
 
@@ -161,7 +161,7 @@ export default {
   background-color: white;
   border-radius: 12px;
   padding: 20px;
-  margin-bottom: 30px;
+  //margin-bottom: 30px;
 
   .about-content {
     max-width: 500px;

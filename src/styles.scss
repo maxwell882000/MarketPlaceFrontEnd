@@ -292,15 +292,18 @@ hr {
 .bg-blue {
   background-color: var(--blue);
 }
+
 .text-md {
   font-size: 16px;
   line-height: 19px;
 
 }
+
 .text-sm {
   font-size: 0.8rem !important;
   line-height: 0.9rem !important;
 }
+
 h4 {
   font-style: normal;
   font-weight: 600;
@@ -386,9 +389,10 @@ small {
 
   tr {
     height: 2rem;
+
     th:first-child::before {
       width: 100%;
-      border-bottom: 2px dotted rgb(209, 209, 209);
+      border-bottom: 1.5px dotted var(--gray400);
       content: "";
       display: block;
       margin-bottom: -16px;
@@ -401,7 +405,7 @@ small {
 
     th:nth-child(2)::before {
       width: 100%;
-      border-bottom: 2px dotted rgb(209, 209, 209);
+      border-bottom: 1.5px dotted var(--gray400);
       content: "";
       display: block;
       margin-bottom: -16px;

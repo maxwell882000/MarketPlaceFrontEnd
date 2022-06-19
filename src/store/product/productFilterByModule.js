@@ -167,9 +167,14 @@ export const productFilterByModule = {
             commit("addShowChosen", value);
             dispatch('getProducts');
         },
-
     },
     mutations: {
+        partialClean(state) {
+            state.filterBy = {};
+            state.showChosen = {};
+            state.currentPage = 1;
+            state.products = {};
+        },
         clean(state) {
             state.filterBy = {};
             state.filterCanBeApplied = {};// will be set individually depending on window || search , category, shop , favourite

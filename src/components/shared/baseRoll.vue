@@ -1,10 +1,16 @@
 <template>
-  <Splide class="splide" :options="splideOptions">
+  <Splide class="splide orders" :has-slider-wrapper="true" :options="splideOptions">
+    <template #before-slider>
+      <pagination-arrows></pagination-arrows>
+    </template>
     <slot></slot>
   </Splide>
 </template>
 <script>
+import PaginationArrows from "@/components/helper/pagination/paginationArrows";
+
 export default {
+  components: {PaginationArrows},
   props: {
     autoWidth: {
       type: Boolean,
@@ -24,6 +30,7 @@ export default {
   },
   data() {
     return {
+
       splideOptions: {
         type: "noloop",
         perPage: this.perPage,
@@ -112,4 +119,26 @@ export default {
 /*    width: 240px !important;*/
 /*  }*/
 /*}*/
+</style>
+<style>
+.orders .splide__arrow--prev {
+  left: -2em;
+}
+
+.orders .splide__arrow--next {
+  right: -2em;
+}
+
+.orders .splide__arrow {
+  background: transparent;
+  opacity: 1;
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.orders .splide__arrow svg {
+  fill: transparent;
+  height: 3rem;
+  width: 3rem;
+}
 </style>

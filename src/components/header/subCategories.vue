@@ -16,6 +16,7 @@
        class="elements link">Показать еще
       <b-icon :icon="show ? 'chevron-up' : 'chevron-down'"></b-icon>
     </p>
+    <div class="bottom-margin"></div>
   </b-col>
 </template>
 <script>
@@ -62,13 +63,16 @@ p:hover {
 .sub_header {
   font-weight: 600;
   font-size: small;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
 }
+.bottom-margin {
+  margin-bottom: 1rem;
 
+}
 .elements {
   color: var(--gray);
   font-size: small;
-  line-height: 1.2rem;
+  line-height: 1.6rem;
   margin-bottom: 0.2rem;
 }
 </style>

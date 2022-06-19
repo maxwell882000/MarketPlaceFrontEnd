@@ -12,6 +12,4 @@ export default  {
   components: {Button},
   props: ['title']
 }
-
-
 </script>

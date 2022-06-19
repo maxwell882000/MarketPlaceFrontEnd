@@ -1,5 +1,5 @@
 <template>
-  <Button style="background-color: var(--gray100)">
+  <Button class="bg-gray100">
     <span :class="titleClass" :style="titleStyle">
       {{ title }}
     </span>
@@ -9,7 +9,7 @@
 import Button from "@/components/helper/button/button";
 
 export default {
-  name:'ButtonGray',
+  name: 'ButtonGray',
   components: {Button},
   props: {
     title: {},
@@ -24,6 +24,13 @@ export default {
     }
   }
 }
-
-
 </script>
+<style lang="scss" scoped>
+.bg-gray100 {
+  background-color: var(--gray100);
+
+  &:hover {
+    background-color: var(--gray400);
+  }
+}
+</style>

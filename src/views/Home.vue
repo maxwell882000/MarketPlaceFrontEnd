@@ -7,11 +7,13 @@
           Купите, пока это выгодно <span class="timer mt-sm-2 d-inline-block">{{ getTime }}</span>
         </h5>
       </div>
+
       <SalesRoll :per-page="5" slide-key="product_day" :products="products"/>
       <section v-show="discount.items.length">
         <h5 class="mt-4 mb-3 text-sm-center">Акции и предложения</h5>
         <StocksTabs/>
       </section>
+      <div class="pt-2"></div>
       <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
         <section v-show="item.products.length">
           <h5 class="text-sm-center mt-4 mb-3">{{ item.text }}</h5>
@@ -31,6 +33,7 @@ import SalesRoll from "@/components/shared/SalesRoll";
 import StocksTabs from "@/components/mainPage/StocksTabs";
 import {mapActions, mapGetters} from "vuex";
 import Loader from "@/components/loading/loader";
+
 
 export default {
   components: {Loader, StocksTabs, SalesRoll, BannerAndItem},
@@ -69,7 +72,7 @@ export default {
 };
 </script>
 <style lang="scss">
-.home{
+.home {
   .splide__list {
     width: 105%;
   }

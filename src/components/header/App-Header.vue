@@ -81,7 +81,7 @@ export default {
 nav {
   transition: all 0.3s;
   background-color: white;
-  border-bottom: 2px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
   width: 100%;
   position: sticky;
   top: -120px;
@@ -164,7 +164,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-weight: 500;
+    font-weight: 300;
     text-decoration: none;
     padding: 0 10px;
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-4">
+  <div class="mb-4 pl-3">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <div>
         <h5 class="category-sub">{{ name }}</h5>

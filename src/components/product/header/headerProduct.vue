@@ -6,7 +6,7 @@
       <div class
                ="title_product d-flex align-items-center">
         <div>
-          <span class="bold product-name">{{ name }}</span>
+          <span class="text-500 product-name">{{ name }}</span>
           <header-product class="header-product flex-md-wrap"></header-product>
         </div>
       </div>

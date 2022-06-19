@@ -1,7 +1,7 @@
 <template>
   <b-button @click="$router.back()" variant="link" class="decoration-none">
     <b-icon size="sm" icon="chevron-left"/>
-    {{ title }}
+    <span class="title">{{ title }}</span>
   </b-button>
 </template>
 <script>
@@ -20,8 +20,14 @@ export default {
 }
 </script>
 <style scoped>
- button {
-   padding: 0;
-   margin: 1rem 0;
- }
+.title {
+  font-weight: 400;
+  font-size: 14px;
+  padding-left: 0.3rem;
+}
+
+button {
+  padding: 0;
+  margin: 1rem 0;
+}
 </style>

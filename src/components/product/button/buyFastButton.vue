@@ -1,4 +1,4 @@
-  <template>
+<template>
   <div class="w-100  buy-now">
     <button @click="buyImmediately" class="w-100">Купить сразу</button>
   </div>

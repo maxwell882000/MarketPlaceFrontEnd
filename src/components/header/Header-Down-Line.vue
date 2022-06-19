@@ -1,6 +1,6 @@
 <template>
   <div v-if="showCategoryLine" class="down-line">
-    <div class="container">
+    <div class="container full">
       <div class="d-flex align-items-center justify-content-between links-row">
         <div class="d-none d-md-block">
           <b-button
@@ -27,9 +27,12 @@
               :visible="categoriesOpened"
               class="categories"
           >
-            <div class="container filter-tabs mt-3">
-              <FilterTabs/>
+            <div class="filter-tabs bottom-border my-1">
+              <div class="container mt-3 ">
+                <FilterTabs/>
+              </div>
             </div>
+
           </b-collapse>
         </div>
         <!--        <div class="header-link">-->
@@ -49,7 +52,7 @@
           </router-link>
         </div>
 
-<!--        <div class="header-link"><a href="#">Детям</a></div>-->
+        <!--        <div class="header-link"><a href="#">Детям</a></div>-->
         <!--        <div class="header-link"><a href="#">Спорт</a></div>-->
         <!--        <div class="header-link"><a href="#">Продукты</a></div>-->
         <!--        <div class="header-link"><a href="#">Красота</a></div>-->
@@ -130,6 +133,10 @@ export default {
     background-color: white;
     transition: all 0.3s;
     height: calc(100vh - 170px);
+
+    .bottom-border {
+      border-top: 1px solid #f2f2f2;
+    }
 
     &.collapsing {
       height: 0 !important;
