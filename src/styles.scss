@@ -621,7 +621,22 @@ input[type=number] {
   text-align: start !important;
   @media (max-width: 767px) {
     text-align: center !important;
+
   }
 }
 
+html {
+  @media (max-width: 767px) {
+    .nav {
+      -ms-overflow-style: none; /* for Internet Explorer, Edge */
+      scrollbar-width: none; /* for Firefox */
+      overflow-y: scroll;
+    }
+
+    .nav::-webkit-scrollbar {
+      display: none; /* for Chrome, Safari, and Opera */
+    }
+  }
+
+}
 

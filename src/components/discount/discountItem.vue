@@ -13,6 +13,13 @@ export default {
 
 .image-stock {
   height: 15rem;
-  /*width: 20rem;*/
+  /*width: 32%;*/
+}
+
+@media (max-width: 768px) {
+  .image-stock {
+    width: 100%;
+    /*width: 32%;*/
+  }
 }
 </style>

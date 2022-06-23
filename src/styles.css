@@ -607,4 +607,18 @@ input[type=number] {
   }
 }
 
+@media (max-width: 767px) {
+  html .nav {
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-y: scroll;
+  }
+  html .nav::-webkit-scrollbar {
+    display: none;
+    /* for Chrome, Safari, and Opera */
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */

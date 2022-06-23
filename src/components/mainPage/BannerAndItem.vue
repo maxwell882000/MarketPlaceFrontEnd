@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-content-between w-100 m-auto">
+  <div class="d-flex justify-content-between w-100 m-auto banner-splide">
     <div class="col-lg-9 col-sm-12 col-12 h-max p-0">
       <Splide class="splide banner banner-only-arrows" :has-slider-wrapper="true"
               :options="{ autoplay: true, type: 'loop' }">
@@ -69,9 +69,6 @@ export default {
   }
 }
 
-.img-res {
-  width: 95% !important;
-}
 
 .item-of-day-title {
   h5 {
@@ -102,7 +99,7 @@ export default {
   text-decoration: none !important;
   transition: all 0.3s;
   //min-height: 100%;
-  height: 25rem;
+  height: 40vh;
   background-color: white;
   border-radius: 14px;
   padding: 10px 18px;
@@ -165,12 +162,17 @@ export default {
 }
 
 .banner_image {
-  height: 25rem
+  height: 40vh
 }
 
 
 </style>
 <style>
+.home .banner-splide .splide__list {
+  width: 100% !important;
+
+}
+
 .banner-only-arrows .splide__arrow {
   opacity: 1;
   background: white;

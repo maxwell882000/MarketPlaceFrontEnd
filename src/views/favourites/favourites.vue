@@ -27,6 +27,7 @@ import Loader from "@/components/loading/loader";
 import {useRouter} from "vue-router";
 
 export default {
+  // eslint-disable-next-line vue/no-unused-components
   components: {Loader, FilterWithProducts, EmptyPage, Badge},
   setup() {
     const store = useStore();

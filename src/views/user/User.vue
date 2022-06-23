@@ -151,6 +151,7 @@ export default {
     min-width: min-content !important;
   }
 }
+
 </style>
 <style scoped>
 .container {

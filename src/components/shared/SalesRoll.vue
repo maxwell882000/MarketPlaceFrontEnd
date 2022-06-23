@@ -61,4 +61,34 @@ defineProps({
 
 }
 
+.sales-roll .splide__slide {
+  width: max-content !important;
+
+}
+
+.sales-roll .item-card {
+  width: 13.8rem !important;
+
+  .splide__slide {
+    width: max-content !important;
+  }
+
+  @media (max-width: 491px) and (min-width: 420px) {
+    width: 13.8rem;
+
+
+  }
+  @media (max-width: 425px) {
+    width: 13.8rem;
+
+  }
+  @media (max-width: 375px) and (min-width: 321px) {
+    width: 13.8rem;
+
+  }
+  @media (max-width: 320px) {
+    width: 13.8rem;
+
+  }
+}
 </style>
