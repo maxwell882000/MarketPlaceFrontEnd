@@ -2,7 +2,7 @@
   <loader waiting="category_view">
     <section class="container my-4">
       <Badge :path="info.path"></Badge>
-      <h4 class="py-2">{{ info.name }}</h4>
+      <h5 class="py-2 mb-3">{{ info.name }}</h5>
       <router-view></router-view>
     </section>
   </loader>
