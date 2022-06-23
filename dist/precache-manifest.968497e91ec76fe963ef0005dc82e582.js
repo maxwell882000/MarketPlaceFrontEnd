@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9266cb0120024899a23d",
-    "url": "/css/app.4e3d4776.css"
+    "revision": "a6eec3b0a0c3d7a533a8",
+    "url": "/css/app.0d979d65.css"
   },
   {
     "revision": "a2fae8fdacb3da209a48",
@@ -44,6 +44,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/chunk-2fbfddde.8adb1ac0.css"
   },
   {
+    "revision": "c876daf28b53e2b97b36",
+    "url": "/css/chunk-2fddc4eb.2aaaf776.css"
+  },
+  {
     "revision": "bc140a3a8847cdd0135c",
     "url": "/css/chunk-3ed63315.50210146.css"
   },
@@ -78,10 +82,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "58fbc79f4144bca3e0ec",
     "url": "/css/chunk-7da1897f.87316ff4.css"
-  },
-  {
-    "revision": "a5de7d3d02930723bf0c",
-    "url": "/css/chunk-9440a18e.2aaaf776.css"
   },
   {
     "revision": "77e9ab9ec0f5f460e182",
@@ -292,12 +292,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/xiaomi.e3904865.png"
   },
   {
-    "revision": "d1deef961123e8843bb55a172e91c5bf",
+    "revision": "a38c5283dcd1341bf459fd28193e9cc2",
     "url": "/index.html"
   },
   {
-    "revision": "9266cb0120024899a23d",
-    "url": "/js/app.4e85dcc6.js"
+    "revision": "a6eec3b0a0c3d7a533a8",
+    "url": "/js/app.f0bbac61.js"
   },
   {
     "revision": "a2fae8fdacb3da209a48",
@@ -372,6 +372,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/chunk-2fbfddde.a9220ad3.js"
   },
   {
+    "revision": "c876daf28b53e2b97b36",
+    "url": "/js/chunk-2fddc4eb.85f5acbb.js"
+  },
+  {
     "revision": "bc140a3a8847cdd0135c",
     "url": "/js/chunk-3ed63315.46dcac99.js"
   },
@@ -410,10 +414,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "58fbc79f4144bca3e0ec",
     "url": "/js/chunk-7da1897f.59910125.js"
-  },
-  {
-    "revision": "a5de7d3d02930723bf0c",
-    "url": "/js/chunk-9440a18e.d28c7398.js"
   },
   {
     "revision": "77e9ab9ec0f5f460e182",
