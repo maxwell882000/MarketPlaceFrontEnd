@@ -112,7 +112,6 @@ export default {
   }
 
 
-
   .item-card__image__sale-amount {
     font-size: 12px !important;
     line-height: 15px;

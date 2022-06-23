@@ -178,6 +178,12 @@ export default {
   width: 2rem;
 }
 
+@media (max-width: 768px) {
+  .banner-only-arrows .splide__arrow {
+    display: none !important;
+  }
+}
+
 .banner-only-arrows .splide__arrow svg {
   height: 0.7rem;
   width: 0.7rem;
@@ -190,5 +196,12 @@ export default {
 
 .banner-only-arrows .splide__arrow--next {
   right: 1em;
+}
+</style>
+<style scoped lang="scss">
+.splide__arrows {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
 }
 </style>

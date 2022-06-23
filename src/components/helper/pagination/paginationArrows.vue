@@ -18,3 +18,10 @@ export default {
   components: {ArrowRight}
 }
 </script>
+<style scoped lang="scss">
+.splide__arrows {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+</style>

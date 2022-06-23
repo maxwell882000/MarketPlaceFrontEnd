@@ -55,7 +55,7 @@ export default {
 
 @media (max-width: 767px) {
   .price {
-    /*display: none;*/
+    display: none;
     margin-right: 0 !important;
   }
 
@@ -69,11 +69,13 @@ export default {
   line-height: 15px;
   font-weight: 400;
 }
+
 .price .actual-number span {
   font-size: 16px;
   line-height: 17px;
   font-weight: 700;
 }
+
 .price .actual-number small {
   font-size: 13px;
   font-weight: 400;
