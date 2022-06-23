@@ -627,13 +627,13 @@ input[type=number] {
 
 html {
   @media (max-width: 767px) {
-    .nav {
+    .nav, .d-flex {
       -ms-overflow-style: none; /* for Internet Explorer, Edge */
       scrollbar-width: none; /* for Firefox */
       overflow-y: scroll;
     }
 
-    .nav::-webkit-scrollbar {
+    .nav::-webkit-scrollbar, .d-flex::-webkit-scrollbar {
       display: none; /* for Chrome, Safari, and Opera */
     }
   }

@@ -608,14 +608,14 @@ input[type=number] {
 }
 
 @media (max-width: 767px) {
-  html .nav {
+  html .nav, html .d-flex {
     -ms-overflow-style: none;
     /* for Internet Explorer, Edge */
     scrollbar-width: none;
     /* for Firefox */
     overflow-y: scroll;
   }
-  html .nav::-webkit-scrollbar {
+  html .nav::-webkit-scrollbar, html .d-flex::-webkit-scrollbar {
     display: none;
     /* for Chrome, Safari, and Opera */
   }
