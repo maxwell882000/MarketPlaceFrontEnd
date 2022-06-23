@@ -160,7 +160,7 @@ export default {
     }
   }
   @media (max-width: 375px) and (min-width: 321px) {
-    width: 11rem;
+    width: 10.2rem;
     .image-sizing {
       height: 7rem !important;
     }
