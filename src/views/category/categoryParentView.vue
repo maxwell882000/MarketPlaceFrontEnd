@@ -1,6 +1,7 @@
 <template>
   <CategoryView :name="parent.name">
-    <category-sub-tabs :key="'parent_sub_categories_'+ item.id" v-for="item in parent.product_in_categories" :category="item"/>
+    <category-sub-tabs :key="'parent_sub_categories_'+ item.id" v-for="item in parent.product_in_categories"
+                       :category="item"/>
   </CategoryView>
 </template>
 <script>
