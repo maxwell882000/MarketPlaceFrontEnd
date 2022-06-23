@@ -153,8 +153,8 @@ export default {
     }
 
   }
-  @media (max-width: 425px) {
-    width: 12rem;
+  @media (max-width: 425px) and (min-width: 376px) {
+    width: 10.7rem;
     .image-sizing {
       height: 10rem !important;
     }
