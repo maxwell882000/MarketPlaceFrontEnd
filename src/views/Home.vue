@@ -1,23 +1,25 @@
 <template>
   <loader waiting="main">
-    <div class="container home">
+    <div class="container">
       <BannerAndItem/>
-      <div class="my-3 ">
-        <h5 class="text-sm-center">
-          Купите, пока это выгодно <span class="timer mt-sm-2 d-inline-block">{{ getTime }}</span>
-        </h5>
-      </div>
-      <SalesRoll :per-page="6" slide-key="product_day" :products="products"/>
-      <section v-show="discount.items.length">
-        <h5 class="mt-4 mb-3 text-sm-center">Акции и предложения</h5>
-        <StocksTabs/>
-      </section>
-      <div class="pt-2"></div>
-      <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
-        <section v-show="item.products.length">
-          <h5 class="text-sm-center mt-4 mb-3">{{ item.text }}</h5>
-          <SalesRoll :per-page="6" slide-key="product_day" :products="item.products"/>
+      <div class="home">
+        <div class="my-3 ">
+          <h5 class="text-sm-center">
+            Купите, пока это выгодно <span class="timer mt-sm-2 d-inline-block">{{ getTime }}</span>
+          </h5>
+        </div>
+        <SalesRoll :per-page="6" slide-key="product_day" :products="products"/>
+        <section v-show="discount.items.length">
+          <h5 class="mt-4 mb-3 text-sm-center">Акции и предложения</h5>
+          <StocksTabs/>
         </section>
+        <div class="pt-2"></div>
+        <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
+          <section v-show="item.products.length">
+            <h5 class="text-sm-center mt-4 mb-3">{{ item.text }}</h5>
+            <SalesRoll :per-page="6" slide-key="product_day" :products="item.products"/>
+          </section>
+        </div>
       </div>
     </div>
   </loader>
@@ -70,19 +72,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-.home {
-  .splide__list {
-    width: 105%;
-  }
-  @media (max-width: 1024px) {
-    .splide__list {
-      width: 120%;
-    }
-  }
-}
 
-</style>
 
 <style scoped lang="scss">
 

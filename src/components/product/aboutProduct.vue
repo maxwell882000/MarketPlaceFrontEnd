@@ -56,10 +56,9 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-
 .about-item {
   .tab-content {
-    font-weight: 600;
+    font-weight: 300;
     font-size: 24px;
     line-height: 29px;
   }

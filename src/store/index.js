@@ -23,6 +23,7 @@ import {verificationModule} from "@/store/verification/verificationModule";
 import {plasticCardModule} from "@/store/plasticCard/plasticCardModule";
 import {purchaseModule} from "@/store/purchase/purchaseModule";
 import {policyModule} from "@/store/policy/policyModule";
+import {questionModule} from "@/store/question/questionModule";
 
 export default createStore({
     modules: {
@@ -49,6 +50,7 @@ export default createStore({
         verificationModule: verificationModule,
         plasticCardModule: plasticCardModule,
         purchaseModule: purchaseModule,
-        policyModule: policyModule
+        policyModule: policyModule,
+        questionModule: questionModule
     }
 });

@@ -52,4 +52,23 @@ export default {
   min-height: 100vh;
 }
 </style>
+<style lang="scss">
+.sales-roll {
+  .splide__list {
+    width: 110%;
+    padding-top: 1.2rem !important;
+    padding-bottom: 1.2rem !important;
 
+    .splide__slide {
+      margin-right: 20px !important;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .splide__list {
+      width: 120%;
+    }
+  }
+}
+
+</style>

@@ -8,7 +8,6 @@
       <arrow-right>
       </arrow-right>
     </div>
-
   </div>
 </template>
 <script>

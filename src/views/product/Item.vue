@@ -80,6 +80,12 @@ export default {
 
 };
 </script>
+<style scoped lang="scss">
+h4 {
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+</style>
 <style lang="scss">
 .product-content {
   background-color: white;

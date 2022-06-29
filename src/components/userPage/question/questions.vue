@@ -1,48 +1,35 @@
 <template>
-  <section class="section-container">
-    <button v-b-toggle.question class="w-100 remove-button d-flex justify-content-between">
-      <h6 class="m-0">Как сделать переход из Instagram в Taplink / установить ссылку?</h6>
-      <div>
-        <b-icon icon="chevron-down"></b-icon>
-      </div>
-    </button>
-    <b-collapse id="question" class="mt-2">
+  <loader waiting="question_loaded">
+    <section class="section-container" :key="'question_id' + question.id" v-for="question in questions">
+      <button v-b-toggle.question class="w-100 remove-button d-flex justify-content-between p-0">
+        <h6 class="m-0">{{ question.question }}</h6>
+        <div>
+          <b-icon icon="chevron-down"></b-icon>
+        </div>
+      </button>
+      <b-collapse id="question" class="mt-2">
     <span class="text-gray">
-      Академический инбридинг — это практика найма университетами собственных выпускников, когда аспирант после получения степени остается преподавать или заниматься наукой в своем же вузе. При этом, если претендентов на должность будет несколько, «местного» кандидата предпочтут кандидату извне. Термин был позаимствован из биологии, где инбридингом называют близкородственное скрещивание у животных и растений.
+        {{ question.answer }}
     </span>
-    </b-collapse>
-  </section>
-  <section class="section-container">
-    <button v-b-toggle.question1 class="w-100 remove-button d-flex justify-content-between">
-      <h6 class="m-0">Как сделать переход из Instagram в Taplink / установить ссылку?</h6>
-      <div>
-        <b-icon icon="chevron-down"></b-icon>
-      </div>
-    </button>
-    <b-collapse id="question1" class="mt-2">
-    <span class="text-gray">
-      Академический инбридинг — это практика найма университетами собственных выпускников, когда аспирант после получения степени остается преподавать или заниматься наукой в своем же вузе. При этом, если претендентов на должность будет несколько, «местного» кандидата предпочтут кандидату извне. Термин был позаимствован из биологии, где инбридингом называют близкородственное скрещивание у животных и растений.
-    </span>
-    </b-collapse>
-  </section>
-  <section class="section-container">
-    <button v-b-toggle.question2 class="w-100 remove-button d-flex justify-content-between">
-      <h6 class="m-0">Как сделать переход из Instagram в Taplink / установить ссылку?</h6>
-      <div>
-        <b-icon icon="chevron-down"></b-icon>
-      </div>
-    </button>
-    <b-collapse id="question2" class="mt-2">
-    <span class="text-gray">
-      Академический инбридинг — это практика найма университетами собственных выпускников, когда аспирант после получения степени остается преподавать или заниматься наукой в своем же вузе. При этом, если претендентов на должность будет несколько, «местного» кандидата предпочтут кандидату извне. Термин был позаимствован из биологии, где инбридингом называют близкородственное скрещивание у животных и растений.
-    </span>
-    </b-collapse>
-  </section>
+      </b-collapse>
+    </section>
+  </loader>
+
 </template>
+<script setup>
+import {useStore} from "vuex";
+import {computed} from "vue";
+import Loader from "@/components/loading/loader";
+
+const store = useStore();
+const questions = computed(() => store.getters["questionModule/questions"]);
+
+</script>
 <style scoped>
-.section-container{
+.section-container {
   margin-bottom: 0.4rem;
 }
+
 .remove-button {
   background-color: inherit;
   border: none;

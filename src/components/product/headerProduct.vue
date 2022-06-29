@@ -8,12 +8,14 @@
     </div>
 
     <div class="d-flex">
-      <div class="rating__review top-icon">
-        <img src="@/assets/icons/review.png" alt="comparison icon"/>
+      <div class="rating__review top-icon px-2">
+        <button v-b-tooltip.hover class="button-clear" title="Оставить комментарий">
+          <comments-icon src="@/assets/icons/review.png" alt="comparison icon"/>
+        </button>
         <router-link class="remove-link" :to="`/item/${this.$route.params.id}/comment`"><span>Оставить отзыв</span>
         </router-link>
       </div>
-      <div class="rating__comparison top-icon">
+      <div class="rating__comparison top-icon px-2">
         <Like :id="favourite.id" :favourite="favourite.favourite"></Like>
         <span>В избранное</span>
       </div>
@@ -29,9 +31,10 @@
 import {mapGetters} from "vuex";
 import Like from "@/components/buttons/Like";
 import Stars from "@/components/product/stars";
+import CommentsIcon from "@/components/icons/commentsIcon";
 
 export default {
-  components: {Stars, Like},
+  components: {CommentsIcon, Stars, Like},
   computed: {
     ...mapGetters({
       reviews: "productModule/reviews",
@@ -43,10 +46,10 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.badges {
-  margin-top: 16px;
-  margin-bottom: 4px;
+a:hover {
+  color: var(--dark) !important;
 }
+
 
 .rating {
   margin-bottom: 25px;

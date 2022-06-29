@@ -33,7 +33,7 @@
         </div>
         <div class="d-block d-sm-block d-md-none">
           <div v-show="!scrolled">
-            <search-header  class="justify-content-center w-100"></search-header>
+            <search-header class="justify-content-center w-100"></search-header>
           </div>
         </div>
       </div>
@@ -154,6 +154,11 @@ form {
 
 .btns-row {
   display: flex;
+
+  justify-content: space-between;
+  @media (min-width: 768px) {
+    width: 23.3%;
+  }
 
   .search-button {
     display: none;

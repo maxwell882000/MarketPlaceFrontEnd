@@ -105,17 +105,17 @@ export default {
 
 <style scoped lang="scss">
 .down-line {
-  padding-top: 10px;
   background-color: white;
 }
 
 .links-row {
   overflow-x: auto;
-
+  overflow-y: hidden;
+  padding: 0.3rem 0;
   .btn-primary {
     white-space: nowrap;
     border-radius: 8px;
-    padding: 7px 15px;
+    padding: 9px 15px;
     border: none;
     box-shadow: none !important;
 
@@ -150,7 +150,6 @@ export default {
 
 .header-link {
   padding: 10px;
-  margin-bottom: 6px;
 
   a {
     white-space: nowrap;
@@ -163,7 +162,7 @@ export default {
       content: "";
       display: block;
       width: 0;
-      height: 2px;
+      height: 2.5px;
       left: 50%;
       background-color: var(--blue);
       border-radius: 50% 50% 0 0;

@@ -146,15 +146,6 @@ export default {
   .add2cart {
     padding-left: 0;
   }
-
-  //.installment-buy {
-  //  background-color: #f71757;
-  //  color: white;
-  //
-  //  &:hover {
-  //    background-color: #d81e53;
-  //  }
-  //}
 }
 
 .about-item {
@@ -168,8 +159,7 @@ export default {
   }
 
   .tab-content {
-    font-weight: 600 !important;
-    color: grey;
+    color: var(--gray200);
   }
 }
 </style>

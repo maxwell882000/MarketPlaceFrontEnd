@@ -100,7 +100,7 @@ export default {
   text-decoration: none;
   color: black;
   cursor: pointer;
-  height: 20.5rem;
+  height: 24.5rem;
   padding: 12px;
   background-color: white;
   border-radius: 12px;
@@ -108,7 +108,7 @@ export default {
   box-shadow: 0 0 0 transparent;
 
   .image-sizing {
-    height: 10rem;
+    height: 12.3rem;
   }
 
 

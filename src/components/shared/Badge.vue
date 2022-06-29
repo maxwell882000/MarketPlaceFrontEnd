@@ -45,8 +45,8 @@ export default {
 a {
   margin: 10px;
   text-decoration: none;
-  color: black;
-  font-weight: 400;
+  color: var(--dark);
+  font-weight: 200;
 }
 
 a:hover {

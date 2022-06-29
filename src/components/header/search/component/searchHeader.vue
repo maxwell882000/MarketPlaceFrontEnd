@@ -36,7 +36,7 @@
         </span>
         <span class="pr-3"></span>
         <router-link :to="search ? '/search/' + search : ''" class="remove-link">
-          <b-icon icon="search" class=" text-gray300" variant="secondary"></b-icon>
+          <Search icon="search" class=" text-gray300" variant="secondary"></Search>
         </router-link>
       </button>
     </form>
@@ -48,6 +48,7 @@ import useSearch from "@/components/header/search/setup/useSearch";
 import SearchResults from "@/components/header/search/component/searchResults";
 import {ref} from "vue";
 import useSearchResults from "@/components/header/search/setup/useSearchResults";
+import Search from "@/components/icons/search";
 
 const onFocus = ref(false);
 

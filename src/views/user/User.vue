@@ -114,7 +114,8 @@ export default {
   methods: {
     ...mapActions({
       getPurchases: "purchaseModule/getPurchases",
-      getCard: "plasticCardModule/getCards"
+      getCard: "plasticCardModule/getCards",
+      getQuestions: "questionModule/getQuestions"
     }),
     ...mapMutations({
       cleanCard: "purchaseModule/clean"
@@ -138,6 +139,7 @@ export default {
     }
     this.getPurchases();
     this.getCard();
+    this.getQuestions();
   },
   unmounted() {
     this.cleanCard();
@@ -148,6 +150,8 @@ export default {
 .user-sheet {
   .nav-item {
     white-space: nowrap;
+    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
     min-width: min-content !important;
   }
 }
