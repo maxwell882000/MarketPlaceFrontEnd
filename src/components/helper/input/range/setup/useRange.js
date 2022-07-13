@@ -6,7 +6,7 @@ import price_formatter from "@/mixins/price_formatter";
 // import price_formatter from "@/mixins/price_formatter";
 
 export default function (props, emits) {
-    const _value = ref(props.initialValue || props.modelValue)
+    const _value = ref(props.initialValue || props.modelValue);
     const value = computed({
         get: () => {
             return price_formatter(_value.value);
@@ -31,6 +31,9 @@ export default function (props, emits) {
         emitModel();
     }
 
+    watch(_value, function () {
+        emitModel()
+    });
 
     function emitModel() {
         emits('update:modelValue', _value.value);

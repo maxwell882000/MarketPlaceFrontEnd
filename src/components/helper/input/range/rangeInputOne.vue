@@ -1,7 +1,7 @@
 <template>
   <div style="position: relative">
     <Input :disabled="disableInput" v-model="value" type="text" style="position: absolute"/>
-    <Slider @change="e=>$emit('range-change', e)" :tooltips="false" v-bind="$props" :min="min" :max="max"
+    <Slider @change="e=>{$emit('range-change', e);}" :tooltips="false" v-bind="$props" :min="min" :max="max"
             style="position: relative; top: -4px;"
             v-model="_value"/>
     <div class="triangle-right"></div>

@@ -212,6 +212,8 @@ function calculateEachMonthPayment() {
 
 // get initial payment if it is installment
 function getInitialPayment(price) {
+  console.log("initial price");
+  console.log(price);
   installment.initialPayment = price;
   calculateEachMonthPayment();
 }
