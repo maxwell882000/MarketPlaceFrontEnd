@@ -15,8 +15,14 @@
              title-link-class="transparent-tab-passive">
         <template #title>
           <div>
-            <b-icon :icon="item.icon" scale="1.5" class="me-2"/>
-            {{ item.title }}
+            <span class="pr-2" style="font-size: 1.2rem">
+              <component :is="item.icon" ></component>
+            </span>
+            <!--            <b-icon :icon="item.icon" scale="1.5" class="me-2"/>-->
+            <span>
+              {{ item.title }}
+            </span>
+
           </div>
         </template>
         <router-view></router-view>
@@ -34,6 +40,10 @@ import Documents from "@/components/userPage/documents/documents";
 import Notification from "@/components/userPage/notification/notification";
 import Questions from "@/components/userPage/question/questions";
 import {mapActions, mapGetters, mapMutations} from "vuex";
+import UserPayment from "@/components/icons/userPayment";
+import UserProfile from "@/components/icons/userProfile";
+import UserQuestions from "@/components/icons/userQuestions";
+import UserOrders from "@/components/icons/userOrders";
 
 export default {
   data: () => ({
@@ -51,19 +61,19 @@ export default {
     tabs: [
       {
         pathName: "profile",
-        title: "Пользователь",
-        icon: "person-fill",
+        title: "Главная",
+        icon: UserProfile,
       },
       {
         pathName: "orders",
         title: "Мои заказы",
-        icon: "bag-fill",
+        icon: UserOrders,
       },
       {
         pathName: "credit",
         secondName: "insert_card",
         title: "Оплата",
-        icon: "credit-card-fill",
+        icon: UserPayment,
       },
       // {
       //   pathName: "documents",
@@ -78,12 +88,12 @@ export default {
       {
         pathName: "questionAndAnswers",
         title: "Вопросы и ответы",
-        icon: "chat-fill",
+        icon: UserQuestions,
       },
     ]
   }),
   // eslint-disable-next-line vue/no-unused-components
-  components: {Questions, Notification, Documents, ChooseCard, OrderUser, Badge, UserSettings},
+  components: {UserPayment, Questions, Notification, Documents, ChooseCard, OrderUser, Badge, UserSettings},
   computed: {
     ...mapGetters({
       isAuthenticated: "isAuthenticated"
@@ -156,8 +166,17 @@ export default {
   }
 }
 
+.transparent-tab-passive svg path {
+  fill: var(--gray200);
+}
+
+.transparent-nav-active svg path {
+  fill: var(--blue);
+}
 </style>
 <style scoped>
+
+
 .container {
   min-height: 800px;
 }
