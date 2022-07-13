@@ -127,8 +127,7 @@ const {showReason, openReason, closeReason, cancel} = useCancel(cancelStore);
 
 // eslint-disable-next-line no-unused-vars
 const showOriginalPrice = computed(() => price_formatter(props.purchase.originalPrice));
-const showDiscount = computed(() => price_formatter(props.purchase.originalPrice
-    * props.purchase.allQuantity - props.purchase.productPrice));
+const showDiscount = computed(() => price_formatter(props.purchase.originalPrice - props.purchase.productPrice));
 const showSumDelivery = computed(() => price_formatter(props.purchase.sumDelivery));
 // eslint-disable-next-line no-unused-vars
 const showPayblePrice = computed(() => price_formatter(props.purchase.payble.price));
