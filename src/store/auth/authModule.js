@@ -11,6 +11,8 @@ export const authModule = {
             user: {
                 name: "",
                 phone: "",
+                basket_counter: 0,
+                favourite_counter: 0,
                 // user_credit: true,
                 // phone_verified
             },
@@ -170,5 +172,17 @@ export const authModule = {
             state.token = token;
             tokenService.setToken({token: token})
         },
+        decreaseBasketCounter(state) {
+            state.user.basket_counter--;
+        },
+        increaseBasketCounter(state) {
+            state.user.basket_counter++;
+        },
+        decreaseFavouriteCounter(state) {
+            state.user.favourite_counter--;
+        },
+        increaseFavouriteCounter(state) {
+            state.user.favourite_counter++;
+        }
     }
 }

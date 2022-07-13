@@ -78,6 +78,7 @@ export const verificationModule = {
             validation(getters.userData, getters.errorData, type.SERIES, "Серия пасспорта");
             validation(getters.userData, getters.errorData, type.DATE_OF_BIRTH, "Дата рождения");
             validation(getters.userData, getters.errorData, type.SEX, "Пол");
+            validation(getters.userData, getters.errorData, type.PNFL, "ПНФЛ");
         }
     },
     getters: {

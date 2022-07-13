@@ -50,7 +50,9 @@ export const backetModule = {
             try {
                 let data = await backetService.addToBasket(id, getters.getPreOrder(id));
                 commit("productModule/setProductOrder", data.id, {root: true});
+                commit('increaseBasketCounter', null, {root: true});
                 return data;
+
             } catch (e) {
                 console.log(e);
             }
@@ -59,6 +61,7 @@ export const backetModule = {
             try {
                 await backetService.removeFromBasket(id);
                 commit("productModule/setProductOrder", 0, {root: true});
+                commit('decreaseBasketCounter', null, {root: true});
             } catch (e) {
                 console.log(e);
             }

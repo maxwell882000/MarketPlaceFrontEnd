@@ -3,20 +3,20 @@
     <div class="container">
       <BannerAndItem/>
       <div class="home">
-        <div class="my-3 ">
+        <div class="mt-4 mb-2 ">
           <h5 class="text-sm-center">
             Купите, пока это выгодно <span class="timer mt-sm-2 d-inline-block">{{ getTime }}</span>
           </h5>
         </div>
         <SalesRoll :per-page="6" slide-key="product_day" :products="products"/>
         <section v-show="discount.items.length">
-          <h5 class="mt-4 mb-3 text-sm-center">Акции и предложения</h5>
+          <h5 class="mt-4 mb-2 text-sm-center">Акции и предложения</h5>
           <StocksTabs/>
         </section>
         <div class="pt-2"></div>
         <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
           <section v-show="item.products.length">
-            <h5 class="text-sm-center mt-4 mb-3">{{ item.text }}</h5>
+            <h5 class="text-sm-center mt-4 mb-2">{{ item.text }}</h5>
             <SalesRoll :per-page="6" slide-key="product_day" :products="item.products"/>
           </section>
         </div>

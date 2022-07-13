@@ -42,13 +42,14 @@
 
   <div v-show="overallPrice" class="d-flex justify-content-between bold">
     <span>Итого</span>
-    <span>{{ overallPrice && overallPrice.toFixed(2) }} сум</span>
+    <span>{{ overallPrice }} сум</span>
   </div>
 </template>
 <script setup>
 // eslint-disable-next-line no-undef
-import {computed} from "vue";
 import PriceShowHelperItem from "@/components/backet/helper/priceShowHelperItem";
+import price_formatter from "@/mixins/price_formatter";
+import {computed} from "vue";
 
 // eslint-disable-next-line no-undef
 const props = defineProps({
@@ -60,6 +61,5 @@ const props = defineProps({
   overPaymentPrice: Number,
   numberOfProducts: Number,
 });
-// const discountPrice = computed(() => props.productOldPrice - props.productPrice);
-const overallPrice = computed(() => props.productPrice + (props.deliveryPrice || 0));
+const overallPrice = computed(() => price_formatter(props.productPrice + (props.deliveryPrice || 0)));
 </script>

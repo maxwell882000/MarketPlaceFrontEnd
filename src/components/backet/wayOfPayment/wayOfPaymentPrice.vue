@@ -54,7 +54,7 @@
       <div class="d-flex justify-content-between mb-2 font-key">
         <span>Ежемесячный платеж:</span>
         <span class="text-500">
-                {{ installment.eachMonthPayment.toFixed(2) }} сум
+                {{ showEachMonthPayment }} сум
               </span>
       </div>
       <div class="d-flex justify-content-between mb-2 font-key">
@@ -66,20 +66,21 @@
       <div class="d-flex justify-content-between mb-2 font-key">
         <span>Сумма переплаты:</span>
         <span class="text-500 text-red">
-                {{ installment.percentageOverPayment.toFixed(2) }} сум
+                {{ showPercentageOverPayment }} сум
               </span>
       </div>
       <div class="d-flex justify-content-between  font-key">
         <span>Общая сумма оплаты:</span>
         <span class="text-500">
-                  {{ overallPrice.toFixed(2) }} сум
+                  {{ showOverallPrice }} сум
               </span>
       </div>
     </div>
     <div class="text-xs mt-2">
       <em class="small-text">Продолжная, вы соглашаетесь с
         <span class="text-blue small-text">Условиями
-              использования </span> и <span class="text-blue small-text"> Политикой конфиденциальности</span> ByShop</em>
+              использования </span> и <span class="text-blue small-text"> Политикой конфиденциальности</span>
+        ByShop</em>
     </div>
     <ButtonBlue @click="acceptInstallment" title="Подтвердить способ оплаты"></ButtonBlue>
   </section>
@@ -94,6 +95,7 @@ import Info from "@/components/icons/info";
 import RangeInputOneValues from "@/components/helper/input/range/rangeInputOneValues";
 import WayOfPaymentPriceAccept from "@/components/backet/wayOfPayment/wayOfPaymentPriceAccept";
 import useSelectedWayOfPayment from "@/components/backet/wayOfPayment/setup/useSelectedWayOfPayment";
+import price_formatter from "@/mixins/price_formatter";
 
 const store = useStore();
 const status = wayOfPaymentConstant;
@@ -104,7 +106,9 @@ const overallPrice = ref(store.getters['prepareBasketModule/calculatePrice']('re
 const fixed_price = overallPrice.value;
 const percent = ref(0); // in selected credit we have percent which additionally must be applied to overallcost
 const resetIndex = ref(true);// resetting slider when credit changed
-
+const showEachMonthPayment = computed(() => price_formatter(installment.eachMonthPayment));
+const showPercentageOverPayment = computed(() => price_formatter(installment.percentageOverPayment));
+const showOverallPrice = computed(() => price_formatter(overallPrice.value));
 
 function setInitialType() {
   mainCredit.value.type = wayOfPayment.value.type;
@@ -140,7 +144,6 @@ function initialPriceValue() {
 function onStart() {
   setInitialType();
   if (wayOfPayment.value.index_of_credit >= 0) {
-    console.log("STARTEDD");
     setOverallPriceWithPercentage(wayOfPayment.value.index_of_credit);
     getInitialPayment(wayOfPayment.value.initial_price);
     calculateEachMonthPayment();
@@ -226,6 +229,7 @@ const {
   font-size: 12px !important;
   line-height: 20px;
 }
+
 .small-text {
   font-weight: 400;
   font-size: 12px;

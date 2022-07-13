@@ -28,7 +28,7 @@
         </div>
         <div class="key-value">
           <span class="text-400">Общая оплата</span>
-          <span>{{ purchase.payble.price }} сум</span>
+          <span>{{ showPayblePrice }} сум</span>
         </div>
       </b-col>
 
@@ -43,6 +43,7 @@
 import BoughtProduct from "@/components/userPage/orders/boughtProduct";
 import {computed, defineProps} from "vue";
 import OrderDetail from "@/components/userPage/orders/orderDetail";
+import price_formatter from "@/mixins/price_formatter";
 
 // eslint-disable-next-line no-unused-vars
 const props = defineProps({
@@ -53,5 +54,8 @@ const props = defineProps({
     }
   }
 });
-const paid = computed(() => parseInt(props.purchase.payble.already_paid) + parseInt(props.purchase.payble.initial_pay))
+const paid = computed(() => price_formatter(
+    parseInt(props.purchase.payble.already_paid) + parseInt(props.purchase.payble.initial_pay)))
+const showPayblePrice = computed(() => price_formatter(props.purchase.payble.price));
+
 </script>

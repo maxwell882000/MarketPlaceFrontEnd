@@ -15,12 +15,16 @@
             <button class="search-button">
               <b-icon icon="search" variant="dark"></b-icon>
             </button>
-            <router-link to="/favourite">
+            <router-link class="relative" to="/favourite">
               <img src="@/assets/icons/heart.svg" alt="heart icon"/>
+              <span v-show="user.favourite_counter > 0" class="badge-number badge-favourite">{{
+                  user.favourite_counter
+                }}</span>
               {{ $t('Избранное') }}
             </router-link>
-            <router-link to="/cart">
+            <router-link class="relative" to="/cart">
               <img src="@/assets/icons/cart.svg" alt="cart icon"/>
+              <span v-show="user.basket_counter > 0" class="badge-number">{{ user.basket_counter }}</span>
               {{ $t('Корзина') }}
             </router-link>
             <AuthProfile>
@@ -51,6 +55,7 @@ import HeaderDownLine from "./Header-Down-Line";
 import AuthProfile from "@/components/auth/authProfile";
 import SearchHeader from "@/components/header/search/component/searchHeader";
 import AuthModals from "@/components/auth/authModals";
+import {mapGetters} from "vuex";
 
 export default {
   components: {AuthModals, SearchHeader, AuthProfile, HeaderUpperLine, HeaderDownLine},
@@ -59,10 +64,17 @@ export default {
       scrolled: false,
     };
   },
-  methods: {
-    submit() {
-      console.log("submit");
-      return 0;
+  computed: {
+    ...mapGetters({
+      user: "user",
+      basketCounter: "prepareBasketModule/count",
+    })
+  },
+  watch: {
+    basketCounter(newVal) { //when user will be in the basket so correct counter about the product will be
+      if (this.$route.name === "basket") {
+        this.user.basket_counter = newVal;
+      }
     },
   },
   mounted() {
@@ -78,6 +90,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.badge-number {
+  position: absolute;
+  top: -5px;
+  right: 20px;
+  padding: 1px 6px;
+  font-size: 11px;
+  border-radius: 50%;
+  background: var(--red);
+  color: white;
+}
+
+.badge-favourite {
+  right: 26px;
+}
+
 nav {
   transition: all 0.3s;
   background-color: white;

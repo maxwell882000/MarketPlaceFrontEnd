@@ -1,5 +1,4 @@
 <template>
-
   <loader waiting="user">
     <router-view></router-view>
   </loader>

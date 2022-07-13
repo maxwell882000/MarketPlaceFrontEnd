@@ -1,13 +1,16 @@
 <template>
   <div class="left-part">
-    <div class="d-none d-sm-none d-md-block image_con p-1">
+    <div class="d-none d-sm-none d-md-block image_con">
       <img class="img-res rounded-st main-image" :src="activeImageUrl"/>
     </div>
-    <div class="ml-1 d-flex justify-content-center">
-      <Splide @splide:move="splideMove" :options="splideOptions" class="splide custom-arrows w-100">
+    <div class="mt-4 d-flex justify-content-center">
+      <Splide @splide:move="splideMove" @splide:click="splideMove"
+              :options="splideOptions"
+              class="splide custom-arrows w-100">
         <SplideSlide v-for="(element, index) in picturesList" :key="'splide_' + index" class="splide-slide">
-          <div class="image-size">
-            <img class="img-res" :src="element" alt="xiaomi">
+
+          <div class="image-size border-sm border-gray p-1 " :class="index=== currentIndex&& 'border-active'">
+            <img class="img-res p-2" :src="element" alt="xiaomi">
           </div>
         </SplideSlide>
       </Splide>
@@ -26,9 +29,9 @@ export default {
   name: 'PicturesPart',
   data() {
     return {
-      index: null,
+      currentIndex: 0,
       splideOptions: {
-        type: 'loop',
+        // type: 'loop',
         perPage: 4,
         gap: '0px',
         height: 'auto',
@@ -62,18 +65,33 @@ export default {
       setImage: "productModule/setCurrentImage"
     }),
     splideMove(Proxy, newIndex) {
-      event?.stopImmediatePropagation()
-      this.setImage(this.picturesList[newIndex]);
+      if (newIndex !== 0) {
+
+        event?.stopImmediatePropagation()
+        this.currentIndex = newIndex.index;
+        this.setImage(this.picturesList[newIndex.index]);
+      }
     }
   },
   props: []
 }
 </script>
-
+<style>
+.left-part .splide__slide {
+  width: max-content !important;
+  margin-right: 0.4rem !important;
+}
+</style>
 <style lang="scss" scoped>
+.border-active {
+  border: 2px solid var(--blue);
+}
+
 .image-size {
   width: 6rem;
+  height: 6rem;
 }
+
 .image_con {
   height: 25rem;
 }

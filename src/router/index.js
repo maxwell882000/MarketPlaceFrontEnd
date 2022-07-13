@@ -178,14 +178,14 @@ const routes = [
                 path: "selectAddress",
                 component: () => import("../views/takeOrder/selectAddress"),
                 meta: {
-                    middleware: [basket]
+                    middleware: [basket, userCredit]
                 }
             },
             {
                 path: "plasticCard",
                 component: () => import("../views/takeOrder/plasticCard"),
                 meta: {
-                    middleware: [basket]
+                    middleware: [basket, userCredit]
                 }
             },
             {
@@ -200,7 +200,7 @@ const routes = [
                 name: "WayOfPayment",
                 component: () => import('../views/takeOrder/wayOfPayment'),
                 meta: {
-                    middleware: [basket]
+                    middleware: [basket, userCredit]
                 }
             },
         ]

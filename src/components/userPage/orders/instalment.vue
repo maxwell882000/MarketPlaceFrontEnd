@@ -58,7 +58,7 @@ import InstallmentDetail from "@/components/userPage/orders/installmentDetail";
 import InstallmentAbout from "@/components/userPage/orders/installmentAbout";
 import statusPaymentToFront from "@/constants/payment/statusPaymentToFront";
 import statusPayment from "@/constants/payment/statusPayment";
-import {ref, defineProps, watch} from "vue";
+import {defineProps, ref, watch} from "vue";
 import InstallmentSurety from "@/components/userPage/orders/installmentSurety";
 import Loader from "@/components/loading/loader";
 import ButtonGray from "@/components/helper/button/buttonGray";

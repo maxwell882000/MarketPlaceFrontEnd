@@ -9,6 +9,9 @@
       <b-col cols="12" class="col-xl-9 col-lg-8 col-md-12 col-sm-12 ">
         <div class="product-content">
           <pictures-part class="flex-fill flex-sm-fill flex-md- pictures"></pictures-part>
+          <div style="width: 1rem;">
+
+          </div>
           <div class="w-100">
             <color-component button="color-btn"></color-component>
             <select-component v-for="(component, index) in selectComponent"

@@ -39,19 +39,26 @@ export default {
   methods: {
     ...mapActions({
       remove: 'backetModule/removeFromBasket',
-      add: 'backetModule/addToBasket'
+      add: 'backetModule/addToBasket',
+      getOrders: 'prepareBasketModule/getOrders',
+      getProducts: "prepareBasketModule/getInteristingProduct"
     }),
     ...mapMutations({
       setLogin: 'authWindow/setLogin'
     }),
-    clicked() {
+    async clicked() {
       if (this.id && this.isAuthenticated) {
         if (this.isBasket) {
-          this.remove(this.id);
           this.isBasket = false;
+          await this.remove(this.id);
         } else {
-          this.add(this.id);
           this.isBasket = true;
+          await this.add(this.id);
+        }
+
+        if (this.$route.name === "basket") {
+          await this.getOrders();
+          await this.getProducts();
         }
       } else if (!this.isAuthenticated) {
         this.setLogin();

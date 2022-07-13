@@ -7,7 +7,7 @@
           class="table-installment"
           :class="index % 2 === 0 && 'table-gray'">
         <td class="text-nowrap">{{ item.month }}</td>
-        <td class="text-nowrap">{{ item.paid }}</td>
+        <td class="text-nowrap">{{price_formatter(item.paid)}}</td>
         <td class="w-100">
           <div class="w-100 text-nowrap text-right">
                <span v-if="status.WAIT_ANSWER === purchase.payble.status">
@@ -35,8 +35,8 @@
 import {useStore} from "vuex";
 import statusPayment from "@/constants/payment/statusPayment";
 import ButtonBlue from "@/components/helper/button/buttonBlue";
+import price_formatter from "@/mixins/price_formatter";
 // import ButtonBlue from "@/components/helper/button/buttonBlue";
-
 // eslint-disable-next-line no-unused-vars,no-undef
 const props = defineProps({
   purchase: {
@@ -85,7 +85,7 @@ function payForMonth(item) {
 .table-installment .button {
   margin: 0;
   padding: 0.2rem;
-  width: max-content!important;
+  width: max-content !important;
 }
 
 table tr td:nth-child(1) {

@@ -14,10 +14,10 @@
 
           <small class="old-price d-block">
                <span v-show="itemInfo.discount_price">
-                        {{ itemInfo.price }}
+                        {{ showPrice }}
           </span>
           </small>
-          <h6 class="mb-1">{{ itemInfo.real_price }}</h6>
+          <h6 class="mb-1">{{ showRealPrice }}</h6>
           <p>{{ itemInfo.title }}</p>
         </div>
       </div>
@@ -42,6 +42,7 @@
 import Trash from "@/components/icons/trash";
 import InputSelect from "@/components/helper/input/inputSelect";
 import {mapActions, mapGetters, mapMutations} from "vuex";
+import price_formatter from "@/mixins/price_formatter";
 
 export default {
   components: {InputSelect, Trash},
@@ -63,6 +64,12 @@ export default {
     ...mapGetters({
       selected: "prepareBasketModule/getSelectedItem"
     }),
+    showPrice() {
+      return price_formatter(this.itemInfo.price);
+    },
+    showRealPrice() {
+      return price_formatter(this.itemInfo.real_price);
+    },
     check: {
       get() {
         return !!this.selected(this.order.id);
@@ -98,7 +105,8 @@ export default {
         order_id: this.order.id, quantity: this.quantity,
         index: this.index
       });
-    },
+    }
+    ,
     decrementQuantity() {
       this.quantity = (this.quantity - 1) || ((this.styleQuantity['cursor'] = 'not-allowed') && 1);
       this.updateQuantity();
@@ -114,14 +122,17 @@ export default {
   width: 5.9rem;
   height: 5.6rem;
 }
+
 .count-btns {
   justify-content: center;
 }
+
 @media (max-width: 767px) {
   .count-btns {
     justify-content: start;
   }
 }
+
 .count-btns button {
   border-radius: 12px;
   font-weight: 500;

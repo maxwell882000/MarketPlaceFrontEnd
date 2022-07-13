@@ -16,14 +16,18 @@ export default {
   },
   methods: {
     ...mapGetters(['isAuthenticated']),
-    ...mapMutations(['authWindow/setLogin']),
+    ...mapMutations(['authWindow/setLogin', 'decreaseFavouriteCounter', 'increaseFavouriteCounter']),
     ...mapActions(['addRemoveFavourite']),
     clicked() {
       if (this.id && this.isAuthenticated()) {
         this.addRemoveFavourite({id: this.id, name: this.$route.name});
         this.fill = !this.fill;
-        if (!this.fill)
-          this.$root.$emit("like-updated")
+        if (!this.fill) {
+          this.$root.$emit("like-updated");
+          this.decreaseFavouriteCounter();
+        } else {
+          this.increaseFavouriteCounter();
+        }
       } else if (!this.isAuthenticated()) {
         this['authWindow/setLogin']();
       }

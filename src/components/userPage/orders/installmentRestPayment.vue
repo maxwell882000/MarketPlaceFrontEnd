@@ -1,8 +1,8 @@
 <template>
   <div>
     <span class="text-gray block">Осталось</span>
-    <span class="bold text-lg">{{ purchase.payble.already_paid }} <span
-        class="text-400 text-gray">из {{ purchase.payble.all_to_pay }}</span></span>
+    <span class="bold text-lg">{{ showAlreadyPaid }} <span
+        class="text-400 text-gray">из {{ showAllToPay }} cум</span></span>
     <div class="d-flex mt-3 w-100">
       <div class=" rounded-st lines"
            :key="'month_installment_' + items.id"
@@ -17,8 +17,11 @@
   </div>
 </template>
 <script setup>
-import {defineProps} from "vue";
+import {computed, defineProps} from "vue";
+import price_formatter from "@/mixins/price_formatter";
 
+const showAlreadyPaid = computed(() => price_formatter(props.purchase.payble.already_paid));
+const showAllToPay = computed(() => price_formatter(props.purchase.payble.all_to_pay));
 // eslint-disable-next-line no-unused-vars
 const props = defineProps({
   purchase: {

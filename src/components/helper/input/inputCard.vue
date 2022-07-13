@@ -13,20 +13,19 @@
 <script setup>
 import InputBelowBorder from "@/components/helper/input/inputBelowBorder";
 import Error from "@/components/helper/error/error";
+import only_numbers from "@/mixins/only_numbers";
+import remove_space from "@/mixins/remove_space";
 
 // eslint-disable-next-line no-undef
 const emit = defineEmits(['card-input', 'expiry-input'])
 // eslint-disable-next-line no-undef,no-unused-vars
 const props = defineProps(['error_card', 'error_expiry', 'card_input', "expiry"]);
 
-function removeSpace(value) {
-  return value.replace(/\s+/g, '');
-}
 
 function filterAndEmitCardNumber(event) {
   // we could remove space after condition because checking happens against current character inserted
   // event.target.value = "";
-  const v = removeSpace(event.target.value).replace(/[^0-9]/gi, ''); // remove space and letters
+  const v = remove_space(event.target.value).replace(/[^0-9]/gi, ''); // remove space and letters
   const matches = v.match(/\d{4,16}/g); // gives range
   const match = matches && matches[0] || ''; // choose only first items in array
   // item in array must have minimum four items because of regexp
@@ -38,17 +37,14 @@ function filterAndEmitCardNumber(event) {
   if (parts.length) {
     event.target.value = parts.join(' ')
   } else {
-    onlyNumbers(event);
+    only_numbers(event);
   }
   emit('card-input', event.target.value);
 }
 
-function onlyNumbers(event) {
-  event.target.value = removeSpace(event.target.value).replace(/[^0-9]/gi, '');
-}
 
 function filterAndEmitExpiry(event) {
-  const v = removeSpace(event.target.value).replace(/[^0-9]/gi, '');
+  const v = remove_space(event.target.value).replace(/[^0-9]/gi, '');
   const afterMatch = v.match(/\d{1,2}/g);
   if (afterMatch) {
     event.target.value = afterMatch.slice(0, 2).join('/');

@@ -33,24 +33,24 @@
           <p class="bold mb-1">Состав заказа</p>
           <div class="key-value">
             <span>Товары - {{ purchase.allQuantity }} шт.</span>
-            <span>{{ purchase.originalPrice }} сум</span>
+            <span>{{ showOriginalPrice }} сум</span>
           </div>
-          <div v-show="discount">
+          <div v-show="showDiscount">
             <div class="key-value">
               <span>Скидка</span>
-              <span class="text-green">{{ discount }} сум</span>
+              <span class="text-green">{{ showDiscount }} сум</span>
             </div>
           </div>
           <div v-show="purchase.sumDelivery > 0">
             <div class="key-value">
               <span>Доставка</span>
-              <span class="">{{ purchase.sumDelivery }} сум</span>
+              <span class="">{{ showSumDelivery }} сум</span>
             </div>
           </div>
 
           <div class="key-value py-2 last">
             <span class="bold">Итого к оплате</span>
-            <span class="text-blue">{{ purchase.payble.price }} сум</span>
+            <span class="text-blue">{{ showPayblePrice }} сум</span>
           </div>
         </b-col>
       </section>
@@ -94,6 +94,7 @@ import Loader from "@/components/loading/loader";
 import CancelPayment from "@/components/userPage/orders/modal/cancelPayment";
 import useCancel from "@/components/userPage/orders/setup/useCancel";
 import ButtonGray from "@/components/helper/button/buttonGray";
+import price_formatter from "@/mixins/price_formatter";
 
 
 // eslint-disable-next-line no-undef,no-unused-vars
@@ -102,7 +103,7 @@ const props = defineProps({
     type: Object,
   }
 });
-const discount = computed(() => props.purchase.originalPrice * props.purchase.allQuantity - props.purchase.productPrice);
+// const discount = computed(() => props.purchase.originalPrice * props.purchase.allQuantity - props.purchase.productPrice);
 const status = ref({});
 watch(() => props.purchase.payble.status, function (val) {
   status.value = {
@@ -124,6 +125,13 @@ const cancelStore = (reason) => store.dispatch("purchaseModule/cancelPayment", {
 });
 const {showReason, openReason, closeReason, cancel} = useCancel(cancelStore);
 
+// eslint-disable-next-line no-unused-vars
+const showOriginalPrice = computed(() => price_formatter(props.purchase.originalPrice));
+const showDiscount = computed(() => price_formatter(props.purchase.originalPrice
+    * props.purchase.allQuantity - props.purchase.productPrice));
+const showSumDelivery = computed(() => price_formatter(props.purchase.sumDelivery));
+// eslint-disable-next-line no-unused-vars
+const showPayblePrice = computed(() => price_formatter(props.purchase.payble.price));
 // function cancel(val) {
 //   cancelStore(val.id === 5 ? val.value : val.text);
 // }
