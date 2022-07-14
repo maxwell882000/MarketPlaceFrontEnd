@@ -88,6 +88,17 @@ export const plasticCardModule = {
             }
             commit("wait/END", "code", {root: true});
         },
+        async insertCardForBuy({dispatch, commit}, {code}) {
+            await dispatch('insertCard', code);
+            commit("registrationOrderModule/openPolicies", true, {root: true});
+        },
+        async insertCardForUser({dispatch, commit, getters}, {code, router}) {
+            await dispatch("insertCard", code);
+            if (getters.error === null)
+                commit('plasticCardModule/setShowSuccessCard', true, {root: true});
+            else
+                router.back();
+        },
         async dialCode({commit, getters}) {
             commit("wait/START", "code", {root: true});
             commit("setError", "");
@@ -173,7 +184,7 @@ export const plasticCardModule = {
             state.cards.push(card);
         },
         cleanSelectedCard(state) {
-           state.selectedCard.id = -1;
+            state.selectedCard.id = -1;
         },
         setSelectedCard(state, card) {
             state.selectedCard = card;

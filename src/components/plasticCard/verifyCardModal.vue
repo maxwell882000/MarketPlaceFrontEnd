@@ -15,19 +15,20 @@ import {useRoute, useRouter} from "vue-router";
 const store = useStore();
 let show = computed(() => store.getters['plasticCardModule/showVerification']);
 const close = () => store.commit("plasticCardModule/closeVerification");
-const submitCard = (code) => store.dispatch("plasticCardModule/insertCard", code);
-const openPolicies = () => store.commit("registrationOrderModule/openPolicies", true);
-const openSuccessCard = () => store.commit("plasticCardModule/setShowSuccessCard", true);
+const submitCardForUser = (code) => store.dispatch("plasticCardModule/insertCardForUser", code);
+const submitCardForBuy = (code) => store.dispatch("plasticCardModule/insertCardForBuy", code);
+
+// const openPolicies = () => store.commit("registrationOrderModule/openPolicies", true);
+// const openSuccessCard = () => store.commit("plasticCardModule/setShowSuccessCard", true);
 const route = useRoute();
 const router = useRouter();
 
 async function submit(code) {
-  await submitCard(code);
   if (route.name !== "insert_card")
-    openPolicies();
+    await submitCardForBuy(code);
   else {
-    openSuccessCard();
-    router.back();
+    code.router = router;
+    await submitCardForUser(code);
   }
 }
 </script>
