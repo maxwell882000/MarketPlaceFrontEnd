@@ -25,6 +25,6 @@ import {computed} from "vue";
 import PriceAlreadyCalculated from "@/components/backet/helper/priceAlreadyCalculated";
 
 const store = useStore();
-const isSelectedEmpty = computed(() => store.getters['prepareBasketModule/isSelectedEmpty']);
+const isSelectedEmpty = computed(() => store.getters['prepareBasketModule/numberSelectedOrders']);
 
 </script>

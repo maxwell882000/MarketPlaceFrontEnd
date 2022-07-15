@@ -94,10 +94,10 @@ export const plasticCardModule = {
         },
         async insertCardForUser({dispatch, commit, getters}, {code, router}) {
             await dispatch("insertCard", code);
-            if (getters.error === null)
+            if (getters.error === null) {
                 commit('plasticCardModule/setShowSuccessCard', true, {root: true});
-            else
                 router.back();
+            }
         },
         async dialCode({commit, getters}) {
             commit("wait/START", "code", {root: true});

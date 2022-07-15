@@ -76,7 +76,7 @@ export const registrationOrderModule = {
                     ...getters.form,
                     ...rootGetters["plasticCardModule/plasticId"],
                     orders: rootGetters['prepareBasketModule/ordersId'],
-                    payment_type: true, // remove in production IMPORTANT !!!
+                    //   payment_type: true, // remove in production IMPORTANT !!! get initial payment from user
                 };
                 console.log("DATA SENDING");
                 console.log("REMOVE PAYMENT TYPE IN PRODUCTION !!!!!!!!");
@@ -86,7 +86,9 @@ export const registrationOrderModule = {
                 console.log(JSON.stringify(form));
                 const result = await purchaseService.createPurchases(form);
                 console.log(result);
-                commit('setSuccessPurchase', result.purchase_id);
+                // decrease basket counter
+                commit('setBasketCounter', rootGetters['prepareBasketModule/numberSelectedOrders'], {root: true});
+                commit('setSuccessPurchase', result.purchase_id);// open modal
             } catch (e) {
                 console.log(e);
             }
@@ -94,8 +96,8 @@ export const registrationOrderModule = {
         }
     },
     getters: {
-        createdId(state){
-           return state.createdId;
+        createdId(state) {
+            return state.createdId;
         },
         wayOfPayment(state) {
             return state.wayOfPayment;

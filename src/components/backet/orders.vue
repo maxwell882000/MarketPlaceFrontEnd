@@ -14,7 +14,7 @@
                </span>
             </b-form-checkbox>
           </div>
-          <span @click="deleteSelected" class="pointer text-red text-sm" v-show="isSelectedEmpty">
+          <span @click="deleteSelected" class="pointer text-red text-sm" v-show="numberSelectedOrders">
               Удалить выбранные
           </span>
         </div>
@@ -50,7 +50,7 @@ export default {
       allOrders: "prepareBasketModule/allOrders",
       isAllSelected: "prepareBasketModule/allSelected",
       count: "prepareBasketModule/count",
-      isSelectedEmpty: "prepareBasketModule/isSelectedEmpty"
+      numberSelectedOrders: "prepareBasketModule/numberSelectedOrders"
     }),
 
     checkALlOrder: {

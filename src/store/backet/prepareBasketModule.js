@@ -43,7 +43,7 @@ export const prepareBasketModule = {
         getSelectedItem(state) {
             return (index) => state.selectedOrders[index];
         },
-        isSelectedEmpty(state) {
+        numberSelectedOrders(state) {
             return Object.entries(state.selectedOrders).length;
         },
         calculatePrice(state) {

@@ -172,6 +172,9 @@ export const authModule = {
             state.token = token;
             tokenService.setToken({token: token})
         },
+        setBasketCounter(state, number) {
+            state.user.basket_counter -= number;
+        },
         decreaseBasketCounter(state) {
             state.user.basket_counter--;
         },

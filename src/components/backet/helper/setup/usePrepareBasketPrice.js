@@ -3,7 +3,7 @@ import {computed} from "vue";
 
 export default function () {
     const store = useStore();
-    const selectedOrders = computed(() => store.getters['prepareBasketModule/isSelectedEmpty']);
+    const numberSelectedOrders = computed(() => store.getters['prepareBasketModule/numberSelectedOrders']);
     const wayOfPayment = computed(() => store.getters['registrationOrderModule/wayOfPayment']);
     const price = computed(() => store.getters['prepareBasketModule/calculatePrice']('price'));
     const overallPrice = computed(() => {
@@ -15,7 +15,7 @@ export default function () {
     const discountPrice = computed(() => store.getters['prepareBasketModule/calculatePrice']('discount_price'));
     return {
         overallPrice: overallPrice,
-        selectedLength: selectedOrders,
+        selectedLength: numberSelectedOrders,
         discountPrice: discountPrice,
         price: price
     }
