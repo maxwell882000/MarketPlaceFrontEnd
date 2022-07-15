@@ -5,7 +5,7 @@
         <img class="img-res" :src="product.image" alt="">
       </div>
       <div class="about">
-        <span class="title">{{ product.title }}</span>
+        <span class="title text-400">{{ product.title }}</span>
         <br>
         <span class="number">{{ product.quantity }} шт</span>
       </div>
@@ -36,7 +36,8 @@ const props = defineProps({
 }
 
 .title {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
+  line-height: 0.9rem;
 }
 
 .mini-order-image {

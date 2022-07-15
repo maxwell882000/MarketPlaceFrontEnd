@@ -44,6 +44,7 @@ import UserPayment from "@/components/icons/userPayment";
 import UserProfile from "@/components/icons/userProfile";
 import UserQuestions from "@/components/icons/userQuestions";
 import UserOrders from "@/components/icons/userOrders";
+import {shallowRef} from "vue";
 
 export default {
   data: () => ({
@@ -62,18 +63,18 @@ export default {
       {
         pathName: "profile",
         title: "Главная",
-        icon: UserProfile,
+        icon: shallowRef(UserProfile),
       },
       {
         pathName: "orders",
         title: "Мои заказы",
-        icon: UserOrders,
+        icon: shallowRef(UserOrders),
       },
       {
         pathName: "credit",
         secondName: "insert_card",
         title: "Оплата",
-        icon: UserPayment,
+        icon: shallowRef(UserPayment),
       },
       // {
       //   pathName: "documents",
@@ -88,7 +89,7 @@ export default {
       {
         pathName: "questionAndAnswers",
         title: "Вопросы и ответы",
-        icon: UserQuestions,
+        icon: shallowRef(UserQuestions),
       },
     ]
   }),

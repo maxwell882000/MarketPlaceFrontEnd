@@ -89,11 +89,11 @@ export const plasticCardModule = {
             commit("wait/END", "code", {root: true});
         },
         async insertCardForBuy({dispatch, commit}, {code}) {
-            await dispatch('insertCard', code);
+            await dispatch('insertCard', {code: code});
             commit("registrationOrderModule/openPolicies", true, {root: true});
         },
         async insertCardForUser({dispatch, commit, getters}, {code, router}) {
-            await dispatch("insertCard", code);
+            await dispatch("insertCard", {code: code});
             if (getters.error === null) {
                 commit('plasticCardModule/setShowSuccessCard', true, {root: true});
                 router.back();
