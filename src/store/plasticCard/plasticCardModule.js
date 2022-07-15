@@ -70,7 +70,7 @@ export const plasticCardModule = {
         },
         async insertCard({commit, getters}, {code}) {
             commit("wait/START", "code", {root: true});
-            commit("setError", "");
+            commit("setError", null); // clean before use good solution !!
             try {
                 const result = await plasticCardService.insertPlasticCard(
                     {

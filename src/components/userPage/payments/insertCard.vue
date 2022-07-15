@@ -37,6 +37,7 @@ import usePlastic from "@/components/helper/input/setup/usePlastic";
 import Error from "@/components/helper/error/error";
 import VerifyCardModal from "@/components/plasticCard/verifyCardModal";
 import {useStore} from "vuex";
+import {onMounted} from "vue";
 
 function isEntered() {
   return selectedCard.value.card_number && selectedCard.value.expiry;
@@ -44,12 +45,16 @@ function isEntered() {
 
 const store = useStore();
 const cleanSelectedCard = () => store.commit('plasticCardModule/cleanSelectedCard')
+const cleanInsert = () => store.commit("plasticCardModule/clean");
 
 function submit() {
   cleanSelectedCard();
   validateCard();
 }
 
+onMounted(() => {
+  cleanInsert();
+});
 const {selectedCard, validateCard, error, setCardNumber, setExpiry} = usePlastic();
 </script>
 <style scoped>
