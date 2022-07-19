@@ -27,7 +27,7 @@
             >
             </price-already-calculated>
             <router-link :to="canBePaid ? routerPath: ''">
-              <ButtonForm @submit="purchaseOrders" @not-submit="isNotSumbit = false"
+              <ButtonForm @submit="purchaseOrders" @not-submit="setNotSubmit"
                           :is-entered="canBePaid" title="Оплатить"></ButtonForm>
             </router-link>
             <div class="text-center mt-3">
@@ -85,7 +85,9 @@ const routerPath = ref("/cart/plasticCard");
 const getCredits = () => store.dispatch('wayOfPaymentModule/getWayOfPayment');
 
 getCredits();
-
+function setNotSubmit() {
+  isNotSumbit.value = true;
+}
 function purchaseOrders() {
   if (wayOfPayment.value.type === wayOfPaymentConstant.CASH) {
     routerPath.value = "";
