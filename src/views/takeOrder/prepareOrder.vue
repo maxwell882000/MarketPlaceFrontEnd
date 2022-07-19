@@ -11,8 +11,8 @@
                 class="ml-2 text-500 text-sm">Внимание, мы разделили заказ, потому что товары будут отправлены с разных складов</span>
           </div>
         </div>
-        <delivery-prepare/>
-        <way-of-payment-prepare/>
+        <delivery-prepare :class="errorOnDelivery && 'text-error'"/>
+        <way-of-payment-prepare :class="errorOnPayment && 'text-error'"/>
         <section class="text-sm section-container mb-3">
           <product-prepare-item :key="'prepare_order_'+ item[0]" :order="item[1]" v-for="item in orders"/>
         </section>
@@ -27,7 +27,8 @@
             >
             </price-already-calculated>
             <router-link :to="canBePaid ? routerPath: ''">
-              <ButtonForm @submit="purchaseOrders" :is-entered="canBePaid" title="Оплатить"></ButtonForm>
+              <ButtonForm @submit="purchaseOrders" @not-submit="isNotSumbit = false"
+                          :is-entered="canBePaid" title="Оплатить"></ButtonForm>
             </router-link>
             <div class="text-center mt-3">
               <div class="d-flex justify-content-center align-items-end text-sm">
@@ -69,13 +70,17 @@ const store = useStore();
 const deliveryCost = computed(() => store.getters['registrationOrderModule/deliveryCost']);
 const orders = computed(() => Object.entries(store.getters['prepareBasketModule/selectedOrders']));
 const wayOfPayment = computed(() => store.getters['registrationOrderModule/wayOfPayment']);
-const currentStatus = computed(() => store.getters['deliveryInfoModule/status']);
+const deliveryStatus = computed(() => store.getters['deliveryInfoModule/status']);
 const getCard = () => store.dispatch('plasticCardModule/getCards');
 const openAgreement = () => store.commit("registrationOrderModule/setPolicies", agreementAndPolicies.CHOOSING);
 const status = deliveryStatusConstant;
 const canBePaid = computed(() =>
-    currentStatus.value !== status.NOT_CHOSEN
+    deliveryStatus.value !== status.NOT_CHOSEN
     && wayOfPayment.value.type !== wayOfPaymentConstant.NOT_CHOSEN);
+const isNotSumbit = ref(false);
+const errorOnPayment = computed(() => isNotSumbit.value
+    && wayOfPayment.value.type === wayOfPaymentConstant.NOT_CHOSEN);
+const errorOnDelivery = computed(() => isNotSumbit.value && deliveryStatus.value === wayOfPaymentConstant.NOT_CHOSEN);
 const routerPath = ref("/cart/plasticCard");
 const getCredits = () => store.dispatch('wayOfPaymentModule/getWayOfPayment');
 

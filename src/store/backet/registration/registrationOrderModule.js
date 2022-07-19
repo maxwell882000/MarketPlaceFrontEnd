@@ -69,6 +69,8 @@ export const registrationOrderModule = {
         // because we are validating all data before submitting !
         async purchaseOrders({commit, getters, rootGetters}) {
             commit("wait/START", "create_purchases_loaded", {root: true});
+            commit("plasticCardModule/setError", null, {root: true});
+
             try {
                 const form = {
                     ...getters.wayOfPayment,
@@ -76,7 +78,7 @@ export const registrationOrderModule = {
                     ...getters.form,
                     ...rootGetters["plasticCardModule/plasticId"],
                     orders: rootGetters['prepareBasketModule/ordersId'],
-                    //   payment_type: true, // remove in production IMPORTANT !!! get initial payment from user
+                    // payment_type: true, // remove in production IMPORTANT !!! get initial payment from user
                 };
                 console.log("DATA SENDING");
                 console.log("REMOVE PAYMENT TYPE IN PRODUCTION !!!!!!!!");
@@ -91,6 +93,7 @@ export const registrationOrderModule = {
                 commit('setSuccessPurchase', result.purchase_id);// open modal
             } catch (e) {
                 console.log(e);
+                commit("plasticCardModule/setError", e, {root: true});
             }
             commit("wait/END", "create_purchases_loaded", {root: true});
         }
