@@ -41,8 +41,8 @@ const props = defineProps({
 }
 
 .mini-order-image {
-  width: 4rem;
-}
+  width: 5rem;
+  height: 2.7rem;}
 
 .number {
   font-size: 0.6rem;

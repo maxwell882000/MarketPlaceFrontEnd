@@ -23,6 +23,7 @@ class Methods {
         try {
             return await api.post(path, data);
         } catch (e) {
+            console.log("POST ERRRRORS");
             errorService.sendError(path, data, e);
         }
     }
