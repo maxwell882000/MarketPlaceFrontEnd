@@ -156,6 +156,10 @@ export const plasticCardModule = {
         }
     },
     mutations: {
+        cleanForInsert(state) {
+            state.transaction_id = null;
+            state.error = null;
+        },
         clean(state) {
             state.cards = [];
             state.selectedCard = {

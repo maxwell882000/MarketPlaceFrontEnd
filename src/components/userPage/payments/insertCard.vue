@@ -45,7 +45,7 @@ function isEntered() {
 
 const store = useStore();
 const cleanSelectedCard = () => store.commit('plasticCardModule/cleanSelectedCard')
-const cleanInsert = () => store.commit("plasticCardModule/clean");
+const cleanInsert = () => store.commit("plasticCardModule/cleanForInsert");
 
 function submit() {
   cleanSelectedCard();
