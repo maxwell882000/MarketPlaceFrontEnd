@@ -88,9 +88,10 @@ export const plasticCardModule = {
             }
             commit("wait/END", "code", {root: true});
         },
-        async insertCardForBuy({dispatch, commit}, {code}) {
+        async insertCardForBuy({dispatch, commit, getters}, {code}) {
             await dispatch('insertCard', {code: code});
-            commit("registrationOrderModule/openPolicies", true, {root: true});
+            if (getters.error === null)
+                commit("registrationOrderModule/openPolicies", true, {root: true});
         },
         async insertCardForUser({dispatch, commit, getters}, {code, router}) {
             await dispatch("insertCard", {code: code});
@@ -102,7 +103,6 @@ export const plasticCardModule = {
         async dialCode({commit, getters}) {
             commit("wait/START", "code", {root: true});
             commit("setError", "");
-
             try {
                 const transaction_id = getters.transaction_id;
                 await plasticCardService.dialCode({transaction_id: transaction_id});
