@@ -54,7 +54,7 @@ export const purchaseModule = {
             const month = getters.selectedMonth.month;
             const purchase = getters.selectedMonth.purchase;
             commit("wait/START", "installment_" + purchase.id, {root: true});
-            commit("wait/START", "card_loaded", {root: true});
+            commit("wait/START", "buying_loaded", {root: true});
             try {
                 console.log('get getters');
                 console.log(getters);
@@ -80,7 +80,7 @@ export const purchaseModule = {
             }
             dispatch("closeModal");
             commit("wait/END", "installment_" + purchase.id, {root: true});
-            commit("wait/END", "card_loaded", {root: true});
+            commit("wait/END", "buying_loaded", {root: true});
 
         },
         async cancelInstallment({commit, getters}, {purchase, reason}) {

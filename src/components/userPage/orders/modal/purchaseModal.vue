@@ -16,7 +16,9 @@
       </loader>
     </template>
     <template #buttons>
-      <ButtonForm @submit="pay" :is-entered="isEntered()" title="Отплатить"></ButtonForm>
+      <loader waiting="buying_loaded">
+        <ButtonForm @submit="pay" :is-entered="isEntered()" title="Отплатить"></ButtonForm>
+      </loader>
     </template>
   </ModalView>
 </template>

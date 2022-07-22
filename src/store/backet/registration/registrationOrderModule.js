@@ -78,7 +78,7 @@ export const registrationOrderModule = {
                     ...getters.form,
                     ...rootGetters["plasticCardModule/plasticId"],
                     orders: rootGetters['prepareBasketModule/ordersId'],
-                    payment_type: true, // remove in production IMPORTANT !!! get initial payment from user
+                    // payment_type: true, // remove in production IMPORTANT !!! get initial payment from user
                 };
                 console.log("DATA SENDING");
                 console.log("REMOVE PAYMENT TYPE IN PRODUCTION !!!!!!!!");
