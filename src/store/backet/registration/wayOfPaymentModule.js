@@ -71,6 +71,9 @@ export const wayOfPaymentModule = {
         mainCredit(state) {
             return state.mainCredit;
         },
+        isFastPurchase(state) {
+           return !state.showPayment  || !state.showCredit;
+        },
         getMonth(state) {
             const credit = state.mainCredit.credits;
             if (credit && credit.length)

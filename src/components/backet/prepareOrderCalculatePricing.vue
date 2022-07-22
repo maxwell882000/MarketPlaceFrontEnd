@@ -13,7 +13,7 @@
       </div>
       <!--        <router-link to="/cart/prepareOrder" class='remove-link'>-->
       <ButtonForm @submit="()=>$router.push('/cart/prepareOrder/')" :is-entered="isSelectedEmpty"
-                  title="Перейти в оформлению"></ButtonForm>
+                  title="Перейти к оформлению"></ButtonForm>
       <!--        </router-link>-->
     </div>
   </div>

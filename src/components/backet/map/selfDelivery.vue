@@ -22,7 +22,7 @@
       </span>
       </div>
     </div>
-    <ButtonBlue @click="clean" title="Забрать самому"></ButtonBlue>
+    <ButtonBlue @click="goToPurchaseSelfDelivery" title="Забрать самому"></ButtonBlue>
   </loader>
 
 </template>
@@ -31,13 +31,14 @@ import {useStore} from "vuex";
 import {computed} from "vue";
 import Loader from "@/components/loading/loader";
 import ButtonBlue from "@/components/helper/button/buttonBlue";
-import {useRouter} from "vue-router";
+import usePurchaseFlow from "@/components/backet/purchaseFlow/setup/usePurchaseFlow";
 
-const router = useRouter();
 const store = useStore();
 const shops = computed(() => store.getters['deliveryInfoModule/shops']);
-const clean = () => {
-  store.dispatch("deliveryInfoModule/selfDelivery");
-  router.replace("/cart/prepareOrder");
-};
+const {goToPurchaseSelfDelivery} = usePurchaseFlow();
+// const clean = () => {
+//   store.dispatch("deliveryInfoModule/selfDelivery");
+//
+//   router.replace("/cart/prepareOrder");
+// };
 </script>

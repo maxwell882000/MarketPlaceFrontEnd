@@ -1,25 +1,20 @@
 import {useStore} from "vuex";
 import {computed} from "vue";
 import wayOfPaymentConstant from "@/constants/payment/wayOfPaymentConstant";
-import {useRouter} from "vue-router";
+import usePurchaseFlow from "@/components/backet/purchaseFlow/setup/usePurchaseFlow";
 
 export default function (installment, overallPrice, mainCredit) {
     const store = useStore();
     const wayOfPayment = computed(() => store.getters['registrationOrderModule/wayOfPayment']);
-    const clean = () => store.commit('wayOfPaymentModule/cleanShow');
-    const deleteWayOfPaymentKey = (key) => store.commit("registrationOrderModule/deleteWayOfPayment", key);
-    const route = useRouter();
 
-    function selectAndGoToPrepare() {
-        clean();
-        route.replace("/cart/prepareOrder");
-    }
+    const deleteWayOfPaymentKey = (key) => store.commit("registrationOrderModule/deleteWayOfPayment", key);
+    const {goToDeliveryOrDefault} = usePurchaseFlow();
 
     function acceptCash() {
         deleteKeys();
         wayOfPayment.value.type = wayOfPaymentConstant.CASH;
         wayOfPayment.value.main_credit_id = wayOfPaymentConstant.CASH - wayOfPaymentConstant.RE_MAP_STATUS_VALUE;
-        selectAndGoToPrepare();
+        goToDeliveryOrDefault();
     }
 
     function deleteKeys() {
@@ -37,7 +32,7 @@ export default function (installment, overallPrice, mainCredit) {
         deleteKeys();
         wayOfPayment.value.type = wayOfPaymentConstant.CARD;
         wayOfPayment.value.main_credit_id = wayOfPaymentConstant.CARD - wayOfPaymentConstant.RE_MAP_STATUS_VALUE;
-        selectAndGoToPrepare();
+        goToDeliveryOrDefault();
     }
 
     function acceptInstallment() {
@@ -49,7 +44,7 @@ export default function (installment, overallPrice, mainCredit) {
         wayOfPayment.value.over_payment = installment.percentageOverPayment;
         wayOfPayment.value.name = mainCredit.value.name;
         wayOfPayment.value.main_credit_id = mainCredit.value.id;
-        selectAndGoToPrepare();
+        goToDeliveryOrDefault();
     }
 
     return {

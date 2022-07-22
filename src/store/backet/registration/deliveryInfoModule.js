@@ -27,6 +27,7 @@ export const deliveryInfoModule = {
             commit("clean");
             commit('setStatus', deliveryStatusConstant.SELF_DELIVERY);
             commit("registrationOrderModule/cleanDelivery", null, {root: true});
+            return true; // fully valid
         },
         // eslint-disable-next-line no-unused-vars
         submitDelivery({commit, getters, dispatch}) {
@@ -45,7 +46,7 @@ export const deliveryInfoModule = {
                 dispatch("registrationOrderModule/getCostOfDelivery", null, {root: true});
             }
             getters.deliveryInfo['delivery'] = 0;
-            return result;
+            return result; // checking if the form is valid or not
         },
         async getMapSearchCity({commit}, search) {
             commit("wait/START", "map_city_loaded", {root: true});

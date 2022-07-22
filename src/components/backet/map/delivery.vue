@@ -52,7 +52,7 @@
                 placeholder="Комментарий для курьера"></TextArea>
     </b-col>
   </b-row>
-  <ButtonForm @submit="submitForm" :is-entered="isValid" class="p-2" title="Привезти сюда"></ButtonForm>
+  <ButtonForm @submit="goToPurchaseDelivery" :is-entered="isValid" class="p-2" title="Привезти сюда"></ButtonForm>
 </template>
 <script setup>
 import Location from "@/components/icons/location";
@@ -62,9 +62,9 @@ import {useStore} from "vuex";
 import {computed, ref} from "vue";
 import InputValidation from "@/components/helper/input/inputValidation";
 import useDebounce from "@/components/helper/debounce/useDebounce";
-import {useRouter} from "vue-router";
 import deliveryConstant from "@/constants/delivery/deliveryConstant";
 import Loader from "@/components/loading/loader";
+import usePurchaseFlow from "@/components/backet/purchaseFlow/setup/usePurchaseFlow";
 
 const store = useStore();
 const delivery = deliveryConstant;
@@ -82,13 +82,14 @@ const address_name = computed({
     })
   }
 })
-const router = useRouter();
+// const router = useRouter();
 const setAddressName = (address) => store.commit("deliveryInfoModule/setAddressName", address);
-const submitForm = async () => {
-  const result = await store.dispatch("deliveryInfoModule/submitDelivery");
-  if (result)
-    router.replace("/cart/prepareOrder");
-}
+const {goToPurchaseDelivery} = usePurchaseFlow();
+// const submitForm = async () => {
+//   const result = await store.dispatch("deliveryInfoModule/submitDelivery");
+//   if (result) // valid or not
+//     router.replace("/cart/prepareOrder");
+// }
 const onFocus = ref(false);
 
 </script>
