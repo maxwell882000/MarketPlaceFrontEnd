@@ -16,7 +16,7 @@
       </loader>
     </template>
     <template #buttons>
-      <loader waiting="buying_loaded">
+      <loader :div-style="{height: 'max-content'}" waiting="buying_loaded">
         <ButtonForm @submit="pay" :is-entered="isEntered()" title="Отплатить"></ButtonForm>
       </loader>
     </template>
