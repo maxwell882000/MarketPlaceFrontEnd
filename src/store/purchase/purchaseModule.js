@@ -53,7 +53,8 @@ export const purchaseModule = {
         async paidForMonth({commit, getters, dispatch}, plastic) {
             const month = getters.selectedMonth.month;
             const purchase = getters.selectedMonth.purchase;
-            commit("wait/START", "month_paid_loaded_" + purchase.id, {root: true});
+            commit("wait/START", "installment_" + purchase.id, {root: true});
+            commit("wait/START", "card_loaded", {root: true});
             try {
                 console.log('get getters');
                 console.log(getters);
@@ -69,7 +70,7 @@ export const purchaseModule = {
                 console.log(month.paid);
                 purchase.payble.next_paid_month = result.next_paid_month;
                 purchase.payble.status = result.status;
-                purchase.payble.already_paid = parseInt(purchase.payble.already_paid) + result.paid;
+                purchase.payble.already_paid = parseFloat(purchase.payble.already_paid) + parseFloat(result.paid);
                 commit('setSuccessModalView', "Успешно произошла оплата");
                 /// show success window
             } catch (e) {
@@ -78,7 +79,9 @@ export const purchaseModule = {
                 /// show error window
             }
             dispatch("closeModal");
-            commit("wait/END", "month_paid_loaded_" + purchase.id, {root: true});
+            commit("wait/END", "installment_" + purchase.id, {root: true});
+            commit("wait/END", "card_loaded", {root: true});
+
         },
         async cancelInstallment({commit, getters}, {purchase, reason}) {
             commit("wait/START", "installment_" + purchase.id, {root: true});

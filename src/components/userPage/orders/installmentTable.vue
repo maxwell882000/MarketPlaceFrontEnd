@@ -18,10 +18,9 @@
                 @click="payForMonth(item)"
                 class="button m-0"
                 title="Оплатить">
-
             </ButtonBlue>
             <span v-else-if="status.DECLINED === purchase.payble.status">Отказано</span>
-            <span v-else-if="item.must_pay === item.paid"> Оплачено!</span>
+            <span v-else-if="item.must_pay === item.paid" class="text-green"> Оплачено!</span>
             <span v-else> Не оплачено</span>
           </div>
 
@@ -49,7 +48,6 @@ const props = defineProps({
 const store = useStore();
 const payment = (selectedMonth) => store.dispatch('purchaseModule/startPayment', selectedMonth);
 const status = statusPayment;
-
 function checkIfInstallment(item) {
   return item.must_pay !== item.paid
       && status.ACCEPTED === props.purchase.payble.status
