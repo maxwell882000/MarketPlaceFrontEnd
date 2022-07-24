@@ -1,5 +1,5 @@
 <template>
-  <loader :waiting="'installment_' + purchase.id">
+  <loader :div-style="{height: 'max-content'}" :waiting="'installment_' + purchase.id">
     <div v-if="!purchase">
       ERROR HAPPENED
     </div>

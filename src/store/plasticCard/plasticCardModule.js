@@ -65,6 +65,7 @@ export const plasticCardModule = {
             } catch (e) {
                 console.log(e);
                 commit('setError', e);
+                commit("showAlert", e, {root: true});
             }
             commit("wait/END", "start_transaction_loaded", {root: true});
         },
@@ -85,6 +86,7 @@ export const plasticCardModule = {
             } catch (e) {
                 console.log(e);
                 commit('setError', e);
+                commit("showAlert", e, {root: true});
             }
             commit("wait/END", "code", {root: true});
         },

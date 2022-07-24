@@ -8,7 +8,7 @@
       </p>
     </div>
     <div class="my-2 my-sm-2 my-md-0 basket">
-      <CartButton class="basket" :basket="basket" :id="id"/>
+      <CartButton class="basket" :basket="basket" :image="image" :id="id"/>
     </div>
   </div>
 </template>
@@ -32,6 +32,9 @@ export default {
       default() {
         return false;
       },
+    },
+    image: {
+      type: String,
     },
     id: {
       type: Number,

@@ -31,6 +31,7 @@
       <p class="item-card__description mb-1">{{ product.title }}</p>
       <div class="item-card__price">
         <ItemCardPrice
+            :image="product.image"
             :basket="product.basket"
             :id="product.id"
             :credit="product.credit"

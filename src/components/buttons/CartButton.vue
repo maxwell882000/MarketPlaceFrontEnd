@@ -24,6 +24,9 @@ export default {
         return false;
       },
     },
+    image: {
+      type: String,
+    },
     id: {
       type: Number,
       default() {
@@ -41,10 +44,12 @@ export default {
       remove: 'backetModule/removeFromBasket',
       add: 'backetModule/addToBasket',
       getOrders: 'prepareBasketModule/getOrders',
-      getProducts: "prepareBasketModule/getInteristingProduct"
+      getProducts: "prepareBasketModule/getInteristingProduct",
+      showAlert: "showAlert",
     }),
     ...mapMutations({
-      setLogin: 'authWindow/setLogin'
+      setLogin: 'authWindow/setLogin',
+
     }),
     async clicked() {
       if (this.id && this.isAuthenticated) {
@@ -54,9 +59,13 @@ export default {
         } else {
           this.isBasket = true;
           await this.add(this.id);
+          this.showAlert({
+            image: this.image,
+            text: "Товар добавлен в корзину"
+          });
         }
 
-        if (this.$route.name === "basket") {
+        if (this.$route.name === "basket") { // if in the basket page
           await this.getOrders();
           await this.getProducts();
         }

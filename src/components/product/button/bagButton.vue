@@ -1,5 +1,5 @@
 <template>
-  <CartButton :basket="product.basket" :id="product.id"></CartButton>
+  <CartButton :image="product.image" :basket="product.basket" :id="product.id"></CartButton>
 </template>
 <script setup>
 import CartButton from "@/components/buttons/CartButton";

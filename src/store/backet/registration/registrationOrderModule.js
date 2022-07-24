@@ -94,6 +94,7 @@ export const registrationOrderModule = {
             } catch (e) {
                 console.log(e);
                 commit("plasticCardModule/setError", e, {root: true});
+                commit("showAlert", e, {root: true});
             }
             commit("wait/END", "create_purchases_loaded", {root: true});
         }

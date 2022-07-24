@@ -3,6 +3,7 @@
     <div>
       <AppHeader v-show="show"/>
       <router-view/>
+      <show-alert></show-alert>
     </div>
     <AppFooter v-show="show"/>
   </div>
@@ -12,10 +13,11 @@
 import AppHeader from "./components/header/App-Header";
 import AppFooter from "./components/App-Footer";
 import {mapActions, mapGetters, mapState} from "vuex";
+import ShowAlert from "@/components/alerts/showAlert";
 
 
 export default {
-  components: {AppFooter, AppHeader},
+  components: {ShowAlert, AppFooter, AppHeader},
   data() {
     return {
       message: 'Hello Vue!'
