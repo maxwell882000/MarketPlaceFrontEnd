@@ -52,7 +52,7 @@ export const plasticCardModule = {
             }
             commit("wait/END", "card_loaded", {root: true});
         },
-        async startTransaction({commit, getters}) {
+        async startTransaction({commit, getters, dispatch}) {
             commit("wait/START", "start_transaction_loaded", {root: true});
             commit("setError", "");
             try {
@@ -65,11 +65,11 @@ export const plasticCardModule = {
             } catch (e) {
                 console.log(e);
                 commit('setError', e);
-                commit("showAlert", e, {root: true});
+                dispatch("showAlert", e, {root: true});
             }
             commit("wait/END", "start_transaction_loaded", {root: true});
         },
-        async insertCard({commit, getters}, {code}) {
+        async insertCard({commit, getters, dispatch}, {code}) {
             commit("wait/START", "code", {root: true});
             commit("setError", null); // clean before use good solution !!
             try {
@@ -86,7 +86,7 @@ export const plasticCardModule = {
             } catch (e) {
                 console.log(e);
                 commit('setError', e);
-                commit("showAlert", e, {root: true});
+                dispatch("showAlert", e, {root: true});
             }
             commit("wait/END", "code", {root: true});
         },

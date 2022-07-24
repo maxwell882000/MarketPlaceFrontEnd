@@ -19,12 +19,12 @@ export const baseAlertModule = {
             setTimeout(() => {
                 commit("alertAppear", currentCounter);
             }, 200);
-            // setTimeout(() => {
-            //     commit('alertDisappear', currentCounter);
-            // }, 4000);
-            // setTimeout(() => {
-            //     commit('alertDelete', currentCounter)
-            // }, 6000);
+            setTimeout(() => {
+                commit('alertDisappear', currentCounter);
+            }, 4000);
+            setTimeout(() => {
+                commit('alertDelete', currentCounter)
+            }, 6000);
         }
     },
     mutations: {

@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e2d7beda599fe6eebac3",
+    "revision": "a0d831a0945ead8505f0",
     "url": "/css/app.7eec6498.css"
   },
   {
@@ -292,12 +292,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/xiaomi.e3904865.png"
   },
   {
-    "revision": "3f6d6f3c8caa7b5ac61d1494a7f6f87d",
+    "revision": "8327b241a0eae83f05b05011fe1899bc",
     "url": "/index.html"
   },
   {
-    "revision": "e2d7beda599fe6eebac3",
-    "url": "/js/app.3d84cd53.js"
+    "revision": "a0d831a0945ead8505f0",
+    "url": "/js/app.73f1f1ec.js"
   },
   {
     "revision": "1c66809c048a1bbc231b",

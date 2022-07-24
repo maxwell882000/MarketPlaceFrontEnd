@@ -67,7 +67,7 @@ export const registrationOrderModule = {
 
         // in this step everything must be ideal
         // because we are validating all data before submitting !
-        async purchaseOrders({commit, getters, rootGetters}) {
+        async purchaseOrders({commit, getters, rootGetters,dispatch}) {
             commit("wait/START", "create_purchases_loaded", {root: true});
             commit("plasticCardModule/setError", null, {root: true});
 
@@ -94,7 +94,7 @@ export const registrationOrderModule = {
             } catch (e) {
                 console.log(e);
                 commit("plasticCardModule/setError", e, {root: true});
-                commit("showAlert", e, {root: true});
+                dispatch("showAlert", e, {root: true});
             }
             commit("wait/END", "create_purchases_loaded", {root: true});
         }
