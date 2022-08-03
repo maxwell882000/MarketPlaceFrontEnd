@@ -76,6 +76,11 @@ export default {
   padding: 10px 0;
 }
 
+@media (max-width: 768px) {
+  .rounded-st {
+    border-radius: 0;
+  }
+}
 
 span {
   font-size: 13px !important;

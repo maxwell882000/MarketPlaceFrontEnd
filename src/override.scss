@@ -16,41 +16,50 @@
       color: black;
       border-radius: 7px !important;
     }
+
     .tab-header-active {
       background-color: var(--blue) !important;
       color: white !important;
     }
   }
 }
+
 .btn-check:focus + .btn, .btn:focus {
   box-shadow: none !important;
 }
+
 .splide__pagination__page.is-active {
   background-color: #007AFF !important;
   transform: none;
 }
+
 .custom-arrows {
   button.splide__arrow--prev {
     margin-left: -50px;
   }
+
   button.splide__arrow--next {
     margin-right: -50px;
   }
 }
+
 .about-item {
   .nav-tabs {
     border: none !important;
   }
+
   .nav-link {
     padding-left: 0 !important;
     border: none !important;
   }
+
   .active-tab {
     * {
       color: black !important;
     }
   }
 }
+
 .btn-light {
   background: #F2F2F2 !important;
   /* Gray 6 */
@@ -65,6 +74,7 @@
 
 .nav-tabs {
   border-bottom: none;
+
   .left-tabs {
     height: 100%;
     overflow-y: auto;
@@ -77,30 +87,35 @@
         display: flex;
         align-items: center;
         color: black !important;
-        
+
         svg {
           margin-right: 5px;
+
           path {
             stroke: black !important;
           }
         }
+
         &.active {
           color: var(--violet) !important;
-          
-          svg path{
+
+          svg path {
             stroke: var(--violet) !important;
           }
         }
       }
     }
   }
+
   .tab-content {
     padding-left: 20px;
   }
+
   .card-header {
     border-bottom: none;
   }
 }
+
 .text-violet, .text-violet * {
   color: var(--violet) !important;
 }
@@ -111,6 +126,9 @@
 
     .tab-pane {
       padding: 5px;
+      @media (max-width: 768px) {
+        padding: 0;
+      }
     }
   }
 }

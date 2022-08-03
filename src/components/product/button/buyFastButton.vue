@@ -10,3 +10,6 @@ import usePay from "@/components/product/button/setup/usePay";
 const {buyImmediately} = usePay("setShowCredit");
 
 </script>
+<style scoped>
+
+</style>

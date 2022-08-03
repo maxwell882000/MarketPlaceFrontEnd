@@ -12,11 +12,8 @@
     <BaseRoll :breakpoints="breakpoints" :perPage="perPage">
       <SplideSlide v-for="item in products" :key="slideKey + item.id ">
         <div class="w-100 m-auto d-lg-block d-sm-flex d-flex justify-content-center">
-          <item-card :product="item"/>
-        </div>
-      </SplideSlide>
-      <SplideSlide>
-        <div style="width:15%">
+          <item-card :class="isPadding && 'product-wide'"
+                     :product="item"/>
         </div>
       </SplideSlide>
     </BaseRoll>
@@ -40,6 +37,7 @@ defineProps({
   breakpoints: {
     type: Object
   },
+  isPadding: Boolean,
   products: {
     type: Array,
     default() {
@@ -67,32 +65,31 @@ defineProps({
 
 .sales-roll .splide__slide {
   width: max-content !important;
-
 }
 
-.sales-roll .item-card {
-  width: 13.8rem !important;
-
-  .splide__slide {
-    width: max-content !important;
-  }
-
-  @media (max-width: 491px) and (min-width: 420px) {
-    width: 13.8rem;
-
-
-  }
-  @media (max-width: 425px) {
-    width: 13.8rem;
-
-  }
-  @media (max-width: 375px) and (min-width: 321px) {
-    width: 13.8rem;
-
-  }
-  @media (max-width: 320px) {
-    width: 13.8rem;
-
-  }
-}
+//.sales-roll .item-card {
+//  width: 13.8rem !important;
+//
+//  .splide__slide {
+//    width: max-content !important;
+//  }
+//
+//  @media (max-width: 491px) and (min-width: 420px) {
+//    width: 13.8rem;
+//
+//
+//  }
+//  @media (max-width: 425px) {
+//    width: 13.8rem;
+//
+//  }
+//  @media (max-width: 375px) and (min-width: 321px) {
+//    width: 13.8rem;
+//
+//  }
+//  @media (max-width: 320px) {
+//    width: 13.8rem;
+//
+//  }
+//}
 </style>

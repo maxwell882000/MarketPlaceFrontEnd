@@ -95,6 +95,13 @@ export const mainModule = {
         product_of_day(state) {
             return state.product_of_day;
         },
+        timeObject(state) {
+            return {
+                hours: addZero(state.product_of_day.hours),
+                minutes: addZero(state.product_of_day.minutes),
+                seconds: addZero(state.product_of_day.seconds)
+            }
+        },
         getTime(state) {
             return addZero(state.product_of_day.hours) +
                 ":" + addZero(state.product_of_day.minutes) +

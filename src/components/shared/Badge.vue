@@ -1,17 +1,26 @@
 <template>
-  <div class="d-flex flex-nowrap badge p-0">
-    <div v-for="pathPart in path" :key="pathPart.name" class="link">
-      <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1.5 1L6.5 6L1.5 11" stroke="#9499A5" stroke-width="1.25" stroke-linecap="round"
-              stroke-linejoin="round"/>
-      </svg>
-      <router-link :to="pathPart.path">{{ pathPart.name }}</router-link>
-    </div>
-  </div>
+  <ResponsiveLayout>
+    <template #desktop>
+      <div v-bind="$attrs" class="d-flex flex-nowrap badge p-0">
+        <div v-for="pathPart in path" :key="pathPart.name" class="link">
+          <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.5 1L6.5 6L1.5 11" stroke="#9499A5" stroke-width="1.25" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+          <router-link :to="pathPart.path">{{ pathPart.name }}</router-link>
+        </div>
+      </div>
+    </template>
+  </ResponsiveLayout>
+
 </template>
 
 <script>
+import ResponsiveLayout from "@/components/responsive/ResponsiveLayout";
+
 export default {
+  components: {ResponsiveLayout},
+  inheritAttrs: false,
   props: {
     path: Array,
   }

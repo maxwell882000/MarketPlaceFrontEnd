@@ -6,7 +6,7 @@
                            :category="item">
       <br>
     </filter-category-first>
-    <filter-category-first :category="{name: 'Все категории', slug: false}" class="bold"></filter-category-first>
+    <filter-category-first :category="{name: 'Все категории', slug: false}"></filter-category-first>
   </template>
 </template>
 <script>

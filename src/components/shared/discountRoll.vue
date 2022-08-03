@@ -1,5 +1,5 @@
 <template>
-  <BaseRoll :autoWidth="true">
+  <BaseRoll  :autoWidth="true">
     <SplideSlide v-for="item in discount.items" :key="'discount_roll_' + item.id" class="">
       <discount-item class="" :item="item"></discount-item>
     </SplideSlide>

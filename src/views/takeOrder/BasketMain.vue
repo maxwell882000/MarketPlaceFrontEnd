@@ -46,6 +46,9 @@ export default {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+  @media (max-width: 768px) {
+    border-radius: 0px !important;
+  }
 
   &.empty-card {
     align-items: center;

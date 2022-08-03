@@ -73,15 +73,14 @@ export default {
 
 
 <style scoped lang="scss">
-
 .container {
   padding: 24px 0;
 
   .timer {
     background-color: var(--red);
     color: white;
-    font-size: 20px;
-    padding: 4px 15px;
+    font-size: 1.8rem;
+    padding: 1rem 15px;
     border-radius: 30px 8px 30px 8px;
   }
 }

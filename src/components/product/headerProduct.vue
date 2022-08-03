@@ -74,8 +74,10 @@ a:hover {
   @media (max-width: 767px) {
     flex-wrap: wrap;
     gap: 4px;
+    margin-bottom: 0;
     .top-icon {
       margin-left: 0;
+      padding: 0 !important;
     }
   }
 }

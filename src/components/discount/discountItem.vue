@@ -1,6 +1,6 @@
 <template>
   <div class="image-stock">
-    <b-img class="img-res rounded-st" :src="item.des_image" alt=""/>
+    <b-img class="img-res rounded-st" :src="item.image" alt=""/>
   </div>
 </template>
 

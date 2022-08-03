@@ -33,6 +33,15 @@ export default {
 }
 </script>
 <style scoped>
+@media (max-width: 768px) {
+  h6 {
+    margin: 0 !important;
+  }
+  .seller {
+    width: 100%;
+  }
+}
+
 .logo {
   height: 2rem;
 

@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-between w-100 m-auto banner-splide">
     <div class="col-lg-9 col-sm-12 col-12 h-max p-0">
       <Splide class="splide banner banner-only-arrows" :has-slider-wrapper="true"
-              :options="{ autoplay: true, type: 'loop' }">
+              :options="{ autoplay: true, type: 'loop',gap:10 }">
         <pagination-arrows></pagination-arrows>
         <SplideSlide class="border-sm" v-for="item in banners" :key="'banners_id' + item.id"
                      data-splide-interval="3000">

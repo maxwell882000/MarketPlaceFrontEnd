@@ -103,6 +103,11 @@
 .user-tabs .tab-content .tab-pane {
   padding: 5px;
 }
+@media (max-width: 768px) {
+  .user-tabs .tab-content .tab-pane {
+    padding: 0;
+  }
+}
 
 @media (max-width: 992px) {
   .user-tabs {

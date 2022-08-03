@@ -1,5 +1,5 @@
 <template>
-  <b-row>
+  <b-row class="bg-white-sm p-mobile py-2">
     <filtration-side></filtration-side>
     <b-col cols="12" class="col-xl-9 col-lg-9 col-md-8 col-sm-12">
       <slot></slot>

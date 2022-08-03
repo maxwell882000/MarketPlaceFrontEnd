@@ -2,6 +2,7 @@
   --blue: #007AFF;
   --red: #EB5757;
   --dark: #282F3C;
+  --black: #001A33;
   --dark-gray: #A1A1A5;
   --yellow: #FC9700;
   --orange: #FF7A00;
@@ -23,7 +24,7 @@
   --borderRadius: 12px;
   --borderRadius10: 10px;
   --borderRadius17: 17px;
-  --borderRadius24: 24px;
+  --borderRadius24: 22px;
   --marinTop: 20px;
 }
 
@@ -272,6 +273,12 @@ hr {
   position: fixed;
 }
 
+.bg-white-sm {
+  @media (max-width: 768px) {
+    background-color: white;
+  }
+}
+
 .absolute {
   position: absolute;
 }
@@ -310,6 +317,10 @@ hr {
 
 .bg-blue {
   background-color: var(--blue);
+}
+
+.bg-black-time {
+  background-color: var(--black);
 }
 
 .text-md {
@@ -353,10 +364,13 @@ h4 {
   background-color: white;
 }
 
-.p-mobile {
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
+@media (max-width: 768px) {
+  .p-mobile {
+    padding-left: 0.8rem !important;
+    padding-right: 0.8rem !important;
+  }
 }
+
 
 .back-violet {
   background: linear-gradient(105.69deg, #846AFF 5.61%, #748DFF 70.36%);
@@ -367,20 +381,16 @@ body {
   background-color: #F2F3F5 !important;
   min-height: 80vh;
   width: 100% !important;
-  font-size: 14px;
+  //font-size: 14px;
 
   overflow-x: hidden;
 }
 
 
-p, li, a {
-  font-size: 14px !important;
-}
-
 h5 {
-  font-size: 24px;
+  font-size: 1.7rem;
   font-weight: 500;
-  line-height: 29px;
+  line-height: 2rem;
 }
 
 small {
@@ -403,13 +413,8 @@ small {
 
 .dotted-table {
   width: 100%;
-  line-height: 18px;
-  @media (max-width: 468px) {
-    font-size: 0.7rem;
-  }
-  @media (max-width: 375px) {
-    font-size: 0.6rem;
-  }
+  line-height: 1.3rem;
+  font-size: 1rem;
 
   tr {
     height: 2rem;
@@ -676,3 +681,39 @@ html {
 
 }
 
+
+html {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .row {
+    padding: 0;
+    margin: 0;
+  }
+  .row > * {
+    padding: 0;
+  }
+}
+
+
+.product-wide {
+  @media (max-width: 768px) {
+    padding: 0.6rem !important;
+    width: 14rem !important;
+    height: 30rem !important;
+    max-width: 100% !important;
+  }
+}

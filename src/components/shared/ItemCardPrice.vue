@@ -1,10 +1,10 @@
 <template>
   <div class="d-flex align-items-center flex-wrap flex-sm-wrap flex-md-nowrap">
     <div v-if="Object.keys(credit).length  !== 0" class="price">
-      <small> {{ credit.name }}</small>
+      <span> {{ credit.name }}</span>
       <p class="mb-0 actual-number">
         <span class="numbers">{{ credit.price }}</span>
-        <small class="time text-nowrap"> x {{ credit.month }} мес</small>
+        <span class="month text-nowrap "> x {{ credit.month }} мес</span>
       </p>
     </div>
     <div class="my-2 my-sm-2 my-md-0 basket">
@@ -50,37 +50,26 @@ export default {
 
 <style scoped>
 @media (max-width: 491px) {
-  .price {
-    display: none;
-  }
+  /*.price {*/
+  /*  display: none;*/
+  /*}*/
 
 }
 
-@media (max-width: 767px) {
-  .price {
-    display: none;
-    margin-right: 0 !important;
-  }
+/*.price .actual-number {*/
+/*  font-size: 12px !important;*/
+/*  line-height: 15px;*/
+/*  font-weight: 400;*/
+/*}*/
 
-  .basket {
-    width: 100%;
-  }
-}
-
-.price .actual-number {
-  font-size: 12px !important;
-  line-height: 15px;
-  font-weight: 400;
-}
-
-.price .actual-number span {
-  font-size: 16px;
-  line-height: 17px;
-  font-weight: 700;
-}
+/*.price .actual-number span {*/
+/*  font-size: 1rem;*/
+/*  line-height: 17px;*/
+/*  font-weight: 700;*/
+/*}*/
 
 .price .actual-number small {
-  font-size: 13px;
+  font-size: 0.8rem;
   font-weight: 400;
   line-height: 15px;
 }
@@ -88,14 +77,14 @@ export default {
 .price {
   border: 1px solid #F2F2F2;
   border-radius: 8px;
-  padding: 3px 7px;
+  padding: 0.4rem;
   margin-right: 10px;
   line-height: 17px;
   width: 100%;
 }
 
-.price small {
-  font-size: 11px;
+.price .month {
+  font-size: 0.8rem;
 }
 
 .price .numbers {
@@ -103,7 +92,25 @@ export default {
   font-weight: 700;
 }
 
-.price .time {
-  font-weight: 600;
+
+@media (max-width: 767px) {
+  /*.price {*/
+  /*  display: none;*/
+  /*  margin-right: 0 !important;*/
+  /*}*/
+  .price {
+    border: none !important;
+    padding: 0;
+    margin-right: 0;
+  }
+
+  .price .numbers {
+    font-size: 1.3rem;
+  }
+
+  .basket {
+    width: 100%;
+  }
 }
+
 </style>

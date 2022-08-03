@@ -9,8 +9,8 @@
               class="splide custom-arrows w-100">
         <SplideSlide v-for="(element, index) in picturesList" :key="'splide_' + index" class="splide-slide">
 
-          <div class="image-size border-sm border-gray p-1 " :class="index=== currentIndex&& 'border-active'">
-            <img class="img-res p-2" :src="element" alt="xiaomi">
+          <div class="image-size border-sm border-gray p-1 " :class="index === currentIndex && 'border-active'">
+            <img class="img-res p-2 img-product" :src="element" alt="xiaomi">
           </div>
         </SplideSlide>
       </Splide>
@@ -42,7 +42,8 @@ export default {
         breakpoints: {
           767: {
             perPage: 1,
-            pagination: true
+            pagination: true,
+            padding: 0,
           },
           991: {
             perPage: 2,
@@ -83,8 +84,23 @@ export default {
 }
 </style>
 <style lang="scss" scoped>
+.border-gray {
+  @media (max-width: 768px) {
+    border: none;
+  }
+}
+
+.img-product {
+  @media (max-width: 768px) {
+    padding: 0 !important;
+  }
+}
+
 .border-active {
   border: 2px solid var(--blue);
+  @media (max-width: 768px) {
+    border: none;
+  }
 }
 
 .image-size {
@@ -109,7 +125,7 @@ export default {
     justify-content: center;
     align-items: center;
     @media (max-width: 767px) {
-
+      width: 100% !important;
       .image-size {
         height: 25rem;
         width: max-content;

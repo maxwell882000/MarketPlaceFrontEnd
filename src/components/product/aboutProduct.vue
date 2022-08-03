@@ -56,6 +56,10 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+p {
+  margin: 0 !important;
+}
+
 .about-item {
   .tab-content {
     font-weight: 300;

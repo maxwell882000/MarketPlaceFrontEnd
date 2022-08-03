@@ -7,11 +7,11 @@
       <div class="image-sizing">
         <b-img v-lazy="product.image" class="image_style" center fluid alt="item image"/>
       </div>
-      <div v-show="product.discount" class="item-card__image__sale-amount">
+      <div v-show="product.discount" class="item-card__image__sale-amount absolute">
         <span>-{{ product.discount }}%</span>
       </div>
     </div>
-    <div class="item-card__content d-flex flex-column h-100 justify-content-around">
+    <div class="item-card__content d-flex flex-column h-100 justify-content-between">
       <div class="item-card__rating">
         <b-icon
             class="item-card__rating__star"
@@ -97,15 +97,15 @@ export default {
   text-decoration: none;
   color: black;
   cursor: pointer;
-  height: 24.5rem;
+  height: 29rem;
   padding: 12px;
   background-color: white;
   border-radius: 12px;
-  width: 13.8rem;
+  width: 16rem;
   box-shadow: 0 0 0 transparent;
 
   .image-sizing {
-    height: 12.3rem;
+    height: 15.5rem;
   }
 
 
@@ -115,68 +115,68 @@ export default {
     margin-bottom: 0 !important;
   }
 
-  @media (max-width: 767px) {
-    .image_style {
-      height: 9rem;
-    }
-
-    .item-card__description {
-      font-size: 12px !important;
-      line-height: 13px;
-      margin-bottom: 0 !important;
-
-
-    }
-    .item-card__prices__ex-price {
-      font-size: 12px !important;
-      line-height: 13px;
-      margin-bottom: 0 !important;
-    }
-    .item-card__prices__new-price {
-      font-size: 15px !important;
-      line-height: 15px;
-      margin-bottom: 0 !important;
-
-    }
-  }
-  @media (max-width: 491px) {
-    height: 20.5rem !important;
-
-  }
-  @media (max-width: 491px) and (min-width: 420px) {
-    width: 12.5rem;
-    .image-sizing {
-      height: 10rem !important;
-    }
-
-  }
-  @media (max-width: 425px) and (min-width: 376px) {
-    width: 10.7rem;
-    .image-sizing {
-      height: 10rem !important;
-    }
-  }
-  @media (max-width: 375px) and (min-width: 321px) {
-    width: 10.2rem;
-    .image-sizing {
-      height: 7rem !important;
-    }
-  }
-  @media (max-width: 320px) {
-    width: 8.7rem;
-    .item-card__image__sale-amount {
-      font-size: 10px !important;
-    }
-    .item-card__description {
-      font-size: 10px !important;
-    }
-    .item-card__prices__ex-price {
-      font-size: 10px !important;
-    }
-    .item-card__prices__new-price {
-      font-size: 13px !important;
-    }
-  }
+  //@media (max-width: 767px) {
+  //  .image_style {
+  //    height: 9rem;
+  //  }
+  //
+  //  .item-card__description {
+  //    font-size: 12px !important;
+  //    line-height: 13px;
+  //    margin-bottom: 0 !important;
+  //
+  //
+  //  }
+  //  .item-card__prices__ex-price {
+  //    font-size: 12px !important;
+  //    line-height: 13px;
+  //    margin-bottom: 0 !important;
+  //  }
+  //  .item-card__prices__new-price {
+  //    font-size: 15px !important;
+  //    line-height: 15px;
+  //    margin-bottom: 0 !important;
+  //
+  //  }
+  //}
+  //@media (max-width: 491px) {
+  //  height: 20.5rem !important;
+  //
+  //}
+  //@media (max-width: 491px) and (min-width: 420px) {
+  //  width: 12.5rem;
+  //  .image-sizing {
+  //    height: 10rem !important;
+  //  }
+  //
+  //}
+  //@media (max-width: 425px) and (min-width: 376px) {
+  //  width: 10.7rem;
+  //  .image-sizing {
+  //    height: 10rem !important;
+  //  }
+  //}
+  //@media (max-width: 375px) and (min-width: 321px) {
+  //  width: 10.2rem;
+  //  .image-sizing {
+  //    height: 7rem !important;
+  //  }
+  //}
+  //@media (max-width: 320px) {
+  //  width: 8.7rem;
+  //  .item-card__image__sale-amount {
+  //    font-size: 10px !important;
+  //  }
+  //  .item-card__description {
+  //    font-size: 10px !important;
+  //  }
+  //  .item-card__prices__ex-price {
+  //    font-size: 10px !important;
+  //  }
+  //  .item-card__prices__new-price {
+  //    font-size: 13px !important;
+  //  }
+  //}
 
   .item-card__image {
     .item-card__image__like {
@@ -199,7 +199,6 @@ export default {
       margin-bottom: 5px;
       margin-left: 10px;
       font-size: 15px;
-      position: relative;
       padding: 2.5px 9.5px;
       border-radius: 20px;
       background-color: var(--red);
@@ -217,19 +216,19 @@ export default {
   }
 
   .item-card__prices {
-    line-height: 22px;
+    line-height: 1.7rem;
 
     .item-card__prices__ex-price {
-      min-height: 17px;
-      font-size: 14px;
-      line-height: 17px;
+      min-height: 1.19rem;
+      font-size: 1rem;
+      line-height: 1.19rem;
       text-decoration: line-through;
       color: var(--red);
       margin: 0;
     }
 
     .item-card__prices__new-price {
-      font-size: 18px;
+      font-size: 1.2rem;
     }
   }
 
@@ -240,6 +239,23 @@ export default {
     .item-card__image__like {
       opacity: 1;
       visibility: visible;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .item-card__image__like {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    height: 29rem;
+    padding: 0;
+    width: 11rem;
+    .image-sizing {
+      height: 12.5rem;
+    }
+
+    &:hover {
+      box-shadow: none;
     }
   }
 }

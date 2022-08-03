@@ -1,20 +1,16 @@
 <template>
-  <div class="p-mobile mob-home-container py-4 mt-2">
-    <name-and-route-all title="Хит продаж"></name-and-route-all>
-    <sales-roll :products="hit_products"></sales-roll>
-  </div>
+  <ProductItemMobile :products="hit_products" title="Хит продаж"></ProductItemMobile>
 </template>
 
 <script setup>
-import NameAndRouteAll from "@/components/mainPage/mobile/nameAndRouteAll";
-import SalesRoll from "@/components/shared/SalesRoll";
 import {useStore} from "vuex";
 import {computed} from "vue";
+import ProductItemMobile from "@/components/mainPage/mobile/ProductItemMobile";
 
 const store = useStore();
 const hit_products = computed(() => store.getters['mainModule/hit_products']);
 </script>
 
-<style scoped>
+<style>
 
 </style>

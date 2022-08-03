@@ -13,7 +13,7 @@
           </loader>
         </div>
       </b-col>
-      <b-col cols="12" class="col-xl-3 col-lg-4 col-md-12 col-sm-12 mb-4">
+      <b-col cols="12" class="col-xl-3 col-lg-4 col-md-12 col-sm-12 mb-2 mb-sm-2 mb-md-4 p-0">
         <rating-comment></rating-comment>
       </b-col>
     </b-row>
@@ -21,6 +21,11 @@
 </template>
 
 <style scoped>
+@media (max-width: 768px) {
+  .rounded-st {
+    border-radius: 0;
+  }
+}
 
 .comment {
   background-color: white;

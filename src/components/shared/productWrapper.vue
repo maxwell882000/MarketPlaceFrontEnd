@@ -1,8 +1,8 @@
 <template>
   <b-row class="items-list">
     <b-col :key="'product_keys_id' + item.id" v-for="item in products" cols="6"
-           class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-      <ItemCard :product="item"/>
+           class="col-xl-3 col-lg-4 col-md-6 col-sm-6 p-mobile">
+      <ItemCard class="m-auto product-wide" :product="item"/>
     </b-col>
   </b-row>
   <pagination-product v-show="checkPagination"></pagination-product>
@@ -22,7 +22,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .col {
   margin-bottom: var(--marinTop);
 }

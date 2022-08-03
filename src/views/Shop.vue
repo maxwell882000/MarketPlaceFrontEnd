@@ -1,7 +1,7 @@
 <template>
   <loader waiting="shop_loaded">
 
-    <section class="container">
+    <section class="container shop-card">
       <div class="margin-cont">
         <div
             v-bind:style="{ 'background-image': 'url(' + shop.image + ')' }"
@@ -45,8 +45,8 @@ import {computed} from "vue";
 import useFilterWithComponent from "@/components/filter/setup/useFilterWithComponent";
 import useFilterBy from "@/components/filter/setup/useFilterBy";
 import {useRoute} from "vue-router";
-import FilterWithProducts from "@/components/filter/component/filterWithProducts";
 import Loader from "@/components/loading/loader";
+import FilterWithProducts from "@/components/filter/component/filterWithProducts";
 
 const store = useStore();
 const route = useRoute();
@@ -58,41 +58,54 @@ useFilterWithComponent(useFilterBy({key: "shop_id", item: shop.value.id}))
 </script>
 
 <style scoped lang="scss">
-.star {
-  color: var(--yellow) !important;
-}
-
-.margin-cont {
-  margin-bottom: 2rem;
-}
-
-.thumbnail {
-  width: 100%;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  height: 300px;
-  //background-image: url("../assets/shop_cover.png");
-  background-size: cover; /* <------ */
-  background-repeat: no-repeat;
-  background-position: center center;
-  border-radius: 12px;
-  @media (max-width: 575px) {
-    margin-left: 2px;
+.shop-card {
+  .star {
+    color: var(--yellow) !important;
   }
 
-  .seller-cart {
-    background-color: white;
-    border-radius: 12px;
-    height: 10rem;
-    box-shadow: 10px 9px 19px rgba(0, 0, 0, 0.17);
-    padding: 20px;
+  .container {
+    @media (max-width: 768px) {
+      all: unset;
+    }
+  }
 
-    img.logo {
-      box-shadow: 0px 0.70562px 4.93934px rgba(0, 0, 0, 0.2);
-      width: 74px;
+  .row {
+    @media (max-width: 768px) {
+      margin: 1rem 0 !important;
+    }
+  }
+
+  .margin-cont {
+    margin-bottom: 2rem;
+  }
+
+  .thumbnail {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    height: 300px;
+    //background-image: url("../assets/shop_cover.png");
+    background-size: cover; /* <------ */
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 12px;
+    //@media (max-width: 575px) {
+    //  margin-left: 2px;
+    //}
+
+    .seller-cart {
+      background-color: white;
       border-radius: 12px;
+      height: 10rem;
+      box-shadow: 10px 9px 19px rgba(0, 0, 0, 0.17);
+      padding: 20px;
+
+      img.logo {
+        box-shadow: 0px 0.70562px 4.93934px rgba(0, 0, 0, 0.2);
+        width: 74px;
+        border-radius: 12px;
+      }
     }
   }
 }
-
 </style>
