@@ -28,7 +28,7 @@
           {{ product.real_price }} сум
         </h6>
       </div>
-      <p class="item-card__description mb-1">{{ product.title }}</p>
+      <p class="item-card__description two-only-sentence mb-1">{{ product.title }}</p>
       <div class="item-card__price">
         <ItemCardPrice
             :image="product.image"
@@ -87,11 +87,7 @@ export default {
 
 .item-card__description {
   font-size: 1rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+
 
 }
 

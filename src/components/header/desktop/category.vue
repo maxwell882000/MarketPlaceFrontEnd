@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import SubCategories from "@/components/header/subCategories";
+import SubCategories from "@/components/header/desktop/subCategories";
 
 export default {
   props: {

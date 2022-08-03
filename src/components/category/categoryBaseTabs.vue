@@ -23,7 +23,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .category-sub {
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 2.1rem;
+  line-height: 2.3rem;
 }
 </style>

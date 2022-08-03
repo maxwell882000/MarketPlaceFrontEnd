@@ -32,7 +32,7 @@
 
 <script>
 import {mapGetters,} from "vuex";
-import Category from "@/components/header/category";
+import Category from "@/components/header/desktop/category";
 
 export default {
   components: {Category},

@@ -64,7 +64,7 @@
 
 <script>
 import {disableScrollBar, enableScrollBar} from "@/utils/bodyScrollBar";
-import FilterTabs from "@/components/header/Filter-Tabs";
+import FilterTabs from "@/components/header/desktop/Filter-Tabs";
 import {mapGetters, mapMutations, mapState} from "vuex";
 
 export default {

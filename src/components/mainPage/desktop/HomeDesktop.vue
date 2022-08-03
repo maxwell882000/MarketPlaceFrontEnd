@@ -1,7 +1,7 @@
 <template>
   <loader waiting="main">
     <div class="container">
-      <BannerAndItem/>
+      <BannerAndItemDesktop/>
       <div class="home">
         <div class="mt-4 mb-2 ">
           <h5 class="text-sm-center">
@@ -28,16 +28,15 @@
 
 
 <script>
-import BannerAndItem from "../components/mainPage/BannerAndItem";
 import "@splidejs/splide/dist/css/splide.min.css";
 import SalesRoll from "@/components/shared/SalesRoll";
 import StocksTabs from "@/components/mainPage/StocksTabs";
 import {mapActions, mapGetters} from "vuex";
 import Loader from "@/components/loading/loader";
-
+import BannerAndItemDesktop from "@/components/mainPage/desktop/BannerAndItemDesktop";
 
 export default {
-  components: {Loader, StocksTabs, SalesRoll, BannerAndItem},
+  components: {Loader, StocksTabs, SalesRoll, BannerAndItemDesktop},
   data() {
     return {
       products: []
@@ -64,8 +63,7 @@ export default {
     ]),
   },
   async created() {
-    await this['mainModule/getMain']();
-    this['mainModule/getLenta']();
+
   },
   mounted() {
 

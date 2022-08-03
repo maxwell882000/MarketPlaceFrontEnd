@@ -3,7 +3,7 @@
     <div>
       <AppHeader v-show="show"/>
       <router-view/>
-      <show-alert></show-alert>
+      <show-alert> </show-alert>
     </div>
     <AppFooter v-show="show"/>
   </div>

@@ -10,7 +10,7 @@
 </template>
 <script>
 import {mapGetters} from "vuex";
-import Category from "@/components/header/category";
+import Category from "@/components/header/desktop/category";
 // import DiscountRoll from "@/components/shared/discountRoll";
 
 export default {

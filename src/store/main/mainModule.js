@@ -44,6 +44,8 @@ export const mainModule = {
                     // des_image
                 ],
             },
+            popular_category: [],
+            hit_products: [],
             product_of_day: {
                 hours: 23,
                 minutes: 59,
@@ -69,8 +71,14 @@ export const mainModule = {
         }
     },
     getters: {
-        lenta(state){
-          return state.lenta;
+        lenta(state) {
+            return state.lenta;
+        },
+        hit_products(state) {
+            return state.hit_products;
+        },
+        popular_category(state) {
+            return state.popular_category;
         },
         banners(state) {
             return state.banners;
@@ -150,11 +158,14 @@ export const mainModule = {
         hideFooterAndHeader(state) {
             state.showFooterAndHeader = false;
         },
+
         setMain(state, result) {
             state.banners = result.banners;
             state.product_of_day = result.product_of_day;
             state.product_of_day.seconds = 10;
             state.discount = result.discount;
+            state.popular_category = result.popular_category;
+            state.hit_products = result.hit_products;
         }
     },
 

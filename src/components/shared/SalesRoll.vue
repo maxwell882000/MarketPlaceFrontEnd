@@ -17,7 +17,6 @@
       </SplideSlide>
       <SplideSlide>
         <div style="width:15%">
-
         </div>
       </SplideSlide>
     </BaseRoll>

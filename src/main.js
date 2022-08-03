@@ -11,6 +11,7 @@ import VueClickAway from "vue3-click-away";
 import VueLazyLoad from 'vue3-lazyload'
 import VueVirtualScroller from 'vue-virtual-scroller'
 import "@egjs/vue3-flicking/dist/flicking.css";
+import {Vue3Mq} from "vue3-mq";
 
 // bootstrap css
 import 'bootstrap/dist/css/bootstrap.css'
@@ -28,6 +29,7 @@ createApp(App)
     .use(i18n)
     .use(store)
     .use(router)
+    .use(Vue3Mq)
     .use(VueClickAway)
     .use(VueSplide)
     .use(VueLazyLoad)

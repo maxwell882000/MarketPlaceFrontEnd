@@ -21,7 +21,6 @@
     <form class="w-100" autocomplete="off" @submit.stop.prevent>
       <div class="line"></div>
       <input
-          id="global_search"
           v-model="search"
           v-on:keyup.enter="() => search && $router.push('/search/' + search)"
           autocomplete="false"
@@ -46,17 +45,11 @@
 <script setup>
 import useSearch from "@/components/header/search/setup/useSearch";
 import SearchResults from "@/components/header/search/component/searchResults";
-import {ref} from "vue";
 import useSearchResults from "@/components/header/search/setup/useSearchResults";
 import Search from "@/components/icons/search";
 
-const onFocus = ref(false);
 
-function leaveFocus() {
-  setTimeout(() => onFocus.value = false, 150);
-}
-
-const {search, clearSearch} = useSearch();
+const {search, clearSearch, leaveFocus, onFocus} = useSearch();
 const {isVisible} = useSearchResults();
 </script>
 <style scoped lang="scss">

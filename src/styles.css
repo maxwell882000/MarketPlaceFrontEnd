@@ -2,6 +2,7 @@
   --blue: #007AFF;
   --red: #EB5757;
   --dark: #282F3C;
+  --dark-gray: #A1A1A5;
   --yellow: #FC9700;
   --orange: #FF7A00;
   --gray: #C0C0C0;
@@ -19,7 +20,9 @@
 :root {
   --borderRadius47: 47px;
   --borderRadius: 12px;
+  --borderRadius10: 10px;
   --borderRadius17: 17px;
+  --borderRadius24: 24px;
   --marinTop: 20px;
 }
 
@@ -142,6 +145,14 @@ hr {
 
 .text-orange {
   color: var(--orange);
+}
+
+.two-only-sentence {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .circle-singleline {
@@ -298,8 +309,8 @@ hr {
 }
 
 .text-md {
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.21rem;
+  line-height: 1.34rem;
 }
 
 .text-sm {
@@ -333,6 +344,11 @@ h4 {
 
 .bg-white {
   background-color: white;
+}
+
+.p-mobile {
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
 }
 
 .back-violet {
@@ -535,6 +551,10 @@ input[type=number] {
 
 .border-sm {
   border-radius: var(--borderRadius);
+}
+
+.border-xm {
+  border-radius: var(--borderRadius10);
 }
 
 .border-lg {

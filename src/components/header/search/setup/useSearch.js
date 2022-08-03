@@ -5,6 +5,12 @@ import {useRoute} from "vue-router";
 
 export default function () {
     const router = useRoute();
+    const onFocus = ref(false);
+
+    function leaveFocus() {
+        setTimeout(() => onFocus.value = false, 150);
+    }
+
     const search = ref(router.params.search || "");
     const store = useStore();
     const getSearchHelper = (val) => store.dispatch("searchModule/getSearchHelper", val);
@@ -29,6 +35,8 @@ export default function () {
     return {
         search: search,
         clearSearch: clearSearch,
-        submitSearch: submitSearch
+        submitSearch: submitSearch,
+        leaveFocus: leaveFocus,
+        onFocus: onFocus
     }
 }
