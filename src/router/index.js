@@ -158,11 +158,13 @@ const routes = [
                 name: "CategoryListView",
                 component: () => import("../views/category/categoryLastView"),
             },
-            {
-                path: "catalogue",
-                component: () => import("../views/category/categoryCatalogue"),
-            }
+
         ]
+    },
+    {
+        path: "/catalogue",
+        name: "catalogue",
+        component: () => import("../views/category/categoryCatalogue"),
     },
     {
         path: "/cart",
@@ -171,6 +173,7 @@ const routes = [
         meta: {
             middleware: [auth],
         },
+        name: "cart",
         children: [
             {
                 path: "",

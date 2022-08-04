@@ -55,6 +55,7 @@ export const authWindow = {
             state.success = "";
         },
         setLogin(state) {
+            console.log("LOGINING");
             state.isLogin = true;
             state.isForgetPassword = false;
             state.isRegister = false;

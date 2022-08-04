@@ -28,23 +28,34 @@
   </div>
   <b-row>
     <b-col class="my-1" cols="6">
-      <InputValidation :error="errors['street']" v-model="deliveryInfo[delivery.STREET]"
-                       class="w-100"
-                       placeholder="Улица"></InputValidation>
+      <div class="pr-1">
+        <InputValidation :error="errors['street']" v-model="deliveryInfo[delivery.STREET]"
+                         class="w-100"
+                         placeholder="Улица"></InputValidation>
+      </div>
     </b-col>
     <b-col class="my-1" cols="6">
-      <InputValidation type="number" :error="errors['index']"
-                       v-model="deliveryInfo[delivery.INDEX]"
-                       class="w-100" placeholder="Индекс"></InputValidation>
+      <div class="pl-1">
+        <InputValidation type="number" :error="errors['index']"
+                         v-model="deliveryInfo[delivery.INDEX]"
+                         class="w-100" placeholder="Индекс"></InputValidation>
+      </div>
+
     </b-col>
     <b-col class="my-1" cols="6">
-      <InputValidation :error="errors['house']" v-model="deliveryInfo[delivery.HOUSE]"
-                       class="w-100" placeholder="Дом"></InputValidation>
+      <div class="pr-1">
+        <InputValidation :error="errors['house']" v-model="deliveryInfo[delivery.HOUSE]"
+                         class="w-100" placeholder="Дом"></InputValidation>
+      </div>
+
     </b-col>
     <b-col class="my-1" cols="6">
-      <InputValidation type="number" :error="errors['flat']" v-model="deliveryInfo[delivery.FLAT]"
-                       class="w-100"
-                       placeholder="Квартира"></InputValidation>
+      <div class="pl-1">
+        <InputValidation type="number" :error="errors['flat']" v-model="deliveryInfo[delivery.FLAT]"
+                         class="w-100"
+                         placeholder="Квартира"></InputValidation>
+      </div>
+
     </b-col>
     <b-col class="my-1" cols="12">
       <TextArea v-model="deliveryInfo[delivery.INSTRUCTIONS]"

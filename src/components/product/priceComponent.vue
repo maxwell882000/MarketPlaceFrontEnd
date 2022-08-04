@@ -33,6 +33,9 @@ export default {
 .price {
   font-weight: 600;
   padding-bottom: 20px;
+  @media (max-width: 768px) {
+    padding-bottom: 0 !important;
+  }
 
   .sale-percent {
     padding: 2px 10px;

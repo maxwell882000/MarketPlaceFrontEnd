@@ -83,12 +83,13 @@ export default {
 }
 
 span {
-  font-size: 13px !important;
+  font-size: 0.80rem !important;
 }
 
 h4 {
   margin-bottom: 0;
   font-weight: 700;
+  line-height: 1.8rem;
 }
 
 </style>

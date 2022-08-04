@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white p-mobile py-4 mt-2">
+  <div v-if="component.length" class="bg-white p-mobile py-4 mt-2">
     <div class="product-content">
       <div>
         <color-component button="color-btn"></color-component>

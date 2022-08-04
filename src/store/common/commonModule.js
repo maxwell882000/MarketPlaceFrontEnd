@@ -6,7 +6,7 @@ export const commonModule = {
         return {
             drop_bar: [
                 // elements
-                //  name :string, slug : string, children: [],
+                // icon:string,  name :string, slug : string, children: [],
             ],
             nav_bar: [
                 // elements

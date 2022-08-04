@@ -3,7 +3,7 @@
     <b-form-checkbox v-model="checkShop">
       <b-icon icon="shop" class="me-1" variant="secondary"/>
       <router-link class="remove-link" :to="'/shop/' + order.shop.slug">
-        <span class="text-md bold px-2">{{ order.shop.name }}</span>
+        <span class="text-md text-500 px-2">{{ order.shop.name }}</span>
         <b-icon icon="chevron-right" variant="secondary"/>
       </router-link>
     </b-form-checkbox>

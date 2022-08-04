@@ -3,6 +3,7 @@
     <span style="color:white">
       {{ title }}
     </span>
+    <slot></slot>
   </Button>
 </template>
 <script>

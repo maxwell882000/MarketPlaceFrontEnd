@@ -22,7 +22,7 @@
         </div>
         <about-product></about-product>
       </b-col>
-      <b-col cols="12" class="col-xl-3 col-lg-4 col-md-12 col-sm-12  mb-4">
+      <b-col cols="12" class="col-xl-3 col-lg-4 col-md-12 col-sm-12  mb-4 p-0">
         <installment-product></installment-product>
         <!--          <delivery-product></delivery-product>-->
       </b-col>
@@ -37,7 +37,7 @@ import HeaderProduct from "@/components/product/headerProduct";
 import ColorComponent from "@/components/product/colorComponent";
 import ShopProduct from "@/components/product/shopProduct";
 import AboutProduct from "@/components/product/aboutProduct";
-import InstallmentProduct from "@/components/product/installmentProduct";
+import InstallmentProduct from "@/components/product/installment/installmentProduct";
 import Comments from "@/components/product/comment/comments";
 import Badge from "@/components/shared/Badge";
 import PicturesPart from "@/components/product/PicturesPart";

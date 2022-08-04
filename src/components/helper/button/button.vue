@@ -12,8 +12,8 @@
 
 .button-title {
   font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 0.875rem;
+  line-height: 1.0675rem;
 }
 
 .button-main {

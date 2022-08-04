@@ -53,9 +53,7 @@ import OpenLayer from "@/components/map/leaflet";
 import Delivery from "@/components/backet/map/delivery";
 import SelfDelivery from "@/components/backet/map/selfDelivery";
 import {mapActions, mapGetters, mapMutations} from "vuex";
-import {
-  LMarker, LPopup
-} from "@vue-leaflet/vue-leaflet";
+import {LMarker, LPopup} from "@vue-leaflet/vue-leaflet";
 
 export default {
   // eslint-disable-next-line vue/no-unused-components

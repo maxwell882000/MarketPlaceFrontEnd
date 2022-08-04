@@ -93,6 +93,11 @@
           </b-col>
         </b-row>
       </form>
+      <ResponsiveLayout>
+        <template #mobile>
+          <ButtonRed @click="logout" title="Выйти"></ButtonRed>
+        </template>
+      </ResponsiveLayout>
     </div>
   </loader>
 </template>
@@ -107,6 +112,8 @@ import Loader from "@/components/loading/loader";
 import {useStore} from "vuex";
 import Error from "@/components/helper/error/error";
 import Success from "@/components/helper/status/success";
+import ButtonRed from "@/components/helper/button/buttonRed";
+import ResponsiveLayout from "@/components/responsive/ResponsiveLayout";
 
 const user = computed(() => store.getters['user']);
 const store = useStore();
@@ -121,7 +128,7 @@ const successPassword = computed(() => store.getters['passwordModule/success']);
 // eslint-disable-next-line no-unused-vars
 const uploadAvatar = (val) => store.dispatch("changeAvatar", val);
 const changeUserData = (data) => store.dispatch("changeUserData", data);
-
+const logout = () => store.dispatch('logout');
 
 cleanPassword();
 watch(user, function () {

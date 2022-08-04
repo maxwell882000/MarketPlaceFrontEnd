@@ -17,14 +17,12 @@
             </button>
             <router-link class="relative" to="/favourite">
               <img src="@/assets/icons/heart.svg" alt="heart icon"/>
-              <span v-show="user.favourite_counter > 0" class="badge-number badge-favourite">{{
-                  user.favourite_counter
-                }}</span>
+              <badge-header class="badge-favourite" :counter="user.favourite_counter"></badge-header>
               {{ $t('Избранное') }}
             </router-link>
             <router-link class="relative" to="/cart">
               <img src="@/assets/icons/cart.svg" alt="cart icon"/>
-              <span v-show="user.basket_counter > 0" class="badge-number">{{ user.basket_counter }}</span>
+              <badge-header :counter="user.basket_counter"></badge-header>
               {{ $t('Корзина') }}
             </router-link>
             <AuthProfile>
@@ -43,7 +41,6 @@
       </div>
     </nav>
     <headerDownLine class="down-line"/>
-    <auth-modals></auth-modals>
   </section>
 
 </template>
@@ -53,11 +50,11 @@ import HeaderUpperLine from "./Header-Upper-Line";
 import HeaderDownLine from "./Header-Down-Line";
 import AuthProfile from "@/components/auth/authProfile";
 import SearchHeader from "@/components/header/search/component/searchHeader";
-import AuthModals from "@/components/auth/authModals";
 import {mapGetters} from "vuex";
+import BadgeHeader from "@/components/header/badge-header/badgeHeader";
 
 export default {
-  components: {AuthModals, SearchHeader, AuthProfile, HeaderUpperLine, HeaderDownLine},
+  components: {BadgeHeader, SearchHeader, AuthProfile, HeaderUpperLine, HeaderDownLine},
   data() {
     return {
       scrolled: false,
@@ -89,16 +86,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.badge-number {
-  position: absolute;
-  top: -5px;
-  right: 20px;
-  padding: 1px 6px;
-  font-size: 11px;
-  border-radius: 50%;
-  background: var(--red);
-  color: white;
-}
+
 
 .badge-favourite {
   right: 26px;

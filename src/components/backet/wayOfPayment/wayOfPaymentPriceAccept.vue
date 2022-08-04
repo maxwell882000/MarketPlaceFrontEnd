@@ -1,6 +1,6 @@
 <template>
   <section class="section-container mb-3">
-    <div class="d-flex  align-items-end">
+    <div class="d-flex  align-items-center">
       <slot></slot>
       <span class="text-sm"> {{ title }}</span>
     </div>

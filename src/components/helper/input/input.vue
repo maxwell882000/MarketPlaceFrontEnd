@@ -98,8 +98,8 @@ export default {
 <style scoped lang="scss">
 @use "sass:math";
 
-$inputHeight: 45px;
-$lineHeight: 18px;
+$inputHeight: 2.815rem;
+$lineHeight: 1.15rem;
 $center: math.div($inputHeight,2) - math.div($lineHeight,2);
 input[type="date"] {
   color: var(--dark);
@@ -116,7 +116,7 @@ input[type="date"] {
   top: $center;
   left: 7.5px;
   background-color: white;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: $lineHeight;
   transition: 0.5s;
   z-index: 0;
@@ -149,7 +149,7 @@ input[type="date"] {
   border: none;
   font-weight: 500;
   padding: 0 10px;
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: $lineHeight;
   outline: none;
   background: none;

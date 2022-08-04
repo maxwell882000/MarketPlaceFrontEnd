@@ -14,6 +14,7 @@
   --gray400: #E0E0E0;
   --gray500: #CFCFCF;
   --gray600: #C6C6C6;
+  --gray700: #F8F8F8;
   --star: #EDEDED;
   --green: #27AE60;
 }
@@ -667,6 +668,7 @@ html {
   .container {
     max-width: 100% !important;
     padding: 0 !important;
+    min-height: min-content !important;
   }
 
   .container {

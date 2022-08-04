@@ -10,7 +10,7 @@
         <SplideSlide v-for="(element, index) in picturesList" :key="'splide_' + index" class="splide-slide">
 
           <div class="image-size border-sm border-gray p-1 " :class="index === currentIndex && 'border-active'">
-            <img class="img-res p-2 img-product" :src="element" alt="xiaomi">
+            <img class="img-res p-2 img-product-picture" :src="element" alt="xiaomi">
           </div>
         </SplideSlide>
       </Splide>
@@ -90,7 +90,7 @@ export default {
   }
 }
 
-.img-product {
+.img-product-picture {
   @media (max-width: 768px) {
     padding: 0 !important;
   }

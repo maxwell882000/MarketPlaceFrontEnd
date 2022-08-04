@@ -12,6 +12,7 @@ import PaginationArrows from "@/components/helper/pagination/paginationArrows";
 export default {
   components: {PaginationArrows},
   props: {
+    gap: {},
     autoWidth: {
       type: Boolean,
       default() {
@@ -29,12 +30,13 @@ export default {
     }
   },
   methods: {
+    // eslint-disable-next-line no-unused-vars
     moved(event) {
-      const em = document.querySelector('.p-mobile');
-      console.log(getComputedStyle(em).paddingLeft);
-      console.log(event.index)
-      console.log(event.root);
-      console.log()
+      // const em = document.querySelector('.p-mobile');
+      // console.log(getComputedStyle(em).paddingLeft);
+      // console.log(event.index)
+      // console.log(event.root);
+      // console.log()
     }
   },
   data() {
@@ -45,7 +47,7 @@ export default {
         // perMove: 3,
         padding: "1.2rem",
         pagination: false,
-        gap: '10px',
+        gap: this.gap || '10px',
         // autoWidth: this.autoWidth,
         breakpoints: this.breakpoints != null ? this.breakpoints : {
           1400: {

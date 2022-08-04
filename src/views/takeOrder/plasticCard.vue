@@ -137,7 +137,7 @@ function validate() {
   min-width: 7rem;
   height: 5rem;
   margin: 0.4rem 0.2rem 0.4rem 0;
-  font-size: 8px;
+  font-size: 0.5rem;
   cursor: pointer;
   font-weight: 400;
   padding: 0.25rem;
