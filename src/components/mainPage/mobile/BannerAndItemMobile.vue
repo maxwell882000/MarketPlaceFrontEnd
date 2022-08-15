@@ -27,7 +27,7 @@ const banners = computed(() => store.getters['mainModule/banners'])
 .banner_image {
   height: 30vh;
   @media (max-width: 768px) {
-    height: 18vh;
+    height: 10.714rem;
   }
 }
 
