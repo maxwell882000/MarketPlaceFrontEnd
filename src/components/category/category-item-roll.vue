@@ -1,10 +1,10 @@
 <template>
   <div class="d-flex flex-column category-item-roll
                              justify-content-center align-items-center">
-    <div style="height: 3rem; width: 3rem">
+    <div class="size-category-pop">
       <img class="img-res" :src="item.icon" alt="category">
     </div>
-    <div style="height: 1.8rem;overflow: hidden">
+    <div class="name-category-pop">
        <span class="text-sm text-center two-only-sentence">
             {{ item.name }}
           </span>
@@ -22,5 +22,15 @@ defineProps({
 </script>
 
 <style scoped>
+.name-category-pop {
+  height: 2.643rem;
+  overflow: hidden;
+  padding-top: 0.5rem;
 
+}
+
+.size-category-pop {
+  height: 2.643rem;
+  width: 2.643rem;
+}
 </style>

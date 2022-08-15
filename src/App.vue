@@ -1,12 +1,31 @@
 <template>
-  <div class="body d-flex flex-column justify-content-between">
-    <div>
-      <AppHeader v-show="show"/>
-      <router-view/>
-      <show-alert></show-alert>
-    </div>
-    <AppFooter v-show="show"/>
-  </div>
+  <ResponsiveLayout>
+    <template #desktop>
+      <div class="body d-flex flex-column justify-content-between">
+        <div>
+          <AppHeader v-show="show"/>
+          <router-view/>
+        </div>
+        <AppFooter v-show="show"/>
+      </div>
+    </template>
+    <template #mobile>
+      <div class="d-flex flex-column" style="height: 100vh!important;">
+        <AppHeader v-show="show"></AppHeader>
+        <div class="remove-scroll h-100" style="overflow: scroll">
+          <router-view></router-view>
+          <div class="py-4">
+
+          </div>
+        </div>
+
+        <AppFooter v-show="show">
+
+        </AppFooter>
+      </div>
+    </template>
+  </ResponsiveLayout>
+  <show-alert></show-alert>
 </template>
 
 <script>
@@ -14,10 +33,11 @@ import AppHeader from "./components/header/App-Header";
 import AppFooter from "./components/footer/App-Footer";
 import {mapActions, mapGetters, mapState} from "vuex";
 import ShowAlert from "@/components/alerts/showAlert";
+import ResponsiveLayout from "@/components/responsive/ResponsiveLayout";
 
 
 export default {
-  components: {ShowAlert, AppFooter, AppHeader},
+  components: {ResponsiveLayout, ShowAlert, AppFooter, AppHeader},
   data() {
     return {
       message: 'Hello Vue!'
@@ -67,6 +87,7 @@ export default {
       }
 
     }
+
     @media (max-width: 1024px) {
       .splide__list {
         width: 120%;

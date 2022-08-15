@@ -46,8 +46,8 @@ const options = {
 </style>
 <style scoped>
 .discount_mobile {
-  height: 25rem;
-  border-radius: var(--borderRadius10);
-  width: 14rem;
+  height: 17.5rem;
+  border-radius: 1.143rem;
+  width: 9.786rem;
 }
 </style>

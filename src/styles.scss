@@ -1,6 +1,7 @@
 :root {
   --blue: #007AFF;
   --red: #EB5757;
+  --black-dot: #243544;
   --dark: #282F3C;
   --black: #001A33;
   --dark-gray: #A1A1A5;
@@ -26,6 +27,12 @@
   --borderRadius17: 17px;
   --borderRadius24: 22px;
   --marinTop: 20px;
+}
+
+.header-text-1 {
+  font-size: 1.214rem;
+  line-height: 1.5rem;
+  font-weight: 500;
 }
 
 .mt-custom {
@@ -153,6 +160,7 @@ hr {
 .two-only-sentence {
   overflow: hidden;
   text-overflow: ellipsis;
+  line-break: anywhere;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -244,6 +252,9 @@ hr {
 .text-500 {
   font-weight: 500;
 }
+.text-700 {
+  font-weight: 700;
+}
 
 .text-gray {
   color: var(--gray200) !important;
@@ -330,8 +341,8 @@ hr {
 }
 
 .text-sm {
-  font-size: 0.8rem !important;
-  line-height: 0.9rem !important;
+  font-size: 0.857rem !important;
+  line-height: 1.037rem !important;
 }
 
 h4 {
@@ -393,6 +404,20 @@ h5 {
   line-height: 2rem;
 }
 
+.text-header-32 {
+  font-size: 2.286rem !important;
+  line-height: 2.766rem !important;
+  @media (max-width: 768px) {
+    font-size: 1.143rem !important;
+    line-height: 1.571rem !important;
+  }
+}
+
+.text-18 {
+  font-size: 1.286rem !important;
+  line-height: 1.556rem !important;
+}
+
 small {
   font-size: 12px !important;
 }
@@ -415,9 +440,11 @@ small {
   width: 100%;
   line-height: 1.3rem;
   font-size: 1rem;
+  color: var(--dark);
 
   tr {
-    height: 2rem;
+    height: 2.571rem;
+    color: var(--dark);
 
     th:first-child::before {
       width: 100%;
@@ -444,8 +471,9 @@ small {
 
   span {
     font-weight: 400;
+    color: var(--dark);
     background-color: white;
-    padding-bottom: 0.6rem;
+    //padding-bottom: 0.6rem;
   }
 }
 
@@ -458,6 +486,11 @@ small {
   line-height: 17px;
   color: var(--gray);
   margin-bottom: 0;
+  @media (max-width: 768px) {
+    small {
+      font-size: 1rem !important;
+    }
+  }
 }
 
 .text-error {
@@ -615,6 +648,11 @@ input[type=number] {
   color: var(--dark);
 }
 
+.text-normal {
+  font-size: 1rem;
+  line-height: 1.286rem;
+}
+
 .text-underline {
   text-decoration: underline;
 }
@@ -668,13 +706,13 @@ input[type=number] {
 
 html {
   @media (max-width: 767px) {
-    .nav, .d-flex {
+    .nav, .d-flex, .remove-scroll::-webkit-scrollbar {
       -ms-overflow-style: none; /* for Internet Explorer, Edge */
       scrollbar-width: none; /* for Firefox */
       overflow-y: scroll;
     }
 
-    .nav::-webkit-scrollbar, .d-flex::-webkit-scrollbar {
+    .nav::-webkit-scrollbar, .d-flex::-webkit-scrollbar, .remove-scroll::-webkit-scrollbar {
       display: none; /* for Chrome, Safari, and Opera */
     }
   }
@@ -687,9 +725,9 @@ html {
 }
 
 @media (max-width: 768px) {
-  html {
-    font-size: 12px;
-  }
+  //html {
+  //  font-size: 12px;
+  //}
   .container {
     max-width: 100% !important;
     padding: 0 !important;
@@ -712,9 +750,64 @@ html {
 
 .product-wide {
   @media (max-width: 768px) {
-    padding: 0.6rem !important;
-    width: 14rem !important;
-    height: 30rem !important;
+    margin: 1rem !important;
+    padding: 0.8rem !important;
+    width: 16.429rem !important;
+    height: 31.571rem !important;
     max-width: 100% !important;
+    box-shadow: 0px 4px 12px 1px rgba(27, 31, 53, 0.09) !important;
+    border-radius: 10px;
+    .image-sizing {
+      width: 13rem !important;
+      height: 13rem !important;
+    }
+    .item-card__image__sale-amount {
+      margin-left: 0 !important;
+    }
+    .item-card__rating span {
+      font-size: 1rem !important;
+      line-height: 1.214rem !important;
+    }
+
+    .item-card__prices__ex-price {
+      min-height: 1.071rem !important;
+      font-size: 0.857rem !important;
+      line-height: 1.071rem !important;
+    }
+    .item-card__description {
+      font-size: 1.286rem !important;
+      line-height: 1.571rem !important;
+      font-weight: 300;
+    }
+    .item-card__price {
+      .basket {
+        margin-top: 0.5rem;
+      }
+
+      .price {
+        font-size: 1.714rem;
+        line-height: 2.071rem;
+
+        .name-price {
+          font-size: 1rem;
+          line-height: 1.214rem;
+        }
+
+        .numbers {
+          font-size: 1.714rem !important;
+          line-height: 2.071rem !important;
+          font-weight: 500 !important;
+        }
+
+        .month {
+          font-size: 1.143rem;
+          line-height: 1.357rem;
+        }
+      }
+    }
+    .item-card__prices__new-price {
+      font-size: 1.143rem !important;
+      line-height: 1.357rem !important;
+    }
   }
 }

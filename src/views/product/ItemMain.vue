@@ -137,6 +137,9 @@ export default {
     color: #282f3c;
     font-size: 14px;
     font-weight: 500;
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
 
     &:hover {
       background-color: var(--gray400);;

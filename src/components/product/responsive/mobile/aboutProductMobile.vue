@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white p-mobile mt-2">
+  <div class="bg-white p-mobile py-4 mt-2">
     <about-product></about-product>
   </div>
 </template>

@@ -8,7 +8,7 @@
           @click="setColor(color, colorIndex)"
           :class="['color-btn', this.selected === color.id && 'active']"
       >
-        <img :src="color.image" alt="color"/>
+        <img :src="color.image" class="m-auto" alt="color"/>
         <small>{{ color.color_name }}</small>
       </button>
     </div>
@@ -54,8 +54,19 @@ export default {
 }
 </script>
 <style lang="scss">
+.color-btn {
+  min-height: 7.786rem;
+  width: 5.714rem;
+  padding: 0.5rem;
+}
+
 .color-select {
   display: flex;
   flex-wrap: wrap;
+
+  small {
+    font-size: 0.929rem !important;
+    line-height: 1.124rem;
+  }
 }
 </style>

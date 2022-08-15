@@ -4,7 +4,7 @@
     <Slider @change="e=>{$emit('range-change', e);}" :tooltips="false" v-bind="$props" :min="min" :max="max"
             style="position: relative; top: -4px;"
             v-model="_value"/>
-    <div class="triangle-right"></div>
+<!--    <div class="triangle-right"></div>-->
   </div>
   <div class="d-flex text-gray text-sm justify-content-between">
     <span>от {{ showLabelMin }}</span>

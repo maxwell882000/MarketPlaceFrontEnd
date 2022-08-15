@@ -19,7 +19,7 @@ export default {
 </script>
 <style scoped>
 .by-shop {
-  width: 6rem;
-  height: 2rem;
+  width: 6.143rem;
+  height: 1.286rem;
 }
 </style>

@@ -63,7 +63,7 @@ import ItemMobile from "@/components/product/responsive/mobile/ItemMobile";</scr
   }
 
   .param-option {
-    padding: 3px 15px;
+    padding: 5.5px 15px;
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <CartButton :image="product.image" :basket="product.basket" :id="product.id"></CartButton>
+  <CartButton :is-svg="true" :image="product.image" :basket="product.basket" :id="product.id"></CartButton>
 </template>
 <script setup>
 import CartButton from "@/components/buttons/CartButton";

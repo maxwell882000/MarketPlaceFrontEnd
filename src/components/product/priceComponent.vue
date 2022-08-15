@@ -1,10 +1,13 @@
 <template>
-  <p v-show="changedPrice" class="old-price">
-    <small>{{ priceOld }} сум</small>
-  </p>
-  <h5 class="price">
-    {{ priceNew }} сум <small class="sale-percent" v-show="discount">-{{ discount }}%</small>
-  </h5>
+  <div>
+    <p v-show="changedPrice" class="old-price">
+      <small>{{ priceOld }} сум</small>
+    </p>
+    <h5 class="price">
+      {{ priceNew }} сум <small class="sale-percent" v-show="discount">-{{ discount }}%</small>
+    </h5>
+  </div>
+
 </template>
 <script>
 import {mapGetters} from "vuex";
@@ -40,6 +43,8 @@ export default {
   .sale-percent {
     padding: 2px 10px;
     font-weight: 400;
+    position: relative;
+    bottom: 3.8px;
     background-color: var(--red);
     border-radius: 20px;
     color: white;

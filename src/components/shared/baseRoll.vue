@@ -4,6 +4,7 @@
       <pagination-arrows></pagination-arrows>
     </template>
     <slot></slot>
+<!--    <div></div>-->
   </Splide>
 </template>
 <script>
@@ -42,7 +43,7 @@ export default {
   data() {
     return {
       splideOptions: {
-        type: "noloop",
+        // type: "noloop",
         // perPage: this.perPage,
         // perMove: 3,
         padding: "1.2rem",

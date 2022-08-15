@@ -67,7 +67,6 @@ export default {
     }),
     splideMove(Proxy, newIndex) {
       if (newIndex !== 0) {
-
         event?.stopImmediatePropagation()
         this.currentIndex = newIndex.index;
         this.setImage(this.picturesList[newIndex.index]);

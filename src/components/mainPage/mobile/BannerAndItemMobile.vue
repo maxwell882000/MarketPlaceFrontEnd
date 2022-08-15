@@ -23,9 +23,12 @@ const store = useStore();
 const banners = computed(() => store.getters['mainModule/banners'])
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .banner_image {
   height: 30vh;
+  @media (max-width: 768px) {
+    height: 18vh;
+  }
 }
 
 

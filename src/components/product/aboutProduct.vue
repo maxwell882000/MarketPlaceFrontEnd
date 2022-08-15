@@ -4,7 +4,7 @@
         class=""
         active-nav-item-class="active-tab"
         active-tab-class=""
-        content-class="mt-3"
+        content-class="my-3"
     >
       <b-tab>
         <template #title>
@@ -55,6 +55,30 @@ export default {
   methods: {}
 }
 </script>
+<style lang="scss">
+@media (max-width: 768px) {
+  .about-item {
+    .nav {
+      justify-content: space-around;
+    }
+
+    .nav-tabs .nav-link.active {
+      color: var(--dark) !important;
+    }
+
+    .nav-tabs .nav-link.active:after {
+      content: "";
+      display: block; /* This will put the pseudo element on its own line. */
+      margin: 0 auto; /* This will center the border. */
+      width: 50%; /* Change this to whatever width you want. */
+      //padding-top: 20px; /* This creates some space between the element and the border. */
+      border-bottom: 2px solid var(--blue) !important;
+      border-radius: 7px;
+    }
+  }
+
+}
+</style>
 <style scoped lang="scss">
 p {
   margin: 0 !important;
@@ -65,6 +89,18 @@ p {
     font-weight: 300;
     font-size: 24px;
     line-height: 29px;
+  }
+
+  @media (max-width: 768px) {
+
+    .nav-tabs .tab-content {
+      padding-left: 0 !important;
+    }
+    .tab-content {
+      font-size: 1rem !important;
+      line-height: 1.214rem !important;
+    }
+
   }
 
   .header-part {

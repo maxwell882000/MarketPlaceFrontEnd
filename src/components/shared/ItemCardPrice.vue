@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex align-items-center flex-wrap flex-sm-wrap flex-md-nowrap">
     <div v-if="Object.keys(credit).length  !== 0" class="price">
-      <span> {{ credit.name }}</span>
+      <span class="name-price"> {{ credit.name }}</span>
       <p class="mb-0 actual-number">
         <span class="numbers">{{ credit.price }}</span>
         <span class="month text-nowrap "> x {{ credit.month }} мес</span>
@@ -104,12 +104,23 @@ export default {
     margin-right: 0;
   }
 
+  .name-price {
+    font-size: 0.857rem;
+    line-height: 1.071rem;
+  }
+
   .price .numbers {
-    font-size: 1.3rem;
+    font-size: 1.143rem;
+    line-height: 1.214rem;
+  }
+
+  .price .month {
+    font-size: 0.929rem;
+    line-height: 1.143rem;
   }
 
   .basket {
-    width: 100%;
+    width: 95%;
   }
 }
 

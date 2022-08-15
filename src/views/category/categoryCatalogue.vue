@@ -1,13 +1,24 @@
 <template>
   <section>
     <div class="bg-white py-4 p-mobile catalogue">
-      <category-roll key-arg="category_catalogue_" :categories="categories" v-slot="{item}">
-        <button @click="setCategory(item)">
-          <category-item-roll :item="item"
-                              :class="selectedCategory.slug === item.slug && 'active-catalogue-category'">
-          </category-item-roll>
-        </button>
-      </category-roll>
+      <Splide :options="{arrows:false, pagination:false}" class="catalogue-roll"
+              key-arg="category_catalogue_"
+              :categories="categories">
+        <SplideSlide :key="'category_catalogue_' + item.id" v-for="item in categories">
+          <button @click="setCategory(item)">
+            <category-item-roll :item="item"
+                                :class="selectedCategory.slug === item.slug && 'active-catalogue-category'">
+            </category-item-roll>
+          </button>
+        </SplideSlide>
+        <SplideSlide :key="'category_catalogue_213' + item.id" v-for="item in categories">
+          <button @click="setCategory(item)">
+            <category-item-roll :item="item"
+            >
+            </category-item-roll>
+          </button>
+        </SplideSlide>
+      </Splide>
     </div>
     <div class="bg-white p-mobile my-2 py-3"
          :key="'category_catalogue'+ item.slug"
@@ -34,7 +45,6 @@
 </template>
 
 <script setup>
-import CategoryRoll from "@/components/category/category-roll";
 // import CategoryItemRoll from "@/components/category/category-item-roll";
 import {useStore} from "vuex";
 import {computed, ref, watch} from "vue";
@@ -79,11 +89,22 @@ button {
   justify-content: space-between;
   align-items: center;
 }
+
 .mini_categories:first-child {
   padding-top: 1.6rem;
 }
 </style>
 <style lang="scss">
+
+.catalogue .splide__slide {
+  width: max-content !important;
+}
+
+.catalogue .name-category-pop span {
+  font-size: 0.714rem !important;
+  line-height: 0.929rem !important;
+}
+
 .active-catalogue-category {
   background-color: var(--gray700) !important;
 }

@@ -4,7 +4,6 @@
       <slot :item="item">
         <category-item-roll :item="item"></category-item-roll>
       </slot>
-
     </SplideSlide>
   </Splide>
 </template>
@@ -18,7 +17,3 @@ defineProps({
   keyArg: String,
 })
 </script>
-
-<style scoped>
-
-</style>

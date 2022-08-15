@@ -18,8 +18,8 @@
             icon="star-fill"
             size="sm">
         </b-icon>
-        <small class="mx-1">{{ product.mark }}</small>
-        <small class="mx-2">{{ product.num_comment }} отзывов</small>
+        <span class="mx-1">{{ product.mark }}</span>
+        <span class="mx-2">{{ product.num_comment }} отзывов</span>
       </div>
       <div class="item-card__prices">
 
@@ -87,17 +87,16 @@ export default {
 
 .item-card__description {
   font-size: 1rem;
-
-
 }
 
 .item-card {
   transition: all 0.3s;
   display: block;
   text-decoration: none;
-  color: black;
+  color: var(--dark);
   cursor: pointer;
   height: 29rem;
+  position: relative;
   padding: 12px;
   background-color: white;
   border-radius: 12px;
@@ -106,6 +105,7 @@ export default {
 
   .image-sizing {
     height: 15.5rem;
+    margin: auto;
   }
 
 
@@ -114,69 +114,6 @@ export default {
     line-height: 15px;
     margin-bottom: 0 !important;
   }
-
-  //@media (max-width: 767px) {
-  //  .image_style {
-  //    height: 9rem;
-  //  }
-  //
-  //  .item-card__description {
-  //    font-size: 12px !important;
-  //    line-height: 13px;
-  //    margin-bottom: 0 !important;
-  //
-  //
-  //  }
-  //  .item-card__prices__ex-price {
-  //    font-size: 12px !important;
-  //    line-height: 13px;
-  //    margin-bottom: 0 !important;
-  //  }
-  //  .item-card__prices__new-price {
-  //    font-size: 15px !important;
-  //    line-height: 15px;
-  //    margin-bottom: 0 !important;
-  //
-  //  }
-  //}
-  //@media (max-width: 491px) {
-  //  height: 20.5rem !important;
-  //
-  //}
-  //@media (max-width: 491px) and (min-width: 420px) {
-  //  width: 12.5rem;
-  //  .image-sizing {
-  //    height: 10rem !important;
-  //  }
-  //
-  //}
-  //@media (max-width: 425px) and (min-width: 376px) {
-  //  width: 10.7rem;
-  //  .image-sizing {
-  //    height: 10rem !important;
-  //  }
-  //}
-  //@media (max-width: 375px) and (min-width: 321px) {
-  //  width: 10.2rem;
-  //  .image-sizing {
-  //    height: 7rem !important;
-  //  }
-  //}
-  //@media (max-width: 320px) {
-  //  width: 8.7rem;
-  //  .item-card__image__sale-amount {
-  //    font-size: 10px !important;
-  //  }
-  //  .item-card__description {
-  //    font-size: 10px !important;
-  //  }
-  //  .item-card__prices__ex-price {
-  //    font-size: 10px !important;
-  //  }
-  //  .item-card__prices__new-price {
-  //    font-size: 13px !important;
-  //  }
-  //}
 
   .item-card__image {
     .item-card__image__like {
@@ -247,12 +184,47 @@ export default {
       opacity: 1 !important;
       visibility: visible !important;
     }
-    height: 29rem;
+    height: 22.857rem;
     padding: 0;
-    width: 11rem;
+    width: 10.143rem;
     .image-sizing {
-      height: 12.5rem;
+      height: 10.143rem;
     }
+    .item-card__rating {
+      span {
+        font-size: 0.714rem;
+        line-height: 0.864rem;
+      }
+    }
+    .item-card__image {
+      .item-card__image__sale-amount {
+        padding: 1px 12px;
+        margin-left: 4px;
+
+        span {
+          font-size: 0.714rem;
+          line-height: 0.857rem;
+        }
+      }
+    }
+
+    .item-card__prices {
+      .item-card__prices__ex-price {
+        min-height: 1rem;
+        font-size: 0.786rem;
+        line-height: 1rem;
+      }
+
+      .item-card__prices__new-price {
+        font-size: 1.071rem;
+        line-height: 1.286rem;
+      }
+    }
+    .item-card__description {
+      font-size: 0.929rem;
+      line-height: 1.143rem;
+    }
+
 
     &:hover {
       box-shadow: none;

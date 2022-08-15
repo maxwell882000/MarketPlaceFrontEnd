@@ -1,5 +1,5 @@
 <template>
-  <section style="margin-top: 13vh">
+  <section>
     <div class="fixing-footer">
       <div class="d-flex justify-content-between footer-mobile">
         <router-link :to="'/'+item.path" :key="'footer-mobile_' + index" v-for="(item, index) in footer"
@@ -7,12 +7,11 @@
           <div>
             <component :is="item.icon" style="display: block; margin: auto"></component>
           </div>
-          <badge-header :counter="item.counter && item.counter.value"></badge-header>
+          <badge-header :class="item.path" :counter="item.counter && item.counter.value"></badge-header>
           <span>{{ item.title }}</span>
         </router-link>
       </div>
     </div>
-
   </section>
 </template>
 
@@ -84,16 +83,21 @@ function comparePath(item) {
 </style>
 <style scoped>
 .fixing-footer {
-  position: fixed;
+  /*position: fixed;*/
   bottom: 0;
   z-index: 100000000000;
   width: 100%;
 }
 
+.favourite {
+  left: 26px !important;
+}
+
 .footer-mobile {
-  margin-top: 3rem;
+  /*margin-top: 3rem;*/
   padding: 1rem 1rem 2rem;
   font-size: 0.7rem;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.05);
   background-color: white;
 }
 </style>
