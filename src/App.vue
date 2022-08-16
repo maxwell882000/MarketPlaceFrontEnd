@@ -21,7 +21,8 @@
         <div style="height: 90px"></div>
         <div class="" style="position: absolute;
     bottom: 0;
-    right: 0;">
+    right: 0;
+width: 100%;">
           <AppFooter v-show="show">
           </AppFooter>
         </div>
