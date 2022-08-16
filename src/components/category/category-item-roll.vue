@@ -5,7 +5,7 @@
       <img class="img-res" :src="item.icon" alt="category">
     </div>
     <div class="name-category-pop">
-       <span class="text-sm text-center two-only-sentence">
+       <span class="text-sm text-center two-only-sentence p-1">
             {{ item.name }}
           </span>
     </div>
