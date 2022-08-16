@@ -18,10 +18,14 @@
 
           </div>
         </div>
+        <div style="height: 90px"></div>
+        <div class="" style="position: absolute;
+    bottom: 0;
+    right: 0;">
+          <AppFooter v-show="show">
+          </AppFooter>
+        </div>
 
-        <AppFooter v-show="show">
-
-        </AppFooter>
       </div>
     </template>
   </ResponsiveLayout>
