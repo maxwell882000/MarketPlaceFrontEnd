@@ -10,7 +10,7 @@
       </div>
     </template>
     <template #mobile>
-      <div class="d-flex flex-column" style="height: 100vh!important;">
+      <div class="d-flex flex-column" style="height: calc(var(--vh, 1vh) * 100);!important;">
         <AppHeader v-show="show"></AppHeader>
         <div class="remove-scroll h-100" style="overflow: scroll">
           <router-view></router-view>
@@ -18,14 +18,14 @@
 
           </div>
         </div>
-        <div style="height: 90px"></div>
-        <div class="" style="position: absolute;
-    bottom: 0;
-    right: 0;
-width: 100%;">
-          <AppFooter v-show="show">
-          </AppFooter>
-        </div>
+        <!--        <div style="height: 90px"></div>-->
+        <!--        <div class="" style="position: absolute;-->
+        <!--    bottom: 0;-->
+        <!--    right: 0;-->
+        <!--width: 100%;">-->
+        <AppFooter v-show="show">
+        </AppFooter>
+        <!--        </div>-->
 
       </div>
     </template>
