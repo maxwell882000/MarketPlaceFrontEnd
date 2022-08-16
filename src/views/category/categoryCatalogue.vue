@@ -11,13 +11,6 @@
             </category-item-roll>
           </button>
         </SplideSlide>
-        <SplideSlide :key="'category_catalogue_213' + item.id" v-for="item in categories">
-          <button @click="setCategory(item)">
-            <category-item-roll :item="item"
-            >
-            </category-item-roll>
-          </button>
-        </SplideSlide>
       </Splide>
     </div>
     <div class="bg-white p-mobile my-2 py-3"
