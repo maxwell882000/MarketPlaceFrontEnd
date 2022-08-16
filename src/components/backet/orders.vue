@@ -8,11 +8,11 @@
       <div class="card py-2 px-3 ">
         <div class="w-100 d-flex align-items-center">
           <div style="flex: 1">
-            <b-form-checkbox v-model="checkALlOrder">
+            <input-select v-model="checkALlOrder">
              <span class="text-sm text-center">
                       Выбрать все товары
                </span>
-            </b-form-checkbox>
+            </input-select>
           </div>
           <span @click="deleteSelected" class="pointer text-red text-sm" v-show="numberSelectedOrders">
               Удалить выбранные
@@ -30,9 +30,10 @@
 import BasketOrder from "@/components/backet/basketOrder";
 import {mapActions, mapGetters, mapMutations} from "vuex";
 import PrepareOrderCalculatePricing from "@/components/backet/prepareOrderCalculatePricing";
+import InputSelect from "@/components/helper/input/inputSelect";
 
 export default {
-  components: {PrepareOrderCalculatePricing, BasketOrder},
+  components: {InputSelect, PrepareOrderCalculatePricing, BasketOrder},
   data() {
     return {
       buttonDisabled: true,

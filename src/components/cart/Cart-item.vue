@@ -11,7 +11,6 @@
           />
         </div>
         <div>
-
           <small class="old-price d-block">
                <span v-show="itemInfo.discount_price">
                         {{ showPrice }}
