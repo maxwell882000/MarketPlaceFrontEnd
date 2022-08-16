@@ -34,6 +34,9 @@
 </template>
 
 <script>
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
 import AppHeader from "./components/header/App-Header";
 import AppFooter from "./components/footer/App-Footer";
 import {mapActions, mapGetters, mapState} from "vuex";
@@ -74,6 +77,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .body {
   min-height: 100vh;
