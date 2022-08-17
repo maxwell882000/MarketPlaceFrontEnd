@@ -23,7 +23,7 @@ defineProps({
 
 <style scoped>
 .name-category-pop {
-  height: 2.643rem;
+  height: 3rem;
   overflow: hidden;
   padding-top: 0.5rem;
 
