@@ -1,9 +1,7 @@
 <template>
   <div>
     <filter-chosen></filter-chosen>
-    <filter-item :is-show="true" collapse="category" title="Категории">
       <filter-category></filter-category>
-    </filter-item>
     <filter-price></filter-price>
     <filter-toggle prefix="exists" name="В наличии"></filter-toggle>
     <filter-toggle prefix="rate_high" name="Высокий рейтинг"></filter-toggle>
@@ -14,7 +12,6 @@
   </div>
 </template>
 <script setup>
-import FilterItem from "@/components/filter/filteration/filterItem";
 import FilterToggle from "@/components/filter/filteration/filterToggle";
 import FilterCategory from "@/components/filter/filteration/fliterCategory/filterCategory";
 import FilterChosen from "@/components/filter/filteration/filterChosen";

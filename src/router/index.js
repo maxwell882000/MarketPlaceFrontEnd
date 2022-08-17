@@ -216,7 +216,18 @@ const routes = [
         path: "/shop/:shop",
         name: "Shop",
         component: () =>
-            import("../views/Shop.vue"),
+            import("../views/shop/Shop.vue"),
+    },
+    {
+        path: "/products/:key/:slug",
+        name: "products",
+        component: () => import("../views/products/products")
+    },
+    {
+        path: "/shop_all",
+        name: "ShopAll",
+        component: () =>
+            import("../views/shop/ShopAll.vue"),
     },
     {
         path: "/user",

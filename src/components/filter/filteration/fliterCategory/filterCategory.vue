@@ -1,17 +1,23 @@
 <template>
-  <filter-category-fourth v-if="($route.params.slug)" :category="category"></filter-category-fourth>
-  <template v-else>
-    <filter-category-first :key="'filter_categories_left_' + item.id"
-                           v-for="item in categories"
-                           :category="item">
-      <br>
-    </filter-category-first>
-    <filter-category-first :category="{name: 'Все категории', slug: false}"></filter-category-first>
-  </template>
+  <filter-item v-if="($route.name !== 'products' && $route.params.slug)|| categories.length !== 0" :is-show="true"
+               collapse="category"
+               title="Категории">
+
+    <filter-category-fourth v-if="($route.params.slug)" :category="category"></filter-category-fourth>
+    <template v-else>
+      <filter-category-first :key="'filter_categories_left_' + item.id"
+                             v-for="item in categories"
+                             :category="item">
+        <br>
+      </filter-category-first>
+      <filter-category-first :category="{name: 'Все категории', slug: false}"></filter-category-first>
+    </template>
+  </filter-item>
 </template>
 <script>
 import {mapActions, mapGetters} from "vuex";
 // import FilterCategoryFirst from "@/components/filter/fliterCategory/filterCategoryFirst";
+import FilterItem from "@/components/filter/filteration/filterItem";
 import FilterCategoryFourth from "@/components/filter/filteration/fliterCategory/filterCategoryFourth";
 import FilterCategoryFirst from "@/components/filter/filteration/fliterCategory/filterCategoryFirst";
 // this is for search by one category and changing
@@ -20,7 +26,7 @@ import FilterCategoryFirst from "@/components/filter/filteration/fliterCategory/
 // so first for search we will click and get the result immediately
 // second for category page last
 export default {
-  components: {FilterCategoryFirst, FilterCategoryFourth},
+  components: {FilterCategoryFirst, FilterCategoryFourth, FilterItem},
   data() {
     return {
       category: {

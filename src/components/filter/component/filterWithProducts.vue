@@ -1,5 +1,5 @@
 <template>
-  <b-row class="bg-white-sm p-mobile py-2">
+  <b-row class="bg-white-sm p-mobile py-2 filter-with-product">
     <filtration-side></filtration-side>
     <b-col cols="12" class="col-xl-9 col-lg-9 col-md-8 col-sm-12">
       <slot></slot>
@@ -21,3 +21,8 @@ export default {
   },
 }
 </script>
+<style>
+.filter-with-product {
+  margin-left: 0 !important;
+}
+</style>

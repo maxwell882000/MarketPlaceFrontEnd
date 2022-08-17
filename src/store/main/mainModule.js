@@ -46,6 +46,7 @@ export const mainModule = {
             },
             popular_category: [],
             hit_products: [],
+            shop_list: [],
             product_of_day: {
                 hours: 23,
                 minutes: 59,
@@ -85,6 +86,10 @@ export const mainModule = {
         },
         discount(state) {
             return state.discount;
+        },
+        shop_list(state) {
+            console.log(state.shop_list);
+            return state.shop_list;
         },
         first_product(state) {
             if (state.product_of_day.items.length !== 0)
@@ -173,6 +178,7 @@ export const mainModule = {
             state.discount = result.discount;
             state.popular_category = result.popular_category;
             state.hit_products = result.hit_products;
+            state.shop_list = result.shop_list;
         }
     },
 

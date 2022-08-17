@@ -1,5 +1,5 @@
 <template>
-  <b-row>
+  <b-row class="flat-side-bar">
     <b-col cols="0" class="col-xl-3 col-lg-3 col-md-3 d-none d-sm-none d-md-block  ml-r bg-white rounded-st p-4">
       <category :column="12" :item="category"></category>
     </b-col>
@@ -63,3 +63,8 @@ export default {
   }
 }
 </script>
+<style>
+.flat-side-bar {
+  margin-left: 0 !important;
+}
+</style>

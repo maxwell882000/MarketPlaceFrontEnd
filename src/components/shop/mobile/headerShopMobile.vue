@@ -4,7 +4,7 @@
       <img class="img-res" :src="shop.image">
     </div>
     <div class="header-shop bg-white">
-      <div class="rounded-st bg-white  shadow-md"
+      <div class="rounded-st bg-white shadow-md"
            style="height: 5.286rem; width: 5.286rem; padding:1rem; margin-top: -2.643rem;margin-bottom: 1rem">
         <img class="img-res" :src="shop.logo" alt="logo">
       </div>

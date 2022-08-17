@@ -6,6 +6,11 @@ class ShopService {
         return result.data.result;
     }
 
+    async getAllShop() {
+        const result = await methods.get("shop/");
+        return result.data.result;
+    }
+
 }
 
 export default new ShopService();

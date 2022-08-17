@@ -14,6 +14,7 @@
           <StocksTabs/>
         </section>
         <div class="pt-2"></div>
+        <ShopList></ShopList>
         <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
           <section v-show="item.products.length">
             <h5 class="text-sm-center mt-4 mb-2">{{ item.text }}</h5>
@@ -34,9 +35,10 @@ import StocksTabs from "@/components/mainPage/StocksTabs";
 import {mapActions, mapGetters} from "vuex";
 import Loader from "@/components/loading/loader";
 import BannerAndItemDesktop from "@/components/mainPage/desktop/BannerAndItemDesktop";
+import ShopList from "@/components/shop/desktop/shopList";
 
 export default {
-  components: {Loader, StocksTabs, SalesRoll, BannerAndItemDesktop},
+  components: {ShopList, Loader, StocksTabs, SalesRoll, BannerAndItemDesktop},
   data() {
     return {
       products: []

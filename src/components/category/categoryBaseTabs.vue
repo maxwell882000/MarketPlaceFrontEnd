@@ -5,19 +5,17 @@
         <h5 class="category-sub">{{ name }}</h5>
       </div>
       <div>
-        <router-link :to="link" class="remove-link">
-          <b-button variant="link" class="text-nowrap decoration-none text-sm">
-            Смотреть все
-            <b-icon icon="arrow-right"/>
-          </b-button>
-        </router-link>
+        <show-all :link="link"></show-all>
       </div>
     </div>
     <slot></slot>
   </div>
 </template>
 <script>
+import ShowAll from "@/components/helper/button/showAll";
+
 export default {
+  components: {ShowAll},
   props: ['name', 'link']
 }
 </script>

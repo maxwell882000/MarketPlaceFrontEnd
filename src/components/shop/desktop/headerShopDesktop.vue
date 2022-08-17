@@ -4,8 +4,10 @@
       class="thumbnail row align-items-end">
     <div class="col col-12 col-md-8 col-lg-5 col-sm-12">
       <div class="seller-cart">
-        <img :src="shop.logo" class="logo p-3" alt=""/>
-        <h6 class="mt-3 mb-1">{{ shop.name }}</h6>
+        <div style="height: 5.286rem; width: 5.286rem; padding: 0.571rem ;" class="rounded-st shadow-md">
+          <img :src="shop.logo" class="img-res" alt=""/>
+        </div>
+        <h6 class="mt-3 mb-1 name-shop" >{{ shop.name }}</h6>
         <div class="d-flex align-items-center justify-content-between">
           <div>
             <p class="mb-1">
@@ -36,5 +38,8 @@ defineProps({
 </script>
 
 <style scoped>
-
+.name-shop {
+  font-size: 1.286rem;
+  line-height: 1.556rem;
+}
 </style>

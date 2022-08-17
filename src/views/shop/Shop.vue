@@ -1,12 +1,10 @@
 <template>
   <loader waiting="shop_loaded">
-
     <section class="container shop-card">
       <div class="margin-cont">
         <shop-header :shop="shop"></shop-header>
         <filter-with-products></filter-with-products>
       </div>
-
       <!--    <product-wrapper></product-wrapper>-->
     </section>
   </loader>
@@ -71,7 +69,8 @@ useFilterWithComponent(useFilterBy({key: "shop_id", item: shop.value.id}))
     .seller-cart {
       background-color: white;
       border-radius: 12px;
-      height: 10rem;
+      height: 12rem;
+      margin-bottom: -2rem;
       box-shadow: 10px 9px 19px rgba(0, 0, 0, 0.17);
       padding: 20px;
 
