@@ -100,6 +100,9 @@ export const mainModule = {
         product_of_day(state) {
             return state.product_of_day;
         },
+        product_of_day_rest(state) {
+            return state.product_of_day.items.slice(1);
+        },
         timeObject(state) {
             return {
                 hours: addZero(state.product_of_day.hours),

@@ -8,7 +8,7 @@
             Купите, пока это выгодно <span class="timer mt-sm-2 d-inline-block">{{ getTime }}</span>
           </h5>
         </div>
-        <SalesRoll :per-page="6" slide-key="product_day" :products="products"/>
+        <SalesRoll :per-page="6" slide-key="product_day" :products="product_of_day_rest"/>
         <section v-show="discount.items.length">
           <h5 class="mt-4 mb-2 text-sm-center">Акции и предложения</h5>
           <StocksTabs/>
@@ -39,23 +39,14 @@ import ShopList from "@/components/shop/desktop/shopList";
 
 export default {
   components: {ShopList, Loader, StocksTabs, SalesRoll, BannerAndItemDesktop},
-  data() {
-    return {
-      products: []
-    };
-  },
   computed: {
     ...mapGetters('mainModule', [
       'getTime',
       'product_of_day',
+      'product_of_day_rest',
       'discount',
       'lenta'
     ])
-  },
-  watch: {
-    product_of_day(newVal) {
-      this.products = newVal.items.slice(1);
-    }
   },
   methods: {
     ...mapActions([
