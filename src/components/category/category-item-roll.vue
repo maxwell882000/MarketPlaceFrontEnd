@@ -26,7 +26,6 @@ defineProps({
   height: 3rem;
   overflow: hidden;
   padding-top: 0.5rem;
-
 }
 
 .size-category-pop {

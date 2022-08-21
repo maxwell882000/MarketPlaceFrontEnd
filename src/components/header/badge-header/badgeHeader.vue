@@ -18,6 +18,7 @@ defineProps({
   padding: 1px 6px;
   font-size: 0.6875rem;
   border-radius: 50%;
+  border: 1px solid #FFFFFF;
   background: var(--red);
   color: white !important;
 }

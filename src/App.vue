@@ -92,7 +92,7 @@ export default {
       padding-bottom: 1.2rem !important;
 
       .splide__slide {
-        margin-right: 20px !important;
+        margin-right: 10px !important;
       }
 
     }

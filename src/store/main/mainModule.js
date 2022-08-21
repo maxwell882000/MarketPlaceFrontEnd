@@ -27,7 +27,8 @@ export const mainModule = {
                 //         "num_comment": 3,
                 //         "credit": []
                 //     }
-                // ]
+                // ],
+                // left_image
             },
             showFooterAndHeader: true,
             banners: [

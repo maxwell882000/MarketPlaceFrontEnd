@@ -17,8 +17,24 @@
         <ShopList></ShopList>
         <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
           <section v-show="item.products.length">
-            <h5 class="text-sm-center mt-4 mb-2">{{ item.text }}</h5>
-            <SalesRoll :per-page="6" slide-key="product_day" :products="item.products"/>
+            <show-all-text :link="'/products/lenta/' + item.id" :title="item.text">
+            </show-all-text>
+            <!--            <h5 class="text-sm-center mt-4 mb-2">{{  }}</h5>-->
+            <div class="d-flex align-items-center">
+              <router-link :to="'/products/lenta/' + item.id" v-if="item.left_image !== ''">
+                <div
+                    style="width: 30.571rem !important;height: 29.429rem; margin-right: 10px; ">
+                  <img :src="item.left_image" class="img-res rounded-st">
+                </div>
+              </router-link>
+              <div :class="item.left_image === '' ? 'take-all' : 'take-all-with-calc'">
+                <SalesRoll :per-page="6"
+                           slide-key="product_day"
+                           :products="item.products"/>
+              </div>
+            </div>
+            <!--                         :style="item.left_image ? {flex: 1} : {width: '100%'}"-->
+
           </section>
         </div>
       </div>
@@ -36,9 +52,10 @@ import {mapActions, mapGetters} from "vuex";
 import Loader from "@/components/loading/loader";
 import BannerAndItemDesktop from "@/components/mainPage/desktop/BannerAndItemDesktop";
 import ShopList from "@/components/shop/desktop/shopList";
+import ShowAllText from "@/components/helper/button/showAllText";
 
 export default {
-  components: {ShopList, Loader, StocksTabs, SalesRoll, BannerAndItemDesktop},
+  components: {ShowAllText, ShopList, Loader, StocksTabs, SalesRoll, BannerAndItemDesktop},
   computed: {
     ...mapGetters('mainModule', [
       'getTime',
@@ -66,6 +83,14 @@ export default {
 
 
 <style scoped lang="scss">
+.take-all {
+  width: 100% !important;
+}
+
+.take-all-with-calc {
+  width: calc(100% - 30.571rem - 10px);
+}
+
 .container {
   padding: 24px 0;
 

@@ -5,7 +5,7 @@
         <Like :id="product.id" :favourite="product.favourite"/>
       </div>
       <div class="image-sizing">
-        <b-img v-lazy="product.image" class="image_style" center fluid alt="item image"/>
+        <img v-lazy="product.image" class="img-res" center fluid alt="item image"/>
       </div>
       <div v-show="product.discount" class="item-card__image__sale-amount absolute">
         <span>-{{ product.discount }}%</span>
@@ -18,8 +18,8 @@
             icon="star-fill"
             size="sm">
         </b-icon>
-        <span class="mx-1">{{ product.mark }}</span>
-        <span class="mx-2">{{ product.num_comment }} отзывов</span>
+        <span class="mx-1 rating">{{ product.mark }}</span>
+        <span class="mx-2 rating">{{ product.num_comment }} отзывов</span>
       </div>
       <div class="item-card__prices">
 
@@ -95,17 +95,24 @@ export default {
   text-decoration: none;
   color: var(--dark);
   cursor: pointer;
-  height: 29rem;
+  height: 29.429rem;
   position: relative;
   padding: 12px;
   background-color: white;
   border-radius: 12px;
-  width: 16rem;
+  width: 16.286rem;
   box-shadow: 0 0 0 transparent;
 
   .image-sizing {
-    height: 15.5rem;
+    height: 14.571rem;
     margin: auto;
+  }
+
+  .item-card__rating {
+    .rating {
+      font-size: 0.857rem !important;
+      line-height: 1.071rem !important;
+    }
   }
 
 
@@ -130,6 +137,7 @@ export default {
       width: 100%;
       object-fit: fill;
     }
+
 
     .item-card__image__sale-amount {
       margin-top: -25px;
@@ -165,7 +173,8 @@ export default {
     }
 
     .item-card__prices__new-price {
-      font-size: 1.2rem;
+      font-size: 1.286rem;
+      line-height: 1.571rem;
     }
   }
 

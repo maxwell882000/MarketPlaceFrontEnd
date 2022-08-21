@@ -44,6 +44,7 @@ defineProps({
   all: unset;
   display: block;
   height: 27.429rem;
+  box-shadow: 0px 4px 12px 1px rgba(27, 31, 53, 0.09);
   width: 24.286rem;
   cursor: pointer;
   background-color: white;
