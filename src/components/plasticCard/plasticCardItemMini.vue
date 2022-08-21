@@ -6,7 +6,7 @@
       <br>
       <span class="text-500">{{ card.pan }}</span>
     </div>
-    <div style="font-size: 6px" class="d-flex justify-content-between text-gray">
+    <div style="font-size: 6px;line-height: 6.2px;" class="d-flex justify-content-between text-gray">
       <span>{{ card.card_holder }}</span>
       <span>{{ card.expiry }}</span>
     </div>
