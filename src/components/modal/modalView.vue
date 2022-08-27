@@ -1,8 +1,11 @@
 <template>
   <modal-base>
     <div class="left-corner">
-      <b-icon @click="$emit('closeModal')" style="cursor: pointer; color: var(--gray300)" icon="x"
-              font-scale="1.7"></b-icon>
+      <span @click="$emit('closeModal')" class="bi bi-x"
+            style="cursor: pointer;  font-size: 24px;color: var(--gray300)"></span>
+
+      <!--      <span class=""></span>-->
+
     </div>
     <slot name="prefix"></slot>
     <h5 v-if="title">{{ title }}</h5>
@@ -33,6 +36,7 @@ export default {
   justify-content: flex-end;
   margin-bottom: calc(-0.9 * var(--marinTop));
 }
+
 h5 {
   font-weight: 600;
   font-size: 16px;

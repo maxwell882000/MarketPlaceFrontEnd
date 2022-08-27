@@ -100,7 +100,7 @@ export default {
 button {
   border-radius: 8px;
   border: none;
-  padding: 10px 14px;
+  /*padding: calc(10px + 0.357rem ) 14px;*/
 }
 
 @media (max-width: 768px) {
@@ -110,18 +110,20 @@ button {
     color: white;
   }
 }
+
 button span {
   font-size: 0.857rem;
   line-height: 1.071rem;
   font-weight: 600;
 }
+
 .inactive:hover {
   background-color: #086BD8;
 }
 
 
-.inactive button {
-  background-color: var(--gray300);
+.inactive {
+  background-color: var(--gray100);
 }
 
 

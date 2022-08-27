@@ -5,12 +5,12 @@
                  class="d-flex remove-link justify-content-between  align-items-center">
       <div class="d-flex  align-items-center">
         <div class="mr-2">
-          <b-icon icon="search" variant="secondary"></b-icon>
+          <span class="bi bi-search text-secondary"></span>
         </div>
         <span>{{ item.search }}</span>
       </div>
       <div>
-        <b-icon icon="chevron-right"></b-icon>
+        <span class="bi bi-chevron-right"></span>
       </div>
     </router-link>
   </div>

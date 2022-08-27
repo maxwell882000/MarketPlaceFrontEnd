@@ -18,7 +18,6 @@
             <span class="pr-2" style="font-size: 1.2rem">
               <component :is="item.icon" ></component>
             </span>
-            <!--            <b-icon :icon="item.icon" scale="1.5" class="me-2"/>-->
             <span>
               {{ item.title }}
             </span>

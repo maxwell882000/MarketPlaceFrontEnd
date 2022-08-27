@@ -11,9 +11,9 @@
           <div class="d-none d-sm-none d-md-block">
             <search-header></search-header>
           </div>
-          <div class="btns-row">
+          <div class="btns-row relative">
             <button class="search-button">
-              <b-icon icon="search" variant="dark"></b-icon>
+              <span class="bi bi-search text-dark"></span>
             </button>
             <router-link class="relative" to="/favourite">
               <img src="@/assets/icons/heart.svg" alt="heart icon"/>
@@ -31,6 +31,7 @@
                 {{ $t('Профиль') }}
               </a>
             </AuthProfile>
+
           </div>
         </div>
         <div class="d-block d-sm-block d-md-none">

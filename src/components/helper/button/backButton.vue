@@ -1,6 +1,6 @@
 <template>
   <b-button @click="$router.back()" variant="link" class="decoration-none">
-    <b-icon size="sm" icon="chevron-left"/>
+    <span class="bootstrap-icon bootstrap-icon--size-sm bi bi-chevron-left"></span>
     <span class="title">{{ title }}</span>
   </b-button>
 </template>

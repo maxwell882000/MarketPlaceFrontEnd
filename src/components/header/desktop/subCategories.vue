@@ -14,7 +14,7 @@
     </b-collapse>
     <p v-if="category.children.length > 5" @click="show = !show" v-b-toggle="'text_collapse_' + category.slug"
        class="elements link">Показать еще
-      <b-icon :icon="show ? 'chevron-up' : 'chevron-down'"></b-icon>
+      <span class="bi" :class="show ? 'bi-chevron-up' : 'bi-chevron-down'"></span>
     </p>
     <div class="bottom-margin"></div>
   </b-col>
@@ -65,10 +65,12 @@ p:hover {
   font-size: small;
   margin-bottom: 0.7rem;
 }
+
 .bottom-margin {
   margin-bottom: 1rem;
 
 }
+
 .elements {
   color: var(--gray);
   font-size: small;

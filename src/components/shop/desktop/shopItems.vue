@@ -10,7 +10,7 @@
       <div style="padding-top:1.071rem; padding-bottom: 1.8rem; text-align: center">
         <span class="text-500"> {{ shop.name }}</span>
         <div class="text-muted">
-          <b-icon icon="geo-alt-fill" class="me-1"/>
+          <span class="bi bi-geo-alt-fill me-1"/>
           <span>{{ shop.address }}</span>
         </div>
       </div>

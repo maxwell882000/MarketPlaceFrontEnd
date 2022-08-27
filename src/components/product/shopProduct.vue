@@ -18,7 +18,7 @@
         <!--        </p>-->
       </div>
     </div>
-    <b-icon icon="chevron-right"/>
+    <span class="bi bi-chevron-right"></span>
   </router-link>
 </template>
 <script>

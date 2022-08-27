@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex align-items-center flex-wrap flex-sm-wrap flex-md-nowrap">
+  <div class="d-flex align-items-center flex-wrap flex-sm-wrap flex-md-nowrap" style="height: 3.429rem">
     <div v-if="Object.keys(credit).length  !== 0" class="price">
       <span class="name-price"> {{ credit.name }}</span>
       <p class="mb-0 actual-number">
@@ -7,8 +7,8 @@
         <span class="month text-nowrap "> x {{ credit.month }} мес</span>
       </p>
     </div>
-    <div class="my-2 my-sm-2 my-md-0 basket">
-      <CartButton class="basket" :basket="basket" :image="image" :id="id"/>
+    <div class="my-2 my-sm-2 my-md-0 basket h-100">
+      <CartButton class="basket h-100" style="width:  3.429rem" :basket="basket" :image="image" :id="id"/>
     </div>
   </div>
 </template>
@@ -49,6 +49,7 @@ export default {
 </script>
 
 <style scoped>
+
 @media (max-width: 491px) {
   /*.price {*/
   /*  display: none;*/
@@ -77,9 +78,10 @@ export default {
 .price {
   border: 1px solid #F2F2F2;
   border-radius: 8px;
-  padding: 0.4rem;
-  margin-right: 10px;
+  padding: 0.5rem 0.571rem;
+  margin-right: 8px;
   line-height: 17px;
+  height: 100%;
   width: 100%;
 }
 
@@ -90,6 +92,10 @@ export default {
 .price .numbers {
   color: var(--blue);
   font-weight: 700;
+}
+
+.basket-padding {
+  padding: 0.357rem;
 }
 
 

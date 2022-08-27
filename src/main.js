@@ -16,6 +16,7 @@ import {Vue3Mq} from "vue3-mq";
 // bootstrap css
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 // global scss
 import "./fonts.scss";
 import "./styles.scss";

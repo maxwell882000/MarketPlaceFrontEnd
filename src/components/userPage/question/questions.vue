@@ -4,7 +4,7 @@
       <button v-b-toggle.question class="w-100 remove-button d-flex justify-content-between p-0">
         <h6 class="m-0">{{ question.question }}</h6>
         <div>
-          <b-icon icon="chevron-down"></b-icon>
+          <span class="bi bi-chevron-down"></span>
         </div>
       </button>
       <b-collapse id="question" class="mt-2">

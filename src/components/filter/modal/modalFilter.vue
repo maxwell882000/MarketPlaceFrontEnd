@@ -4,8 +4,8 @@
       <div style="overflow-y:scroll; max-height: 100%; overflow-x:hidden; ">
         <div style="font-size: 1.4rem; line-height: 1.5rem" class="d-flex  justify-content-between align-items-center">
           <button @click="$emit('closeModal')" class="button-clear block text-left">
-            <b-icon style="cursor: pointer; color: var(--gray300)" icon="x"
-                    font-scale="1.7"></b-icon>
+            <span style="cursor: pointer; color: var(--gray300); font-size: 170%" class="bi bi-x"
+            ></span>
           </button>
           <div class="text-500">
             <span>Фильтры</span>

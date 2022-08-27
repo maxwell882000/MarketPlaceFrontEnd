@@ -7,12 +7,12 @@
         <div style="height: 5.286rem; width: 5.286rem; padding: 0.571rem ;" class="rounded-st shadow-md">
           <img :src="shop.logo" class="img-res" alt=""/>
         </div>
-        <h6 class="mt-3 mb-1 name-shop" >{{ shop.name }}</h6>
+        <h6 class="mt-3 mb-1 name-shop">{{ shop.name }}</h6>
         <div class="d-flex align-items-center justify-content-between">
           <div>
             <p class="mb-1">
               <small class="text-muted">
-                <b-icon icon="geo-alt-fill" class="me-1"/>
+                <span class="bi bi-geo-alt-fill me-1"/>
                 <span>{{ shop.address }}</span>
               </small>
             </p>

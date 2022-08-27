@@ -16,6 +16,8 @@
   --gray500: #CFCFCF;
   --gray600: #C6C6C6;
   --gray700: #F8F8F8;
+  --gray800:#D1D1D1;
+  --bg-color: #F2F3F5;
   --star: #EDEDED;
   --green: #27AE60;
 }
@@ -38,7 +40,9 @@
 .mt-custom {
   margin-top: var(--marinTop);
 }
-
+.bg-color {
+  background-color: var(--bg-color);
+}
 .button-clear {
   color: var(--dark);
   border: none;
@@ -722,6 +726,7 @@ html {
 
 html {
   font-size: 14px;
+  //text-rendering: optimizeLegibility;
 }
 
 @media (max-width: 768px) {

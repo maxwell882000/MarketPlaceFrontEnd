@@ -10,7 +10,7 @@
           <span class="text-sm">{{ item.pan }}</span>
         </input-radio>
         <button @click="goToPlastic" class="text-button d-flex text-sm align-items-center text-blue">
-          <b-icon icon="plus" size="lg"></b-icon>
+          <span class="bootstrap-icon bootstrap-icon--size-lg bi bi-plus"></span>
           <span>Добавить карту</span>
         </button>
       </loader>

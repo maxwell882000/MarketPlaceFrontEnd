@@ -20,7 +20,7 @@
       <button class="button-category" v-b-toggle="'collapse_catalogue' + item.slug">
         <span>{{ item.name }}</span>
         <div>
-          <b-icon icon="chevron-down"></b-icon>
+          <span class="bi bi-chevron-down"></span>
         </div>
       </button>
       <b-collapse :id="'collapse_catalogue' + item.slug">
@@ -29,7 +29,7 @@
                      v-for="lastCat in item.children">
           <span>{{ lastCat.name }}</span>
           <div>
-            <b-icon icon="chevron-right"></b-icon>
+            <span class="bi bi-chevron-right"></span>
           </div>
         </router-link>
       </b-collapse>

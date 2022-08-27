@@ -13,11 +13,9 @@
     </div>
     <div class="item-card__content d-flex flex-column h-100 justify-content-between">
       <div class="item-card__rating">
-        <b-icon
-            class="item-card__rating__star"
-            icon="star-fill"
-            size="sm">
-        </b-icon>
+        <span
+            class="item-card__rating__star bootstrap-icon bootstrap-icon--size-sm bi bi-star-fill">
+        </span>
         <span class="mx-1 rating">{{ product.mark }}</span>
         <span class="mx-2 rating">{{ product.num_comment }} отзывов</span>
       </div>

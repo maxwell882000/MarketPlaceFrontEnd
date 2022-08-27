@@ -4,11 +4,11 @@
          v-for="(item, index) in Object.entries(showChosen)"
          class="mb-1 bg-blue text-center h-max border-lg text-white w-max p-2 text-sm">
       <span class="px-1">{{ item[1] }}</span>
-      <b-icon @click="removeChosen(item[0])" class="pointer" icon="x-circle-fill"></b-icon>
+      <span @click="removeChosen(item[0])" class="pointer bi bi-x-circle-fill"></span>
     </div>
     <div @click="allRemove" class="pointer bg-gray text-center h-max border-lg w-max p-2 text-sm">
       <span class="px-1">Очистить всё </span>
-      <b-icon class="text-gray300 pointer" icon="x-circle-fill"></b-icon>
+      <span class="text-gray300 pointer bi bi-x-circle-fill" ></span>
     </div>
   </div>
 </template>

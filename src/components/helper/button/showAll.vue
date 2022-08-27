@@ -2,7 +2,7 @@
   <router-link :to="link" class="remove-link">
     <b-button variant="link" class="text-nowrap decoration-none text-sm">
       {{ title }}
-      <b-icon icon="arrow-right"/>
+      <span class="bi bi-arrow-right"/>
     </b-button>
   </router-link>
 </template>

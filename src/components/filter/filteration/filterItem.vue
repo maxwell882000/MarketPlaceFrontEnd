@@ -2,7 +2,7 @@
   <div @click="show = !show" class="d-flex  text-link justify-content-between">
     <h6>{{ title }}</h6>
     <span>
-      <b-icon :icon="show ? 'chevron-up' : 'chevron-down'"/>
+      <span class="bi" :class="show ? 'bi-chevron-up' : 'bi-chevron-down'"/>
     </span>
   </div>
   <div v-if="show">

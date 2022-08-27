@@ -1,5 +1,5 @@
 <template>
-  <b-icon :icon="isShow  ? `chevron-${showClass}` : `chevron-${closeClass}`"/>
+  <span class="bi" :class="isShow  ? ` bi-chevron-${showClass}` : ` bi-chevron-${closeClass}`"/>
 </template>
 <script>
 export default {

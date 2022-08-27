@@ -3,7 +3,7 @@
                    :placeholder="$attrs.placeholder || 'Пароль'">
     <template #suffix>
       <span class="px-2" style="cursor: pointer">
-             <b-icon @click="hide()" :icon="icon()"></b-icon>
+            <span @click="hide()" class="bi" :class=" icon() "></span>
       </span>
     </template>
   </InputValidation>
@@ -24,7 +24,7 @@ export default {
       this.isHidden = !this.isHidden;
     },
     icon() {
-      return this.isHidden ? 'eye' : 'eye-slash';
+      return this.isHidden ? ' bi-eye' : ' bi-eye-slash';
     },
     type() {
       return this.isHidden ? "password" : "text";

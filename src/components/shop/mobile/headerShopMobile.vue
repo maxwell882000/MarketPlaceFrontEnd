@@ -12,7 +12,7 @@
         <span class="text-18 text-500">{{ shop.name }}</span>
       </div>
       <div class="text-muted">
-        <b-icon icon="geo-alt-fill" class="me-1"/>
+        <span class="bi bi-geo-alt-fill me-1"/>
         <span>{{ shop.address }}</span>
       </div>
 

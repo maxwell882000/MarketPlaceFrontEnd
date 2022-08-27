@@ -31,7 +31,7 @@
       />
       <button class="icon_container" disabled>
         <span class="d-none d-sm-none d-md-inline ">
-                  <b-icon v-show="search" @click="clearSearch" icon="x-lg" class="pointer text-gray300"></b-icon>
+          <span v-show="search" @click="clearSearch" class="bi bi-x-lg pointer text-gray300"></span>
         </span>
         <span class="pr-3"></span>
         <router-link :to="search ? '/search/' + search : ''" class="remove-link">

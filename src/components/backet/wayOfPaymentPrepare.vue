@@ -19,7 +19,7 @@
         </div>
       </div>
       <div>
-        <b-icon icon="chevron-right"/>
+        <span class="bi bi-chevron-right"></span>
       </div>
     </router-link>
     <!--    <span>План оплаты рассрочки 21.11.2021 – 20.02.2022</span>-->

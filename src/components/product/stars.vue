@@ -1,9 +1,10 @@
 <template>
   <div style="white-space: nowrap">
-    <b-icon
+<!--    <b-icon-->
+    <span
         v-for="(star, iconI) in starsIcons"
         :key="'icon_' + iconI"
-        :icon="star"
+        :class="'bi bi-' +star"
         class="star mx-1"
     />
   </div>

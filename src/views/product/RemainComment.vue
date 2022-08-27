@@ -14,12 +14,12 @@
             <h6 v-show="error" v-html="error" class="text-error text-font"></h6>
             <h6>Общая оценка</h6>
             <div class="text-nowrap my-3">
-              <b-icon :key="'star_index_' + index"
-                      v-for="index in 5" size="2x"
-                      style="margin-right: 2rem"
-                      :style="{color: isSelected(index), cursor: 'pointer'}"
-                      @click="putMark(index)"
-                      icon="star-fill"/>
+              <span :key="'star_index_' + index"
+                    v-for="index in 5"
+                    style="margin-right: 2rem"
+                    :style="{color: isSelected(index), cursor: 'pointer', fontSize: '2rem'}"
+                    @click="putMark(index)"
+                    class="bi  bi-star-fill"/>
             </div>
           </b-col>
           <div class="w-100"></div>

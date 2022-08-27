@@ -1,10 +1,10 @@
 <template>
   <div class="card mt-3 py-2 px-3">
     <input-select v-model="checkShop">
-      <b-icon icon="shop" class="me-1" variant="secondary"/>
+      <span class="bi bi-shop text-secondary me-1"></span>
       <router-link class="remove-link" :to="'/shop/' + order.shop.slug">
         <span class="text-md text-500 px-2">{{ order.shop.name }}</span>
-        <b-icon icon="chevron-right" variant="secondary"/>
+        <span class="text-secondary bi bi-chevron-right"></span>
       </router-link>
     </input-select>
     <div class="line"></div>

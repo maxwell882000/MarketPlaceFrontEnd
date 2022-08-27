@@ -8,7 +8,7 @@
               <span :class="chosenText && 'text-dark text-500'">
                 {{ chosenText || placeholder }}
               </span>
-        <b-icon class="pt-1" icon="chevron-down"></b-icon>
+        <span class="pt-1 bi bi-chevron-down"></span>
       </div>
       <error :error="error"></error>
     </template>

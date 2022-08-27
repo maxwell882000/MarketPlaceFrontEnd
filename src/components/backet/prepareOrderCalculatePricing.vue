@@ -2,7 +2,7 @@
   <div class="col col-12 pt-3 pt-lg-0 col-lg-4">
     <div class="card py-3 px-4">
       <div v-if="!isSelectedEmpty" class="d-flex align-items-center flex-row">
-        <b-icon icon="info-circle-fill" class="me-3" variant="secondary"/>
+        <span class="bi bi-info-circle-fill me-3 text-secondary"></span>
         <p class="mb-0">
           Выберите товары, чтобы перейти к оформлению заказа
         </p>

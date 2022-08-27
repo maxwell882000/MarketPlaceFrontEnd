@@ -15,7 +15,7 @@
               <span>{{ item.name }}</span>
             </div>
             <div>
-              <b-icon icon="chevron-right" style="width: 100%;"/>
+              <span class="bi bi-chevron-right" style="width: 100%;"/>
             </div>
           </div>
         </template>
