@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex align-items-center flex-wrap flex-sm-wrap flex-md-nowrap" style="height: 3.429rem">
+  <div class="d-flex align-items-center flex-wrap flex-sm-wrap flex-md-nowrap desktop-price">
     <div v-if="Object.keys(credit).length  !== 0" class="price">
       <span class="name-price"> {{ credit.name }}</span>
       <p class="mb-0 actual-number">
@@ -8,7 +8,7 @@
       </p>
     </div>
     <div class="my-2 my-sm-2 my-md-0 basket h-100">
-      <CartButton class="basket h-100" style="width:  3.429rem" :basket="basket" :image="image" :id="id"/>
+      <CartButton class="basket h-100 card-desktop" :basket="basket" :image="image" :id="id"/>
     </div>
   </div>
 </template>
@@ -49,6 +49,15 @@ export default {
 </script>
 
 <style scoped>
+@media (min-width: 769px) {
+  .desktop-price {
+    height: 3.429rem;
+  }
+
+  .card-desktop {
+    width: 3.429rem;
+  }
+}
 
 @media (max-width: 491px) {
   /*.price {*/

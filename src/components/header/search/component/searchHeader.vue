@@ -31,9 +31,9 @@
       />
       <button class="icon_container" disabled>
         <span class="d-none d-sm-none d-md-inline ">
-          <span v-show="search" @click="clearSearch" class="bi bi-x-lg pointer text-gray300"></span>
+          <span v-show="search" @click="clearSearch" class="bi bi-x pointer text-gray300" style="font-size: 30px"></span>
         </span>
-        <span class="pr-3"></span>
+<!--        <span class="pr-3"></span>-->
         <router-link :to="search ? '/search/' + search : ''" class="remove-link">
           <Search icon="search" class=" text-gray300" variant="secondary"></Search>
         </router-link>
@@ -143,6 +143,9 @@ form {
 
 .icon_container {
   width: 5.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 1400px) {

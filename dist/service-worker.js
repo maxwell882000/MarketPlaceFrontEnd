@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.bf4226e634eaa5ebe2dce23b01ad9d23.js"
+  "/precache-manifest.bf6e6ef2a78840ff55b2ec277572780e.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "buy-shop"});
