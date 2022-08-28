@@ -3,7 +3,7 @@
     <ModalOld v-bind="Object.assign( {},$props, $attrs)" class-modal="filter-full-class">
       <div style="overflow-y:scroll; max-height: 100%; overflow-x:hidden; ">
         <div style="font-size: 1.4rem; line-height: 1.5rem" class="d-flex  justify-content-between align-items-center">
-          <button @click="$emit('closeModal')" class="button-clear block text-left">
+          <button @click="$emit('closeModal')" class="button-clear block text-left bg-white">
             <span style="cursor: pointer; color: var(--gray300); font-size: 170%" class="bi bi-x"
             ></span>
           </button>
@@ -16,7 +16,6 @@
           <div class="p-mobile">
             <filteration-holder></filteration-holder>
           </div>
-
         </section>
       </div>
     </ModalOld>

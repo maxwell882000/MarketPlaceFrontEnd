@@ -40,6 +40,7 @@ import ItemMobile from "@/components/product/responsive/mobile/ItemMobile";</scr
     flex-direction: column;
     align-self: center;
     margin: 4px;
+    color: var(--dark) !important;
 
     img {
       height: 62px;
