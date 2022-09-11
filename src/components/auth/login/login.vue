@@ -1,20 +1,20 @@
 <template>
   <ModalAuth
-      waiting="login" v-model="isLogin" title="Вход">
+      waiting="login" v-model="isLogin" :title="$t('Вход')">
     <template #inputs>
       <div class="mt-2">
-        <InputPhone v-model="phone" placeholder="Номер телефона"/>
+        <InputPhone v-model="phone" :placeholder="$t('Номер телефона')"/>
       </div>
       <div class="mt-2">
         <InputPassword autocomplete="password" v-model="password"/>
       </div>
-      <ButtonForm title="Войти" :isEntered="isEntered()" @submit="login()"></ButtonForm>
+      <ButtonForm :title="$t('Войти')" :isEntered="isEntered()" @submit="login()"></ButtonForm>
       <div class="mt-2">
         <p @click="setRegister()" class="text-font text-link">
-          Нет аккаунта ?
+          {{ $t('Нет аккаунта ?') }}
         </p>
         <p @click="setPassword()" class="text-font text-link">
-          Забыли пароль?
+          {{ $t("Забыли пароль?") }}
         </p>
       </div>
     </template>

@@ -30,27 +30,27 @@
       </section>
       <section class="row text-500">
         <b-col cols="12" class="col-xl-5 col-lg-6 col-md-7">
-          <p class="bold mb-1">Состав заказа</p>
+          <p class="bold mb-1">{{ $t("Состав заказа") }}</p>
           <div class="key-value">
-            <span>Товары - {{ purchase.allQuantity }} шт.</span>
-            <span>{{ showOriginalPrice }} сум</span>
+            <span>{{ $t("Товары") }} - {{ purchase.allQuantity }} {{ $t("шт") }}</span>
+            <span>{{ showOriginalPrice }} {{ $t("сум") }}</span>
           </div>
           <div v-show="showDiscount">
             <div class="key-value">
-              <span>Скидка</span>
-              <span class="text-green">{{ showDiscount }} сум</span>
+              <span>{{ $t("Скидка") }}</span>
+              <span class="text-green">{{ showDiscount }} {{ $t("сум") }}</span>
             </div>
           </div>
           <div v-show="purchase.sumDelivery > 0">
             <div class="key-value">
-              <span>Доставка</span>
-              <span class="">{{ showSumDelivery }} сум</span>
+              <span>{{ $t("Доставка") }}</span>
+              <span class="">{{ showSumDelivery }} {{ $t("сум") }}</span>
             </div>
           </div>
 
           <div class="key-value py-2 last">
-            <span class="bold">Итого к оплате</span>
-            <span class="text-blue">{{ showPayblePrice }} сум</span>
+            <span class="bold">{{ $t("Итого к оплате") }}</span>
+            <span class="text-blue">{{ showPayblePrice }} {{ $t("сум") }}</span>
           </div>
         </b-col>
       </section>
@@ -60,7 +60,7 @@
             v-show="statusPayment.ACCEPTED  === purchase.payble.status
                           ||  statusPayment.WAIT_ANSWER === purchase.payble.status"
             @click="openReason"
-            title="Отменить Заказ"
+            :title="$t('Отменить Заказ')"
             title-class="text-dark text-500"
         ></ButtonGray>
         <!--      <ButtonBlue v-show="statusPayment.FINISHED === purchase.payble.status"-->

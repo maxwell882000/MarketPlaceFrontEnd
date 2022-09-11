@@ -43,7 +43,7 @@ export default {
     setPath(sluggable) {
       this.info.path = [ // set path can be called several times, so we rest every time it is called
         {
-          name: "Главная",
+          name: this.$t("Главная"),
           path: "/"
         }
       ];

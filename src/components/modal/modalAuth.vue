@@ -4,12 +4,12 @@
       @close-modal="customClose ? customClose() : close()">
     <template #body>
 
-          <form @submit.prevent="">
-            <loader :div-style="{height: 'max-content'}" :waiting="waiting">
-              <Status/>
-              <slot name="inputs"></slot>
-            </loader>
-          </form>
+      <form @submit.prevent="">
+        <loader :div-style="{height: 'max-content'}" :waiting="waiting">
+          <Status/>
+          <slot name="inputs"></slot>
+        </loader>
+      </form>
     </template>
   </ModalView>
 </template>

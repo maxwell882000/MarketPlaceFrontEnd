@@ -3,7 +3,7 @@
       :custom-close="close"
       v-model="show"
       @code-submit="submit"
-      description="Введите код подтверждения">
+      :description="$t('Введите код подтверждения')">
   </VerifyCode>
 </template>
 <script setup>

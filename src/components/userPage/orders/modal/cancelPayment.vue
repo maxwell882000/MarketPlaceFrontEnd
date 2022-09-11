@@ -2,7 +2,7 @@
   <ModalView
       v-model="showModal"
       @close-modal="()=> $emit('closeModal')"
-      title="Заявка на отмену заказа">
+      :title="$t('Заявка на отмену заказа')">
     <template #body>
       <div>
         <input-radio :key="'reasons_to_cancel_' + item.id"
@@ -18,14 +18,14 @@
       </div>
 
       <TextArea
-          placeholder="Опишите проблему"
+          :placeholder="$t('Опишите проблему')"
           v-show="modal.id === 5" v-model="modal.value"></TextArea>
     </template>
     <template #buttons>
       <ButtonGray v-show="modal.id >= 0"
                   @click="() => $emit('submitReason', modal)"
                   :title-style="{color:'var(--red)'}"
-                  title="Подтвердить отмену"></ButtonGray>
+                  :title="$t('Подтвердить отмену')"></ButtonGray>
     </template>
   </ModalView>
 </template>
@@ -35,6 +35,7 @@ import InputRadio from "@/components/helper/input/inputRadio";
 import {ref, watch} from "vue";
 import TextArea from "@/components/helper/text-area/textArea";
 import ButtonGray from "@/components/helper/button/buttonGray";
+import {useI18n} from "vue-i18n/dist/vue-i18n.esm-browser";
 
 // eslint-disable-next-line no-unused-vars,no-undef
 const props = defineProps({
@@ -48,31 +49,31 @@ watch(() => props.show, function (val) {
 const modal = ref({});
 // eslint-disable-next-line no-undef
 defineEmits(['submitReason', 'closeModal']);
-
+const t = useI18n().t;
 const reasons = [
   {
     id: 0,
-    text: "Заказ размещен по ошибке"
+    text: t("Заказ размещен по ошибке")
   },
   {
     id: 1,
-    text: "Неправильный размер или цвет"
+    text: t("Неправильный размер или цвет")
   },
   {
     id: 2,
-    text: "Указан неверный адрес"
+    text: t("Указан неверный адрес")
   },
   {
     id: 3,
-    text: "Неправильное понимание описания продукта"
+    text: t("Неправильное понимание описания продукта")
   },
   {
     id: 4,
-    text: "Передумал"
+    text: t("Передумал")
   },
   {
     id: 5,
-    text: "Другое"
+    text: t("Другое")
   },
 ];
 </script>

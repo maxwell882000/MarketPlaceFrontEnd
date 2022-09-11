@@ -1,13 +1,14 @@
 <template>
   <section class="section-container">
     <div class="d-flex justify-content-between">
-      <h5>Уведомления</h5>
+      <h5>{{ $t("Уведомления") }}</h5>
       <input-toggle></input-toggle>
     </div>
     <hr>
     <div>
-      <span class="bold block mb-2"> Возвращайтесь за рассрочкой! </span>
-      <span class="block mb-2">Заполните анкету и купите все, что давно хотели, уже через несколько минут</span>
+      <span class="bold block mb-2">{{ $t("Возвращайтесь за рассрочкой!") }}  </span>
+      <span
+          class="block mb-2">{{ $t("Заполните анкету и купите все, что давно хотели, уже через несколько минут") }}</span>
       <span class="text-gray mb-2">20 ноября 2021</span>
     </div>
   </section>

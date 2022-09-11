@@ -4,7 +4,7 @@
       <span class="name-price"> {{ credit.name }}</span>
       <p class="mb-0 actual-number">
         <span class="numbers">{{ credit.price }}</span>
-        <span class="month text-nowrap "> x {{ credit.month }} мес</span>
+        <span class="month text-nowrap "> x {{ credit.month }} {{ $t("мес") }}</span>
       </p>
     </div>
     <div class="my-2 my-sm-2 my-md-0 basket h-100">

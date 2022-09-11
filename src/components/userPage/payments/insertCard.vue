@@ -1,10 +1,10 @@
 <template>
-  <back-button class="back-button-remove" title="Назад в оплату"></back-button>
+  <back-button class="back-button-remove" :title="$t('Назад в оплату')"></back-button>
   <section class="rounded-st bg-white p-3">
     <!--    <div class="w-40">-->
     <b-row>
       <b-col cols="12" class="col-xl-5 col-lg-6 col-md-6 col-sm-12">
-        <h5> Привязка банковской карты</h5>
+          <h5>{{ $t("Привязка банковской карты") }} </h5>
         <br>
         <input-card
             :card_input="selectedCard.card_number"
@@ -16,15 +16,15 @@
         </input-card>
         <Error :error="error"></Error>
         <br>
-        <span>Нажимая на кнопку «Привязать», вы соглашаетесь
-      с   <span class="text-blue">   условиями привязки карты </span></span>
+        <span>{{
+            $t("Нажимая на кнопку «Привязать», вы соглашаетесь с")
+          }}   <span class="text-blue">  {{ $t("условиями привязки карты") }}  </span></span>
         <ButtonForm :is-entered="isEntered()"
                     class="p-2"
                     @submit="submit()"
-                    title="Привязать"></ButtonForm>
+                    :title="$t('Привязать')"></ButtonForm>
       </b-col>
     </b-row>
-
     <!--    </div>-->
   </section>
   <verify-card-modal></verify-card-modal>

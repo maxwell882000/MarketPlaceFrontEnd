@@ -1,5 +1,5 @@
 <template>
-  <ModalView @close-modal="close()" v-model="showPlastic" title="Выберите способ оплаты">
+  <ModalView @close-modal="close()" v-model="showPlastic" :title="$t('Выберите способ оплаты')">
     <template #body>
       <loader waiting="card_loaded">
         <input-radio :key="'plastic_card_selected_' + item.id"
@@ -11,13 +11,13 @@
         </input-radio>
         <button @click="goToPlastic" class="text-button d-flex text-sm align-items-center text-blue">
           <span class="bootstrap-icon bootstrap-icon--size-lg bi bi-plus"></span>
-          <span>Добавить карту</span>
+          <span>{{ $t("Добавить карту") }}</span>
         </button>
       </loader>
     </template>
     <template #buttons>
       <loader :div-style="{height: 'max-content'}" waiting="buying_loaded">
-        <ButtonForm @submit="pay" :is-entered="isEntered()" title="Отплатить"></ButtonForm>
+        <ButtonForm @submit="pay" :is-entered="isEntered()" :title="$t('Отплатить')"></ButtonForm>
       </loader>
     </template>
   </ModalView>

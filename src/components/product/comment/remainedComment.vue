@@ -19,7 +19,7 @@
       </div>
     </div>
     <div>
-      <p class="bold">Комментарии:</p>
+      <p class="bold">{{ $t("Комментарии:") }}</p>
       <span>
         {{ comment.message }}
     </span>

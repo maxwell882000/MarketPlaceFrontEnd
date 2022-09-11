@@ -1,6 +1,5 @@
 <template>
   <footer>
-
     <ResponsiveLayout>
       <template #desktop>
         <AppFooterDesktop></AppFooterDesktop>

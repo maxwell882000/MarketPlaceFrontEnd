@@ -5,7 +5,7 @@
         {{ installment.name }}
       </p>
       <p class="pricing">
-        {{ priceFirstInstallment }} x {{ firstCredit.month }} месяцев
+        {{ priceFirstInstallment }} x {{ firstCredit.month }} {{ $t("месяцев") }}
       </p>
     </ButtonVialet>
   </div>

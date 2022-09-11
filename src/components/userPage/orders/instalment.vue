@@ -31,7 +31,7 @@
         <ButtonGray
             @click="openReason"
             v-show="statusPayment.WAIT_ANSWER === purchase.payble.status"
-            title="Отменить Заказ"
+            :title="$t('Отменить Заказ')"
             title-class="text-dark text-500"
         ></ButtonGray>
       </section>

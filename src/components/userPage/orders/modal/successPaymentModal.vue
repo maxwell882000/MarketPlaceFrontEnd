@@ -2,7 +2,7 @@
   <ModalView
       @close-modal="close()"
       v-model="showModal"
-      title="Успешно оплачено"
+      :title="$t('Успешно оплачено')"
       :description="showSuccess">
     <template #prefix>
       <img src="@/assets/modal/accepted.png" alt="check sign">
@@ -10,7 +10,7 @@
     <template #buttons>
       <ButtonBlue
           @click="close()"
-          title="Понятно"></ButtonBlue>
+          :title="$t('Понятно')"></ButtonBlue>
     </template>
   </ModalView>
 </template>

@@ -4,7 +4,7 @@
     <router-link v-if="to"
                  :to="to || ''" class="remove-link">
       <span>
-              Все
+             {{$t('Все')}}
       </span>
     </router-link>
   </div>

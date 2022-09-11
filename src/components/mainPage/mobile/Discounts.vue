@@ -1,6 +1,6 @@
 <template>
   <div class="p-mobile mob-home-container  mt-2 discount-mobile">
-    <name-and-route-all title="Скидки"></name-and-route-all>
+    <name-and-route-all :title="$t('Скидки')"></name-and-route-all>
     <BaseRoll>
       <SplideSlide :key="'discount_mob_'+ discount.id" v-for="discount in discounts.items">
         <div class="discount_mobile">

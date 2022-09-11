@@ -13,7 +13,7 @@
       </router-link>
     </b-collapse>
     <p v-if="category.children.length > 5" @click="show = !show" v-b-toggle="'text_collapse_' + category.slug"
-       class="elements link">Показать еще
+       class="elements link">{{ $t("Показать еще") }}
       <span class="bi" :class="show ? 'bi-chevron-up' : 'bi-chevron-down'"></span>
     </p>
     <div class="bottom-margin"></div>

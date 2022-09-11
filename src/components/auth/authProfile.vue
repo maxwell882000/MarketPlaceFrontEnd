@@ -6,30 +6,30 @@
     <ul v-show="isAuthenticated" class="dropdown-menu" aria-labelledby="cities">
       <b-dropdown-item @click="toProfile()">
         <router-link style="text-decoration: none; color: inherit;" :to="{path: '/user'}">
-          <span class="text-font">Профиль</span>
+          <span class="text-font">{{ $t("Профиль") }}</span>
         </router-link>
       </b-dropdown-item>
       <b-dropdown-divider></b-dropdown-divider>
       <b-dropdown-item @click="exitAccount">
-        <span class="text-font">Выйти</span></b-dropdown-item>
+        <span class="text-font">{{ $t("Выйти") }}</span></b-dropdown-item>
     </ul>
 
   </div>
-<!--  <div class="absolute w-100 bg-white p-4 shadow-md rounded-st container-profile">-->
-<!--    <div class="bg-color avatar-cont">-->
-<!--      <b-avatar></b-avatar>-->
-<!--      <div class="d-flex justify-content-between align-items-center">-->
-<!--        <div>-->
-<!--          <h6>name</h6>-->
+  <!--  <div class="absolute w-100 bg-white p-4 shadow-md rounded-st container-profile">-->
+  <!--    <div class="bg-color avatar-cont">-->
+  <!--      <b-avatar></b-avatar>-->
+  <!--      <div class="d-flex justify-content-between align-items-center">-->
+  <!--        <div>-->
+  <!--          <h6>name</h6>-->
 
-<!--          <span>status <span class="bi bi-bookmark-x-fill"></span></span>-->
-<!--        </div>-->
-<!--        <div>-->
+  <!--          <span>status <span class="bi bi-bookmark-x-fill"></span></span>-->
+  <!--        </div>-->
+  <!--        <div>-->
 
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
 </template>
 <script>
 

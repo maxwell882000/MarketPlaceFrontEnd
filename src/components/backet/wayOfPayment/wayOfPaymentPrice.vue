@@ -1,32 +1,32 @@
 <template>
   <way-of-payment-price-accept
       v-if="mainCredit.type === status.NOT_CHOSEN"
-      title="Выберите способ оплаты"
-      button-name="Выберите способ оплаты">
+      :title="$t('Выберите способ оплаты')"
+      :button-name="$t('Выберите способ оплаты')">
     <div class="mr-4">
       <Info style="fill: var(--gray300)"></Info>
     </div>
   </way-of-payment-price-accept>
   <way-of-payment-price-accept
       v-else-if="mainCredit.type === status.CARD"
-      title="Картой Uzcard или HUMO"
+      :title="$t('Картой Uzcard или HUMO')"
       :is-entered="true"
       @accept="acceptCard"
-      button-name="Подтвердить">
+      :button-name="$t('Подтвердить')">
   </way-of-payment-price-accept>
 
   <way-of-payment-price-accept
       v-else-if="mainCredit.type === status.CASH"
-      title="Наличными по факту доставки"
+      :title="$t('Наличными по факту доставки')"
       :is-entered="true"
       @accept="acceptCash"
-      button-name="Подтвердить">
+      :button-name="$t('Подтвердить')">
   </way-of-payment-price-accept>
 
 
   <section v-else-if="mainCredit.type === status.INSTALLMENT" class="section-container">
     <div v-show="mainCredit.initial_percent" class="mb-3">
-      <span class="mb-1 block">Первый взнос</span>
+      <span class="mb-1 block">{{ $t('Первый взнос') }} </span>
       <range-input-one
           @update:modelValue="getInitialPayment"
           :initial-value="parseFloat(initialPriceValue().toFixed(2))"
@@ -37,7 +37,7 @@
       </range-input-one>
     </div>
     <div>
-      <span class="mb-1 block">Срок рассрочки</span>
+      <span class="mb-1 block">{{ $t("Срок рассрочки") }}</span>
       <range-input-one-values
           @range-change="setOverallPriceWithPercentage"
           :disable-input="true"
@@ -52,37 +52,38 @@
     </div>
     <div class="mt-3 section-container back-gray text-sm">
       <div class="d-flex justify-content-between mb-2 font-key">
-        <span>Ежемесячный платеж:</span>
+        <span>{{ $t("Ежемесячный платеж:") }}</span>
         <span class="text-500">
-                {{ showEachMonthPayment }} сум
+                {{ showEachMonthPayment }} {{ $t("сум") }}
               </span>
       </div>
       <div class="d-flex justify-content-between mb-2 font-key">
-        <span>Процент переплаты:</span>
+        <span>{{ $t("Процент переплаты:") }}</span>
         <span class="text-500 text-red">
              {{ installment.currentPercentage }}%
               </span>
       </div>
       <div class="d-flex justify-content-between mb-2 font-key">
-        <span>Сумма переплаты:</span>
+        <span>{{ $t("Сумма переплаты:") }}</span>
         <span class="text-500 text-red">
-                {{ showPercentageOverPayment }} сум
+                {{ showPercentageOverPayment }} {{ $t("сум") }}
               </span>
       </div>
       <div class="d-flex justify-content-between  font-key">
-        <span>Общая сумма оплаты:</span>
+        <span>{{ $t("Общая сумма оплаты:") }}</span>
         <span class="text-500">
-                  {{ showOverallPrice }} сум
+                  {{ showOverallPrice }} {{ $t("сум") }}
               </span>
       </div>
     </div>
     <div class="text-xs mt-2">
-      <em class="small-text">Продолжная, вы соглашаетесь с
-        <span class="text-blue small-text">Условиями
-              использования </span> и <span class="text-blue small-text"> Политикой конфиденциальности</span>
-        ByShop</em>
+      <em class="small-text">{{ $t("Продолжная, вы соглашаетесь с") }}
+        <span class="text-blue small-text">
+          {{ $t("Условиями использования") }}</span> {{ $t("и") }} <span
+            class="text-blue small-text">{{ $t("Политикой конфиденциальности") }} </span>
+        {{ $t("ByShop") }} </em>
     </div>
-    <ButtonBlue @click="acceptInstallment" title="Подтвердить способ оплаты"></ButtonBlue>
+    <ButtonBlue @click="acceptInstallment" :title="$t('Подтвердить способ оплаты')"></ButtonBlue>
   </section>
 </template>
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-  <filter-select-base title="Продавец" prefix="shop" v-slot="{item}">
+  <filter-select-base :title="$t('Продавец')" prefix="shop" v-slot="{item}">
     <span class="text-sm"> {{ item.name }} ({{ item.num_product }})</span>
   </filter-select-base>
 </template>

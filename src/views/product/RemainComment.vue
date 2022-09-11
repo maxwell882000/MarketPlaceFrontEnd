@@ -1,7 +1,7 @@
 <template>
   <section class="container left_comment">
     <loader waiting="left_comment">
-      <back-button title="К описанию товара"></back-button>
+      <back-button :title="$t('К описанию товара')"></back-button>
       <div class="d-flex align-items-center rounded-st bg-white p-3 my-3">
         <div class="mr-4" style="height: 3rem;width: 3rem;">
           <img class="img-res" :src="image"/>
@@ -12,7 +12,7 @@
         <b-row>
           <b-col cols="6" class="my-3">
             <h6 v-show="error" v-html="error" class="text-error text-font"></h6>
-            <h6>Общая оценка</h6>
+            <h6>{{ $t('Общая оценка') }}</h6>
             <div class="text-nowrap my-3">
               <span :key="'star_index_' + index"
                     v-for="index in 5"
@@ -24,12 +24,14 @@
           </b-col>
           <div class="w-100"></div>
           <b-col cols="12" class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
-            <h6>Расскажите подробнее</h6>
-            <TextArea class="my-3" v-model="comment" placeholder="Ваш комментарий"></TextArea>
+            <h6>{{ $t('Расскажите подробнее') }}</h6>
+            <TextArea class="my-3" v-model="comment"
+                      :placeholder="$t('Ваш комментарий')"></TextArea>
           </b-col>
           <div class="w-100"></div>
           <b-col cols="12" class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
-            <ButtonForm :is-entered="isEntered" @click="submitComment" title="Опубликовать отзыв"></ButtonForm>
+            <ButtonForm :is-entered="isEntered" @click="submitComment"
+                        :title="$t('Опубликовать отзыв')"></ButtonForm>
           </b-col>
         </b-row>
       </div>

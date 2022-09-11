@@ -1,6 +1,6 @@
 <template>
   <div class="w-100  buy-now">
-    <button @click="buyImmediately" class="w-100">Купить сразу</button>
+    <button @click="buyImmediately" class="w-100">{{ $t("Купить сразу") }}</button>
   </div>
 </template>
 

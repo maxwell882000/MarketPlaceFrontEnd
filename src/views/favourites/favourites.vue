@@ -4,12 +4,14 @@
       <Badge :path="path" class="mb-3"></Badge>
       <empty-page
           v-if="!exists"
-          button-text="На главную"
-          desc="Жмите ♡ на странице товара и добавляйте сюда то, что нравится. И если цена на эти товары упадёт, мы вам напишем."
+          :button-text="$t('На главную')"
+          :desc="$t('Жмите ♡ на странице товара и добавляйте сюда то, что нравится. И если цена на эти товары упадёт, мы вам напишем.')"
           link="/" image="SearchNotFound.png"
-          title="Ещё не готовы к покупке?"></empty-page>
+          :title="$t('Ещё не готовы к покупке?')"></empty-page>
       <template v-else>
-        <div class="mb-3"><h5 class="inline">Избранное</h5> <span v-show="count">{{ count }} товаров</span></div>
+        <div class="mb-3"><h5 class="inline">{{ $t("Избранное") }}</h5>
+          <span v-show="count">{{ count }} {{ $t("товаров") }}</span>
+        </div>
         <filter-with-products></filter-with-products>
       </template>
     </section>
@@ -25,12 +27,14 @@ import {useStore} from "vuex";
 import {computed} from "vue";
 import Loader from "@/components/loading/loader";
 import {useRouter} from "vue-router";
+import {useI18n} from "vue-i18n";
 
 export default {
   // eslint-disable-next-line vue/no-unused-components
   components: {Loader, FilterWithProducts, EmptyPage, Badge},
   setup() {
     const store = useStore();
+    const t = useI18n().t;
     const isAuthenticated = computed(() => store.getters['isAuthenticated']);
     if (!isAuthenticated.value) {
       const router = useRouter();
@@ -53,11 +57,11 @@ export default {
         count: count,
         path: [
           {
-            name: "Главная",
+            name: t("Главная"),
             path: "/"
           },
           {
-            name: "Избранное",
+            name: t("Избранное"),
             path: "/favourite"
           }
         ]

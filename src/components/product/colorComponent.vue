@@ -1,6 +1,6 @@
 <template>
   <div class="mb-4" v-if="colors.length !== 0">
-    <h6>Цвет</h6>
+    <h6>{{ $t("Цвет") }}</h6>
     <div class="color-select  ">
       <button
           v-for="(color, colorIndex) in colors"

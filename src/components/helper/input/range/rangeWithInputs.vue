@@ -7,7 +7,7 @@
     <div style="flex: 1">
       <Input ref="min_num" type="number" v-model="min">
         <template #prefix>
-          от
+          {{ $t("от") }}
         </template>
       </Input>
     </div>
@@ -16,7 +16,7 @@
     <div style="flex: 1">
       <Input ref="max_num" v-model="max" type="number">
         <template #prefix>
-          до
+          {{ $t("до") }}
         </template>
       </Input>
     </div>

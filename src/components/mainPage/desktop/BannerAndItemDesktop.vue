@@ -17,7 +17,7 @@
       <router-link :to="`/item/${product.id}`" class="route-delete">
         <div v-if="Object.keys(product).length !== 0" class="d-flex flex-column item-of-day">
           <div class="item-of-day-title">
-            <h5>Товар дня</h5>
+            <h5>{{ $t("Товар дня") }}</h5>
             <div class="time">{{ getTime }}</div>
           </div>
           <div class="flex-grow-1 item-of-day-content d-flex flex-column">

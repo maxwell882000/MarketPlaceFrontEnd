@@ -3,12 +3,12 @@
     <b-row class="mb-4  flex-wrap-reverse flex-sm-wrap-reverse flex-md-wrap-reverse flex-lg-wrap">
       <b-col cols="12" class=" col-xl-9 col-lg-8 col-md-12 col-sm-12 ">
         <div class="comment rounded-st">
-          <h5>Отзывы <span class="text-gray">{{ product.num_comment }}</span></h5>
+          <h5>{{ $t("Отзывы") }} <span class="text-gray">{{ product.num_comment }}</span></h5>
           <loader waiting="comment">
             <remained-comment :comment="item" v-for="item in comment"
                               :key="'commment_unique_s' + item.id"></remained-comment>
             <loader :div-style="{height: '5vh'}" waiting="new_comment">
-              <ButtonGray v-if="!lastPage" @click="getNewComments" title="Показать больше отзывов"></ButtonGray>
+              <ButtonGray v-if="!lastPage" @click="getNewComments" :title="$t('Показать больше отзывов')"></ButtonGray>
             </loader>
           </loader>
         </div>

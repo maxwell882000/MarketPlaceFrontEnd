@@ -11,10 +11,11 @@
     <section class="back-gray rounded-st p-2">
       <div class="d-flex justify-content-between align-items-center">
         <div>
-          <span class="text-center text-xs-l"><Info></Info> Чтобы получить рассрочку, вам нужно добавить поручителя</span>
+          <span class="text-center text-xs-l"><Info></Info> {{ $t("Чтобы получить рассрочку, вам нужно добавить поручителя") }}</span>
         </div>
         <div>
-          <ButtonVialet @click="goToAddSurety()" class="m-0 p-1 text-400" title="Добавить поручителя"></ButtonVialet>
+          <ButtonVialet @click="goToAddSurety()" class="m-0 p-1 text-400"
+                        :title="$t('Добавить поручителя')"></ButtonVialet>
         </div>
       </div>
     </section>

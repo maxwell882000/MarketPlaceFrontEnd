@@ -7,7 +7,7 @@
       <div class="about">
         <span class="title text-400">{{ product.title }}</span>
         <br>
-        <span class="number">{{ product.quantity }} шт</span>
+        <span class="number">{{ product.quantity }} {{ $t("шт") }}</span>
       </div>
     </div>
   </b-col>
@@ -42,7 +42,8 @@ const props = defineProps({
 
 .mini-order-image {
   width: 5rem;
-  height: 2.7rem;}
+  height: 2.7rem;
+}
 
 .number {
   font-size: 0.6rem;

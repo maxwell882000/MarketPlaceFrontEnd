@@ -1,5 +1,5 @@
 <template>
-  <ProductItemMobile :products="hit_products" title="Хит продаж"></ProductItemMobile>
+  <ProductItemMobile :products="hit_products" :title="$t('Хит продаж')"></ProductItemMobile>
 </template>
 
 <script setup>

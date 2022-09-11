@@ -1,9 +1,10 @@
 <template>
-  <ModalAuth waiting="new_password" v-model="isNewPassword" title="Введите новый пароль">
+  <ModalAuth waiting="new_password" v-model="isNewPassword" :title="$t('Введите новый пароль')">
     <template #inputs>
-      <Input type="password" autocomplete="password" v-model="password" placeholder="Новый пароль"/>
-      <Input type="password" autocomplete="repPassword" v-model="repPassword" placeholder="Повторите новый пароль"></Input>
-      <ButtonForm title="Отправить" @submit="submit" :is-entered="isEntered()"></ButtonForm>
+      <Input type="password" autocomplete="password" v-model="password" :placeholder="$t('Новый пароль')"/>
+      <Input type="password" autocomplete="repPassword" v-model="repPassword"
+             :placeholder="$t('Повторите новый пароль')"></Input>
+      <ButtonForm :title="$t('Отправить')" @submit="submit" :is-entered="isEntered()"></ButtonForm>
     </template>
   </ModalAuth>
 </template>

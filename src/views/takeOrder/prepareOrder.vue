@@ -1,14 +1,16 @@
 <template>
   <section class="container">
-    <back-button title="Назад в корзину"></back-button>
-    <h4>Оформление заказа</h4>
+    <back-button :title="$t('Назад в корзину')"></back-button>
+    <h4>{{ $t("Оформление заказа") }}</h4>
     <b-row>
       <b-col cols="12" class="col-xl-9 col-lg-8 col-md-12">
         <div v-show="deliveryCost.different_shop">
           <div class="section-container d-flex align-items-center mb-3">
             <Info style="fill: var(--green)"></Info>
             <span
-                class="ml-2 text-500 text-sm">Внимание, мы разделили заказ, потому что товары будут отправлены с разных складов</span>
+                class="ml-2 text-500 text-sm">
+              {{ $t("Внимание, мы разделили заказ, потому что товары будут отправлены с разных складов") }}
+            </span>
           </div>
         </div>
         <delivery-prepare :class="errorOnDelivery && 'text-error'"/>
@@ -21,14 +23,15 @@
         <section class="section-container mb-3 ">
           <loader :div-style="{height: '10vh'}" waiting="delivery_price_loaded">
             <price-already-calculated
-                title="Ваш заказ"
+                :title="$t('Ваш заказ')"
                 :delivery-price="deliveryCost.price"
                 :over-payment-price="wayOfPayment.over_payment"
             >
             </price-already-calculated>
             <router-link :to="canBePaid ? routerPath: ''">
               <ButtonForm @submit="purchaseOrders" @not-submit="setNotSubmit"
-                          :is-entered="canBePaid" title="Оплатить"></ButtonForm>
+                          :is-entered="canBePaid"
+                          :title="$t('Оплатить')"></ButtonForm>
             </router-link>
             <div class="text-center mt-3">
               <div class="d-flex justify-content-center align-items-end text-sm">
@@ -36,12 +39,13 @@
                   <shields></shields>
                 </div>
                 <span>
-                Безопасное оформление заказа
+                  {{ $t("Безопасное оформление заказа") }}
               </span>
               </div>
-              <span class="text-xs text-gray">Нажимая «Оплатить» вы соглашаетесь с
-              <span class="text-dark text-underline pointer"> уcловиями использования </span>и
-              <span class="text-dark text-underline pointer">оплаты</span> сервиса ByShop</span>
+              <span class="text-xs text-gray">{{ $t("Нажимая «Оплатить» вы соглашаетесь с") }}
+              <span class="text-dark text-underline pointer"> {{ $t("уcловиями использования") }} </span>
+                {{ $t("и") }}
+              <span class="text-dark text-underline pointer">{{ $t("оплаты") }}</span>{{ $t("сервиса") }}  ByShop</span>
             </div>
           </loader>
         </section>
@@ -85,9 +89,11 @@ const routerPath = ref("/cart/plasticCard");
 const getCredits = () => store.dispatch('wayOfPaymentModule/getWayOfPayment');
 
 getCredits();
+
 function setNotSubmit() {
   isNotSumbit.value = true;
 }
+
 function purchaseOrders() {
   if (wayOfPayment.value.type === wayOfPaymentConstant.CASH) {
     routerPath.value = "";

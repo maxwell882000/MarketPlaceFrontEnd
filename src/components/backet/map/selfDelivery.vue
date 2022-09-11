@@ -12,7 +12,7 @@
       </div>
       <div class="text-sm">
         <div class="mb-2">
-          <span class="text-gray ">Время работы</span>
+          <span class="text-gray ">{{ $t('Время работы') }}</span>
         </div>
         <span :key="'hours_work_shop_'+ index"
               v-for="(hours, index) in Object.entries(item.work_hours)">
@@ -22,7 +22,7 @@
       </span>
       </div>
     </div>
-    <ButtonBlue @click="goToPurchaseSelfDelivery" title="Забрать самому"></ButtonBlue>
+    <ButtonBlue @click="goToPurchaseSelfDelivery" :title="$t('Забрать самому')"></ButtonBlue>
   </loader>
 
 </template>

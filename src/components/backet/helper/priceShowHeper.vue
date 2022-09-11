@@ -4,20 +4,20 @@
     <price-show-helper-item
         :price="price"
         color="text-dark"
-        :title="`Товары (${numberOfProducts})`"
+        :title="`${$t('Товары')} (${numberOfProducts})`"
     />
     <price-show-helper-item
         :price="discountPrice"
         color="text-green"
-        title="Скидка на товары"
+        :title="$t('Скидка на товары')"
     />
     <price-show-helper-item
         :price="deliveryPrice"
-        title="Доставка"
+        :title="$t('Доставка')"
     />
     <price-show-helper-item
         :price="overPaymentPrice"
-        title="Сумма переплаты"
+        :title="$t('Сумма переплаты')"
     />
 
     <!--    <div v-show="productPrice">-->
@@ -41,8 +41,8 @@
   </div>
 
   <div v-show="overallPrice" class="d-flex justify-content-between bold">
-    <span>Итого</span>
-    <span>{{ overallPrice }} сум</span>
+    <span>{{ $t("Итого") }}</span>
+    <span>{{ overallPrice }} {{$t("сум")}}</span>
   </div>
 </template>
 <script setup>

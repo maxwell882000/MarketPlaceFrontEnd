@@ -1,6 +1,6 @@
 <template>
   <section class="container my-3">
-    <h5 class="mb-3">Товары</h5>
+    <h5 class="mb-3">{{ $t("Товары") }}</h5>
     <filter-with-products></filter-with-products>
   </section>
 </template>

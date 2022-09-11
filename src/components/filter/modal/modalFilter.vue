@@ -8,7 +8,7 @@
             ></span>
           </button>
           <div class="text-500">
-            <span>Фильтры</span>
+            <span>{{ $t("Фильтры") }}</span>
           </div>
           <div></div>
         </div>

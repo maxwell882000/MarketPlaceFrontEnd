@@ -3,9 +3,9 @@
     <template #body>
       <img alt="Star" src="@/assets/comment/star_comment.png">
       <br>
-      <span class="bold text-sm">Спасибо, ваш отзыв скоро будет опубликован!</span>
+      <span class="bold text-sm">{{ $t("Спасибо, ваш отзыв скоро будет опубликован!") }}</span>
       <router-link class="remove-link" :to='`/item/${$route.params.id}/`'>
-        <ButtonBlue title="Понятно"></ButtonBlue>
+        <ButtonBlue :title="$t('Понятно')"></ButtonBlue>
       </router-link>
     </template>
   </ModalView>

@@ -1,9 +1,9 @@
 <template>
   <empty-page image="document.png"
-              title="Нет документов"
+              :title="$t('Нет документов')"
               link="/verification/1"
-              buttonText="Добавить документы"
-              desc="Добавьте документы чтобы брать товары в рассрочку"
+              :buttonText="$t('Добавить документы')"
+              :desc="$t('Добавьте документы чтобы брать товары в рассрочку')"
   >
   </empty-page>
 </template>

@@ -6,7 +6,7 @@
     </empty-card>
     <section v-else
              class="rounded-st bg-white p-3">
-      <h5>Сохраненные карты</h5>
+      <h5>{{ $t("Сохраненные карты") }}</h5>
       <!--    <b-form-group class="w-30" v-slot="{ ariaDescribedby }">-->
       <!--      <input-radio  :aria-describedby="ariaDescribedby" name="some-radios" value="A">-->
       <div class="mb-2">
@@ -27,7 +27,7 @@
       }" class="remove-link d-flex text-link text-blue text-center align-items-end">
         <card-add></card-add>
         <span class="px-2">
-               Добавить карту
+          {{ $t("Добавить карту") }}
           </span>
       </router-link>
     </section>

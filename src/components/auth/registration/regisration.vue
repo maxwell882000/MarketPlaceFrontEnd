@@ -1,20 +1,20 @@
 <template>
-  <ModalAuth waiting="register" v-model="isRegister" title="Регистрация">
+  <ModalAuth waiting="register" v-model="isRegister" :title="$t('Регистрация')">
     <template #inputs>
-      <Input v-model="name" placeholder="Введите имя"/>
+      <Input v-model="name" :placeholder="$t('Введите имя')"/>
       <div class="mt-custom">
-        <InputPhone v-model="phone" placeholder="Номер телефона"/>
+        <InputPhone v-model="phone" :placeholder="$t('Номер телефона')"/>
       </div>
       <div class="mt-custom">
         <InputPassword autocomplete="password" v-model="password"/>
       </div>
-      <ButtonForm @submit="register" :is-entered="isEntered()" title="Зарегистрироваться"></ButtonForm>
+      <ButtonForm @submit="register" :is-entered="isEntered()" :title="$t('Зарегистрироваться')"></ButtonForm>
       <div class="mt-2">
         <p class="text-font">
-          Уже есть аккаунта ?
+          {{ $t("Уже есть аккаунта ?") }}
         </p>
         <p @click="setLogin()" style="color: var(--blue)" class="text-font text-link">
-          Войти
+          {{ $t("Войти") }}
         </p>
       </div>
     </template>

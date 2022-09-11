@@ -1,6 +1,6 @@
 <template>
   <section class="text-500">
-    <p class="bold mb-3">Состав заказа</p>
+    <p class="bold mb-3">{{ $t("Состав заказа") }}</p>
     <b-row>
       <bought-product :key="'bought_product_'+ item.id"
                       :product="item"
@@ -19,16 +19,16 @@
     <b-row class="py-2">
       <b-col cols="12" class="col-xl-5 col-lg-6 col-md-7 col-sm-12">
         <div class="key-value">
-          <span class="text-400">Срок рассрочки</span>
-          <span>{{ purchase.payble.number_month }} месяцев</span>
+          <span class="text-400">{{ $t("Срок рассрочки") }}</span>
+          <span>{{ purchase.payble.number_month }} {{ $t("месяцев") }}</span>
         </div>
         <div class="key-value">
-          <span class="text-400">Оплачено</span>
-          <span>{{ paid }} сум</span>
+          <span class="text-400">{{ $t("Оплачено") }}</span>
+          <span>{{ paid }} {{ $t("сум") }}</span>
         </div>
         <div class="key-value">
-          <span class="text-400">Общая оплата</span>
-          <span>{{ showPayblePrice }} сум</span>
+          <span class="text-400">{{ $t("Общая оплата") }}</span>
+          <span>{{ showPayblePrice }} {{ $t("сум") }}</span>
         </div>
       </b-col>
 

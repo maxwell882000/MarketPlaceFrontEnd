@@ -3,7 +3,7 @@
     <div>
       <div class="buyshop-card mb-3">
         <loader :div-style="{height: '20vh'}" waiting="avatar">
-          <h6>Фото профиля</h6>
+          <h6>{{ $t("Фото профиля") }}</h6>
           <div class="d-flex flex-column justify-content-start align-items-start ">
             <b-avatar :src="user.avatar" size="5rem"></b-avatar>
             <input @change="uploadImage"
@@ -14,7 +14,7 @@
                       @click="$refs.file.click()"
                       variant="link"
                       style="text-decoration: none">
-              Изменить
+              {{ $t("Изменить") }}
             </b-button>
           </div>
         </loader>
@@ -24,24 +24,24 @@
 
         <b-row>
           <b-col cols="12" class="col-xl-4 col-lg-6 col-md-8 col-sm-12">
-            <h6>Персональные данные</h6>
+            <h6>{{ $t("Персональные данные") }}</h6>
             <loader :div-style="{height: '20vh'}" waiting="user_data_loaded">
               <div class="">
                 <Input
                     class="input"
                     v-model="userName"
-                    placeholder="Имя и Фамилия*"/>
+                    :placeholder="$t('Имя и Фамилия*')"/>
                 <div class="mt-3">
                   <InputPhone
                       class="input"
                       v-model="phone"
-                      placeholder="Телефон*"
+                      :placeholder="$t('Телефон*')"
                   />
                 </div>
 
                 <ButtonForm :is-entered="isEnteredUserData()"
                             @submit="changeUserData({name: userName,phone: phone})"
-                            title="Изменить" class="p-2">
+                            :title="$t('Изменить')" class="p-2">
                 </ButtonForm>
               </div>
             </loader>
@@ -70,22 +70,24 @@
 
         <b-row>
           <b-col cols="12" class="col-xl-4 col-lg-6 col-md-8  col-sm-12">
-            <h6>Аккаунт</h6>
+            <h6>{{ $t("Аккаунт") }}</h6>
             <div class="password">
               <loader waiting="password_loaded">
                 <Error :error="errorPassword"></Error>
                 <Success :success="successPassword"></Success>
-                <InputPassword autocomplete="password" v-model="password.password" placeholder="Старый пароль">
+                <InputPassword autocomplete="password" v-model="password.password"
+                               :placeholder="$t('Старый пароль')">
                 </InputPassword>
                 <InputPassword autocomplete="password_new" :error="password.password_new_error"
-                               v-model="password.password_new" placeholder="Новый пароль">
+                               v-model="password.password_new"
+                               :placeholder="$t('Новый пароль')">
                 </InputPassword>
                 <InputPassword autocomplete="password_rep" :error="password.password_new_error"
                                v-model="password.password_rep"
-                               placeholder="Подтвердите пароль"/>
+                               :placeholder="$t('Подтвердите пароль')"/>
                 <ButtonForm @submit="submitPassword"
                             :is-entered="isEnteredPassword()"
-                            title="Изменение пароля"
+                            :title="$t('Изменение пароля')"
                             class="p-2">
                 </ButtonForm>
               </loader>
@@ -95,7 +97,7 @@
       </form>
       <ResponsiveLayout>
         <template #mobile>
-          <ButtonRed @click="logout" title="Выйти"></ButtonRed>
+          <ButtonRed @click="logout" :title="$t('Выйти')"></ButtonRed>
         </template>
       </ResponsiveLayout>
     </div>

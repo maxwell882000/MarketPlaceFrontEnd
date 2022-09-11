@@ -5,23 +5,23 @@
   <error-payment-modal></error-payment-modal>
   <loader waiting="purchases_loaded">
     <b-tabs class="custom-tabs order-user" pills>
-      <b-tab lazy active title="Все">
+      <b-tab lazy active :title="$t('Все')">
         <order-scroller key-field="all_purchases_" :items="purchases"></order-scroller>
       </b-tab>
-      <b-tab lazy title="Ожидают модерации">
+      <b-tab lazy :title="$t('Ожидают модерации')">
         <order-scroller key-field="all_waiting_" :items="waitingAnswers"></order-scroller>
       </b-tab>
-      <b-tab lazy title="Ожидают оплаты">
+      <b-tab lazy :title="$t('Ожидают оплаты')">
         <order-scroller key-field="all_waiting_answer_" :items="waitingPurchase"></order-scroller>
       </b-tab>
-      <b-tab lazy title="Рассрочка">
+      <b-tab lazy :title="$t('Рассрочка')">
         <instalment :key="'all_installments_' + installment.id"
                     :purchase="installment" v-for="installment in installments"></instalment>
       </b-tab>
-      <b-tab lazy title="Завершенные">
+      <b-tab lazy :title="$t('Завершенные')">
         <order-scroller key-field="all_finished_" :items="finishedPurchases"></order-scroller>
       </b-tab>
-      <b-tab lazy title="Откланеные">
+      <b-tab lazy :title="$t('Откланеные')">
         <order-scroller key-field="all_declined_" :items="declinedPurchases"></order-scroller>
       </b-tab>
     </b-tabs>
@@ -49,7 +49,6 @@ const finishedPurchases = computed(() => store.getters['purchaseModule/finishedP
 const declinedPurchases = computed(() => store.getters['purchaseModule/declinedPurchases']);
 
 </script>
-
 
 
 <!--<b-tabs v-model="currentTab" class="custom-tabs order-user" pills>-->

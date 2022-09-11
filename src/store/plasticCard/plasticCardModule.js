@@ -1,4 +1,5 @@
 import plasticCardService from "@/services/plasticCard/plasticCardService";
+import {useI18n} from "vue-i18n";
 
 export const plasticCardModule = {
     namespaced: true,
@@ -23,13 +24,14 @@ export const plasticCardModule = {
     actions: {
         validatePlasticCard({commit, getters, dispatch}) {
             if (getters.selectedCard.id === -1) {
+                const t = useI18n().t;
                 if (getters.selectedCard.card_number.length < 16) {
-                    getters.selectedCard.card_error = "Номер карты должен быть как минимум 16 цифр";
+                    getters.selectedCard.card_error = t("Номер карты должен быть как минимум 16 цифр");
                 } else {
                     getters.selectedCard.card_error = "";
                 }
                 if (getters.selectedCard.expiry.length < 5) {
-                    getters.selectedCard.expiry_error = "Срок действия карты необходима";
+                    getters.selectedCard.expiry_error = t("Срок действия карты необходима");
                 } else {
                     getters.selectedCard.expiry_error = "";
                 }

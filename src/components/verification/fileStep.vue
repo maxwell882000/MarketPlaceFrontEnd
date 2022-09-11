@@ -20,7 +20,8 @@
                   <img class="img-res" :src="require('@/assets/' + assetImage)">
                 </div>
                 <span>
-              <span class="text-blue">Нажмите  </span> чтобы выбрать фотографии или просто перетащите их сюда
+              <span class="text-blue">{{ $t("Нажмите") }}  </span>
+                  {{ $t("чтобы выбрать фотографии или просто перетащите их сюда") }}
             </span>
               </template>
               <template v-else>
@@ -36,10 +37,11 @@
 
     <router-link :to="correctPath + back" replace>
       <ButtonGray style="background-color: var(--gray600)" :title-style="{color: 'white'}" class="mr-2 w-20 mb-3 py-2"
-                  title="Назад"></ButtonGray>
+                  :title="$t('Назад')"></ButtonGray>
     </router-link>
     <router-link :to="isFullNextPath ? next : correctPath + next " replace>
-      <ButtonBlue @click="$emit('nextPage')" class="w-20 mb-3 py-2" title="Далее"></ButtonBlue>
+      <ButtonBlue @click="$emit('nextPage')" class="w-20 mb-3 py-2"
+                  :title="$t('Далее')"></ButtonBlue>
     </router-link>
   </loader>
 

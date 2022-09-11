@@ -2,21 +2,12 @@
   <div class="d-flex relative search-form">
     <div class="dropdown">
       <button
-
           type="button"
           id="cityDropdown"
           data-bs-toggle="dropdown"
           aria-expanded="false"
       >
-        <!--        Товары-->
       </button>
-      <!--      <ul class="dropdown-menu" aria-labelledby="cityDropdown">-->
-      <!--        <li><a class="dropdown-item" href="#">Action</a></li>-->
-      <!--        <li><a class="dropdown-item" href="#">Another action</a></li>-->
-      <!--        <li>-->
-      <!--          <a class="dropdown-item" href="#">Something else here</a>-->
-      <!--        </li>-->
-      <!--      </ul>-->
     </div>
     <form class="w-100" autocomplete="off" @submit.stop.prevent>
       <div class="line"></div>
@@ -27,13 +18,14 @@
           @focus="onFocus = true"
           @focusout="leaveFocus"
           type="text"
-          placeholder="Искать товары"
+          :placeholder="$t('Искать товары')"
       />
       <button class="icon_container" disabled>
         <span class="d-none d-sm-none d-md-inline ">
-          <span v-show="search" @click="clearSearch" class="bi bi-x pointer text-gray300" style="font-size: 30px"></span>
+          <span v-show="search" @click="clearSearch" class="bi bi-x pointer text-gray300"
+                style="font-size: 30px"></span>
         </span>
-<!--        <span class="pr-3"></span>-->
+        <!--        <span class="pr-3"></span>-->
         <router-link :to="search ? '/search/' + search : ''" class="remove-link">
           <Search icon="search" class=" text-gray300" variant="secondary"></Search>
         </router-link>

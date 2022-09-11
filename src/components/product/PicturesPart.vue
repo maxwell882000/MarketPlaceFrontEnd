@@ -8,7 +8,6 @@
               :options="splideOptions"
               class="splide custom-arrows w-100">
         <SplideSlide v-for="(element, index) in picturesList" :key="'splide_' + index" class="splide-slide">
-
           <div class="image-size border-sm border-gray p-1 " :class="index === currentIndex && 'border-active'">
             <img class="img-res p-2 img-product-picture" :src="element" alt="xiaomi">
           </div>

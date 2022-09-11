@@ -1,8 +1,8 @@
 <template>
   <file-step
       @image-upload="getImage"
-      title="Фото паспорта"
-      decs="Сделайте фото паспорта. Фотография должна быть четкая,а символы на документе различимые"
+      :title="$t('Фото паспорта')"
+      :decs="$t('Сделайте фото паспорта. Фотография должна быть четкая,а символы на документе различимые')"
       asset-image="passport.svg"
       waiting="passport"
       :initial-image="initialImage"

@@ -27,7 +27,7 @@
         <router-link v-show="product.characteristics.length > 1"
                      :to="`/item/${$route.params.id}/description`"
                      class="remove-link text-blue">
-          Все характеристики
+          {{ $t("Все характеристики") }}
         </router-link>
       </b-tab>
     </b-tabs>

@@ -1,7 +1,7 @@
 <template>
   <filter-item v-if="($route.name !== 'products' && $route.params.slug)|| categories.length !== 0" :is-show="true"
                collapse="category"
-               title="Категории">
+               :title="$t('Категории')">
 
     <filter-category-fourth v-if="($route.params.slug)" :category="category"></filter-category-fourth>
     <template v-else>
@@ -10,7 +10,7 @@
                              :category="item">
         <br>
       </filter-category-first>
-      <filter-category-first :category="{name: 'Все категории', slug: false}"></filter-category-first>
+        <filter-category-first :category="{name: $t('Все категории'), slug: false}"></filter-category-first>
     </template>
   </filter-item>
 </template>

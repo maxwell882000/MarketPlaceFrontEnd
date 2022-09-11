@@ -12,7 +12,7 @@
                 <span>/5</span>
               </div>
             </div>
-            <span>{{ rate.mark_num }} отзывов</span>
+            <span>{{ rate.mark_num }} {{ $t("отзывов") }}</span>
           </b-col>
           <b-col cols="6">
             <div class="d-flex align-items-center">
@@ -48,7 +48,7 @@
           </b-col>
           <b-col cols="12" class="mt-4">
             <router-link :to='`/item/${$route.params.id}/comment`'>
-              <ButtonGray style="margin-top: 5px!important;" title="Оставить отзыв"></ButtonGray>
+              <ButtonGray style="margin-top: 5px!important;" :title="$t('Оставить отзыв')"></ButtonGray>
             </router-link>
           </b-col>
         </b-row>

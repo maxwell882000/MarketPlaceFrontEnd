@@ -10,20 +10,20 @@
       <div class="w-100">
         <div class="mb-3">
           <span class="bold">{{
-              status.DELIVERY === currentStatus ? "Курьером"
-                  : status.SELF_DELIVERY === currentStatus ? "Самовызов" : 'Адрес доставки'
+              status.DELIVERY === currentStatus ? $t("Курьером")
+                  : status.SELF_DELIVERY === currentStatus ? $t("Самовызов") : $t('Адрес доставки')
             }} </span>
         </div>
         <router-link to="/cart/selectAddress"
                      class="mb-3 remove-link d-flex w-100 justify-content-between align-items-center">
           <div v-if="currentStatus === status.NOT_CHOSEN">
             <span>
-              Добавить адрес доставки
+              {{ $t("Добавить адрес доставки") }}
             </span>
           </div>
           <div v-else-if="currentStatus === status.SELF_DELIVERY">
             <div class="mt-3">
-              <span class="text-blue">Изменить способ доставки</span>
+              <span class="text-blue">{{$t("Изменить способ доставки")}}</span>
             </div>
           </div>
           <div v-else-if="status.DELIVERY === currentStatus">
@@ -36,7 +36,7 @@
           </span>
             <br>
             <div class="mt-3">
-              <span class="text-blue">Изменить способ доставки</span>
+              <span class="text-blue">{{$t("Изменить способ доставки")}}</span>
             </div>
           </div>
           <div>

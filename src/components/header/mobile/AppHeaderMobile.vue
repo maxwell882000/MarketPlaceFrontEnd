@@ -8,7 +8,6 @@
       </section>
       <section>
         <div class="border-xm bg-gray w-100 search-cont d-flex">
-
           <div class="search-header">
             <search-icon></search-icon>
           </div>
@@ -19,7 +18,7 @@
               @focus="onFocus = true"
               @focusout="leaveFocus"
               type="text"
-              placeholder="Искать товары"/>
+              :placeholder="$t('Искать товары')"/>
         </div>
       </section>
       <div class="relative">
@@ -86,6 +85,7 @@ input::placeholder {
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.05) !important;
 
 }
+
 .mobile-header .search-helper {
   margin-top: 0.8rem;
 }

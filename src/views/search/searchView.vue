@@ -4,8 +4,9 @@
       <Badge :path="path"></Badge>
       <empty-search v-if="!exists"></empty-search>
       <template v-else>
-        <h5 class="my-3">Результаты поиска: <span class="text-orange">{{ router.params.search }}</span> <span
-            class="text-xs text-400 text-gray">Найдено {{ count }} товаров</span></h5>
+        <h5 class="my-3">{{ $t("Результаты поиска:") }} <span class="text-orange">{{ router.params.search }}</span>
+          <span
+              class="text-xs text-400 text-gray">{{ $t("Найдено") }} {{ count }} {{ $t("товаров") }}</span></h5>
         <filter-with-products></filter-with-products>
       </template>
     </section>
@@ -19,15 +20,17 @@ import {computed, onBeforeUnmount, ref, watch} from "vue";
 import {useStore} from "vuex";
 import FilterWithProducts from "@/components/filter/component/filterWithProducts";
 import Loader from "@/components/loading/loader";
+import {useI18n} from "vue-i18n";
 
 const store = useStore();
 const router = useRoute();
+const t = useI18n().t;
 const path = ref([
   {
-    name: "Главная",
+    name: t("Главная"),
     path: "/",
   }, {
-    name: "Результаты поиска : " + router.params.search,
+    name: t("Результаты поиска :") + " " + router.params.search,
     path: "/search/" + router.params.search
   }
 ]);
@@ -39,7 +42,7 @@ onBeforeUnmount(() => store.commit("productFilterByModule/clean"));
 watch(() => router.params, (val) => {
       if (val.search) {
         path.value[1] = {
-          name: "Результаты поиска : " + val.search,
+          name: t("Результаты поиска :") + " " + val.search,
           path: "/search/" + val.search
         };
       }

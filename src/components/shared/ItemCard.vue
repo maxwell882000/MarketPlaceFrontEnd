@@ -17,13 +17,13 @@
             class="item-card__rating__star bootstrap-icon bootstrap-icon--size-sm bi bi-star-fill">
         </span>
         <span class="mx-1 rating">{{ product.mark }}</span>
-        <span class="mx-2 rating">{{ product.num_comment }} отзывов</span>
+        <span class="mx-2 rating">{{ product.num_comment }} {{ $t("отзывов") }}</span>
       </div>
       <div class="item-card__prices">
 
-        <p class="item-card__prices__ex-price" v-show="isChangedPrice">{{ product.price }} сум</p>
+        <p class="item-card__prices__ex-price" v-show="isChangedPrice">{{ product.price }} {{ $t("сум") }}</p>
         <h6 class="item-card__prices__new-price">
-          {{ product.real_price }} сум
+          {{ product.real_price }} {{ $t("сум") }}
         </h6>
       </div>
       <p class="item-card__description two-only-sentence mb-1">{{ product.title }}</p>

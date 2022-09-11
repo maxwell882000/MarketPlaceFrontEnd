@@ -16,12 +16,11 @@
         <template #title>
           <div>
             <span class="pr-2" style="font-size: 1.2rem">
-              <component :is="item.icon" ></component>
+              <component :is="item.icon"></component>
             </span>
             <span>
               {{ item.title }}
             </span>
-
           </div>
         </template>
         <router-view></router-view>
@@ -49,11 +48,11 @@ export default {
   data: () => ({
     path: [
       {
-        name: "Главная",
+        name: this.$t("Главная"),
         path: "/",
       },
       {
-        name: "Профиль",
+        name: this.$t("Профиль"),
         path: "/user",
       },
     ],
@@ -61,18 +60,18 @@ export default {
     tabs: [
       {
         pathName: "profile",
-        title: "Главная",
+        title: this.$t("Главная"),
         icon: shallowRef(UserProfile),
       },
       {
         pathName: "orders",
-        title: "Мои заказы",
+        title: this.$t("Мои заказы"),
         icon: shallowRef(UserOrders),
       },
       {
         pathName: "credit",
         secondName: "insert_card",
-        title: "Оплата",
+        title: this.$t("Оплата"),
         icon: shallowRef(UserPayment),
       },
       // {
@@ -87,7 +86,7 @@ export default {
       // },
       {
         pathName: "questionAndAnswers",
-        title: "Вопросы и ответы",
+        title: this.$t("Вопросы и ответы"),
         icon: shallowRef(UserQuestions),
       },
     ]

@@ -4,12 +4,13 @@
          class="back-move"></div>
     <div style="position: relative" class="d-flex  justify-content-between m-0 align-items-center">
       <div>
-        <button :class="!isRight ? 'enable' : 'disable'" ref="left" @click="onLeft" class="button-blue">Самовывоз
+        <button :class="!isRight ? 'enable' : 'disable'" ref="left" @click="onLeft" class="button-blue">
+          {{ $t("Самовывоз") }}
         </button>
       </div>
       <div>
-        <button :class="isRight ? 'enable' : 'disable'" ref="right" @click="onRight" class="button-blue">Доставка
-          курьером
+        <button :class="isRight ? 'enable' : 'disable'" ref="right" @click="onRight" class="button-blue">
+          {{ $t("Доставка курьером") }}
         </button>
       </div>
     </div>

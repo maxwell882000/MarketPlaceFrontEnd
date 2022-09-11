@@ -3,7 +3,7 @@
   <b-col cols="12" class="d-block d-sm-block d-md-none ">
     <button @click="showModal" class="button-clear w-100 mb-3 text-right p-mobile">
           <span class="">
-       <Filter></Filter> Фильтры
+       <Filter></Filter> {{ $t("Фильтры") }}
     </span>
     </button>
   </b-col>

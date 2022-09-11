@@ -73,50 +73,50 @@
           <p class="text-muted mt-3">© 2021 «ByShop»</p>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
-          <h6>Покупателям</h6>
+          <h6>{{ $t("Покупателям") }}</h6>
           <ul>
-            <li><a href="#">Отслеживание заказов</a></li>
-            <li><a href="#">Мои заказы</a></li>
-            <li><a href="#">Условия доставки</a></li>
-            <li><a href="#">Оплата</a></li>
-            <li><a href="#">Центр поддержки</a></li>
+            <li><a href="#">{{ $t("Отслеживание заказов") }}</a></li>
+            <li><a href="#">{{ $t("Мои заказы") }}</a></li>
+            <li><a href="#">{{ $t("Условия доставки") }}</a></li>
+            <li><a href="#">{{ $t("Оплата") }}</a></li>
+            <li><a href="#">{{ $t("Центр поддержки") }}</a></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
-          <h6>Магазинам</h6>
+          <h6>{{ $t("Магазинам") }}</h6>
           <ul>
-            <li><a href="#">Начать продавать</a></li>
-            <li><a href="#">Помощь магазинам</a></li>
-            <li><a href="#">Тарифы</a></li>
-            <li><a href="#">Google Ads</a></li>
-            <li><a href="#">Бонусная программа</a></li>
+            <li><a href="#">{{ $t("Начать продавать") }}</a></li>
+            <li><a href="#">{{ $t("Помощь магазинам") }}</a></li>
+              <li><a href="#">{{ $t("Тарифы") }}</a></li>
+            <li><a href="#">{{ $t("Google Ads") }}</a></li>
+            <li><a href="#">{{ $t("Бонусная программа") }}</a></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
-          <h6>BuyShop</h6>
+          <h6>{{ $t("ByShop") }}</h6>
           <ul>
-            <li><a href="#">О компании</a></li>
-            <li><a href="#">Контакты</a></li>
-            <li><a href="#">Пресс-центр</a></li>
-            <li><a href="#">Акционерам</a></li>
-            <li><a href="#">Сотрудничество</a></li>
+            <li><a href="#"> {{ $t("О компании") }}</a></li>
+            <li><a href="#">{{ $t("Контакты") }}</a></li>
+            <li><a href="#">{{ $t("Пресс-центр") }}</a></li>
+            <li><a href="#">{{ $t("Акционерам") }}</a></li>
+            <li><a href="#">{{ $t("Сотрудничество") }}</a></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
-          <h6>Правовая информация</h6>
+          <h6>{{ $t("Правовая информация") }}</h6>
           <ul>
-            <li><a href="#">Условия использования</a></li>
-            <li><a href="#">Политика обработки данных</a></li>
-            <li><a href="#">Условия заказа и доставки</a></li>
-            <li><a href="#">Правила сервиса</a></li>
-            <li><a href="#">Раздел рассылки</a></li>
+            <li><a href="#">{{ $t("Условия использования") }}</a></li>
+            <li><a href="#">{{ $t("Политика обработки данных") }}</a></li>
+            <li><a href="#">{{ $t("Условия заказа и доставки") }}</a></li>
+            <li><a href="#">{{ $t("Правила сервиса") }}</a></li>
+            <li><a href="#">{{ $t("Раздел рассылки") }}</a></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
           <h6><a href="tel:998971234576">998 97 123-45-67</a></h6>
-          <p class="text-muted">Служба поддержки 24/7</p>
+          <p class="text-muted">{{ $t("Служба поддержки 24/7") }}</p>
           <h6><a href="mailto:support@buyshop.uz">support@buyshop.uz</a></h6>
-          <p class="text-muted">Почта</p>
+          <p class="text-muted">{{ $t("Почта") }}</p>
         </div>
       </div>
     </div>

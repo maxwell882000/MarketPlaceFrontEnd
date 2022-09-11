@@ -7,21 +7,21 @@
           class="table-installment"
           :class="index % 2 === 0 && 'table-gray'">
         <td class="text-nowrap">{{ item.month }}</td>
-        <td class="text-nowrap">{{price_formatter(item.paid)}}</td>
+        <td class="text-nowrap">{{ price_formatter(item.paid) }}</td>
         <td class="w-100">
           <div class="w-100 text-nowrap text-right">
                <span v-if="status.WAIT_ANSWER === purchase.payble.status">
-            Ожидаеться
+           {{ $t("Ожидаеться") }}
           </span>
             <ButtonBlue
                 v-else-if="checkIfInstallment(item)"
                 @click="payForMonth(item)"
                 class="button m-0"
-                title="Оплатить">
+                :title="$t('Оплатить')">
             </ButtonBlue>
-            <span v-else-if="status.DECLINED === purchase.payble.status">Отказано</span>
-            <span v-else-if="item.must_pay === item.paid" class="text-green"> Оплачено!</span>
-            <span v-else> Не оплачено</span>
+            <span v-else-if="status.DECLINED === purchase.payble.status">{{ $t("Отказано") }}</span>
+            <span v-else-if="item.must_pay === item.paid" class="text-green"> {{ $t("Оплачено!") }}</span>
+            <span v-else> {{ $t("Не оплачено") }}</span>
           </div>
 
         </td>
@@ -48,6 +48,7 @@ const props = defineProps({
 const store = useStore();
 const payment = (selectedMonth) => store.dispatch('purchaseModule/startPayment', selectedMonth);
 const status = statusPayment;
+
 function checkIfInstallment(item) {
   return item.must_pay !== item.paid
       && status.ACCEPTED === props.purchase.payble.status

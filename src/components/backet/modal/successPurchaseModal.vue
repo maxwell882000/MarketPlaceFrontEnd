@@ -2,20 +2,20 @@
   <ModalView
       v-model="isSuccess"
       @closeModal="closeModal"
-      :title="`Ваш заказ № ${createdId} принят!`"
-      description="Ожидайте, скоро с вами свяжется оператор, для подтверждения.">
+      :title="`${$t('Ваш заказ')} № ${createdId} ${$t('принят!')}`"
+      :description="$t('Ожидайте, скоро с вами свяжется оператор, для подтверждения.')">
     <template #prefix>
       <img src="@/assets/modal/accepted.png" alt="check sign">
     </template>
     <template #buttons>
       <div class="w-60 m-auto">
         <router-link :to="isSuccess ? {name: 'orders'} : {}">
-          <ButtonBlue title="Посмотреть заказ">
+          <ButtonBlue :title="$t('Посмотреть заказ')">
           </ButtonBlue>
         </router-link>
         <router-link to="/" class="remove-link">
           <span class="text-sm">
-              Продолжить покупки
+             {{ $t('Продолжить покупки') }}
           </span>
         </router-link>
       </div>

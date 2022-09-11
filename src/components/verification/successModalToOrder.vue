@@ -1,7 +1,7 @@
 <template>
   <SuccessModel
-      description="Ваши данные успешно отправленны"
-      button-title="Вернуться в мои заказы"
+      :description="$t('Ваши данные успешно отправленны')"
+      :button-title="$t('Вернуться в мои заказы')"
       path-name="orders"
       success-show="successToProfile"
   >

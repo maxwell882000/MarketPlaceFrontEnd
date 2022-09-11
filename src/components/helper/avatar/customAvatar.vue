@@ -1,5 +1,5 @@
 <template>
-  <b-avatar v-if="src"  :src="src"></b-avatar>
+  <b-avatar v-if="src" :src="src"></b-avatar>
   <b-avatar v-else :text="firstLetters"></b-avatar>
 </template>
 <script>

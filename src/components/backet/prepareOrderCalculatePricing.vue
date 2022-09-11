@@ -4,16 +4,16 @@
       <div v-if="!isSelectedEmpty" class="d-flex align-items-center flex-row">
         <span class="bi bi-info-circle-fill me-3 text-secondary"></span>
         <p class="mb-0">
-          Выберите товары, чтобы перейти к оформлению заказа
+          {{ $t("Выберите товары, чтобы перейти к оформлению заказа") }}
         </p>
       </div>
       <div v-else>
-        <price-already-calculated title="Ваша корзина"
+        <price-already-calculated :title="$t('Ваша корзина')"
         ></price-already-calculated>
       </div>
       <!--        <router-link to="/cart/prepareOrder" class='remove-link'>-->
       <ButtonForm @submit="()=>$router.push('/cart/prepareOrder/')" :is-entered="isSelectedEmpty"
-                  title="Перейти к оформлению"></ButtonForm>
+                  :title="$t('Перейти к оформлению')"></ButtonForm>
       <!--        </router-link>-->
     </div>
   </div>

@@ -2,7 +2,7 @@
   <ModalView
       v-model="success"
       @closeModal="closeModal"
-      title="Отправленно"
+      :title="$t('Отправленно')"
       :description="description"
   >
     <template #prefix>

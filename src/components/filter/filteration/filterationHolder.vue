@@ -1,11 +1,11 @@
 <template>
   <div>
     <filter-chosen></filter-chosen>
-      <filter-category></filter-category>
+    <filter-category></filter-category>
     <filter-price></filter-price>
-    <filter-toggle prefix="exists" name="В наличии"></filter-toggle>
-    <filter-toggle prefix="rate_high" name="Высокий рейтинг"></filter-toggle>
-    <filter-toggle prefix="discount_exists" name="Со скидкой продавца"></filter-toggle>
+    <filter-toggle prefix="exists" :name="$t('В наличии')"></filter-toggle>
+    <filter-toggle prefix="rate_high" :name="$t('Высокий рейтинг')"></filter-toggle>
+    <filter-toggle prefix="discount_exists" :name="$t('Со скидкой продавца')"></filter-toggle>
     <filter-manufacture></filter-manufacture>
     <filter-color></filter-color>
     <filter-shop></filter-shop>

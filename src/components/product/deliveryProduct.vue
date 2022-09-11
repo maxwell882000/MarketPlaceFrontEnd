@@ -1,7 +1,7 @@
 <template>
   <div class="delivery">
           <span class="d-flex align-items-center">
-            Доставка в <button class="btn btn-link p-0 mx-1">Ташкент</button>
+            {{ $t("Доставка в") }} <button class="btn btn-link p-0 mx-1">{{ $t("Ташкент") }}</button>
           </span>
     <p class="d-flex align-items-center mt-2 mb-2">
       <img src="@/assets/icons/delivery-icon.png" alt="delivery icon"/>

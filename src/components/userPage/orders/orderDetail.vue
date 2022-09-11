@@ -1,31 +1,31 @@
 <template>
   <p v-b-toggle="'data_about_product_' + idToggle " class="bold pointer">
-    Данные доставки
+    {{ $t("Данные доставки") }}
     <arrow-move class="mx-3" show-class="up" close-class="down"></arrow-move>
   </p>
   <b-collapse :id="'data_about_product_' + idToggle">
     <b-row>
       <data-about-product
           v-show="dateCreation"
-          :header="'Дата оформления'"
+          :header="$t('Дата оформления')"
           :data="dateCreation">
         <clock></clock>
       </data-about-product>
       <data-about-product
           v-show="address"
-          :header="'Адрес доставки'"
+          :header="$t('Адрес доставки')"
           :data="address">
         <Location></Location>
       </data-about-product>
       <data-about-product
           v-show="dateDelivery"
-          :header="'Дата доставки'"
+          :header="$t('Дата доставки')"
           :data="dateDelivery">
         <truck></truck>
       </data-about-product>
       <data-about-product
           v-show="wayOfPayment"
-          :header="'Способ оплаты'"
+          :header="$t('Способ оплаты')"
           :data="wayOfPayment">
         <card></card>
       </data-about-product>
@@ -34,7 +34,7 @@
       <!--      </data-about-product>-->
       <data-about-product
           v-show="instructions"
-          :header="'Комментарий'"
+          :header="$t('Комментарий')"
           :data="instructions">
         <comment-icon></comment-icon>
       </data-about-product>

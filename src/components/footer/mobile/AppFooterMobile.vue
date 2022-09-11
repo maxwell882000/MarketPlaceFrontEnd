@@ -25,40 +25,42 @@ import {useRoute} from "vue-router";
 import {computed} from "vue";
 import {useStore} from "vuex";
 import BadgeHeader from "@/components/header/badge-header/badgeHeader";
+import {useI18n} from "vue-i18n";
 
 const store = useStore();
-const user = computed(() => store.getters['user'])
+const user = computed(() => store.getters['user']);
+const t = useI18n().t;
 const footer = [
   {
     icon: HomeFooter,
-    title: "Главная",
+    title: t("Главная"),
     path: "",
     namePath: 'Home'
   },
   {
     icon: CategoryFooter,
-    title: "Категории",
+    title: t("Категории"),
     path: "catalogue",
     orPath: "category",
     namePath: "catalogue"
   },
   {
     icon: BasketFooter,
-    title: "Корзина",
+    title: t("Корзина"),
     path: "cart",
     namePath: "cart",
     counter: computed(() => user.value.basket_counter)
   },
   {
     icon: FavouriteFooter,
-    title: "Избранное",
+    title: t("Избранное"),
     path: "favourite",
     namePath: 'Favourites',
     counter: computed(() => user.value.favourite_counter)
   },
   {
     icon: ProfileFooter,
-    title: "Профиль",
+    title: t("Профиль"),
     path: "user",
     namePath: "User"
   },

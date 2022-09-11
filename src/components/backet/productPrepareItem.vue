@@ -5,9 +5,9 @@
     </div>
     <div>
       <small v-show="order.product.discount_price" class="old-price d-block">
-        {{ showPrice }} сум
+        {{ showPrice }} {{$t("сум")}}
       </small>
-      <h6>{{ order.quantity }} x {{ showRealPrice }} сум</h6>
+      <h6>{{ order.quantity }} x {{ showRealPrice }} {{$t("сум")}}</h6>
       <span class="w-50">{{ order.product.title }}</span>
     </div>
   </div>

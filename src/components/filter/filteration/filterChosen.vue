@@ -7,8 +7,8 @@
       <span @click="removeChosen(item[0])" class="pointer bi bi-x-circle-fill"></span>
     </div>
     <div @click="allRemove" class="pointer bg-gray text-center h-max border-lg w-max p-2 text-sm">
-      <span class="px-1">Очистить всё </span>
-      <span class="text-gray300 pointer bi bi-x-circle-fill" ></span>
+      <span class="px-1">{{ $t("Очистить всё") }}</span>
+      <span class="text-gray300 pointer bi bi-x-circle-fill"></span>
     </div>
   </div>
 </template>

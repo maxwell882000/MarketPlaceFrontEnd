@@ -9,17 +9,17 @@
       </div>
       <div class="w-50">
         <div>
-          Сделайте фото паспорта. Фотография должна быть четкая, а символы на документе различимые
+          {{ $t("Сделайте фото паспорта. Фотография должна быть четкая, а символы на документе различимые") }}
         </div>
         <div>
           <input type="file" style="display: none" ref="inputGetGallery">
           <ButtonGray @click="$refs.inputGetGallery.click()" class="p-2" :title-style="{color: 'var(--dark)'}"
-                      title="Загрузить из галереи"></ButtonGray>
+                      :title="$t('Загрузить из галереи')"></ButtonGray>
         </div>
         <div>
           <ButtonGray
               :title-style="{color: 'var(--red)'}"
-              title="Удалить текущее фото">
+              :title="$t('Удалить текущее фото')">
           </ButtonGray>
         </div>
       </div>

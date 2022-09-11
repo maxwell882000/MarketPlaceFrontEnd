@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex justify-content-between align-items-center">
     <div class="text-nowrap mr-2">
-      <h6 class="p-0 m-0"> Заказ № {{ idOrder }} </h6>
+      <h6 class="p-0 m-0"> {{ $t("Заказ") }} № {{ idOrder }} </h6>
     </div>
     <div class="text-wrap" style="overflow: hidden; text-overflow: ellipsis; max-width: 15rem">
       <slot></slot>

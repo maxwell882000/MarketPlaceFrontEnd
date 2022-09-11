@@ -1,12 +1,12 @@
 <template>
-  <h6>Куда доставить заказ?</h6>
-  <span class="text-sm text-gray">Укажите адрес на карте или используйте поиск</span>
+  <h6>{{ $t("Куда доставить заказ?") }}</h6>
+  <span class="text-sm text-gray">{{ $t('Укажите адрес на карте или используйте поиск') }}</span>
   <div class="my-1" style="position: relative">
     <InputValidation @focusin="onFocus = true"
                      @focusout="debounce(()=> onFocus = false)"
                      v-model="address_name"
                      :error="errors['address_name']"
-                     placeholder="Город доставки">
+                     :placeholder="$t('Город доставки')">
       <template #suffix>
         <Location></Location>
       </template>
@@ -15,7 +15,7 @@
          style="position: absolute; z-index: 100;">
       <loader :div-style="{height: '10vw'}" waiting="map_city_loaded">
         <div v-if="cities.length === 0">
-          <span>Городов не найдено</span>
+          <span>{{ $t("Городов не найдено") }}</span>
         </div>
         <template v-else>
           <button @click="setAddressName(city)" :key="'cities_in_address_' + city.id" v-for="city in cities"
@@ -31,21 +31,21 @@
       <div class="pr-1">
         <InputValidation :error="errors['street']" v-model="deliveryInfo[delivery.STREET]"
                          class="w-100"
-                         placeholder="Улица"></InputValidation>
+                         :placeholder="$t('Улица')"></InputValidation>
       </div>
     </b-col>
     <b-col class="my-1" cols="6">
       <div class="pl-1">
         <InputValidation type="number" :error="errors['index']"
                          v-model="deliveryInfo[delivery.INDEX]"
-                         class="w-100" placeholder="Индекс"></InputValidation>
+                         class="w-100" :placeholder="$t('Индекс')"></InputValidation>
       </div>
 
     </b-col>
     <b-col class="my-1" cols="6">
       <div class="pr-1">
         <InputValidation :error="errors['house']" v-model="deliveryInfo[delivery.HOUSE]"
-                         class="w-100" placeholder="Дом"></InputValidation>
+                         class="w-100" :placeholder="$t('Дом')"></InputValidation>
       </div>
 
     </b-col>
@@ -53,17 +53,18 @@
       <div class="pl-1">
         <InputValidation type="number" :error="errors['flat']" v-model="deliveryInfo[delivery.FLAT]"
                          class="w-100"
-                         placeholder="Квартира"></InputValidation>
+                         :placeholder="$t('Квартира')"></InputValidation>
       </div>
 
     </b-col>
     <b-col class="my-1" cols="12">
       <TextArea v-model="deliveryInfo[delivery.INSTRUCTIONS]"
                 rows="4"
-                placeholder="Комментарий для курьера"></TextArea>
+                :placeholder="$t('Комментарий для курьера')"></TextArea>
     </b-col>
   </b-row>
-  <ButtonForm @submit="goToPurchaseDelivery" :is-entered="isValid" class="p-2" title="Привезти сюда"></ButtonForm>
+  <ButtonForm @submit="goToPurchaseDelivery" :is-entered="isValid" class="p-2"
+              :title="$t('Привезти сюда')"></ButtonForm>
 </template>
 <script setup>
 import Location from "@/components/icons/location";

@@ -2,7 +2,7 @@
   <div style="padding: 8px; border-radius: 9px"
        class="d-flex flex-column justify-content-between w-100 h-100 back-violet">
     <div class="text-white">
-      <span>Номер карты</span>
+      <span>{{ $t("Номер карты") }}</span>
       <br>
       <span class="text-500">{{ card.pan }}</span>
     </div>

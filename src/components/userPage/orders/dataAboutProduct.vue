@@ -1,5 +1,5 @@
 <template>
-  <b-col cols="6"  class="col-xl-4 col-lg-4 col-md-4 col-sm-6 py-1">
+  <b-col cols="6" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 py-1">
     <div class="d-flex justify-content-start align-items-start">
       <div class="pr-1">
         <slot></slot>
@@ -18,14 +18,16 @@ export default {
 }
 </script>
 <style scoped>
-br{
-  margin:0 ;
+br {
+  margin: 0;
   padding: 0;
 }
+
 .header {
   font-size: 0.8rem;
   color: var(--gray300);
 }
+
 .data {
   display: block;
   font-size: 0.7rem;

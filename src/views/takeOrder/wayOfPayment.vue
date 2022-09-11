@@ -1,10 +1,10 @@
 <template>
   <section class="container mb-4">
-    <back-button title="Назад в оформление"></back-button>
-    <h4>Способ оплаты</h4>
+    <back-button :title="$t('Назад в оформление')"></back-button>
+    <h4>{{ $t("Способ оплаты") }}</h4>
     <b-row class="flex-wrap-reverse flex-sm-wrap-reverse flex-md-nowrap">
       <b-col cols="12" class="col-sm-12 col-md-6 col-lg-7 col-xl-8">
-        <h6 v-show="showCredit">Тарифы рассрочки</h6>
+        <h6 v-show="showCredit">{{ $t("Тарифы рассрочки") }}</h6>
         <loader :div-style="{height: '20vh'}" waiting="credit_loaded">
           <b-form-group v-show="showCredit" name="radio-options1" id="installment_number" class="mb-3"
                         v-slot="{ ariaDescribedby }">
@@ -19,27 +19,27 @@
             </way-of-payment-item>
           </b-form-group>
         </loader>
-        <h6 v-show="showPayment">Оплата сразу</h6>
+        <h6 v-show="showPayment">{{ $t("Оплата сразу") }}</h6>
         <b-form-group v-show="showPayment"
                       name="radio-options2" id="way_of_payment" v-slot="{ariaDescribedByPrice}">
-          <way-of-payment-item title="Картой Uzcard или HUMO"
+          <way-of-payment-item :title="$t('Картой Uzcard или HUMO')"
                                name="installment"
                                @change="setCard()"
                                v-model="selected"
                                :value="status.CARD - RE_MAP_STATUS_VALUE"
-                               desc="Без комиссии, мгновенная оплата"
+                               :desc="$t('Без комиссии, мгновенная оплата')"
                                :aria-describedby="ariaDescribedByPrice"></way-of-payment-item>
-          <way-of-payment-item title="Наличными по факту доставки"
+          <way-of-payment-item :title="$t('Наличными по факту доставки')"
                                name="installment"
                                @change="setCash()"
                                v-model="selected"
                                :value="status.CASH - RE_MAP_STATUS_VALUE"
-                               desc="Без процентов"
+                               :desc="$t('Без процентов')"
                                :aria-describedby="ariaDescribedByPrice">
 
             <div class="mt-2 d-flex align-items-center">
               <info width="20" height="20" style="fill: var(--blue)"></info>
-              <span class="text-xs text-gray ml-1">Данным методом нельзя оплатить рассрочку</span>
+              <span class="text-xs text-gray ml-1">{{ $t("Данным методом нельзя оплатить рассрочку") }}</span>
             </div>
           </way-of-payment-item>
         </b-form-group>

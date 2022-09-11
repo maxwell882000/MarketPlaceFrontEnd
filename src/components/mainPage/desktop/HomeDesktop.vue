@@ -5,7 +5,7 @@
       <div class="home">
         <div class="mt-4 mb-2 ">
           <h5 class="text-sm-center">
-            Купите, пока это выгодно <span class="timer mt-sm-2 d-inline-block">{{ getTime }}</span>
+            {{ $t("Купите, пока это выгодно") }} <span class="timer mt-sm-2 d-inline-block">{{ getTime }}</span>
           </h5>
         </div>
         <SalesRoll :per-page="6" slide-key="product_day" :products="product_of_day_rest"/>

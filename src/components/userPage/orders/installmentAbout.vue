@@ -1,18 +1,19 @@
+Ï
 <template>
   <section class="about-installment">
     <div>
         <span class="text-gray block">
-          Ежемесячный платеж
+         {{ $t("Ежемесячный платеж") }}
         </span>
       <span class="bold">
-          {{ showMonthPaid }} сум
+          {{ showMonthPaid }} {{ $t("сум") }}
         </span>
     </div>
     <div class="text-end">
         <span class="text-gray block">
           Осталось
         </span>
-      <span class="bold">{{ purchase.payble.rest_month }} платежа</span>
+      <span class="bold">{{ purchase.payble.rest_month }} {{ $t("платежа") }}</span>
     </div>
   </section>
 </template>

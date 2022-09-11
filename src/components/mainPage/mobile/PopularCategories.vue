@@ -1,6 +1,6 @@
 <template>
   <div class="p-mobile pop-category">
-    <name-and-route-all title="Популярные категории"></name-and-route-all>
+    <name-and-route-all :title="$t('Популярные категории')"></name-and-route-all>
     <category-roll key-arg="pop_category_" :categories="categories" v-slot="{item}">
       <router-link :to="'/category/child/' + item.slug"
                    class="remove-link">

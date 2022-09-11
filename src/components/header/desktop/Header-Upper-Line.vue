@@ -44,28 +44,21 @@
                 <span class="h-1 w-1 border-circle mr-1">
                   <russian></russian>
                 </span>
-                Русский
+                {{ $t("Русский") }}
+
               </button>
               <button v-else-if="language === 'uz' " class="dropdown-toggle">
                 <span class="h-1 w-1 border-circle mr-1">
                   <uzbek></uzbek>
                 </span>
-                O’zbekcha
+                {{ $t("O’zbekcha") }}
               </button>
               <button v-else-if="language === 'en' " class="dropdown-toggle">
                 <span class="h-1 w-1 border-circle mr-1">
                   <english></english>
                 </span>
-                English
+                {{ $t("English") }}
               </button>
-              <!--              <button v-else-if="language === 'uz'" class="dropdown-toggle">-->
-              <!--&lt;!&ndash;                <img src="@/assets/icons/flag_uz.png" alt="" class="mx-1"/>&ndash;&gt;-->
-              <!--                Русский-->
-              <!--              </button>-->
-              <!--              <button class="dropdown-toggle">-->
-              <!--                <img src="@/assets/icons/flag_ru.png" alt="" class="mx-1"/>-->
-              <!--                Русский-->
-              <!--              </button>-->
             </template>
             <template #items>
               <input-radio v-model="language" value="ru" name="language">
@@ -74,8 +67,7 @@
                   <span
                       style="align-self: center; display: inline-block"
                       class="pl-3 pt text-sm text-center"
-                  >Русский</span
-                  >
+                  >{{ $t("Русский") }}</span>
                 </div>
               </input-radio>
               <input-radio v-model="language" value="uz" name="language">
@@ -84,8 +76,7 @@
                   <span
                       style="align-self: center; display: inline-block"
                       class="pl-3 pt text-sm text-center"
-                  >O’zbekcha</span
-                  >
+                  >{{ $t("O’zbekcha") }}</span>
                 </div>
               </input-radio>
               <input-radio v-model="language" value="en" name="language">
@@ -94,22 +85,11 @@
                   <span
                       style="align-self: center; display: inline-block"
                       class="pl-3 pt text-sm text-center"
-                  >English</span>
+                  >{{ $t("English") }}</span>
                 </div>
               </input-radio>
             </template>
           </dropdown>
-          <!--          <div class="relative block" style="z-index: 1000000">-->
-
-          <!--            <div>-->
-          <!--              <div class="absolute section-container shadow-md"-->
-          <!--                   style="width: 15rem; z-index: 1000000; right: 0;">-->
-          <!--                <h6></h6>-->
-          <!--                <hr>-->
-
-          <!--              </div>-->
-          <!--            </div>-->
-          <!--          </div>-->
         </div>
       </div>
     </div>

@@ -3,19 +3,19 @@
     <router-link to="/cart/wayOfPayment" class="remove-link mb-3 d-flex align-items-center justify-content-between">
       <div>
         <div class="mb-3">
-          <span class="bold block">Способ оплаты</span>
+          <span class="bold block">{{ $t("Способ оплаты") }}</span>
         </div>
         <div v-if="wayOfPayment.type === type.INSTALLMENT">
-          <span>Рассрочка, тариф  <span class="bold">«{{ wayOfPayment.name }}»</span></span>
+          <span>{{ $t("Рассрочка, тариф") }}  <span class="bold">«{{ wayOfPayment.name }}»</span></span>
         </div>
         <div v-else-if="wayOfPayment.type === type.NOT_CHOSEN">
-          <span>Выберите способ оплаты</span>
+          <span>{{ $t("Выберите способ оплаты") }}</span>
         </div>
         <div v-else-if="wayOfPayment.type === type.CASH">
-          <span>Наличными по факту доставки</span>
+          <span>{{ $t("Наличными по факту доставки") }}</span>
         </div>
         <div v-else-if="wayOfPayment.type === type.CARD">
-          <span>Картой Uzcard или HUMO</span>
+          <span>{{ $t("Картой Uzcard или HUMO") }}</span>
         </div>
       </div>
       <div>

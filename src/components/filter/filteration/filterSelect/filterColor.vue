@@ -1,5 +1,5 @@
 <template>
-  <filter-select-base title="Цвет" prefix="color" v-slot="{item}">
+  <filter-select-base :title="$t('Цвет')" prefix="color" v-slot="{item}">
     <div class="text-sm d-flex align-items-center">
       <span class="circle" :style="{'background-color': item.hex}"></span>
       {{ item.name }} ({{ item.num_product }})

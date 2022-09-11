@@ -1,10 +1,10 @@
 <template>
   <div>
     <p v-show="changedPrice" class="old-price">
-      <small>{{ priceOld }} сум</small>
+      <small>{{ priceOld }} {{ $t("сум") }} </small>
     </p>
     <h5 class="price">
-      {{ priceNew }} сум <small class="sale-percent" v-show="discount">-{{ discount }}%</small>
+      {{ priceNew }} {{ $t("сум") }} <small class="sale-percent" v-show="discount">-{{ discount }}%</small>
     </h5>
   </div>
 

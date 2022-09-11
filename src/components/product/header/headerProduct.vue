@@ -1,6 +1,6 @@
 <template>
   <section class="container price-desc mb-3">
-    <back-button class="mb-3" title="К описанию товара"></back-button>
+    <back-button class="mb-3" :title="$t('К описанию товара')"></back-button>
     <section
         class="section-container d-flex justify-content-between flex-wrap flex-sm-wrap flex-md-wrap flex-lg-nowrap">
       <div class

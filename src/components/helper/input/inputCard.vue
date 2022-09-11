@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white p-4 shadow-box ">
-    <InputBelowBorder @input="filterAndEmitCardNumber" :value="card_input" class="w-100" :placeholder="'Номер карты'"/>
+    <InputBelowBorder @input="filterAndEmitCardNumber" :value="card_input" class="w-100" :placeholder="$t('Номер карты')"/>
     <error :error="error_card"></error>
     <br>
     <div class="w-30">

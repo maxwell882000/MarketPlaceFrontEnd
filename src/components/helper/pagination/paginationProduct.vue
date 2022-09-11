@@ -5,8 +5,8 @@
                   pills
                   :total-rows="products.total || 0"
                   :per-page="products.per_page || 1"
-                  prev-text="Назад"
-                  next-text="Вперед"
+                  :prev-text="$t('Назад')"
+                  :next-text="$t('Вперед')"
                   last-number
                   first-number
     ></b-pagination>

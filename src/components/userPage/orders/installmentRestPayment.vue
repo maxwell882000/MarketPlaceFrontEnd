@@ -1,8 +1,8 @@
 <template>
   <div>
-    <span class="text-gray block">Осталось</span>
+    <span class="text-gray block">{{ $t("Осталось") }}</span>
     <span class="bold text-lg">{{ showAlreadyPaid }} <span
-        class="text-400 text-gray">из {{ showAllToPay }} cум</span></span>
+        class="text-400 text-gray">из {{ showAllToPay }} {{ $t("cум") }}</span></span>
     <div class="d-flex mt-3 w-100">
       <div class=" rounded-st lines"
            :key="'month_installment_' + items.id"

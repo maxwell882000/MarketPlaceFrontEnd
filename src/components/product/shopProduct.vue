@@ -1,5 +1,5 @@
 <template>
-  <h6 class="mt-4  pb-3 text-500">Продавец</h6>
+  <h6 class="mt-4  pb-3 text-500">{{ $t("Продавец") }}</h6>
   <router-link
       :to="'/shop/' + shop.slug"
       class="seller d-flex align-items-center shop-link justify-content-between">

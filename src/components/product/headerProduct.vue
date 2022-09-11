@@ -4,7 +4,7 @@
     <div class="mr-2 d-flex">
       <stars :rating="rating"></stars>
       <span class="ratings-count">{{ rating }}</span>
-      <span class="reviews-count">{{ reviews }} отзывов</span>
+      <span class="reviews-count">{{ reviews }} {{ $t("отзывов") }}</span>
     </div>
 
     <div class="d-flex">
@@ -12,12 +12,13 @@
         <button v-b-tooltip.hover class="button-clear" title="Оставить комментарий">
           <comments-icon src="@/assets/icons/review.png" alt="comparison icon"/>
         </button>
-        <router-link class="remove-link" :to="`/item/${this.$route.params.id}/comment`"><span>Оставить отзыв</span>
+        <router-link class="remove-link" :to="`/item/${this.$route.params.id}/comment`">
+          <span>{{ $t("Оставить отзыв") }}</span>
         </router-link>
       </div>
       <div class="rating__comparison top-icon px-2">
         <Like :id="favourite.id" :favourite="favourite.favourite"></Like>
-        <span>В избранное</span>
+        <span>{{ $t("В избранное") }}</span>
       </div>
     </div>
 

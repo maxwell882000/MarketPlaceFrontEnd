@@ -20,7 +20,7 @@
                 alt="x icon"
                 class="burger"
             />
-            Каталог товаров
+            {{ $t("Каталог товаров") }}}
           </b-button>
           <b-collapse
               id="categories"
@@ -32,31 +32,12 @@
                 <FilterTabs/>
               </div>
             </div>
-
           </b-collapse>
         </div>
-        <!--        <div class="header-link">-->
-        <!--          <a href="#">-->
-        <!--            <img src="@/assets/icons/coupon.svg" alt="coupon icon" />-->
-        <!--            Предложения для вас-->
-        <!--          </a>-->
-        <!--        </div>-->
-        <!--        <div class="header-link">-->
-        <!--          <a href="#">-->
-        <!--            <img src="@/assets/icons/fire.svg" alt="sales icon" />-->
-        <!--            Скидки-->
-        <!--          </a>-->
-        <!--        </div>-->
         <div v-for="item in nav_bar" :key="item.slug" class="header-link">
           <router-link :to="'/category/parent/' + item.slug">{{ item.name }}
           </router-link>
         </div>
-
-        <!--        <div class="header-link"><a href="#">Детям</a></div>-->
-        <!--        <div class="header-link"><a href="#">Спорт</a></div>-->
-        <!--        <div class="header-link"><a href="#">Продукты</a></div>-->
-        <!--        <div class="header-link"><a href="#">Красота</a></div>-->
-        <!--        <div class="header-link"><a href="#">Аптека</a></div>-->
       </div>
     </div>
   </div>
@@ -112,6 +93,7 @@ export default {
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0.3rem 0;
+
   .btn-primary {
     white-space: nowrap;
     border-radius: 8px;

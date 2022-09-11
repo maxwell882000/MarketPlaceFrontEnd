@@ -1,10 +1,11 @@
 <template>
-  <empty-base image="card-pos.png" title="У вас нет сохраненных карт"
-              desc="Добавьте карту, чтобы оплачивать покупки и рассрочку">
+  <empty-base image="card-pos.png"
+              :title="$t('У вас нет сохраненных карт')"
+              :desc="$t('Добавьте карту, чтобы оплачивать покупки и рассрочку')">
     <router-link :to="{
       name:'insert_card'
     }">
-      <button-blue class="p-2" style="width: max-content" title="Добавить документы"></button-blue>
+      <button-blue class="p-2" style="width: max-content" :title="$t('Добавить документы')"></button-blue>
     </router-link>
   </empty-base>
 </template>

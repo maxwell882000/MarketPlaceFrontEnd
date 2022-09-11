@@ -3,8 +3,8 @@
        style="background-repeat:no-repeat "
        :style="{ backgroundImage: 'url(' + require('@/assets/gradient_bg.png') + ')'}">
     <div class="d-flex justify-content-center align-items-center flex-column text-white mt-4 h-100">
-      <h5>Горячая распродажа</h5>
-      <p style="opacity: 0.6">Заканчивается через</p>
+      <h5>{{ $t("Горячая распродажа") }}</h5>
+      <p style="opacity: 0.6">{{ $t("Заканчивается через") }} </p>
       <div class="mob-time-show">
         <span class="bg-black-time time-specific relative">
           <span class="">{{ time.hours }}</span>

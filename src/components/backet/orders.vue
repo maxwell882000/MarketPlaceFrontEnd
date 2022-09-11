@@ -1,7 +1,7 @@
 <template>
   <div class="mb-3">
-    <h4 class="my-3 inline">Корзина</h4>
-    <span class="text-muted ms-2 mb-1">{{ count }} товара</span>
+    <h4 class="my-3 inline">{{ $t("Корзина") }}</h4>
+    <span class="text-muted ms-2 mb-1">{{ count }} {{ $t("товара") }} </span>
   </div>
   <div class="row">
     <div class="col col-12 col-lg-8">
@@ -10,12 +10,12 @@
           <div style="flex: 1">
             <input-select v-model="checkALlOrder">
              <span class="text-sm text-center">
-                      Выбрать все товары
+                     {{ $t("Выбрать все товары") }}
                </span>
             </input-select>
           </div>
           <span @click="deleteSelected" class="pointer text-red text-sm" v-show="numberSelectedOrders">
-              Удалить выбранные
+            {{ $t("Удалить выбранные") }}
           </span>
         </div>
       </div>

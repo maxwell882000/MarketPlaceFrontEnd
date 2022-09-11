@@ -2,15 +2,15 @@
   <ModalView
       @close-modal="close()"
       v-model="showSuccess"
-      title="Карта добавлена"
-      description="Теперь вы легко сможете оплачивать покупки">
+      :title="$t('Карта добавлена')"
+      :description="$t('Теперь вы легко сможете оплачивать покупки')">
     <template #prefix>
       <img src="@/assets/modal/cart_success.png" alt="check sign">
     </template>
     <template #buttons>
       <ButtonBlue
           @click="close()"
-          title="Понятно"></ButtonBlue>
+          :title="$t('Понятно')"></ButtonBlue>
     </template>
   </ModalView>
 </template>
