@@ -1,5 +1,5 @@
 <template>
-  <button :class="this.isBasket ? 'active' : 'inactive'" @click.prevent="clicked">
+  <button class="card-button" :class="this.isBasket ? 'active' : 'inactive'" @click.prevent="clicked">
     <ResponsiveLayout>
       <template #desktop>
         <svg class="svg-class" width="18" height="18" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg">
@@ -31,21 +31,21 @@ export default {
 }
 </script>
 <style scoped>
-button {
+.card-button {
   border-radius: 8px;
   border: none;
   /*padding: calc(10px + 0.357rem ) 14px;*/
 }
 
 @media (max-width: 768px) {
-  button {
+  .card-button {
     border-radius: 2.571rem;
     padding: 0.38rem 0;
     color: white;
   }
 }
 
-button span {
+.card-button span {
   font-size: 0.857rem;
   line-height: 1.071rem;
   font-weight: 600;

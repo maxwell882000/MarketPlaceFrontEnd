@@ -21,17 +21,20 @@
             </show-all-text>
             <!--            <h5 class="text-sm-center mt-4 mb-2">{{  }}</h5>-->
             <div class="d-flex align-items-center">
-              <router-link :to="'/products/lenta/' + item.id" v-if="item.left_image !== ''">
-                <div
-                    style="width: 30.571rem !important;height: 29.429rem; margin-right: 10px; ">
-                  <img :src="item.left_image" class="img-res rounded-st">
-                </div>
-              </router-link>
-              <div :class="item.left_image === '' ? 'take-all' : 'take-all-with-calc'">
+              <image-in-sides :id="item.id" :image="item.image" :is_left="!!item.is_left"></image-in-sides>
+              <!--              <router-link :to="'/products/lenta/' + item.id" v-if="item.image !== ''">-->
+              <!--                <div-->
+              <!--                    style="width: 30.571rem !important;height: 29.429rem; margin-right: 10px; ">-->
+              <!--                  <img :src="item.image" class="img-res rounded-st">-->
+              <!--                </div>-->
+              <!--              </router-link>-->
+              <div :class="item.image === '' ? 'take-all' : 'take-all-with-calc'">
                 <SalesRoll :per-page="6"
                            slide-key="product_day"
                            :products="item.products"/>
               </div>
+              <image-in-sides :id="item.id" :image="item.image" :is_left="!item.is_left"></image-in-sides>
+
             </div>
             <!--                         :style="item.left_image ? {flex: 1} : {width: '100%'}"-->
 
@@ -53,9 +56,10 @@ import Loader from "@/components/loading/loader";
 import BannerAndItemDesktop from "@/components/mainPage/desktop/BannerAndItemDesktop";
 import ShopList from "@/components/shop/desktop/shopList";
 import ShowAllText from "@/components/helper/button/showAllText";
+import ImageInSides from "@/components/mainPage/desktop/imageInSides";
 
 export default {
-  components: {ShowAllText, ShopList, Loader, StocksTabs, SalesRoll, BannerAndItemDesktop},
+  components: {ImageInSides, ShowAllText, ShopList, Loader, StocksTabs, SalesRoll, BannerAndItemDesktop},
   computed: {
     ...mapGetters('mainModule', [
       'getTime',
