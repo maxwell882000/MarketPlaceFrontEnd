@@ -27,7 +27,6 @@ import Flicking from "@egjs/vue3-flicking";
 const VueWait = createVueWait({useVuex: true, registerDirective: true})
 createApp(App)
     .use(VueVirtualScroller)
-    .use(i18n)
     .use(store)
     .use(router)
     .use(Vue3Mq)
@@ -37,6 +36,19 @@ createApp(App)
     .use(VueWait)
     .use(BootstrapVue3)
     .use(VueAxios, axios)
+    .use(i18n)
     .component("Flicking", Flicking)
-    .mount("#app");
+    .directive('click-outside', {
+        mounted(el, binding) {
+            el.clickOutsideEvent = function (event) {
+                if (!(el === event.target || el.contains(event.target))) {
+                    binding.value(event, el);
+                }
+            };
+            document.body.addEventListener('click', el.clickOutsideEvent);
+        },
+        unmounted(el) {
+            document.body.removeEventListener('click', el.clickOutsideEvent);
+        }
+    }).mount("#app");
 

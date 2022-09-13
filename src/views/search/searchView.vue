@@ -4,9 +4,11 @@
       <Badge :path="path"></Badge>
       <empty-search v-if="!exists"></empty-search>
       <template v-else>
-        <h5 class="my-3">{{ $t("Результаты поиска:") }} <span class="text-orange">{{ router.params.search }}</span>
+        <h5 class="my-3 text-header-32">{{ $t("Результаты поиска:") }} <span class="text-orange">{{
+            router.params.search
+          }}</span>
           <span
-              class="text-xs text-400 text-gray">{{ $t("Найдено") }} {{ count }} {{ $t("товаров") }}</span></h5>
+              class="text-normal pl-2 text-400 text-gray">{{ $t("Найдено") }} {{ count }} {{ $t("товаров") }}</span></h5>
         <filter-with-products></filter-with-products>
       </template>
     </section>

@@ -17,7 +17,7 @@
       <router-link :to="`/item/${product.id}`" class="route-delete">
         <div v-if="Object.keys(product).length !== 0" class="d-flex flex-column item-of-day">
           <div class="item-of-day-title">
-            <h5>{{ $t("Товар дня") }}</h5>
+            <h5 class="text-500">{{ $t("Товар дня") }}</h5>
             <div class="time">{{ getTime }}</div>
           </div>
           <div class="flex-grow-1 item-of-day-content d-flex flex-column">
@@ -45,7 +45,7 @@
 
 import {mapGetters} from "vuex";
 import PaginationArrows from "@/components/helper/pagination/paginationArrows";
-import ItemCardPrice from "@/components/shared/ItemCardPrice";
+import ItemCardPrice from "@/components/shared/item/ItemCardPrice";
 import Like from "@/components/buttons/Like";
 
 export default {

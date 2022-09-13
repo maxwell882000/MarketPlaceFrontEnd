@@ -4,7 +4,7 @@
     <!--    <div class="w-40">-->
     <b-row>
       <b-col cols="12" class="col-xl-5 col-lg-6 col-md-6 col-sm-12">
-          <h5>{{ $t("Привязка банковской карты") }} </h5>
+          <h5 class="text-header-32">{{ $t("Привязка банковской карты") }} </h5>
         <br>
         <input-card
             :card_input="selectedCard.card_number"

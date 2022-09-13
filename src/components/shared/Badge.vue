@@ -30,7 +30,9 @@ export default {
 <style lang="scss" scoped>
 .badge {
   width: 100%;
+  font-size: 1rem !important;
   overflow: hidden;
+  font-weight: 400 !important;
   @media (max-width: 767px) {
     flex-wrap: wrap !important;
   }
@@ -55,7 +57,6 @@ a {
   margin: 10px;
   text-decoration: none;
   color: var(--dark);
-  font-weight: 200;
 }
 
 a:hover {

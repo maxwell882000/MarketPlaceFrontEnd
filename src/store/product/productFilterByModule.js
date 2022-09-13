@@ -5,6 +5,7 @@ export const productFilterByModule = {
     state() {
         return {
             filterBy: {},
+            isList: false,
             filterCanBeApplied: {},// will be set individually depending on window || search , category, shop , favourite
             showChosen: {},
             currentPage: 1,
@@ -26,6 +27,9 @@ export const productFilterByModule = {
                 min: state.filterBy['min_price'] || 0,
                 max: state.filterBy['max_price'] || 0
             }
+        },
+        isList(state) {
+            return state.isList;
         },
         isProducts(state) {
             return Object.entries(state.products);
@@ -114,6 +118,7 @@ export const productFilterByModule = {
             dispatch("getProducts", 1);
         },
         addFilterAndGetProduct({commit, dispatch}, val) {
+            console.log(val);
             commit('addFilterBy', val);
             dispatch('getProducts', 1);
         },
@@ -205,11 +210,14 @@ export const productFilterByModule = {
         addFilterBy(state, {key, item}) {
             state.filterBy[key] = item;
         },
+        setIsList(state, value) {
+            state.isList = value;
+        }
     }
 }
 const SEPARATOR = '-';
 
-function constructKeys(filter) {
+function    constructKeys(filter) {
     return Object.entries(filter).filter(item => item[0] && item[1])
         .map(item => {
             if (Array.isArray(item[1])) {

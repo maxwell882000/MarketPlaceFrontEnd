@@ -7,7 +7,7 @@
         <Orders></Orders>
         <section v-show="product.length > 0" class="bg-white-sm p-mobile mt-3">
           <div class="pt-2"></div>
-          <h5 class=" pt-1 mb-3 text-sm-center">{{ $t("Вам может быть интересно") }}</h5>
+          <h5 class="text-header-32 pt-1 mb-3 text-sm-center">{{ $t("Вам может быть интересно") }}</h5>
           <SalesRoll :products="product"/>
         </section>
       </template>

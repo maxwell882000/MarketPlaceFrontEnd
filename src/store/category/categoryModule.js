@@ -203,6 +203,9 @@ export const categoryModule = {
             switch (category.depth) {
                 case 1:
                     state.parent = category;
+                    if (!category.product_in_categories) {
+                        category.product_in_categories = [];
+                    }
                     category.product_in_categories.filter(e => e.children.length !== 0)
                         .forEach(item => state.productInCategory[item.children[0].slug] = item.products);
                     break;

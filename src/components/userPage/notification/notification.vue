@@ -1,7 +1,7 @@
 <template>
   <section class="section-container">
     <div class="d-flex justify-content-between">
-      <h5>{{ $t("Уведомления") }}</h5>
+      <h5 class="text-header-32">{{ $t("Уведомления") }}</h5>
       <input-toggle></input-toggle>
     </div>
     <hr>

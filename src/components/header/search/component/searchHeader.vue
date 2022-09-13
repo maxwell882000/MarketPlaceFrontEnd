@@ -87,14 +87,13 @@ form {
   }
 
   input {
-    color: black;
+    color: var(--dark);
     font-weight: 500;
     width: 700px;
 
-    &
-    ::placeholder {
-      color: black;
-      font-weight: 300;
+    &::placeholder {
+      color: var(--dark);
+      font-weight: 400 !important;
     }
 
   }

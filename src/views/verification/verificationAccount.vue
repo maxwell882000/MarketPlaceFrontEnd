@@ -2,7 +2,7 @@
   <loader waiting="complete_validation">
     <section class="container">
       <back-button :title="$t('Назад в оформление')"></back-button>
-      <h5>{{ $t("Верификация аккаунта") }}</h5>
+      <h5 class="text-header-32">{{ $t("Верификация аккаунта") }}</h5>
       <div class="container">
         <b-row>
           <b-col cols="12" class="col-xl-7 col-lg-8 overflow  my-2">

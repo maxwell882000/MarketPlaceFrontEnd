@@ -1,5 +1,5 @@
 import plasticCardService from "@/services/plasticCard/plasticCardService";
-import {useI18n} from "vue-i18n";
+import i18n from '@/i18n'
 
 export const plasticCardModule = {
     namespaced: true,
@@ -24,7 +24,7 @@ export const plasticCardModule = {
     actions: {
         validatePlasticCard({commit, getters, dispatch}) {
             if (getters.selectedCard.id === -1) {
-                const t = useI18n().t;
+                const t = i18n.global.t;
                 if (getters.selectedCard.card_number.length < 16) {
                     getters.selectedCard.card_error = t("Номер карты должен быть как минимум 16 цифр");
                 } else {

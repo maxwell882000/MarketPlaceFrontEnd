@@ -1,106 +1,111 @@
 <template>
   <loader waiting="user">
-    <div>
-      <div class="buyshop-card mb-3">
-        <loader :div-style="{height: '20vh'}" waiting="avatar">
-          <h6>{{ $t("Фото профиля") }}</h6>
-          <div class="d-flex flex-column justify-content-start align-items-start ">
-            <b-avatar :src="user.avatar" size="5rem"></b-avatar>
-            <input @change="uploadImage"
-                   type="file"
-                   ref="file"
-                   style="display: none">
-            <b-button size="sm"
-                      @click="$refs.file.click()"
-                      variant="link"
-                      style="text-decoration: none">
-              {{ $t("Изменить") }}
-            </b-button>
-          </div>
-        </loader>
-
-      </div>
-      <div class="buyshop-card mb-3">
-
-        <b-row>
-          <b-col cols="12" class="col-xl-4 col-lg-6 col-md-8 col-sm-12">
-            <h6>{{ $t("Персональные данные") }}</h6>
-            <loader :div-style="{height: '20vh'}" waiting="user_data_loaded">
-              <div class="">
-                <Input
-                    class="input"
-                    v-model="userName"
-                    :placeholder="$t('Имя и Фамилия*')"/>
-                <div class="mt-3">
-                  <InputPhone
-                      class="input"
-                      v-model="phone"
-                      :placeholder="$t('Телефон*')"
-                  />
-                </div>
-
-                <ButtonForm :is-entered="isEnteredUserData()"
-                            @submit="changeUserData({name: userName,phone: phone})"
-                            :title="$t('Изменить')" class="p-2">
-                </ButtonForm>
-              </div>
-            </loader>
-            <!--      <div class="d-flex flex-wrap">-->
-            <!--        <input-field-->
-            <!--            type="date"-->
-            <!--            class="input-sm"-->
-            <!--            v-model="birth"-->
-            <!--            placeholder="День рождения"-->
-            <!--        />-->
-            <!--        <b-dropdown-->
-            <!--            id="dropdown-1"-->
-            <!--            :text="gender == 'm' ? `Мужчина` : `Женщина`"-->
-            <!--            variant="white"-->
-            <!--            class="custom-dropdown"-->
-            <!--        >-->
-            <!--          <b-dropdown-item @click="gender = 'm'">Мужчина</b-dropdown-item>-->
-            <!--          <b-dropdown-item @click="gender = 'f'">Женщина</b-dropdown-item>-->
-            <!--        </b-dropdown>-->
-            <!--      </div>-->
-
-          </b-col>
-        </b-row>
-      </div>
-      <form @submit.prevent="" class="buyshop-card">
-
-        <b-row>
-          <b-col cols="12" class="col-xl-4 col-lg-6 col-md-8  col-sm-12">
-            <h6>{{ $t("Аккаунт") }}</h6>
-            <div class="password">
-              <loader waiting="password_loaded">
-                <Error :error="errorPassword"></Error>
-                <Success :success="successPassword"></Success>
-                <InputPassword autocomplete="password" v-model="password.password"
-                               :placeholder="$t('Старый пароль')">
-                </InputPassword>
-                <InputPassword autocomplete="password_new" :error="password.password_new_error"
-                               v-model="password.password_new"
-                               :placeholder="$t('Новый пароль')">
-                </InputPassword>
-                <InputPassword autocomplete="password_rep" :error="password.password_new_error"
-                               v-model="password.password_rep"
-                               :placeholder="$t('Подтвердите пароль')"/>
-                <ButtonForm @submit="submitPassword"
-                            :is-entered="isEnteredPassword()"
-                            :title="$t('Изменение пароля')"
-                            class="p-2">
-                </ButtonForm>
-              </loader>
+    <user-not-verified @edit-profile="showProfile = true" v-if="!user.user_credit && !showProfile"
+                       :user="user"></user-not-verified>
+    <template v-else-if="user.user_credit || showProfile">
+      <div>
+        <div class="buyshop-card mb-3">
+          <loader :div-style="{height: '20vh'}" waiting="avatar">
+            <h6>{{ $t("Фото профиля") }}</h6>
+            <div class="d-flex flex-column justify-content-start align-items-start ">
+              <b-avatar :src="user.avatar" size="5rem"></b-avatar>
+              <input @change="uploadImage"
+                     type="file"
+                     ref="file"
+                     style="display: none">
+              <b-button size="sm"
+                        @click="$refs.file.click()"
+                        variant="link"
+                        style="text-decoration: none">
+                {{ $t("Изменить") }}
+              </b-button>
             </div>
-          </b-col>
-        </b-row>
-      </form>
-      <ResponsiveLayout>
-        <template #mobile>
-          <ButtonRed @click="logout" :title="$t('Выйти')"></ButtonRed>
-        </template>
-      </ResponsiveLayout>
-    </div>
+          </loader>
+
+        </div>
+        <div class="buyshop-card mb-3">
+
+          <b-row>
+            <b-col cols="12" class="col-xl-4 col-lg-6 col-md-8 col-sm-12">
+              <h6>{{ $t("Персональные данные") }}</h6>
+              <loader :div-style="{height: '20vh'}" waiting="user_data_loaded">
+                <div class="">
+                  <Input
+                      class="input"
+                      v-model="userName"
+                      :placeholder="$t('Имя и Фамилия*')"/>
+                  <div class="mt-3">
+                    <InputPhone
+                        class="input"
+                        v-model="phone"
+                        :placeholder="$t('Телефон*')"
+                    />
+                  </div>
+
+                  <ButtonForm :is-entered="isEnteredUserData()"
+                              @submit="changeUserData({name: userName,phone: phone})"
+                              :title="$t('Изменить')" class="p-2">
+                  </ButtonForm>
+                </div>
+              </loader>
+              <!--      <div class="d-flex flex-wrap">-->
+              <!--        <input-field-->
+              <!--            type="date"-->
+              <!--            class="input-sm"-->
+              <!--            v-model="birth"-->
+              <!--            placeholder="День рождения"-->
+              <!--        />-->
+              <!--        <b-dropdown-->
+              <!--            id="dropdown-1"-->
+              <!--            :text="gender == 'm' ? `Мужчина` : `Женщина`"-->
+              <!--            variant="white"-->
+              <!--            class="custom-dropdown"-->
+              <!--        >-->
+              <!--          <b-dropdown-item @click="gender = 'm'">Мужчина</b-dropdown-item>-->
+              <!--          <b-dropdown-item @click="gender = 'f'">Женщина</b-dropdown-item>-->
+              <!--        </b-dropdown>-->
+              <!--      </div>-->
+
+            </b-col>
+          </b-row>
+        </div>
+        <form @submit.prevent="" class="buyshop-card">
+
+          <b-row>
+            <b-col cols="12" class="col-xl-4 col-lg-6 col-md-8  col-sm-12">
+              <h6>{{ $t("Аккаунт") }}</h6>
+              <div class="password">
+                <loader waiting="password_loaded">
+                  <Error :error="errorPassword"></Error>
+                  <Success :success="successPassword"></Success>
+                  <InputPassword autocomplete="password" v-model="password.password"
+                                 :placeholder="$t('Старый пароль')">
+                  </InputPassword>
+                  <InputPassword autocomplete="password_new" :error="password.password_new_error"
+                                 v-model="password.password_new"
+                                 :placeholder="$t('Новый пароль')">
+                  </InputPassword>
+                  <InputPassword autocomplete="password_rep" :error="password.password_new_error"
+                                 v-model="password.password_rep"
+                                 :placeholder="$t('Подтвердите пароль')"/>
+                  <ButtonForm @submit="submitPassword"
+                              :is-entered="isEnteredPassword()"
+                              :title="$t('Изменение пароля')"
+                              class="p-2">
+                  </ButtonForm>
+                </loader>
+              </div>
+            </b-col>
+          </b-row>
+        </form>
+        <ResponsiveLayout>
+          <template #mobile>
+            <ButtonRed @click="logout" :title="$t('Выйти')"></ButtonRed>
+          </template>
+        </ResponsiveLayout>
+      </div>
+    </template>
+
   </loader>
 </template>
 
@@ -116,6 +121,7 @@ import Error from "@/components/helper/error/error";
 import Success from "@/components/helper/status/success";
 import ButtonRed from "@/components/helper/button/buttonRed";
 import ResponsiveLayout from "@/components/responsive/ResponsiveLayout";
+import UserNotVerified from "@/components/userPage/settings/userNotVerified";
 
 const user = computed(() => store.getters['user']);
 const store = useStore();
@@ -131,7 +137,7 @@ const successPassword = computed(() => store.getters['passwordModule/success']);
 const uploadAvatar = (val) => store.dispatch("changeAvatar", val);
 const changeUserData = (data) => store.dispatch("changeUserData", data);
 const logout = () => store.dispatch('logout');
-
+const showProfile = ref(false);
 cleanPassword();
 watch(user, function () {
   userName.value = user.value.name;

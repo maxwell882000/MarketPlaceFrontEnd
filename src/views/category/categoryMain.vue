@@ -2,7 +2,7 @@
   <loader waiting="category_view">
     <section class="container my-4">
       <Badge :path="info.path"></Badge>
-      <h5 class="py-2 mb-3">{{ info.name }}</h5>
+      <h5 class="text-header-32 py-2 mb-3">{{ info.name }}</h5>
       <router-view></router-view>
     </section>
   </loader>
@@ -16,6 +16,7 @@ export default {
   components: {Badge, Loader},
   data() {
     return {
+
       unwatch: undefined,
       info: {
         path: [],

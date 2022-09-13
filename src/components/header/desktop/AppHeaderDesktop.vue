@@ -171,8 +171,9 @@ form {
   display: flex;
 
   justify-content: space-between;
+  width: 25%;
   @media (min-width: 768px) {
-    width: 23.3%;
+    //width: 23.3%;
   }
 
   .search-button {

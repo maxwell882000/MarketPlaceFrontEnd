@@ -39,57 +39,24 @@ import Notification from "@/components/userPage/notification/notification";
 import Questions from "@/components/userPage/question/questions";
 import {mapActions, mapGetters, mapMutations} from "vuex";
 import UserPayment from "@/components/icons/userPayment";
-import UserProfile from "@/components/icons/userProfile";
-import UserQuestions from "@/components/icons/userQuestions";
-import UserOrders from "@/components/icons/userOrders";
-import {shallowRef} from "vue";
+import i18n from '@/i18n'
+import userMenu from "@/components/userPage/setup/userMenu";
 
+const t = i18n.global.t;
 export default {
   data: () => ({
     path: [
       {
-        name: this.$t("Главная"),
+        name: t("Главная"),
         path: "/",
       },
       {
-        name: this.$t("Профиль"),
+        name: t("Профиль"),
         path: "/user",
       },
     ],
     currentTab: 3,
-    tabs: [
-      {
-        pathName: "profile",
-        title: this.$t("Главная"),
-        icon: shallowRef(UserProfile),
-      },
-      {
-        pathName: "orders",
-        title: this.$t("Мои заказы"),
-        icon: shallowRef(UserOrders),
-      },
-      {
-        pathName: "credit",
-        secondName: "insert_card",
-        title: this.$t("Оплата"),
-        icon: shallowRef(UserPayment),
-      },
-      // {
-      //   pathName: "documents",
-      //   title: "Мои документы",
-      //   icon: "file-earmark-text-fill",
-      // },
-      // {
-      //   pathName: "notification",
-      //   title: "Уведомления",
-      //   icon: "bell-fill",
-      // },
-      {
-        pathName: "questionAndAnswers",
-        title: this.$t("Вопросы и ответы"),
-        icon: shallowRef(UserQuestions),
-      },
-    ]
+    tabs: userMenu()
   }),
   // eslint-disable-next-line vue/no-unused-components
   components: {UserPayment, Questions, Notification, Documents, ChooseCard, OrderUser, Badge, UserSettings},
@@ -156,6 +123,17 @@ export default {
 };
 </script>
 <style lang="scss">
+.user-tabs {
+  .card-header {
+    padding: 0.5rem 1rem 0.5rem 0 !important;
+  }
+
+  .tab-content .tab-pane {
+    padding: 5px 0 !important;
+  }
+}
+
+
 .user-sheet {
   .nav-item {
     white-space: nowrap;
@@ -165,13 +143,6 @@ export default {
   }
 }
 
-.transparent-tab-passive svg path {
-  fill: var(--gray200);
-}
-
-.transparent-nav-active svg path {
-  fill: var(--blue);
-}
 </style>
 <style scoped>
 

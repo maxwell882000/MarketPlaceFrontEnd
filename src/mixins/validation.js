@@ -1,9 +1,12 @@
-import {useI18n} from "vue-i18n";
+import i18n from '@/i18n'
 
+const t = i18n.global.t;
 export default function (data, error, key, label) {
-    const t = useI18n().t;
     if (!data[key]) {
-        error[key] = `${label} ${t("обязательное поле")}`;
+        console.log(label);
+        console.log(t);
+        console.log(t("обязательное поле"))
+        error[key] = label + " " + t("обязательное поле");
     } else {
         delete error[key];
     }

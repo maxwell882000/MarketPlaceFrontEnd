@@ -1,7 +1,7 @@
 <template>
   <section class="sales-roll">
     <div class="d-flex justify-content-between align-items-end">
-      <h5 class="mt-4 p-0 mb-0 text-sm-center">{{ $t("Магазины") }} ByShop</h5>
+      <h5 class="text-header-32 mt-4 p-0 mb-0 text-sm-center">{{ $t("Магазины") }} ByShop</h5>
       <show-all link="/shop_all"></show-all>
     </div>
     <BaseRoll>

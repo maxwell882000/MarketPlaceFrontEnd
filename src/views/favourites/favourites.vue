@@ -9,8 +9,8 @@
           link="/" image="SearchNotFound.png"
           :title="$t('Ещё не готовы к покупке?')"></empty-page>
       <template v-else>
-        <div class="mb-3"><h5 class="inline">{{ $t("Избранное") }}</h5>
-          <span v-show="count">{{ count }} {{ $t("товаров") }}</span>
+        <div class="mb-3"><h5 class="inline text-header-32">{{ $t("Избранное") }}</h5>
+          <span class="text-gray pl-2" v-show="count">{{ count }} {{ $t("товаров") }}</span>
         </div>
         <filter-with-products></filter-with-products>
       </template>

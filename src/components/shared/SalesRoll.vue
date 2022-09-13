@@ -30,7 +30,7 @@
 
 </template>
 <script setup>
-import ItemCard from "../shared/ItemCard";
+import ItemCard from "./item/ItemCard";
 
 // eslint-disable-next-line no-undef
 import BaseRoll from "@/components/shared/baseRoll";

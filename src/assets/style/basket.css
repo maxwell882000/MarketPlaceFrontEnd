@@ -1,0 +1,47 @@
+button {
+    border-radius: 8px;
+    border: none;
+    /*padding: calc(10px + 0.357rem ) 14px;*/
+}
+
+@media (max-width: 768px) {
+    button {
+        border-radius: 2.571rem;
+        padding: 0.38rem 0;
+        color: white;
+    }
+}
+
+button span {
+    font-size: 0.857rem;
+    line-height: 1.071rem;
+    font-weight: 600;
+}
+
+.inactive:hover {
+    background-color: #086BD8;
+}
+
+
+.inactive {
+    background-color: var(--gray100);
+}
+
+
+.active:hover {
+    background-color: var(--gray100);
+}
+
+.active:hover .svg-class path, .active:hover span, .inactive .svg-class path, .inactive span {
+    fill: var(--dark);
+    color: var(--dark);
+}
+
+.active {
+    background-color: var(--blue);
+}
+
+.active .svg-class path, .active span, .inactive:hover .svg-class path, .inactive:hover span {
+    fill: white;
+    color: white;
+}

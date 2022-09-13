@@ -1,6 +1,6 @@
-import {useI18n} from "vue-i18n";
+import i18n from '@/i18n'
 
-const t = useI18n().t;
+const t = i18n.global.t;
 export default [
     {
         key: 1,

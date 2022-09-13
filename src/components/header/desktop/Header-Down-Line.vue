@@ -20,14 +20,14 @@
                 alt="x icon"
                 class="burger"
             />
-            {{ $t("Каталог товаров") }}}
+            {{ $t("Каталог товаров") }}
           </b-button>
           <b-collapse
               id="categories"
               :visible="categoriesOpened"
-              class="categories"
+              class="categories h-100"
           >
-            <div class="filter-tabs bottom-border my-1">
+            <div class="filter-tabs bottom-border bg-white mt-1">
               <div class="container mt-3 ">
                 <FilterTabs/>
               </div>

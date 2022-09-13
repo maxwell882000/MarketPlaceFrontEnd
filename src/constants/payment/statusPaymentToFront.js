@@ -1,7 +1,7 @@
 import statusPayment from "@/constants/payment/statusPayment";
-import {useI18n} from "vue-i18n";
+import i18n from '@/i18n'
 
-const t = useI18n().t;
+const t = i18n.global.t
 const statusPaymentToFront = {}
 statusPaymentToFront[statusPayment.WAIT_ANSWER] = {
     text: t("Обрабатываеться"),
