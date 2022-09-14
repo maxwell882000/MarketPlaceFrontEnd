@@ -10,7 +10,7 @@
       <img class="absolute"
            style="bottom: 0;
     right: 0;
-    height: 100%;" :src="category.category.image">
+    height: max-content;" :src="category.category.image">
     </div>
   </cat-hover>
 </template>
