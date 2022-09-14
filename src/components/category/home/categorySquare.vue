@@ -6,7 +6,7 @@
      color: var(--dark);
     line-height: 1.714em"> {{ category.category.name }} </span>
     <div>
-      <img style="bottom: 0; right: 0; height: 75%" class=" absolute" :src="category.category.image">
+      <img style="bottom: 0; right: 0; height: 75%; max-width: 100%" class=" absolute" :src="category.category.image">
     </div>
   </cat-hover>
 </template>
