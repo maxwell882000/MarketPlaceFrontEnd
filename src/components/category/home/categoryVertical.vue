@@ -10,6 +10,7 @@
            style="bottom: 0;
     right: 0;
     height: max-content;
+        max-width: 100%;
     max-height: 100%" class="absolute">
     </div>
   </cat-hover>
