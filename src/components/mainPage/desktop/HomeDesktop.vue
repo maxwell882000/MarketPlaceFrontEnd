@@ -18,7 +18,7 @@
         <ShopList></ShopList>
         <div class="mt-4 mb-3" v-if="category_in_home.length">
           <!--          <div class="d-flex justify-content-between align-items-end">-->
-          <h5 class="   text-sm-center">{{ $t("Категории") }}</h5>
+          <h5 class=" mb-3  text-sm-center">{{ $t("Категории") }}</h5>
           <!--            <show-all link="/shop_all"></show-all>-->
           <!--          </div>-->
           <cat-hor-and-ver :categories="category_in_home.slice(0, 6)"></cat-hor-and-ver>
