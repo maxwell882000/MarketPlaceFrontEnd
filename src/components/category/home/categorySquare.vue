@@ -1,11 +1,12 @@
 <template>
-  <cat-hover class="category-square" :category="category">
+  <cat-hover class="category-square relative" :category="category">
        <span style="padding: 1.714em; font-weight: 600;
      font-size: 1.429em;
+     width: 50%;
      color: var(--dark);
     line-height: 1.714em"> {{ category.category.name }} </span>
     <div>
-      <img class="img-res" :src="category.category.image">
+      <img style="bottom: 0; right: 0; height: 75%" class="img-res absolute" :src="category.category.image">
     </div>
   </cat-hover>
 </template>
