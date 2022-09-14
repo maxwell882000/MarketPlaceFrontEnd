@@ -9,7 +9,8 @@
       <img :src="category.category.image"
            style="bottom: 0;
     right: 0;
-    height: max-content;" class="absolute">
+    height: max-content;
+    max-height: 100%" class="absolute">
     </div>
   </cat-hover>
 </template>
