@@ -27,6 +27,14 @@ import {useStore} from "vuex";
 const store = useStore();
 const getMain = () => store.dispatch("mainModule/getMain");
 const getLenta = () => store.dispatch("mainModule/getLenta");
-getMain();
-getLenta();
+const getCategoryInHome = () => store.dispatch("mainModule/getCategoryInHome");
+
+async function start() {
+  await getMain();
+  getLenta();
+  getCategoryInHome();
+}
+
+start();
+
 </script>

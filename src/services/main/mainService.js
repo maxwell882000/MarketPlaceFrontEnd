@@ -22,6 +22,11 @@ class MainService {
         let result = await methods.get("home/category/");
         return result.data.result;
     }
+
+    async category_in_home() {
+        const result = await methods.get("home/category-in-home/");
+        return result.data.result;
+    }
 }
 
 export default new MainService();

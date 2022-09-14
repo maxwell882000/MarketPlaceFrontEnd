@@ -45,6 +45,18 @@ export const mainModule = {
                     // des_image
                 ],
             },
+            category_in_home: [
+                // {
+                //     "category": {
+                //         "id": 1,
+                //         "name": "asdg agdsgasdg dsgdas g",
+                //         "slug": "qtr",
+                //         "image": "http://127.0.0.1:8000/storage/category/super_icon/banner(2).png"
+                //     },
+                //     "color": "#9a2828",
+                //     "back_color": "#775050"
+                // },
+            ],
             popular_category: [],
             hit_products: [],
             shop_list: [],
@@ -78,6 +90,9 @@ export const mainModule = {
         },
         hit_products(state) {
             return state.hit_products;
+        },
+        category_in_home(state) {
+            return state.category_in_home;
         },
         popular_category(state) {
             return state.popular_category;
@@ -128,6 +143,12 @@ export const mainModule = {
             let result = await mainService.lenta();
             commit('setLenta', result);
         },
+        async getCategoryInHome({commit}) {
+            const result = await mainService.category_in_home();
+            console.log(result.slice(0, 6));
+            console.log(result.slice(6));
+            commit('setCategoryInHome', result);
+        },
         countDownSecond({commit, state}) {
             commit('decreaseSecond');
             if (state["product_of_day"].seconds < 0) {
@@ -174,7 +195,10 @@ export const mainModule = {
         hideFooterAndHeader(state) {
             state.showFooterAndHeader = false;
         },
-
+        setCategoryInHome(state, category) {
+            state.category_in_home = category;
+            console.log(console.log(state.category_in_home));
+        },
         setMain(state, result) {
             state.banners = result.banners;
             state.product_of_day = result.product_of_day;

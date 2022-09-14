@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "64c0405aede142105a95",
-    "url": "/css/app.09f19253.css"
+    "revision": "a4fc372e1fbcf3a782f2",
+    "url": "/css/app.eaef6a12.css"
   },
   {
     "revision": "10568b76415da7a66f92",
@@ -26,10 +26,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "5c7146ce7bf75ef9fde3",
     "url": "/css/chunk-2e21f9aa.2e97409c.css"
-  },
-  {
-    "revision": "d666bd6663565050cdc2",
-    "url": "/css/chunk-33915411.928164f5.css"
   },
   {
     "revision": "2cdd29e1a1301972f656",
@@ -74,6 +70,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "aea8367dbabe2fc9a739",
     "url": "/css/chunk-6333eb0e.5a610403.css"
+  },
+  {
+    "revision": "8efe9e4ad4bfa5c8f426",
+    "url": "/css/chunk-6b57e73d.c14af408.css"
   },
   {
     "revision": "1021ece554604558ffae",
@@ -316,12 +316,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/xiaomi.e3904865.png"
   },
   {
-    "revision": "821cbdcebf832370d88742d27b55c4c8",
+    "revision": "a74d868d2b2a363ed6d0bac71edcc5de",
     "url": "/index.html"
   },
   {
-    "revision": "64c0405aede142105a95",
-    "url": "/js/app.f3096b08.js"
+    "revision": "a4fc372e1fbcf3a782f2",
+    "url": "/js/app.deeb6bfc.js"
   },
   {
     "revision": "10568b76415da7a66f92",
@@ -380,10 +380,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/chunk-2e21f9aa.4777f4e6.js"
   },
   {
-    "revision": "d666bd6663565050cdc2",
-    "url": "/js/chunk-33915411.cbd3f0e2.js"
-  },
-  {
     "revision": "2cdd29e1a1301972f656",
     "url": "/js/chunk-37b8dd0e.5e5cc921.js"
   },
@@ -426,6 +422,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "aea8367dbabe2fc9a739",
     "url": "/js/chunk-6333eb0e.687009fe.js"
+  },
+  {
+    "revision": "8efe9e4ad4bfa5c8f426",
+    "url": "/js/chunk-6b57e73d.085a91bb.js"
   },
   {
     "revision": "1021ece554604558ffae",

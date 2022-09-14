@@ -5,7 +5,6 @@
       <slot></slot>
       <filter-sorting></filter-sorting>
       <loader waiting="product_wrapper_load">
-
         <product-wrapper></product-wrapper>
       </loader>
     </b-col>

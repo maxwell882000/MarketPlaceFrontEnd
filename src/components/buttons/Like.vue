@@ -1,13 +1,25 @@
 <template>
   <button @click.prevent="clicked" class="like-btn" v-b-tooltip.hover :title="$t('Добавить в избраное')">
-    <span :style="styleIcon()" class="bi" :class="fill ? 'bi-heart-fill' : 'bi-heart'"></span>
+    <ResponsiveLayout>
+      <template #desktop>
+        <heart :class="fill && 'active'"></heart>
+      </template>
+      <template #mobile>
+        <like-mob :class="fill &&'active'"></like-mob>
+      </template>
+    </ResponsiveLayout>
+    <!--    <span :style="styleIcon()" class="bi" :class="fill ? 'bi-heart-fill' : 'bi-heart'"></span>-->
   </button>
 </template>
 
 <script>
 import {mapActions, mapGetters, mapMutations} from "vuex";
+import Heart from "@/components/icons/heart";
+import ResponsiveLayout from "@/components/responsive/ResponsiveLayout";
+import LikeMob from "@/components/icons/likeMob";
 
 export default {
+  components: {LikeMob, ResponsiveLayout, Heart},
   props: ['id', 'favourite'],
   data() {
     return {
@@ -40,6 +52,19 @@ export default {
   }
 }
 </script>
+<style>
+.like-btn .active path, .like-btn .active {
+  stroke: var(--red) !important;
+  fill: var(--red);
+}
+
+@media (min-width: 768px) {
+  .like-btn path {
+    stroke: var(--gray300);
+  }
+}
+
+</style>
 <style scoped>
 button.like-btn {
   background: transparent;
@@ -48,4 +73,6 @@ button.like-btn {
   border: none;
   font-size: 18px;
 }
+
+
 </style>

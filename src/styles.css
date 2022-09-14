@@ -17,6 +17,7 @@
   --gray600: #C6C6C6;
   --gray700: #F8F8F8;
   --gray800: #D1D1D1;
+  --gray900: #E8E8E8;
   --bg-color: #F2F3F5;
   --star: #EDEDED;
   --green: #27AE60;
@@ -35,6 +36,7 @@
   --borderRadius: 12px;
   --borderRadius8: 8px;
   --borderRadius10: 10px;
+  --borderRadius14: 14px;
   --borderRadius17: 17px;
   --borderRadius24: 22px;
   --marinTop: 20px;
@@ -614,6 +616,10 @@ input[type=number] {
 
 .border-lg {
   border-radius: var(--borderRadius47);
+}
+
+.border-8 {
+  border-radius: var(--borderRadius8);
 }
 
 .border-gray {

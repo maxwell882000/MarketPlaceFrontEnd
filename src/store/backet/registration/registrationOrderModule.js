@@ -80,8 +80,8 @@ export const registrationOrderModule = {
                     orders: rootGetters['prepareBasketModule/ordersId'],
 
                 };
-                console.log("DATA SENDING");
-                console.log("REMOVE PAYMENT TYPE IN PRODUCTION !!!!!!!!");
+                // console.log("DATA SENDING");
+                // console.log("REMOVE PAYMENT TYPE IN PRODUCTION !!!!!!!!");
                 form['way_of_payment'] = getters.wayOfPayment.type === wayOfPaymentConstant.INSTALLMENT ?
                     wayOfPaymentConstant.INSTALLMENT + wayOfPaymentConstant.RE_MAP_STATUS_VALUE
                     : getters.wayOfPayment.type === wayOfPaymentConstant.CASH ? 1 : 2;

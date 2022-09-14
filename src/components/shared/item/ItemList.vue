@@ -4,7 +4,7 @@
       <img :src="product.image" class="img-res" alt="image-items">
     </div>
     <div style="flex: 1">
-      <div>
+      <div class="d-flex justify-content-between">
         <div>
           <h6 class="bottom-padding item-title two-only-sentence">{{ product.title }}</h6>
           <div class="bottom-padding item-card__rating">
@@ -31,7 +31,9 @@
           </div>
         </div>
         <div>
-
+          <div class="bg-gray show-like border-8 " style="padding-bottom: 4px">
+            <Like :id="product.id" :favourite="product.favourite"></Like>
+          </div>
         </div>
       </div>
 
@@ -48,6 +50,7 @@
 
 // const store = useStore();
 import InstallmentListPrice from "@/components/shared/item/installmentListPrice";
+import Like from "@/components/buttons/Like";
 
 // eslint-disable-next-line no-undef
 const props = defineProps({
@@ -58,7 +61,11 @@ function isChangedPrice() {
   return props.product.real_price !== props.product.price;
 }
 </script>
-
+<style>
+.show-like .like-btn path {
+  stroke: var(--dark);
+}
+</style>
 <style lang="scss" scoped>
 .bottom-padding {
   padding-bottom: 0.714rem;
@@ -67,6 +74,7 @@ function isChangedPrice() {
 .item-list {
   all: unset;
   display: flex;
+
   background-color: white;
   padding: 0.857rem 1.714rem 0.857rem 0.857rem;
   border-radius: var(--borderRadius);
@@ -91,7 +99,7 @@ function isChangedPrice() {
   }
 
   .item-card__prices {
-    @extend .bottom-padding;
+    padding-bottom: 1.938rem;
     letter-spacing: -0.03em;
 
     .item-card__image__sale-amount {
@@ -115,19 +123,32 @@ function isChangedPrice() {
     .item-card__prices__new-price {
       color: var(--dark);
       font-size: 1.286rem;
+      margin: 0 !important;
       line-height: 1.571rem;
     }
   }
 
   .item-title {
     font-size: 1.143rem;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.357rem;
     letter-spacing: -0.01em;
   }
 
+  .show-like {
+    visibility: hidden;
+    opacity: 0;
+  }
+
   &:hover {
     filter: drop-shadow(3px 7px 10px rgba(0, 0, 0, 0.1));
+
+    .show-like {
+      visibility: visible;
+      opacity: 1;
+    }
   }
+
+
 }
 </style>
