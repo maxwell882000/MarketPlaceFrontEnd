@@ -31,6 +31,7 @@ defineProps({
 .category-vertical {
   width: 11.429em;
   height: 18.571em;
+  display: flex;
   background-color: var(--gray900);
   border-radius: var(--borderRadius14);
 }

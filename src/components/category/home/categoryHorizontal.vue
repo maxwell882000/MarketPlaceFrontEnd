@@ -1,5 +1,5 @@
 <template>
-  <cat-hover :category="category" class="category-horizontal d-flex relative">
+  <cat-hover :category="category" class="category-horizontal relative">
     <span style="padding: 1.714em;
       font-size: 1.143em;
     line-height: 1.357em;
