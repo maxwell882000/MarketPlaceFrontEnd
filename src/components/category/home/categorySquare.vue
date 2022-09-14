@@ -3,6 +3,7 @@
        <span style="padding: 1.714em; font-weight: 600;
      font-size: 1.429em;
      width: 50%;
+     z-index: 2;
      color: var(--dark);
     line-height: 1.714em"> {{ category.category.name }} </span>
     <div>

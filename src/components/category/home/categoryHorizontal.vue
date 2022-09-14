@@ -1,5 +1,5 @@
 <template>
-  <cat-hover :category="category" class="category-horizontal">
+  <cat-hover :category="category" class="category-horizontal relative">
     <span style="padding: 1.714em;
       font-size: 1.143em;
     line-height: 1.357em;
@@ -7,7 +7,10 @@
     font-weight: 600;
  ">{{ category.category.name }}</span>
     <div>
-      <img class="img-res" :src="category.category.image">
+      <img class="absolute"
+           style="bottom: 0;
+    right: 0;
+    height: 100%;" :src="category.category.image">
     </div>
   </cat-hover>
 </template>
