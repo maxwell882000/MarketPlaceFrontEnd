@@ -1,10 +1,9 @@
 <template>
   <cat-hover :category="category" class="category-vertical relative">
-    <div style="padding: 1.714em 1.714em 0rem 1.714em;">
+    <div class="d-flex" style="padding: 1.714em 1.714em 0rem 1.714em;">
   <span style="
     font-weight: 600;
         z-index: 2;
-
     color: var(--dark)">{{ category.category.name }} </span>
     </div>
     <div>
