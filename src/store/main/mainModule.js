@@ -133,10 +133,11 @@ export const mainModule = {
         },
     },
     actions: {
-        async getMain({commit}) {
+        async getMain({commit, dispatch}) {
             commit("wait/START", "main", {root: true});
             let result = await mainService.main();
             commit('setMain', result);
+            dispatch("countDownSecond");
             commit("wait/END", "main", {root: true});
         },
         async getLenta({commit}) {
@@ -197,12 +198,10 @@ export const mainModule = {
         },
         setCategoryInHome(state, category) {
             state.category_in_home = category;
-            console.log(console.log(state.category_in_home));
         },
         setMain(state, result) {
             state.banners = result.banners;
             state.product_of_day = result.product_of_day;
-            state.product_of_day.seconds = 10;
             state.discount = result.discount;
             state.popular_category = result.popular_category;
             state.hit_products = result.hit_products;
