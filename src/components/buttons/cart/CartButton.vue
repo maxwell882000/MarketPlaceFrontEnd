@@ -1,5 +1,10 @@
 <template>
-  <button class="card-button" :class="this.isBasket ? 'active' : 'inactive'" @click.prevent="clicked">
+  <button class="card-button"
+          :class="{
+           'active' : this.isBasket ,
+            'inactive': ! this.isBasket,
+            'card-button-text' : !this.isSvg
+          }" @click.prevent="clicked">
     <ResponsiveLayout>
       <template #desktop>
         <svg class="svg-class" width="18" height="18" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg">
@@ -38,7 +43,7 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .card-button {
+  .card-button-text {
     border-radius: 2.571rem;
     padding: 0.38rem 0;
     color: white;

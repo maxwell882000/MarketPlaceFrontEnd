@@ -1,8 +1,9 @@
 <template>
-  <div class="buyshop-card d-flex justify-content-between w-100 align-items-center">
-    <div class="d-flex align-items-start">
+  <div
+      class="buyshop-card d-flex justify-content-between w-100 align-items-center  flex-wrap flex-sm-wrap flex-md-nowrap">
+    <div class="d-flex align-items-start mb-3">
       <div style="margin-right: 1.286rem">
-        <b-avatar size="72"></b-avatar>
+        <b-avatar :src="user.avatar" size="72"></b-avatar>
       </div>
       <div>
         <div style="padding-top: 0.857rem"></div>
@@ -14,9 +15,8 @@
           <ButtonVialet :title="'Верифицировать'"></ButtonVialet>
         </router-link>
       </div>
-
     </div>
-    <button style="all: unset;color: var(--gray); cursor:pointer;" @click="$emit('edit-profile')">
+    <button class=" button-clear d-flex justify-content-between btn-link-new" @click="$emit('edit-profile')">
       <span class="pr-2">{{ $t("Редактировать профиль") }}</span>
       <span class="bi-chevron-right"></span>
     </button>
@@ -34,5 +34,19 @@ defineProps({
 </script>
 
 <style scoped>
-
+.btn-link-new {
+  display: flex;
+  justify-content: space-between;
+  color: var(--gray);
+  cursor: pointer;
+  text-underline: none;
+}
+@media (max-width: 767px) {
+  .btn-link-new {
+    width: 100%;
+  }
+}
+.btn-link-new:hover {
+  background-color: transparent;
+}
 </style>

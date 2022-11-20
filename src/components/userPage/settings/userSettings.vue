@@ -48,24 +48,6 @@
                   </ButtonForm>
                 </div>
               </loader>
-              <!--      <div class="d-flex flex-wrap">-->
-              <!--        <input-field-->
-              <!--            type="date"-->
-              <!--            class="input-sm"-->
-              <!--            v-model="birth"-->
-              <!--            placeholder="День рождения"-->
-              <!--        />-->
-              <!--        <b-dropdown-->
-              <!--            id="dropdown-1"-->
-              <!--            :text="gender == 'm' ? `Мужчина` : `Женщина`"-->
-              <!--            variant="white"-->
-              <!--            class="custom-dropdown"-->
-              <!--        >-->
-              <!--          <b-dropdown-item @click="gender = 'm'">Мужчина</b-dropdown-item>-->
-              <!--          <b-dropdown-item @click="gender = 'f'">Женщина</b-dropdown-item>-->
-              <!--        </b-dropdown>-->
-              <!--      </div>-->
-
             </b-col>
           </b-row>
         </div>

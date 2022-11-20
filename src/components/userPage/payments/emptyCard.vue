@@ -5,7 +5,7 @@
     <router-link :to="{
       name:'insert_card'
     }">
-      <button-blue class="p-2" style="width: max-content" :title="$t('Добавить документы')"></button-blue>
+      <button-blue class="p-2" style="width: max-content" :title="$t('Добавить карту')"></button-blue>
     </router-link>
   </empty-base>
 </template>
