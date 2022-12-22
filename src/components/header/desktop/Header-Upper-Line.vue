@@ -53,12 +53,12 @@
                 </span>
                 {{ $t("O’zbekcha") }}
               </button>
-              <button v-else-if="language === 'en' " class="dropdown-toggle">
-                <span class="h-1 w-1 border-circle mr-1">
-                  <english></english>
-                </span>
-                {{ $t("English") }}
-              </button>
+<!--              <button v-else-if="language === 'en' " class="dropdown-toggle">-->
+<!--                <span class="h-1 w-1 border-circle mr-1">-->
+<!--                  <english></english>-->
+<!--                </span>-->
+<!--                {{ $t("English") }}-->
+<!--              </button>-->
             </template>
             <template #items>
               <input-radio v-model="language" value="ru" name="language">
@@ -79,15 +79,15 @@
                   >{{ $t("O’zbekcha") }}</span>
                 </div>
               </input-radio>
-              <input-radio v-model="language" value="en" name="language">
-                <div class="d-flex align-items-center h-100 mt-1">
-                  <english></english>
-                  <span
-                      style="align-self: center; display: inline-block"
-                      class="pl-3 pt text-sm text-center"
-                  >{{ $t("English") }}</span>
-                </div>
-              </input-radio>
+<!--              <input-radio v-model="language" value="en" name="language">-->
+<!--                <div class="d-flex align-items-center h-100 mt-1">-->
+<!--                  <english></english>-->
+<!--                  <span-->
+<!--                      style="align-self: center; display: inline-block"-->
+<!--                      class="pl-3 pt text-sm text-center"-->
+<!--                  >{{ $t("English") }}</span>-->
+<!--                </div>-->
+<!--              </input-radio>-->
             </template>
           </dropdown>
         </div>
@@ -101,7 +101,7 @@ import InputRadio from "@/components/helper/input/inputRadio";
 import Russian from "@/components/icons/flags/russian";
 import Dropdown from "@/components/helper/dropdown/dropdown";
 import Uzbek from "@/components/icons/flags/uzbek";
-import English from "@/components/icons/flags/english";
+// import English from "@/components/icons/flags/english";
 import {computed} from "vue";
 import {useStore} from "vuex";
 
