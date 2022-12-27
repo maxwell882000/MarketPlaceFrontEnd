@@ -1,6 +1,7 @@
 // import productService from "@/services/product/productService";
 
 import productService from "@/services/product/productService";
+import navigate from "@/function/navigate";
 
 export const productModule = {
     namespaced: true,
@@ -199,17 +200,7 @@ export const productModule = {
             let category = state.product.category;
             if (category.length !== 0) {
                 category.forEach(function (elem) {
-                    let path = "";
-                    switch (elem.depth) {
-                        case 2:
-                            path = "/category/sub/" + elem.slug;
-                            break;
-                        case 3:
-                            path = "/category/child/" + elem.slug;
-                            break;
-                        default:
-                            path = '/category/parent/' + elem.slug;
-                    }
+                    let path = navigate(elem);
                     response.push({
                         name: elem.name,
                         path: path

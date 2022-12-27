@@ -1,7 +1,7 @@
 <template>
   <b-col :cols="column">
     <router-link :to="path"><p class="sub_header"> {{ category.name }}</p></router-link>
-    <router-link :to="'/category/child/'+ item.slug" v-for="(item, index) in category.children.slice(0,5)"
+    <router-link :to="$navigate(item)" v-for="(item, index) in category.children.slice(0,5)"
                  :key="'category_sub_child_' + index + 'slug_' + item.slug">
       <p class="elements"> {{ item.name }}</p>
     </router-link>
@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      path: '/category/sub/' + this.category.slug,
+      path:this.$navigate(this.category),
       show: false
     }
   },

@@ -1,6 +1,6 @@
 <template>
   <div>
-   <slot></slot>
+    <slot></slot>
     <b-container style="padding: 0">
       <b-row gutter-x="5">
         <sub-categories :column="column" :key="'category_child_1' + index + 'slug_' + child.slug" :category="child"
@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      path: '/category/parent/' + this.item.slug,
+      path: this.$navigate(this.item),
     }
   },
   components: {SubCategories}

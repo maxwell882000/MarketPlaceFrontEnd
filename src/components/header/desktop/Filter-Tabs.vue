@@ -20,7 +20,7 @@
           </div>
         </template>
         <category :item="item">
-          <router-link :to="'/category/parent/' + item.slug" class="remove-link">
+          <router-link :to="$navigate(item)" class="remove-link">
             <h5 class="header">{{ item.name }}</h5>
           </router-link>
         </category>
@@ -39,6 +39,7 @@ export default {
   computed: {
     ...mapGetters(['drop_bar'])
   },
+  methods: {}
 };
 </script>
 

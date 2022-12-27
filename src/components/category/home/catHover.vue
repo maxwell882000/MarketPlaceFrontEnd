@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="'/category' + goTo() + category.category.slug" class="hover-cat block remove-link" :style="{
+  <router-link :to="goTo()" class="hover-cat block remove-link" :style="{
       cursor: 'pointer',
     '--back-color': category.back_color,
   '--color-text': category.color}">
@@ -8,20 +8,13 @@
 </template>
 
 <script setup>
+import navigate from "@/function/navigate";
 // eslint-disable-next-line no-undef
 const props = defineProps({
   category: Object
 });
 const goTo = () => {
-
-  switch (props.category.category.depth) {
-    case 1 :
-      return "/parent/";
-    case 2 :
-      return "/sub/";
-    case 3 :
-      return "/child/";
-  }
+  return navigate(props.category.category);
 }
 </script>
 <style>

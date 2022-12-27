@@ -7,6 +7,7 @@ module.exports = {
             enableInSFC: true
         }
     },
+
     configureWebpack: {
         output: {
             libraryExport: 'default'

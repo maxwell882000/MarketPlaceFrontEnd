@@ -23,9 +23,11 @@ import "./styles.scss";
 import "./override.scss";
 import i18n from './i18n'
 import Flicking from "@egjs/vue3-flicking";
+import navigate from "@/function/navigate";
 
 const VueWait = createVueWait({useVuex: true, registerDirective: true})
-createApp(App)
+
+const app = createApp(App)
     .use(VueVirtualScroller)
     .use(store)
     .use(router)
@@ -50,5 +52,8 @@ createApp(App)
         unmounted(el) {
             document.body.removeEventListener('click', el.clickOutsideEvent);
         }
-    }).mount("#app");
+    });
 
+app.config.globalProperties.$navigate = navigate;
+
+app.mount("#app");

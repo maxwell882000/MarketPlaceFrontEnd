@@ -24,7 +24,7 @@
         </div>
       </button>
       <b-collapse :id="'collapse_catalogue' + item.slug">
-        <router-link :to="'/category/child/' + lastCat.slug" class="mini_categories"
+        <router-link :to="goTo(lastCat)" class="mini_categories"
                      :key="'last_Category_catalogue'+ lastCat.slug"
                      v-for="lastCat in item.children">
           <span>{{ lastCat.name }}</span>
@@ -42,6 +42,7 @@
 import {useStore} from "vuex";
 import {computed, ref, watch} from "vue";
 import CategoryItemRoll from "@/components/category/category-item-roll";
+import navigate from "@/function/navigate";
 
 const store = useStore();
 const categories = computed(() => store.getters['drop_bar']);
@@ -50,6 +51,10 @@ const changed = watch(categories, function (val) {
   selectedCategory.value = val[0];
   changed();
 })
+
+function goTo(item) {
+  return navigate(item);
+}
 
 function setCategory(item) {
   selectedCategory.value = item;

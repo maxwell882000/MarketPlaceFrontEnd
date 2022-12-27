@@ -57,20 +57,20 @@ export default {
         // if we in the sub category page
         info.path.push({
           name: e.name,
-          path: '/category/parent/' + e.slug // putting first level breadcrumbs  for parent
+          path: this.$navigate(e) // putting first level breadcrumbs  for parent
         });
 
         e.children.filter(ch => ch.slug === slug || ch.children.filter(child => child.slug === slug).length !== 0).forEach(sub => { // if the slug was used for children
           info.path.push({
             name: sub.name,
-            path: "/category/sub/" + sub.slug // setting second level breadcrumbs
+            path: this.$navigate(sub) // setting second level breadcrumbs
           });
           info.name = sub.name; // if the second level breadcrubms was used it implies that we are in the second page
           // so name set properly
           sub.children.filter(child => child.slug === slug).forEach(child => {// the same rule applies here as above
             info.path.push({
               name: child.name,
-              path: "/category/child/" + child.slug
+              path: this.$navigate(child)
             });
             info.name = child.name;
           })
