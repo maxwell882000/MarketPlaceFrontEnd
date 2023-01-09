@@ -689,6 +689,12 @@ input[type=number] {
   color: var(--red)
 }
 
+.img-res-height {
+  height: 100%;
+  max-width: 100%;
+  object-fit: fill;
+}
+
 .img-res {
   width: 100%;
   height: 100%;

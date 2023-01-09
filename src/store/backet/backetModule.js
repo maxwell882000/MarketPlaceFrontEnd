@@ -46,11 +46,18 @@ export const backetModule = {
         }
     },
     actions: {
-        async addToBasket({commit, getters}, id) {
+        async addToBasket({commit, getters, rootGetters}, id) {
             try {
                 let data = await backetService.addToBasket(id, getters.getPreOrder(id));
                 commit("productModule/setProductOrder", data.id, {root: true});
-                commit('increaseBasketCounter', null, {root: true});
+                console.log("ADD TO BASKET");
+                console.log(data.id);
+                console.log(rootGetters['user'].basket_ids.filter(e => e === data.id));
+                let isExistsOrder = rootGetters['user'].basket_ids.filter(e => e === data.id);
+                if (!isExistsOrder.length) {
+                    commit('increaseBasketCounter', null, {root: true});
+                    commit("setBasketIds", data.id, {root: true});
+                }
                 return data;
 
             } catch (e) {
@@ -61,7 +68,7 @@ export const backetModule = {
             try {
                 await backetService.removeFromBasket(id);
                 commit("productModule/setProductOrder", 0, {root: true});
-                commit('decreaseBasketCounter', null, {root: true});
+                commit('decreaseBasketCounter', id, {root: true});
             } catch (e) {
                 console.log(e);
             }

@@ -13,6 +13,7 @@ export const authModule = {
                 phone: "",
                 basket_counter: 0,
                 favourite_counter: 0,
+                basket_ids: []
                 // user_credit: true,
                 // phone_verified
             },
@@ -172,11 +173,16 @@ export const authModule = {
             state.token = token;
             tokenService.setToken({token: token})
         },
+        setBasketIds(state, id) {
+            state.user.basket_ids.push(id);
+        },
         setBasketCounter(state, number) {
             state.user.basket_counter -= number;
         },
-        decreaseBasketCounter(state) {
+        decreaseBasketCounter(state, id) {
             state.user.basket_counter--;
+            let indexId = state.user.basket_ids.findIndex(e => e === id);
+            state.user.basket_ids.splice(indexId, 1);
         },
         increaseBasketCounter(state) {
             state.user.basket_counter++;

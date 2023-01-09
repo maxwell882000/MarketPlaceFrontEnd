@@ -6,7 +6,6 @@ import usePurchaseFlow from "@/components/backet/purchaseFlow/setup/usePurchaseF
 export default function (installment, overallPrice, mainCredit) {
     const store = useStore();
     const wayOfPayment = computed(() => store.getters['registrationOrderModule/wayOfPayment']);
-
     const deleteWayOfPaymentKey = (key) => store.commit("registrationOrderModule/deleteWayOfPayment", key);
     const {goToDeliveryOrDefault} = usePurchaseFlow();
 

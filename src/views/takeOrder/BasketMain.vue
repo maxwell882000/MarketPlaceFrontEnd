@@ -29,6 +29,7 @@ export default {
     this.hideCategoryLine();
   },
   unmounted() {
+    console.log("THIS WAS UNMOUNTED");
     this.openCategoryLine();
     this.clean();
     this.cleanAddress();

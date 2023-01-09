@@ -51,8 +51,8 @@ export const wayOfPaymentModule = {
             state.credits = credits;
         },
         cleanShow(state) {
-          state.showPayment = true;
-          state.showCredit = true;
+            state.showPayment = true;
+            state.showCredit = true;
         },
         clean(state) {
             state.mainCredit.type = wayOfPaymentConstant.NOT_CHOSEN;
@@ -72,7 +72,7 @@ export const wayOfPaymentModule = {
             return state.mainCredit;
         },
         isFastPurchase(state) {
-           return !state.showPayment  || !state.showCredit;
+            return !state.showPayment || !state.showCredit;
         },
         getMonth(state) {
             const credit = state.mainCredit.credits;

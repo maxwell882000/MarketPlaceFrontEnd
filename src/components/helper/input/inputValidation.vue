@@ -1,6 +1,6 @@
 <template>
   <div class="input-validation">
-    <Input :default-prefix="true" :style-border="{'border-color': error && 'var(--red)'}" v-bind="$attrs">
+    <Input  :default-prefix="true" :style-border="{'border-color': error && 'var(--red)'}" v-bind="$attrs">
       <template #suffix>
         <slot name="suffix"></slot>
       </template>
@@ -24,6 +24,7 @@ import Error from "@/components/helper/error/error";
 // eslint-disable-next-line no-undef,no-unused-vars
 const props = defineProps({
   error: String,
+  mask: String
 });
 </script>
 <style scoped>

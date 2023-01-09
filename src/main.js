@@ -4,6 +4,8 @@ import router from "./router";
 import store from "./store";
 import VueSplide from '@splidejs/vue-splide';
 import BootstrapVue3 from 'bootstrap-vue-3'
+import VueMask from '@devindex/vue-mask'; // <-- ADD THIS LINE
+
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import {createVueWait} from 'vue-wait'
@@ -55,5 +57,6 @@ const app = createApp(App)
     });
 
 app.config.globalProperties.$navigate = navigate;
+app.use(VueMask);  // <-- ADD THIS LINE
 
 app.mount("#app");

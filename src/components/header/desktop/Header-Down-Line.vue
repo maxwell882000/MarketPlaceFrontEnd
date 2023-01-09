@@ -35,7 +35,7 @@
           </b-collapse>
         </div>
         <div v-for="item in nav_bar" :key="item.slug" class="header-link">
-          <router-link :to="goTo(item)">{{ item.name }}
+          <router-link :to="$navigate(item)">{{ item.name }}
           </router-link>
         </div>
       </div>

@@ -9,7 +9,7 @@
                            :placeholder="$t('Имя*')"/>
         </b-col>
         <b-col cols="12" class="col-xl-6 col-lg-6 col-md-12">
-          <InputValidation :error="errorData[type.PNFL]"
+          <InputValidation v-mask="'00000000000000'" :error="errorData[type.PNFL]"
                            v-model="userData[type.PNFL]"
                            :placeholder="$t('ПИНФЛ')"/>
         </b-col>
@@ -24,17 +24,17 @@
                            :placeholder="$t('Отчество*')"/>
         </b-col>
         <b-col v-show="isSurety()" cols="12" class="col-xl-6 col-lg-6 col-md-12">
-          <InputValidation :error="errorData[type.PHONE]"
+          <InputValidation v-mask="'+000000000000'" :error="errorData[type.PHONE]"
                            v-model="userData[type.PHONE]"
                            :placeholder="$t('Номер телефона*')"/>
         </b-col>
         <b-col cols="12" class="col-xl-6 col-lg-6 col-md-12">
-          <InputValidation :error="errorData[type.ADDITIONAL_PHONE]"
+          <InputValidation v-mask="'+000000000000'" :error="errorData[type.ADDITIONAL_PHONE]"
                            v-model="userData[type.ADDITIONAL_PHONE]"
                            :placeholder="$t('Доп. номер телефона*')"/>
         </b-col>
         <b-col cols="12" class="col-xl-6 col-lg-6 col-md-12">
-          <InputValidation :error="errorData[type.SERIES]"
+          <InputValidation v-mask="'SS0000000'" :error="errorData[type.SERIES]"
                            v-model="userData[type.SERIES]"
                            :placeholder="$t('Серия паспорта*')"/>
         </b-col>
@@ -74,7 +74,7 @@
       </div>
       <b-row>
         <b-col v-show="isDept || userData[type.DEPT_SUM]" cols="12" class="col-xl-6 col-lg-6 col-md-12">
-          <InputValidation :error="errorData[type.DEPT_SUM]" v-model="userData[type.DEPT_SUM]"
+          <InputValidation v-mask="'000000000000'" :error="errorData[type.DEPT_SUM]" v-model="userData[type.DEPT_SUM]"
                            :placeholder="$t('Сумма рассрочки')"/>
         </b-col>
         <b-col></b-col>
@@ -110,19 +110,21 @@ const sex = sexItems;
 const route = useRoute();
 const router = useRouter();
 const user = computed(() => store.getters['user'])
+const isUserData = computed(() => store.getters['isUserData'])
 const t = useI18n().t;
 
 function goToBasketIfOkay() {
-  if (user.value.name === "" && isUser()) {
+  if (isUserData.value && isUser()) {
     router.replace({
       name: 'basket'
     })
   }
 }
 
-watch(() => user, function () {
+watch(() => user.value, function () {
+  console.log("check")
   goToBasketIfOkay();
-}, {immediate: true})
+})
 
 function isUser() {
   return !isSurety();

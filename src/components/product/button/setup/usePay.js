@@ -15,9 +15,8 @@ export default function (name, additional) {
         remove();
         const order = await createOrder();
         addSelectedOrder(order);
-        if (additional) {
+        if (additional)
             additional();
-        }
         router.push({
             name: "WayOfPayment"
         })

@@ -99,7 +99,6 @@ function purchaseOrders() {
     routerPath.value = "";
     openAgreement();
   }
-
 }
 
 getCard();// dispatching beforehand

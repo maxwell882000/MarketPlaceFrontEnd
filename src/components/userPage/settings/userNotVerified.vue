@@ -11,7 +11,7 @@
         <span :class="user.user_credit ? 'text-green' : 'text-red' ">{{
             user.user_credit ? $t("Верифицирован") : $t("Не верефицированный")
           }}</span>
-        <router-link to="/verification/account/1" style="all: unset">
+        <router-link :to="{name:'start_verify'}" style="all: unset">
           <ButtonVialet :title="'Верифицировать'"></ButtonVialet>
         </router-link>
       </div>
@@ -41,11 +41,13 @@ defineProps({
   cursor: pointer;
   text-underline: none;
 }
+
 @media (max-width: 767px) {
   .btn-link-new {
     width: 100%;
   }
 }
+
 .btn-link-new:hover {
   background-color: transparent;
 }

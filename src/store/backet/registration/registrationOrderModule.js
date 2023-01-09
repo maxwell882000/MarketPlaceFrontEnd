@@ -33,6 +33,7 @@ export const registrationOrderModule = {
                 // main_credit_id = mainCredit.value.id;
             },
             deliveryInfo: {},
+            preSaveForm: {},
             form: {
                 // delivery
                 // "purchase->delivery_address->city_id" => "1"
@@ -64,7 +65,9 @@ export const registrationOrderModule = {
             }
             commit("wait/END", "delivery_price_loaded", {root: true});
         },
+        preSaveForm() {
 
+        },
         // in this step everything must be ideal
         // because we are validating all data before submitting !
         async purchaseOrders({commit, getters, rootGetters, dispatch}) {
@@ -78,7 +81,6 @@ export const registrationOrderModule = {
                     ...getters.form,
                     ...rootGetters["plasticCardModule/plasticId"],
                     orders: rootGetters['prepareBasketModule/ordersId'],
-
                 };
                 // console.log("DATA SENDING");
                 // console.log("REMOVE PAYMENT TYPE IN PRODUCTION !!!!!!!!");
@@ -122,7 +124,7 @@ export const registrationOrderModule = {
             return `${state.deliveryInfo[deliveryConstant.ADDRESS_NAME]}, ${state.deliveryInfo[deliveryConstant.STREET]}`;
         },
         homeInfo(state) {
-            return `${state.deliveryInfo[deliveryConstant.HOUSE]} дом, ${state.deliveryInfo[deliveryConstant.FLAT]} квартира`;
+            return `${state.deliveryInfo[deliveryConstant.HOUSE]}, ${state.deliveryInfo[deliveryConstant.FLAT]} `;
         },
     },
     mutations: {

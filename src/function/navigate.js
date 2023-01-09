@@ -1,5 +1,4 @@
 export default (item) => {
-    console.log(item);
     if (item.is_last) {
         return '/category/child/' + item.slug;
     }

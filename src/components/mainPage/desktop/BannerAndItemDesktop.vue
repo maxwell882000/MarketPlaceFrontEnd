@@ -25,8 +25,8 @@
               <Like style="position: absolute" :favourite="product.favourite" :id="product.id" class="like"/>
             </div>
             <!--             do not know why it is work -->
-            <div class="flex-grow-1 w-max align-self-center" style="height: 10vh; width: 100%">
-              <b-img fluid class="img-res" center :src="product.image" alt="mi-band"/>
+            <div class="flex-grow-1 w-max align-self-center d-flex justify-content-center" style="height: 10vh; width: 100%">
+              <b-img fluid class="img-res-height" center :src="product.image" alt="mi-band"/>
             </div>
             <div class="item-of-day-info">
               <p class="item-of-day__description mb-1">

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@bachdgvn/vue-otp-input": "^1.0.8",
+    "@devindex/vue-mask": "^2.0.3",
     "@egjs/vue3-flicking": "^4.6.2",
     "@ivanv/vue-collapse-transition": "^1.0.2",
     "@kouts/vue-modal": "^3.0.3",

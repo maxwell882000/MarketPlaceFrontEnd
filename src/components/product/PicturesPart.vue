@@ -1,7 +1,7 @@
 <template>
   <div class="left-part">
-    <div class="d-none d-sm-none d-md-block image_con">
-      <img class="img-res rounded-st main-image" :src="activeImageUrl"/>
+    <div class="d-none d-sm-none d-md-flex justify-content-center image_con">
+      <img class="img-res-height rounded-st main-image" :src="activeImageUrl"/>
     </div>
     <div class="mt-4 d-flex justify-content-center">
       <Splide @splide:move="splideMove" @splide:click="splideMove"

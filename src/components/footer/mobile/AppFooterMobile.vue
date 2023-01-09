@@ -68,8 +68,7 @@ const footer = [
 const route = useRoute();
 
 function comparePath(item) {
-  console.log();
-  console.log(item);
+
   const path = route.path.split("/")[1];
   return path === item.path || item.orPath === path;
 }

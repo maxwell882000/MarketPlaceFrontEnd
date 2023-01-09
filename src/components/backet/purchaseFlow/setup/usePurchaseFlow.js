@@ -20,8 +20,8 @@ export default function () {
         if (isFastPurchase.value)
             route.push("/cart/selectAddress");
         else {
-            defaultRoute();
             clean();
+            defaultRoute();
         }
     }
 

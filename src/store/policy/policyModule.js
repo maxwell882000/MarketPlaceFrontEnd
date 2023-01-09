@@ -15,7 +15,8 @@ export const policyModule = {
             commit("wait/START", "policy_load", {root: true});
             try {
                 const result = await policyService.policy();
-                commit("setPolicy", result.policy);
+                if (result)
+                    commit("setPolicy", result.policy);
             } catch (e) {
                 console.log(e);
             }

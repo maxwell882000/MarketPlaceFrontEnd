@@ -8,7 +8,8 @@
             router.params.search
           }}</span>
           <span
-              class="text-normal pl-2 text-400 text-gray">{{ $t("Найдено") }} {{ count }} {{ $t("товаров") }}</span></h5>
+              class="text-normal pl-2 text-400 text-gray">{{ $t("Найдено") }} {{ count }} {{ $t("товаров") }}</span>
+        </h5>
         <filter-with-products></filter-with-products>
       </template>
     </section>
