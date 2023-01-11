@@ -1,21 +1,28 @@
 <template>
   <h6>{{ param.text }}</h6>
-  <div class="d-flex flex-wrap">
-    <button
-        v-for="(option, optionIndex) in param.values"
-        :key="'options_index_' + optionIndex+  '_value_ ' +  option.id"
-        @click="selectedValue(option)"
-        :class="[
+  <div :class="!isList(param.type) && 'd-flex flex-wrap'">
+    <div v-for="(option, optionIndex) in param.values"
+         :key="'options_index_' + optionIndex+  '_value_ ' +  option.id">
+      <button
+          @click="selectedValue(option)"
+          v-if="!isList(param.type)"
+          :class="[
                     'param-option',
                     selected === option.id && 'active'
                 ]">
-      {{ option.text }}
-    </button>
+        {{ option.text }}
+      </button>
+      <ul v-else>
+        <li> {{ option.text }}
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="mb-4"></div>
 </template>
 <script>
 import {mapActions, mapGetters, mapMutations} from "vuex";
+import productKeyType from "@/constants/product/productKeyType";
 
 export default {
   props: {
@@ -49,6 +56,9 @@ export default {
     ...mapMutations({
       setOrder: 'backetModule/setOrder'
     }),
+    isList(type) {
+      return type === productKeyType.TYPE_LIST
+    },
     selectedValue(option) {
       let value = this.additional(this.product.id);
       value[this.index] = {
