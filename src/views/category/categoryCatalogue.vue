@@ -17,12 +17,15 @@
          :key="'category_catalogue'+ item.slug"
          v-for="item in selectedCategory.children"
     >
-      <router-link :to="item.is_last ? $navigate(item) : ''" class="button-category"
-                   v-b-toggle="'collapse_catalogue' + item.slug">
-        <span>{{ item.name }}</span>
-        <div v-show="item.is_last">
+      <button v-if="!item.is_last" class="button-category"
+              v-b-toggle="'collapse_catalogue' + item.slug">
+        <span>{{ item.name }} </span>
+        <span>
           <span class="bi bi-chevron-down"></span>
-        </div>
+        </span>
+      </button>
+      <router-link v-else :to=" $navigate(item)" class="button-category">
+        <span>{{ item.name }} </span>
       </router-link>
       <b-collapse :id="'collapse_catalogue' + item.slug">
         <router-link :to="goTo(lastCat)" class="mini_categories"
