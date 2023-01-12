@@ -17,12 +17,13 @@
          :key="'category_catalogue'+ item.slug"
          v-for="item in selectedCategory.children"
     >
-      <button class="button-category" v-b-toggle="'collapse_catalogue' + item.slug">
+      <router-link :to="item.is_last ? $navigate(item) : ''" class="button-category"
+                   v-b-toggle="'collapse_catalogue' + item.slug">
         <span>{{ item.name }}</span>
-        <div>
+        <div v-show="item.is_last">
           <span class="bi bi-chevron-down"></span>
         </div>
-      </button>
+      </router-link>
       <b-collapse :id="'collapse_catalogue' + item.slug">
         <router-link :to="goTo(lastCat)" class="mini_categories"
                      :key="'last_Category_catalogue'+ lastCat.slug"
@@ -43,10 +44,12 @@ import {useStore} from "vuex";
 import {computed, ref, watch} from "vue";
 import CategoryItemRoll from "@/components/category/category-item-roll";
 import navigate from "@/function/navigate";
+import {useRouter} from "vue-router";
 
 const store = useStore();
 const categories = computed(() => store.getters['drop_bar']);
 const selectedCategory = ref(categories.value[0] || {children: [], slug: ""});
+const router = useRouter();
 const changed = watch(categories, function (val) {
   selectedCategory.value = val[0];
   changed();
@@ -58,6 +61,9 @@ function goTo(item) {
 
 function setCategory(item) {
   selectedCategory.value = item;
+  if (item.is_last) {
+    router.push(navigate(item));
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -6,10 +6,10 @@
         <pagination-arrows></pagination-arrows>
         <SplideSlide class="border-sm" v-for="item in banners" :key="'banners_id' + item.id"
                      data-splide-interval="3000">
-          <div class="banner_image" :href="item.link">
+          <a class="banner_image" :href="item.link">
             <b-img :src="item.image" class="rounded-st img-res"
                    alt="Sample 1"/>
-          </div>
+          </a>
         </SplideSlide>
       </Splide>
     </div>
@@ -25,7 +25,8 @@
               <Like style="position: absolute" :favourite="product.favourite" :id="product.id" class="like"/>
             </div>
             <!--             do not know why it is work -->
-            <div class="flex-grow-1 w-max align-self-center d-flex justify-content-center" style="height: 10vh; width: 100%">
+            <div class="flex-grow-1 w-max align-self-center d-flex justify-content-center"
+                 style="height: 10vh; width: 100%">
               <b-img fluid class="img-res-height" center :src="product.image" alt="mi-band"/>
             </div>
             <div class="item-of-day-info">

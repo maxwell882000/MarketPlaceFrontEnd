@@ -2,10 +2,10 @@
   <div class="p-mobile">
     <Splide :options="{arrows:false, pagination:false, gap:5}">
       <SplideSlide class="border-sm" v-for="item in banners" :key="'banners_id' + item.id">
-        <div class="banner_image" :href="item.link">
+        <a class="banner_image" :href="item.link">
           <b-img :src="item.image" class="rounded-st img-res"
                  alt="Sample 1"/>
-        </div>
+        </a>
       </SplideSlide>
     </Splide>
   </div>
