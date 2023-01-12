@@ -18,7 +18,9 @@
     <div class="d-flex p-2 justify-content-center">
       <div style="width: max-content; margin-right: 0.714rem">
         <div style="height: 10.143rem; width: 10.143rem !important;">
-          <img :src="shop.left_image" class="img-res">
+          <div style="height: max-content; max-height: 10.143rem; margin: auto">
+            <img :src="shop.left_image" class="img-res">
+          </div>
         </div>
       </div>
       <div class="d-flex flex-wrap  justify-content-center" style="width: 10.143rem;gap: 0.714rem">

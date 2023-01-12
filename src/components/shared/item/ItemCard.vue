@@ -5,7 +5,9 @@
         <Like :id="product.id" :favourite="product.favourite"/>
       </div>
       <div class="image-sizing">
-        <img v-lazy="product.image" class="img-res" center fluid alt="item image"/>
+        <div style=" height: max-content; max-height: 10.143rem;">
+          <img v-lazy="product.image" class="img-res" center fluid alt="item image"/>
+        </div>
       </div>
       <div v-show="product.discount" class="item-card__image__sale-amount absolute">
         <span>-{{ product.discount }}%</span>
