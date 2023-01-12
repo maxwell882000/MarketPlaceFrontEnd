@@ -66,7 +66,8 @@ export default {
 
 <style scoped lang="scss">
 .banner_image, .item-of-day {
-  height: calc(70vw / 2.7)
+  max-height: calc(70vw / 2.7);
+  height: 100%;
 }
 
 .splide {
