@@ -11,8 +11,11 @@
       <b-tab v-for="item in drop_bar" :key="item.slug + '_tabs_in_category'">
         <template #title>
           <div class="d-flex justify-content-between align-items-center w-100">
-            <div>
-              <span>{{ item.name }}</span>
+            <div class="d-flex">
+              <div class="mr-2" style="width: 24px; height: 24px">
+                <img class="img-res" alt="icon-category" :src="item.icon">
+              </div>
+              <span>{{ item.name }} </span>
             </div>
             <div>
               <span class="bi bi-chevron-right" style="width: 100%;"/>

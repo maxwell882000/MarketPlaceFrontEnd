@@ -6,7 +6,7 @@
         <pagination-arrows></pagination-arrows>
         <SplideSlide class="border-sm" v-for="item in banners" :key="'banners_id' + item.id"
                      data-splide-interval="3000">
-          <a class="banner_image" :href="item.link">
+          <a class="banner_image d-block" :href="item.link">
             <b-img :src="item.image" class="rounded-st img-res"
                    alt="Sample 1"/>
           </a>
@@ -65,6 +65,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.banner_image, .item-of-day {
+  height: calc(70vw / 2.7)
+}
+
 .splide {
   img {
     width: 100%;
@@ -97,11 +101,11 @@ export default {
   }
 }
 
+
 .item-of-day {
   text-decoration: none !important;
   transition: all 0.3s;
   //min-height: 100%;
-  height: 40vh;
   background-color: white;
   border-radius: 14px;
   padding: 10px 18px;
@@ -161,10 +165,6 @@ export default {
       opacity: 1;
     }
   }
-}
-
-.banner_image {
-  height: 40vh
 }
 
 
