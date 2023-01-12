@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "815a9fd2623671839cdc",
-    "url": "/css/app.4412df22.css"
+    "revision": "b8682c4ced313d557b52",
+    "url": "/css/app.1aa84de6.css"
   },
   {
     "revision": "10568b76415da7a66f92",
@@ -108,6 +108,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/chunk-8fe6cf60.74cbb68c.css"
   },
   {
+    "revision": "692e4c85c8123aeb48c0",
+    "url": "/css/chunk-931d4a08.17f8815d.css"
+  },
+  {
     "revision": "57365bda9b69bb806a45",
     "url": "/css/chunk-b9f294c4.5d92229a.css"
   },
@@ -122,10 +126,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "0d161bbce3601f567199",
     "url": "/css/chunk-e151fbf4.0835e886.css"
-  },
-  {
-    "revision": "8bd96f5c10199ff3a7b9",
-    "url": "/css/chunk-e40ead5e.a127e1aa.css"
   },
   {
     "revision": "d210e8e203048a58b7a1",
@@ -316,12 +316,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/xiaomi.e3904865.png"
   },
   {
-    "revision": "8cdea1456fbdcbfadcb3bd64853deaa8",
+    "revision": "e3b07d141531008c0c1e4fda3d49c4cd",
     "url": "/index.html"
   },
   {
-    "revision": "815a9fd2623671839cdc",
-    "url": "/js/app.4fbe4f8a.js"
+    "revision": "b8682c4ced313d557b52",
+    "url": "/js/app.49f4d0ed.js"
   },
   {
     "revision": "10568b76415da7a66f92",
@@ -464,6 +464,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/chunk-8fe6cf60.7857930b.js"
   },
   {
+    "revision": "692e4c85c8123aeb48c0",
+    "url": "/js/chunk-931d4a08.97507673.js"
+  },
+  {
     "revision": "57365bda9b69bb806a45",
     "url": "/js/chunk-b9f294c4.da3a4719.js"
   },
@@ -486,10 +490,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "0d161bbce3601f567199",
     "url": "/js/chunk-e151fbf4.06f14349.js"
-  },
-  {
-    "revision": "8bd96f5c10199ff3a7b9",
-    "url": "/js/chunk-e40ead5e.87a8fe74.js"
   },
   {
     "revision": "d210e8e203048a58b7a1",
