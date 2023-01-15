@@ -66,16 +66,21 @@ export default {
   },
   methods: {
     ...mapMutations([
-      'toggleCategoryOpened'
+      'toggleCategoryOpened',
+      'closeCategoryOpened'
     ]),
     goTo(item) {
       return navigate(item);
     },
     toggle() {
       this.toggleCategoryOpened();
+
     }
   },
   watch: {
+    "$route.path"() {
+      this.closeCategoryOpened();
+    },
     categoriesOpened() {
       window.scroll(0, 0);
       if (this.categoriesOpened) {

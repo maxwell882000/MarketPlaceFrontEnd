@@ -5,7 +5,7 @@
     </div>
     <div class="shop-info">
       <div class="bg-white rounded-st shadow-md logo-shop-list">
-        <img :src="shop.logo" class="img-res">
+        <img v-if="shop.logo" :src="shop.logo" class="img-res">
       </div>
       <div style="padding-top:1.071rem; padding-bottom: 1.8rem; text-align: center">
         <span class="text-500"> {{ shop.name }}</span>
