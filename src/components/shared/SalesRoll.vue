@@ -1,13 +1,4 @@
 <template>
-  <!--  <div ref="sizeDetermine">-->
-  <!--    <Flicking ref="flicking" :options="{align:'prev',panelsPerView: numberOFItems}">-->
-  <!--      <div v-for="item in products" :key="slideKey + item.id ">-->
-  <!--        <div class="w-100 m-auto d-flex justify-content-center">-->
-  <!--          <item-card :product="item"/>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </Flicking>-->
-  <!--  </div>-->
   <div class="sales-roll">
     <BaseRoll :breakpoints="breakpoints" :perPage="perPage">
       <SplideSlide v-for="item in products" :key="slideKey + item.id ">
@@ -16,15 +7,13 @@
                      :product="item"/>
         </div>
       </SplideSlide>
-      <SplideSlide>
-        <ResponsiveLayout>
-          <template #desktop>
-
-            <div style="width: 10rem"></div>
-          </template>
-        </ResponsiveLayout>
-      </SplideSlide>
-
+<!--      <SplideSlide>-->
+<!--        <ResponsiveLayout>-->
+<!--          <template #desktop>-->
+<!--            <div style="width: 10rem"></div>-->
+<!--          </template>-->
+<!--        </ResponsiveLayout>-->
+<!--      </SplideSlide>-->
     </BaseRoll>
   </div>
 
@@ -34,7 +23,7 @@ import ItemCard from "./item/ItemCard";
 
 // eslint-disable-next-line no-undef
 import BaseRoll from "@/components/shared/baseRoll";
-import ResponsiveLayout from "@/components/responsive/ResponsiveLayout";
+// import ResponsiveLayout from "@/components/responsive/ResponsiveLayout";
 
 // eslint-disable-next-line no-undef
 defineProps({

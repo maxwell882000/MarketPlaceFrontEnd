@@ -24,6 +24,17 @@
           <cat-hor-and-ver :categories="category_in_home.slice(0, 6)"></cat-hor-and-ver>
           <cat-hor-and-ver :is-reverse="true" :categories="category_in_home.slice(6)"></cat-hor-and-ver>
         </div>
+        <!--        <div v-for="item in " :key="'lenta_unique_hit_products_'+ item.id">-->
+        <section v-show="hit_products.length">
+          <show-all-text :link="'/products/hits/all'" :title="$t('Хит продаж')">
+          </show-all-text>
+          <!--            <div class="d-flex align-items-center">-->
+          <SalesRoll :per-page="6"
+                     slide-key="product_day_hit"
+                     :products="hit_products"/>
+          <!--            </div>-->
+        </section>
+        <!--      </div>-->
         <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
           <section v-show="item.products.length">
             <show-all-text :link="'/products/lenta/' + item.id" :title="item.text">
@@ -47,7 +58,6 @@
                               :is_left="!!item.is_left"></image-in-sides>
             </div>
             <!--                         :style="item.left_image ? {flex: 1} : {width: '100%'}"-->
-
           </section>
         </div>
       </div>
@@ -75,6 +85,7 @@ export default {
   computed: {
     ...mapGetters('mainModule', [
       'getTime',
+      'hit_products',
       'product_of_day',
       'product_of_day_rest',
       'discount',
