@@ -7,13 +7,14 @@
                      :product="item"/>
         </div>
       </SplideSlide>
-<!--      <SplideSlide>-->
-<!--        <ResponsiveLayout>-->
-<!--          <template #desktop>-->
-<!--            <div style="width: 10rem"></div>-->
-<!--          </template>-->
-<!--        </ResponsiveLayout>-->
-<!--      </SplideSlide>-->
+      <!--      For padding this one is exists-->
+      <SplideSlide>
+        <ResponsiveLayout>
+          <template #desktop>
+            <div style="width: 10rem"></div>
+          </template>
+        </ResponsiveLayout>
+      </SplideSlide>
     </BaseRoll>
   </div>
 
@@ -23,6 +24,7 @@ import ItemCard from "./item/ItemCard";
 
 // eslint-disable-next-line no-undef
 import BaseRoll from "@/components/shared/baseRoll";
+import ResponsiveLayout from "@/components/responsive/ResponsiveLayout";
 // import ResponsiveLayout from "@/components/responsive/ResponsiveLayout";
 
 // eslint-disable-next-line no-undef
