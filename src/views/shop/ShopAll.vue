@@ -3,7 +3,7 @@
     <section class="container mb-3">
       <Badge :path="path"></Badge>
       <h5 class="mb-3 text-header-32">{{ $t("Все магазины") }}</h5>
-      <div class="d-flex flex-wrap" style="gap: 0.714rem">
+      <div class="d-flex flex-wrap justify-content-center" style="gap: 0.714rem">
         <shop-items :key="'all_shop_items'+ shop.slug" v-for="shop in shop_all" :shop="shop"></shop-items>
       </div>
     </section>

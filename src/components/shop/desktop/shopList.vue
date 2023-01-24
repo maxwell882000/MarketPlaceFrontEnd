@@ -8,6 +8,9 @@
       <SplideSlide :key="'list_of_all_shops_' + shop.slug" v-for="shop in shop_list">
         <shop-items :shop="shop"></shop-items>
       </SplideSlide>
+      <SplideSlide>
+        <div style="width: 9.643rem"></div>
+      </SplideSlide>
     </BaseRoll>
   </section>
 </template>
