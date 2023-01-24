@@ -54,13 +54,21 @@ export default {
       updateParams: "backetModule/updatePreOrder"
     }),
     ...mapMutations({
-      setOrder: 'backetModule/setOrder'
+      setOrder: 'backetModule/setOrder',
+      setPriceChange: "productModule/setPriceChange"
     }),
     isList(type) {
       return type === productKeyType.TYPE_LIST
     },
     selectedValue(option) {
       let value = this.additional(this.product.id);
+      const array = this.param.values.filter(e => e.id === this.selected);
+
+      const oldPrice = array.length ? array[0].price : 0;
+      const newPrice = option.price;
+      option.oldPrice = oldPrice;
+      console.log(oldPrice);
+      console.log(newPrice);
       value[this.index] = {
         key: this.param.text,
         value: option
@@ -70,6 +78,7 @@ export default {
         key: 'additional',
         value: value
       });
+      this.setPriceChange({oldPrice, newPrice});
       this.updateParams({additional: {key: this.index, value: value[this.index]}});
     }
   }

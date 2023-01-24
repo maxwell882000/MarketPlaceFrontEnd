@@ -48,11 +48,10 @@ export const backetModule = {
     actions: {
         async addToBasket({commit, getters, rootGetters}, id) {
             try {
-                let data = await backetService.addToBasket(id, getters.getPreOrder(id));
+                const preOrder = getters.getPreOrder(id);
+                preOrder.price = rootGetters["productModule/product"].real_price.replace(/\s/g, '');
+                let data = await backetService.addToBasket(id, preOrder);
                 commit("productModule/setProductOrder", data.id, {root: true});
-                console.log("ADD TO BASKET");
-                console.log(data.id);
-                console.log(rootGetters['user'].basket_ids.filter(e => e === data.id));
                 let isExistsOrder = rootGetters['user'].basket_ids.filter(e => e === data.id);
                 if (!isExistsOrder.length) {
                     commit('increaseBasketCounter', null, {root: true});

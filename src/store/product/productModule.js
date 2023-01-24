@@ -2,6 +2,7 @@
 
 import productService from "@/services/product/productService";
 import navigate from "@/function/navigate";
+import price_formatter from "@/mixins/price_formatter";
 
 export const productModule = {
     namespaced: true,
@@ -137,6 +138,19 @@ export const productModule = {
                     'id': order_id
                 };
             }
+        },
+        setPriceChange(state, {oldPrice, newPrice}) {
+
+            console.log(state.product.real_price
+                .toString()
+                .replace(/\s/g, ''));
+            console.log(oldPrice);
+            console.log(newPrice);
+            state.product.real_price = price_formatter(parseInt(
+                    state.product.real_price
+                        .replace(/\s/g, ''))
+                + parseInt(newPrice || "0")
+                - parseInt(oldPrice || "0"));
         },
         setProduct(state, product) {
             state.product = product;
