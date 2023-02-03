@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style scoped>
-@media (min-width: 769px) {
+@media (min-width: 992px) {
   .desktop-price {
     height: 3.429rem;
   }
@@ -102,7 +102,7 @@ export default {
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   /*.price {*/
   /*  display: none;*/
   /*  margin-right: 0 !important;*/

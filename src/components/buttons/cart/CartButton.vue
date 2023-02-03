@@ -42,7 +42,7 @@ export default {
   /*padding: calc(10px + 0.357rem ) 14px;*/
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .card-button-text {
     border-radius: 2.571rem;
     padding: 0.38rem 0;
