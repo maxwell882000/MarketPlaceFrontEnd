@@ -146,8 +146,6 @@ export const mainModule = {
         },
         async getCategoryInHome({commit}) {
             const result = await mainService.category_in_home();
-            console.log(result.slice(0, 6));
-            console.log(result.slice(6));
             commit('setCategoryInHome', result);
         },
         countDownSecond({commit, state}) {

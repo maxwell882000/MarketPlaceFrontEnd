@@ -17,38 +17,25 @@
         <div class="pt-2"></div>
         <ShopList></ShopList>
         <div class="mt-4 mb-3" v-if="category_in_home.length">
-          <!--          <div class="d-flex justify-content-between align-items-end">-->
           <h5 class=" mb-3  text-sm-center">{{ $t("Категории") }}</h5>
-          <!--            <show-all link="/shop_all"></show-all>-->
-          <!--          </div>-->
           <cat-hor-and-ver :categories="category_in_home.slice(0, 6)"></cat-hor-and-ver>
           <cat-hor-and-ver :is-reverse="true" :categories="category_in_home.slice(6)"></cat-hor-and-ver>
         </div>
-        <!--        <div v-for="item in " :key="'lenta_unique_hit_products_'+ item.id">-->
         <section v-show="hit_products.length">
           <show-all-text :link="'/products/hits/all'" :title="$t('Хит продаж')">
           </show-all-text>
-          <!--            <div class="d-flex align-items-center">-->
           <SalesRoll :per-page="6"
                      slide-key="product_day_hit"
                      :products="hit_products"/>
-          <!--            </div>-->
         </section>
-        <!--      </div>-->
         <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
           <section v-show="item.products.length">
             <show-all-text :link="'/products/lenta/' + item.id" :title="item.text">
             </show-all-text>
-            <!--            <h5 class="text-sm-center mt-4 mb-2">{{  }}</h5>-->
             <div class="d-flex align-items-center">
               <image-in-sides :id="item.id" :image="item.image" :side="!!item.is_left"
                               :is_left="!!item.is_left"></image-in-sides>
-              <!--              <router-link :to="'/products/lenta/' + item.id" v-if="item.image !== ''">-->
-              <!--                <div-->
-              <!--                    style="width: 30.571rem !important;height: 29.429rem; margin-right: 10px; ">-->
-              <!--                  <img :src="item.image" class="img-res rounded-st">-->
-              <!--                </div>-->
-              <!--              </router-link>-->
+
               <div :class="item.image === '' ? 'take-all' : 'take-all-with-calc'">
                 <SalesRoll :per-page="6"
                            slide-key="product_day"
@@ -57,7 +44,6 @@
               <image-in-sides :id="item.id" :image="item.image" :side="!item.is_left"
                               :is_left="!!item.is_left"></image-in-sides>
             </div>
-            <!--                         :style="item.left_image ? {flex: 1} : {width: '100%'}"-->
           </section>
         </div>
       </div>

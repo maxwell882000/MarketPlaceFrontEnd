@@ -35,4 +35,16 @@ defineProps({
   border-radius: var(--borderRadius14);
   background-color: var(--gray900);
 }
+
+@media (max-width: 1399px) and (min-width: 1201px) {
+  .category-horizontal{
+    width: 36.286em;
+  }
+}
+
+@media (max-width: 1200px) {
+  .category-horizontal {
+    width: 22em;
+  }
+}
 </style>

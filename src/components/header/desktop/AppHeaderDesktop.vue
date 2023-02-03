@@ -100,7 +100,7 @@ nav {
   width: 100%;
   position: sticky;
   top: -120px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .fixed {
