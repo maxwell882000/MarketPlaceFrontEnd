@@ -158,7 +158,7 @@ export default {
   //margin-bottom: 30px;
 
   .about-content {
-    max-width: 500px;
+    max-width: 800px;
   }
 
   .tab-content {

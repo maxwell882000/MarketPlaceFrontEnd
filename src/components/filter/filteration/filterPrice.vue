@@ -5,7 +5,7 @@
         :initial-min="prices.min"
         @update-full="fullUpdate"
         :min-constrain="0"
-        :max-constrain="12000000"/>
+        :max-constrain="90000000"/>
   </filter-item>
 </template>
 <script>

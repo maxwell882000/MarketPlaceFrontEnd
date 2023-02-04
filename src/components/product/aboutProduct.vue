@@ -18,12 +18,18 @@
         <template #title>
           <h5 class="tab-content">{{ firstChar.header }}</h5>
         </template>
-        <table class="dotted-table about-content text-dark">
-          <tr v-for="(items, index) in firstChar.values" :key="'char_'  + index">
-            <th><span>{{ items.key }}</span></th>
-            <th><span>{{ items.value }}</span></th>
-          </tr>
-        </table>
+        <ul  class="dotted-li about-content text-dark">
+          <template v-for="(items, index) in firstChar.values" :key="'char_'  + index">
+            <li>
+              <span>{{ items.key }}</span>
+              <span style="border-bottom: 1.5px dotted var(--gray400);
+                      flex: 1 0;margin-bottom: 7px;
+                  line-height: 20px;">
+              </span>
+              <span>{{ items.value }}</span>
+            </li>
+          </template>
+        </ul>
         <router-link v-show="product.characteristics.length > 1"
                      :to="`/item/${$route.params.id}/description`"
                      class="remove-link text-blue">
