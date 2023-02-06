@@ -86,6 +86,7 @@ export default {
 
 .item-card__description {
   font-size: 1rem;
+  line-break: auto;
 }
 
 .item-card {

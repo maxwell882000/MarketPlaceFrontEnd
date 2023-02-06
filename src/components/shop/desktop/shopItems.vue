@@ -1,15 +1,16 @@
 <template>
   <router-link :to="'/shop/' + shop.slug" class=" item-shop-list ">
     <div class="back-shop">
-      <img  v-if="shop.image" :src="shop.image" class="img-res top-rounded">
+
+      <img v-if="shop.image" :src="shop.image" class="img-res top-rounded">
     </div>
     <div class="shop-info">
-      <div v-if="shop.logo" class="bg-white rounded-st shadow-md logo-shop-list">
+      <div  class="bg-white rounded-st shadow-md logo-shop-list">
         <img v-if="shop.logo" :src="shop.logo" class="img-res">
       </div>
-      <div style="padding-top:1.071rem; padding-bottom: 1.8rem; text-align: center">
+      <div style="padding-top:1.071rem; height: 4.857rem; text-align: center">
         <span class="text-500"> {{ shop.name }}</span>
-        <div class="text-muted">
+        <div class=" two-only-sentence text-muted">
           <span class="bi bi-geo-alt-fill me-1"/>
           <span>{{ shop.address }}</span>
         </div>
