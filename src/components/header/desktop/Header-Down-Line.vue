@@ -74,7 +74,6 @@ export default {
     },
     toggle() {
       this.toggleCategoryOpened();
-
     }
   },
   watch: {

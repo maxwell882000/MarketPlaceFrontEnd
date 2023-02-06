@@ -5,12 +5,13 @@
         vertical
         nav-wrapper-class="bg-white left-tabs scoped-sidebar "
         class="nav-tabs"
+        v-model="tabValue"
         content-class="w-100"
         active-nav-item-class="bg-light text-violet"
         active-tab-class="text-uppercase text-dark">
-      <b-tab v-for="item in drop_bar" :key="item.slug + '_tabs_in_category'">
+      <b-tab v-for="(item,index) in drop_bar" :key="item.slug + '_tabs_in_category'">
         <template #title>
-          <div class="d-flex justify-content-between align-items-center w-100">
+          <div @mouseover="changeTabValue(index)" class="d-flex justify-content-between align-items-center w-100">
             <div class="d-flex">
               <div class="mr-2" style="width: 24px; height: 24px">
                 <img class="img-res" alt="icon-category" :src="item.icon">
@@ -39,10 +40,19 @@ import Category from "@/components/header/desktop/category";
 
 export default {
   components: {Category},
+  data() {
+    return {
+      tabValue: 0
+    }
+  },
   computed: {
     ...mapGetters(['drop_bar'])
   },
-  methods: {}
+  methods: {
+    changeTabValue(value) {
+      this.tabValue = value;
+    }
+  }
 };
 </script>
 
