@@ -43,6 +43,7 @@ export default function (installment, overallPrice, mainCredit) {
         wayOfPayment.value.over_payment = installment.percentageOverPayment;
         wayOfPayment.value.name = mainCredit.value.name;
         wayOfPayment.value.main_credit_id = mainCredit.value.id;
+        console.log(wayOfPayment.value);
         goToDeliveryOrDefault();
     }
 
