@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="'/shop/' + shop.slug" class=" item-shop-list ">
+  <router-link :to="'/shop/' + shop.slug" class="item-shop-list ">
     <div class="back-shop">
 
       <img v-if="shop.image" :src="shop.image" class="img-res top-rounded">

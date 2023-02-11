@@ -15,10 +15,11 @@ const getCredits = () => store.dispatch('wayOfPaymentModule/getWayOfPayment');
 const {buyImmediately} = usePay("setShowPayment", getCredits);
 const {isInstallment} = useInstallmentProduct();
 
-function fixClicking() {
+async function fixClicking() {
   if (isClickable.value) {
-    buyImmediately();
     isClickable.value = false;
+    await buyImmediately();
+    isClickable.value = true;
   }
 }
 </script>

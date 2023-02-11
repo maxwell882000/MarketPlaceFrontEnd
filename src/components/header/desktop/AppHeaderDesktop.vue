@@ -26,9 +26,19 @@
               {{ $t('Корзина') }}
             </router-link>
             <AuthProfile>
-              <a href="#">
+              <a class="one-only-sentence" v-if="!isAuthenticated || user.phone == ''" href="#">
                 <img src="@/assets/icons/user.svg" alt="cart icon"/>
                 {{ $t('Профиль') }}
+              </a>
+              <a class="one-only-sentence" v-else href="#">
+                <b-avatar :src="user.avatar" size="21px"></b-avatar>
+                <span class="one-only-sentence" v-if="user.user_credit">
+                        {{ user.name }}
+                </span>
+                <span class="one-only-sentence" v-else>
+                  {{ user.phone }}
+                </span>
+
               </a>
             </AuthProfile>
 
@@ -64,6 +74,7 @@ export default {
   computed: {
     ...mapGetters({
       user: "user",
+      isAuthenticated: 'isAuthenticated',
       basketCounter: "prepareBasketModule/count",
     })
   },
@@ -75,6 +86,8 @@ export default {
     },
   },
   mounted() {
+    console.log("IS AUTH")
+    console.log(this.isAuthenticated);
     window.onscroll = () => {
       if (window.scrollY > 100 && !this.scrolled) {
         this.scrolled = true;

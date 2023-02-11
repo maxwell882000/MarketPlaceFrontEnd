@@ -179,6 +179,15 @@ hr {
   color: var(--orange);
 }
 
+.one-only-sentence {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-break: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
 .two-only-sentence {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -229,6 +238,10 @@ hr {
 
 .w-40 {
   width: 40%;
+}
+
+.ml-0 {
+  margin-left: 0 !important;
 }
 
 .ml-1 {

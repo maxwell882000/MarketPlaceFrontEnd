@@ -12,10 +12,11 @@ const isClickable = ref(true);
 
 const {buyImmediately} = usePay("setShowCredit");
 
-function fixClicking() {
+async function fixClicking() {
   if (isClickable.value) {
     isClickable.value = false;
-    buyImmediately();
+    await buyImmediately();
+    isClickable.value = true;
   }
 }
 </script>

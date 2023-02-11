@@ -12,14 +12,20 @@ export default function (name, additional) {
     const router = useRouter();
 
     async function buyImmediately() {
-        remove();
-        const order = await createOrder();
-        addSelectedOrder(order);
-        if (additional)
-            additional();
-        router.push({
-            name: "WayOfPayment"
-        })
+        console.log("PRESSED");
+        try {
+            remove();
+            const order = await createOrder();
+            addSelectedOrder(order);
+            if (additional)
+                additional();
+            router.push({
+                name: "WayOfPayment"
+            })
+        }catch (e) {
+            console.log(e);
+        }
+
     }
 
     return {

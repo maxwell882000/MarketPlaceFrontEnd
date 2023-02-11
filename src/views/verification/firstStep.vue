@@ -9,9 +9,9 @@
                            :placeholder="$t('Имя*')"/>
         </b-col>
         <b-col cols="12" class="col-xl-6 col-lg-6 col-md-12">
-          <InputValidation v-mask="'00000000000000'" :error="errorData[type.PNFL]"
-                           v-model="userData[type.PNFL]"
-                           :placeholder="$t('ПИНФЛ')"/>
+          <InputValidation :error="errorData[type.FATHER_NAME]"
+                           v-model="userData[type.FATHER_NAME]"
+                           :placeholder="$t('Отчество*')"/>
         </b-col>
         <b-col cols="12" class="col-xl-6 col-lg-6 col-md-12">
           <InputValidation :error="errorData[type.LAST_NAME]"
@@ -19,9 +19,9 @@
                            :placeholder="$t('Фамилия*')"/>
         </b-col>
         <b-col cols="12" class="col-xl-6 col-lg-6 col-md-12">
-          <InputValidation :error="errorData[type.FATHER_NAME]"
-                           v-model="userData[type.FATHER_NAME]"
-                           :placeholder="$t('Отчество*')"/>
+          <InputValidation v-mask="'00000000000000'" :error="errorData[type.PNFL]"
+                           v-model="userData[type.PNFL]"
+                           :placeholder="$t('ПИНФЛ')"/>
         </b-col>
         <b-col v-show="isSurety()" cols="12" class="col-xl-6 col-lg-6 col-md-12">
           <InputValidation v-mask="'+000000000000'" :error="errorData[type.PHONE]"

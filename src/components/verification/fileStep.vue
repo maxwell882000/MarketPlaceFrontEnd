@@ -1,7 +1,10 @@
 <template>
   <loader waiting="file_loaded">
     <section class="rounded-st p-3 bg-white mb-3">
+      <error class="ml-0" :error="error"></error>
+
       <b-row>
+
         <b-col cols="12" class="col-xl-6 col-lg-7 col-md-12 col-sm-12">
           <h6>{{ title }}</h6>
           <div class="mb-3">
@@ -39,7 +42,7 @@
       <ButtonGray style="background-color: var(--gray600)" :title-style="{color: 'white'}" class="mr-2 w-20 mb-3 py-2"
                   :title="$t('Назад')"></ButtonGray>
     </router-link>
-    <router-link :to="isFullNextPath ? next : correctPath + next " replace>
+    <router-link @click="showError" :to="isFullNextPath ? next : correctPath + next " replace>
       <ButtonBlue @click="$emit('nextPage')" class="w-20 mb-3 py-2"
                   :title="$t('Далее')"></ButtonBlue>
     </router-link>
@@ -50,15 +53,17 @@
 import Loader from "@/components/loading/loader";
 import ButtonGray from "@/components/helper/button/buttonGray";
 import ButtonBlue from "@/components/helper/button/buttonBlue";
+import Error from "@/components/helper/error/error";
 // eslint-disable-next-line no-unused-vars
 let sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 export default {
-  components: {ButtonBlue, ButtonGray, Loader},
+  components: {Error, ButtonBlue, ButtonGray, Loader},
   emits: ['image-upload', 'nextPage'],
   props: ['initialImage', 'waiting',
     'title', 'decs', 'assetImage', "next", 'back', 'isFullNextPath'],
   data() {
     return {
+      error: "",
       filelist: {},
       image: this.initialImage
     }
@@ -76,6 +81,9 @@ export default {
         this.image = URL.createObjectURL(this.filelist);
         this.$emit("image-upload", this.image, this.filelist);
       }
+    },
+    showError() {
+      this.error = this.$t('Не загружена фотография');
     },
 
     remove(i) {
@@ -98,7 +106,7 @@ export default {
 <style scoped lang="scss">
 
 .image-min-height {
-  width: 100%;
+  //width: 100%;
   height: 13rem;
   //min-height: 13rem;
   //width: 100%;
