@@ -6,7 +6,7 @@
   <success-purchase-modal></success-purchase-modal>
 </template>
 <script>
-import {mapMutations} from "vuex";
+import {mapActions, mapMutations} from "vuex";
 import Loader from "@/components/loading/loader";
 import AcceptPoliciesAndAgreement from "@/components/backet/modal/acceptPoliciesAndAgreement";
 import SuccessPurchaseModal from "@/components/backet/modal/successPurchaseModal";
@@ -15,6 +15,10 @@ export default {
   // eslint-disable-next-line vue/no-unused-components
   components: {SuccessPurchaseModal, AcceptPoliciesAndAgreement, Loader},
   methods: {
+
+    ...mapActions({
+      getCard: 'plasticCardModule/getCards'
+    }),
     ...mapMutations({
       hideCategoryLine: 'hideCategoryLine',
       openCategoryLine: 'openCategoryLine',
@@ -26,6 +30,7 @@ export default {
     })
   },
   mounted() {
+    this.getCard();
     this.hideCategoryLine();
   },
   unmounted() {
