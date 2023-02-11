@@ -146,7 +146,7 @@ function onStart() {
   setInitialType();
   if (wayOfPayment.value.index_of_credit >= 0) {
     setOverallPriceWithPercentage(wayOfPayment.value.index_of_credit);
-    getInitialPayment(wayOfPayment.value.initial_price);
+    getInitialPayment(wayOfPayment.value.initial_price || initialPriceWithPercents.value);
     calculateEachMonthPayment();
   }
 }
@@ -180,7 +180,7 @@ function setOverallPriceWithPercentage(index) {
   if (checkIsIndexOnInstallment(index)) {
     setCurrentCredit();
     setOverallPrice();
-    calculateEachMonthPayment();
+    getInitialPayment(wayOfPayment.value.initial_price || initialPriceWithPercents.value);
   }
   resetSliderForPrice(index);
 }
@@ -197,6 +197,7 @@ onBeforeMount(() => {
   unWatch = watch(() => store.getters['wayOfPaymentModule/mainCredit'], () => { // when we change the credit we have to put appropriate prices
     console.log("START WATCH");
     setOverallPriceWithPercentage(0);       // give correct percent , so he is able to choose price
+
   });
 })
 onBeforeUnmount(() => {
