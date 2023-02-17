@@ -46,10 +46,12 @@ export const backetModule = {
         }
     },
     actions: {
-        async addToBasket({commit, getters, rootGetters}, id) {
+        async addToBasket({commit, getters, rootGetters}, {id, price}) {
             try {
                 const preOrder = getters.getPreOrder(id);
-                preOrder.price = rootGetters["productModule/product"].real_price.replace(/\s/g, '');
+                const from_module_price = rootGetters["productModule/product"].real_price
+                preOrder.price = from_module_price !== "" ? from_module_price
+                    .replace(/\s/g, '') : price.replace(/\s/g, '');
                 let data = await backetService.addToBasket(id, preOrder);
                 commit("productModule/setProductOrder", data.id, {root: true});
                 let isExistsOrder = rootGetters['user'].basket_ids.filter(e => e === data.id);

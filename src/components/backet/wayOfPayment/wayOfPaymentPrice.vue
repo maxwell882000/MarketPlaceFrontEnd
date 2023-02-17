@@ -173,6 +173,7 @@ function setOverallPrice() {
   installment.currentPercentage = installment.currentCredit.percent / 100;
   installment.percentageOverPayment = fixed_price * installment.currentPercentage;
   overallPrice.value = fixed_price + installment.percentageOverPayment;
+  console.log(overallPrice.value);
 }
 
 function setOverallPriceWithPercentage(index) {

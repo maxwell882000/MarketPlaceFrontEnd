@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3d5019c0717fd3e6c3d0",
-    "url": "/css/app.1ab5d0b4.css"
+    "revision": "40b7528abc8b3e72e011",
+    "url": "/css/app.c363c789.css"
   },
   {
     "revision": "10568b76415da7a66f92",
@@ -26,10 +26,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "3323c6ded017331058a7",
     "url": "/css/chunk-18af29e4.9ebc40ca.css"
-  },
-  {
-    "revision": "43353c8c1d5c24800532",
-    "url": "/css/chunk-1a649bd7.4b8a34f7.css"
   },
   {
     "revision": "9ef319d80e6721696455",
@@ -86,6 +82,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "59c193feda9da98bfb80",
     "url": "/css/chunk-71bf19eb.fcedaaae.css"
+  },
+  {
+    "revision": "a884e797a0b499d1a1dd",
+    "url": "/css/chunk-73eac2e8.4bdeed97.css"
   },
   {
     "revision": "130cfb1790da9597f30d",
@@ -312,12 +312,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/xiaomi.e3904865.png"
   },
   {
-    "revision": "8c98b1fffa9f392da185887d70d1a0a0",
+    "revision": "367885e5d219dda2602ef8f1187b2b9a",
     "url": "/index.html"
   },
   {
-    "revision": "3d5019c0717fd3e6c3d0",
-    "url": "/js/app.088c20b4.js"
+    "revision": "40b7528abc8b3e72e011",
+    "url": "/js/app.b38f8f2e.js"
   },
   {
     "revision": "10568b76415da7a66f92",
@@ -342,10 +342,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "3323c6ded017331058a7",
     "url": "/js/chunk-18af29e4.f4012f33.js"
-  },
-  {
-    "revision": "43353c8c1d5c24800532",
-    "url": "/js/chunk-1a649bd7.211b4c84.js"
   },
   {
     "revision": "9ef319d80e6721696455",
@@ -438,6 +434,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "a998b6d2241e7107ef39",
     "url": "/js/chunk-71e31370.cba2ee1b.js"
+  },
+  {
+    "revision": "a884e797a0b499d1a1dd",
+    "url": "/js/chunk-73eac2e8.34f1756a.js"
   },
   {
     "revision": "130cfb1790da9597f30d",

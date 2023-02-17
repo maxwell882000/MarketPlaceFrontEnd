@@ -30,6 +30,7 @@
       <p class="item-card__description two-only-sentence mb-1">{{ product.title }}</p>
       <div class="item-card__price">
         <ItemCardPrice
+            :product="product"
             :image="product.image"
             :basket="product.basket"
             :id="product.id"

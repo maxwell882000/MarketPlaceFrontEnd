@@ -2,7 +2,7 @@
   <div class="d-flex align-items-center flex-wrap flex-sm-wrap flex-md-nowrap desktop-price">
     <installmentPrice :credit="credit"></installmentPrice>
     <div class="my-2 my-sm-2 my-md-0 basket h-100">
-      <CartButton class="basket h-100 card-desktop" :basket="basket" :image="image" :id="id"/>
+      <CartButton class="basket h-100 card-desktop" :price="product.real_price" :basket="basket" :image="image" :id="id"/>
     </div>
   </div>
 </template>
@@ -21,6 +21,9 @@ export default {
           month: "2"
         }
       }
+    },
+    product: {
+      type: Object
     },
     basket: {
       type: Boolean,

@@ -7,6 +7,12 @@ export default {
         }
     },
     props: {
+        price: {
+            type: String,
+            default() {
+                return ""
+            }
+        },
         isSvg: {
             type: Boolean,
             default() {
@@ -54,7 +60,7 @@ export default {
                     await this.remove(this.id);
                 } else {
                     this.isBasket = true;
-                    await this.add(this.id);
+                    await this.add({id: this.id, price: this.price});
                     this.showAlert({
                         image: this.image,
                         text: "Товар добавлен в корзину"
