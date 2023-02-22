@@ -33,7 +33,7 @@
               <p class="item-of-day__description mb-1">
                 {{ product.title }}
               </p>
-              <ItemCardPrice :image="product.image" :basket="product.basket" :id="product.id" :credit="product.credit"/>
+              <ItemCardPrice :product="product" :image="product.image" :basket="product.basket" :id="product.id" :credit="product.credit"/>
             </div>
           </div>
         </div>
