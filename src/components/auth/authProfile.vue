@@ -1,10 +1,10 @@
 <template>
-  <div v-click-outside="close">
-    <div @click="open()" id="cities">
+  <div v-click-outside="close" >
+    <div @click="open()" @mouseover="open"  id="cities">
       <slot></slot>
     </div>
   </div>
-  <div v-if="isOpen" style="top: -5px; padding: 8px 8px 0px 8px"
+  <div @mouseleave="close" v-if="isOpen" style="top: -5px; padding: 8px 8px 0px 8px"
        class="absolute w-100 bg-white  shadow-md rounded-st container-profile">
     <router-link @click="close" :to="{name:'profile'}" class="remove-link block d-flex bg-color avatar-cont">
       <div style="padding-right: 0.643rem">
