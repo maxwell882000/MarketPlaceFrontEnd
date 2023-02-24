@@ -4,7 +4,10 @@ import {useRouter} from "vue-router";
 
 export default function (name, additional) {
     const store = useStore();
-    const createOrder = () => store.dispatch("backetModule/addToBasket", product.value.id);
+    const createOrder = () => store.dispatch("backetModule/addToBasket", {
+        id: product.value.id,
+        price: product.value.real_price
+    });
     const remove = () => store.commit('wayOfPaymentModule/' + name, false);
 
     const addSelectedOrder = (order) => store.commit('prepareBasketModule/addToSelectedOrders', order);
@@ -22,7 +25,7 @@ export default function (name, additional) {
             router.push({
                 name: "WayOfPayment"
             })
-        }catch (e) {
+        } catch (e) {
             console.log(e);
         }
 

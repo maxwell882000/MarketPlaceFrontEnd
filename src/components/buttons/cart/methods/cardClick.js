@@ -54,6 +54,8 @@ export default {
                 setLogin: 'authWindow/setLogin',
             }),
         async clicked() {
+            console.log("THIS CLICKED");
+            console.log(this.id);
             if (this.id && this.isAuthenticated) {
                 if (this.isBasket) {
                     this.isBasket = false;
