@@ -4,9 +4,9 @@ import {useRouter} from "vue-router";
 
 export default function (name, additional) {
     const store = useStore();
-    const createOrder = () => store.dispatch("backetModule/addToBasket", {
-        id: product.value.id,
-        price: product.value.real_price
+    const createOrder = (id, price) => store.dispatch("backetModule/addToBasket", {
+        id: id,
+        price: price
     });
     const remove = () => store.commit('wayOfPaymentModule/' + name, false);
 
@@ -15,10 +15,9 @@ export default function (name, additional) {
     const router = useRouter();
 
     async function buyImmediately() {
-        console.log("PRESSED");
         try {
             remove();
-            const order = await createOrder();
+            const order = await createOrder(product.value.id, product.value.real_price);
             addSelectedOrder(order);
             if (additional)
                 additional();
