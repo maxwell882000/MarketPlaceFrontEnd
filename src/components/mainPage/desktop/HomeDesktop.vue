@@ -15,12 +15,6 @@
           <StocksTabs/>
         </section>
         <div class="pt-2"></div>
-        <ShopList></ShopList>
-        <div class="mt-4 mb-3" v-if="category_in_home.length">
-          <h5 class=" mb-3  text-sm-center">{{ $t("Категории") }}</h5>
-          <cat-hor-and-ver :categories="category_in_home.slice(0, 6)"></cat-hor-and-ver>
-          <cat-hor-and-ver :is-reverse="true" :categories="category_in_home.slice(6)"></cat-hor-and-ver>
-        </div>
         <section v-show="hit_products.length">
           <show-all-text :link="'/products/hits/all'" :title="$t('Хит продаж')">
           </show-all-text>
@@ -28,6 +22,12 @@
                      slide-key="product_day_hit"
                      :products="hit_products"/>
         </section>
+        <div class="mt-4 mb-3" v-if="category_in_home.length">
+          <h5 class=" mb-3  text-sm-center">{{ $t("Категории") }}</h5>
+          <cat-hor-and-ver :categories="category_in_home.slice(0, 6)"></cat-hor-and-ver>
+          <cat-hor-and-ver :is-reverse="true" :categories="category_in_home.slice(6)"></cat-hor-and-ver>
+        </div>
+
         <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
           <section v-show="item.products.length">
             <show-all-text :link="'/products/lenta/' + item.id" :title="item.text">
@@ -46,6 +46,7 @@
             </div>
           </section>
         </div>
+        <ShopList></ShopList>
       </div>
     </div>
   </loader>
