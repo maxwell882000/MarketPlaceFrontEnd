@@ -27,7 +27,6 @@
           <cat-hor-and-ver :categories="category_in_home.slice(0, 6)"></cat-hor-and-ver>
           <cat-hor-and-ver :is-reverse="true" :categories="category_in_home.slice(6)"></cat-hor-and-ver>
         </div>
-
         <div v-for="item in lenta" :key="'lenta_unique_'+ item.id">
           <section v-show="item.products.length">
             <show-all-text :link="'/products/lenta/' + item.id" :title="item.text">

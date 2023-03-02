@@ -29,12 +29,12 @@ export default function (price) {
             object.integer = price;
             object.remainder = ""
         } else {
-            const dot_index = price.length - 3;
+            let dot_index = price.length - 3;
             const has_remainder = price[dot_index] === ".";
+            dot_index = has_remainder ? dot_index : price.length;
             object.integer = price.slice(0, dot_index);
             object.remainder = has_remainder ? price.slice(dot_index) : "";
         }
-
     }
 
     return price;

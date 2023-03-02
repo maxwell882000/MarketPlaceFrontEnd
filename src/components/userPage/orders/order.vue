@@ -44,7 +44,7 @@
           <div v-show="purchase.sumDelivery > 0">
             <div class="key-value">
               <span>{{ $t("Доставка") }}</span>
-              <span class="">{{ showSumDelivery }} {{ $t("сум") }}</span>
+              <span class="">{{ showSumDelivery }}  {{ $t("сум") }}</span>
             </div>
           </div>
 

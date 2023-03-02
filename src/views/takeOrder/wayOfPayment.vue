@@ -39,7 +39,8 @@
 
             <div class="mt-2 d-flex align-items-center">
               <info width="20" height="20" style="fill: var(--blue)"></info>
-              <span class="text-xs text-gray ml-1">{{ $t("Данным методом нельзя оплатить рассрочку") }}</span>
+              <span class="text-xs  ml-1"
+                    style="color: var(--gray300)">{{ $t("Данным методом нельзя оплатить рассрочку") }}</span>
             </div>
           </way-of-payment-item>
         </b-form-group>
