@@ -60,7 +60,7 @@
       <div class="d-flex justify-content-between mb-2 font-key">
         <span>{{ $t("Процент переплаты:") }}</span>
         <span class="text-500 text-red">
-             {{ installment.currentPercentage }}%
+             {{ installment.currentPercentage * 100 }}%
               </span>
       </div>
       <div class="d-flex justify-content-between mb-2 font-key">
