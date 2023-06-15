@@ -1,6 +1,6 @@
 <template>
-  <ButtonBlue @click="$emit('submit')" v-if="isEntered" :title="title"></ButtonBlue>
-  <ButtonGray @click="$emit('not-submit')" :title-style="titleStyle" v-else :title="title"></ButtonGray>
+  <ButtonBlue v-if="isEntered" @click="$emit('submit')" :title="title"></ButtonBlue>
+  <ButtonGray v-else  @click="$emit('not-submit')" :title-style="titleStyle" :title="title"></ButtonGray>
 </template>
 <script>
 import ButtonBlue from "@/components/helper/button/buttonBlue";
