@@ -97,11 +97,7 @@ const address_name = computed({
 // const router = useRouter();
 const setAddressName = (address) => store.commit("deliveryInfoModule/setAddressName", address);
 const {goToPurchaseDelivery} = usePurchaseFlow();
-// const submitForm = async () => {
-//   const result = await store.dispatch("deliveryInfoModule/submitDelivery");
-//   if (result) // valid or not
-//     router.replace("/cart/prepareOrder");
-// }
+
 const onFocus = ref(false);
 
 </script>

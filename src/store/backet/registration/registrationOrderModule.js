@@ -124,7 +124,7 @@ export const registrationOrderModule = {
             return `${state.deliveryInfo[deliveryConstant.ADDRESS_NAME]}, ${state.deliveryInfo[deliveryConstant.STREET]}`;
         },
         homeInfo(state) {
-            return `${state.deliveryInfo[deliveryConstant.HOUSE]}, ${state.deliveryInfo[deliveryConstant.FLAT]} `;
+            return `${state.deliveryInfo[deliveryConstant.HOUSE]} ${ state.deliveryInfo[deliveryConstant.FLAT] && ", " + state.deliveryInfo[deliveryConstant.FLAT] || '' }`;
         },
     },
     mutations: {

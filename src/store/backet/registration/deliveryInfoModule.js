@@ -119,10 +119,9 @@ export const deliveryInfoModule = {
         },
         isValid(state) {
             const info = state.deliveryInfo;
-            return info['address_name'] &&
-                info['purchase->delivery_address->street'] &&
-                info['purchase->delivery_address->house'] &&
-                info['purchase->delivery_address->flat']
+            return info[deliveryConstant.ADDRESS_NAME] &&
+                info[deliveryConstant.STREET] &&
+                info[deliveryConstant.HOUSE]
         },
         deliveryInfo(state) {
             return state.deliveryInfo;
