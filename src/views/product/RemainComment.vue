@@ -30,7 +30,8 @@
           </b-col>
           <div class="w-100"></div>
           <b-col cols="12" class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
-            <ButtonForm :is-entered="isEntered" @click="submitComment"
+            <ButtonForm :is-entered="isEntered"
+                        @submit="submitComment"
                         :title="$t('Опубликовать отзыв')"></ButtonForm>
           </b-col>
         </b-row>
@@ -79,6 +80,7 @@ export default {
       return this.selected < selected ? 'var(--star)' : 'var(--yellow)';
     },
     submitComment() {
+      console.log("IS PRECCESS")
       let request = {
         message: this.comment,
         mark: this.selected
