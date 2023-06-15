@@ -19,6 +19,9 @@ export const productFilterByModule = {
         exists(state) {
             return state.filterCanBeApplied['exists'] || 0;
         },
+        filter_prices(state) {
+            return  { max:  state.filterCanBeApplied['prices'][0], min: state.filterCanBeApplied['prices'][1] }
+        },
         discount_exists(state) {
             return state.filterCanBeApplied['discount_exists'] || 0;
         },

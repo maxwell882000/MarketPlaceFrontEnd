@@ -4,8 +4,8 @@
         :initial-max="prices.max"
         :initial-min="prices.min"
         @update-full="fullUpdate"
-        :min-constrain="0"
-        :max-constrain="90000000"/>
+        :min-constrain="fPrices.min"
+        :max-constrain="fPrices.max"/>
   </filter-item>
 </template>
 <script>
@@ -20,10 +20,10 @@ export default {
     const store = useStore();
     // eslint-disable-next-line no-unused-vars
     const addFilter = (val) => store.commit('productFilterByModule/addFilterBy', val)
-    const prices = computed(() => store.getters['productFilterByModule/prices'])
+    const prices = computed(() => store.getters['productFilterByModule/prices']);
+    const fPrices = computed(() => store.getters['productFilterByModule/filter_prices']);
     // eslint-disable-next-line no-unused-vars
     const getProduct = () => store.dispatch("productFilterByModule/getProducts", 1)
-
     function fullUpdate(val) {
       if (prices.value.max !== val[1] || prices.value.min !== val[0]) {
         addFilter({key: "min_price", item: val[0]});
@@ -34,7 +34,8 @@ export default {
 
     return {
       fullUpdate: fullUpdate,
-      prices: prices
+      prices: prices,
+      fPrices: fPrices
     }
   }
 }
