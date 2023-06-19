@@ -51,7 +51,6 @@ const routes = [
         name: "Home",
         component: Home,
     },
-
     {
         path: "/favourite",
         name: "Favourites",
@@ -272,8 +271,13 @@ const routes = [
                 name: "questionAndAnswers",
                 component: () => import("../components/userPage/question/questions")
             },
-        ]
-    }
+        ],
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: "NotFounded",
+        component: () => import("../views/notFound/notFound")
+    },
 ];
 
 const router = createRouter({

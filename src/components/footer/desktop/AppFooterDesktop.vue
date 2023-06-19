@@ -5,7 +5,7 @@
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
           <img src="@/assets/logo-grey.png" alt="buy-shop logo grey"/>
           <div class="icons-row">
-            <a class="telegram" href="#">
+            <router-link class="telegram" to="not-found">
               <svg
                   width="20"
                   height="17"
@@ -18,8 +18,8 @@
                     fill="#7A7D8C"
                 />
               </svg>
-            </a>
-            <a class="facebook" href="#">
+            </router-link>
+            <router-link class="facebook" to="not-found">
               <svg
                   width="11"
                   height="20"
@@ -32,8 +32,8 @@
                     fill="#7A7D8C"
                 />
               </svg>
-            </a>
-            <a class="instagram" href="#">
+            </router-link>
+            <router-link class="instagram" to="not-found">
               <svg
                   width="20"
                   height="20"
@@ -54,8 +54,8 @@
                     fill="#7A7D8C"
                 />
               </svg>
-            </a>
-            <a class="youtube" href="#">
+            </router-link>
+            <router-link class="youtube" to="not-found">
               <svg
                   width="20"
                   height="15"
@@ -68,54 +68,54 @@
                     fill="#7A7D8C"
                 />
               </svg>
-            </a>
+            </router-link>
           </div>
           <p class="text-muted mt-3">© 2021 «ByShop»</p>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
           <h6>{{ $t("Покупателям") }}</h6>
           <ul>
-            <li><a href="#">{{ $t("Отслеживание заказов") }}</a></li>
-            <li><a href="#">{{ $t("Мои заказы") }}</a></li>
-            <li><a href="#">{{ $t("Условия доставки") }}</a></li>
-            <li><a href="#">{{ $t("Оплата") }}</a></li>
-            <li><a href="#">{{ $t("Центр поддержки") }}</a></li>
+            <li><router-link to="not-found">{{ $t("Отслеживание заказов") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Мои заказы") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Условия доставки") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Оплата") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Центр поддержки") }}</router-link></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
           <h6>{{ $t("Магазинам") }}</h6>
           <ul>
-            <li><a href="#">{{ $t("Начать продавать") }}</a></li>
-            <li><a href="#">{{ $t("Помощь магазинам") }}</a></li>
-              <li><a href="#">{{ $t("Тарифы") }}</a></li>
-            <li><a href="#">{{ $t("Google Ads") }}</a></li>
-            <li><a href="#">{{ $t("Бонусная программа") }}</a></li>
+            <li><router-link to="not-found">{{ $t("Начать продавать") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Помощь магазинам") }}</router-link></li>
+              <li><router-link to="not-found">{{ $t("Тарифы") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Google Ads") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Бонусная программа") }}</router-link></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
           <h6>{{ $t("ByShop") }}</h6>
           <ul>
-            <li><a href="#"> {{ $t("О компании") }}</a></li>
-            <li><a href="#">{{ $t("Контакты") }}</a></li>
-            <li><a href="#">{{ $t("Пресс-центр") }}</a></li>
-            <li><a href="#">{{ $t("Акционерам") }}</a></li>
-            <li><a href="#">{{ $t("Сотрудничество") }}</a></li>
+            <li><router-link to="not-found"> {{ $t("О компании") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Контакты") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Пресс-центр") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Акционерам") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Сотрудничество") }}</router-link></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
           <h6>{{ $t("Правовая информация") }}</h6>
           <ul>
-            <li><a href="#">{{ $t("Условия использования") }}</a></li>
-            <li><a href="#">{{ $t("Политика обработки данных") }}</a></li>
-            <li><a href="#">{{ $t("Условия заказа и доставки") }}</a></li>
-            <li><a href="#">{{ $t("Правила сервиса") }}</a></li>
-            <li><a href="#">{{ $t("Раздел рассылки") }}</a></li>
+            <li><router-link to="not-found">{{ $t("Условия использования") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Политика обработки данных") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Условия заказа и доставки") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Правила сервиса") }}</router-link></li>
+            <li><router-link to="not-found">{{ $t("Раздел рассылки") }}</router-link></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
-          <h6><a href="tel:998971234576">998 97 123-45-67</a></h6>
+          <h6><router-link to="tel:998971234576">998 97 123-45-67</router-link></h6>
           <p class="text-muted">{{ $t("Служба поддержки 24/7") }}</p>
-          <h6><a href="mailto:support@buyshop.uz">support@buyshop.uz</a></h6>
+          <h6><router-link to="mailto:support@buyshop.uz">support@buyshop.uz</router-link></h6>
           <p class="text-muted">{{ $t("Почта") }}</p>
         </div>
       </div>

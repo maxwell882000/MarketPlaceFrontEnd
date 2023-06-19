@@ -5,7 +5,7 @@
         <Like :id="product.id" :favourite="product.favourite"/>
       </div>
       <div class="image-sizing">
-        <div style=" height: max-content; max-height: 10.143rem;">
+        <div style="height: max-content; max-height: 10.143rem;">
           <img v-lazy="product.image" class="img-res" center fluid alt="item image"/>
         </div>
       </div>

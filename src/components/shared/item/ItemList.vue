@@ -16,11 +16,11 @@
           </div>
           <div class="item-card__prices">
             <span>
-            <span style="text-decoration: none">
+            <span v-show="product.discount" style="text-decoration: none">
                <span class="item-card__prices__ex-price"
                      v-show="isChangedPrice">{{ product.price }} {{ $t("сум") }}
                </span>
-              <span v-show="product.discount" class="item-card__image__sale-amount">
+              <span  class="item-card__image__sale-amount">
                  -{{ product.discount }}%
               </span>
            </span>
@@ -83,7 +83,8 @@ function isChangedPrice() {
   align-items: center;
 
   .images {
-    height: 14.071rem;
+    max-height: 14.071rem;
+    height: max-content;
     width: 14.071rem;
     margin-right: 3.786rem;
   }
