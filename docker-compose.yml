@@ -1,0 +1,49 @@
+version: '3.7'
+
+services:
+  vue-app:
+    build:
+      context: .  # Use the current directory for the build context
+      dockerfile: Dockerfile  # The Dockerfile we just created
+    container_name: vue-app
+    networks:
+      - web
+    expose:
+      - "80"  # Expose the internal port 80 to Traefik
+    labels:
+      - "traefik.enable=true"  # Enable Traefik on this service
+      - "traefik.http.routers.vue-app.rule=Host(`front.localhost`)"  # Domain for routing
+      - "traefik.http.routers.vue-app.entrypoints=web,websecure"  # Enable both HTTP and HTTPS
+      - "traefik.http.services.vue-app.loadbalancer.server.port=80"  # Server port inside the container
+      - "traefik.http.routers.vue-app.tls.certresolver=myresolver"  # Use Let's Encrypt for SSL
+
+  traefik-vue:
+    image: traefik:v2.8
+    container_name: traefik-vue
+    command:
+      - "--api.insecure=true"  # Enable the dashboard (insecure for local dev)
+      - "--providers.docker=true"  # Enable Docker provider
+      - "--entrypoints.web.address=:80"  # HTTP entrypoint
+      - "--entrypoints.websecure.address=:443"  # HTTPS entrypoint
+      - "--certificatesresolvers.myresolver.acme.httpChallenge.entryPoint=web"  # HTTP challenge for Let's Encrypt
+      - "--certificatesresolvers.myresolver.acme.email=your-email@example.com"  # Replace with your email
+      - "--certificatesresolvers.myresolver.acme.storage=/etc/traefik/acme.json"  # ACME storage for certificates
+    ports:
+      - "80:80"   # Expose HTTP port
+      - "443:443" # Expose HTTPS port
+      - "8080:8080"  # Traefik dashboard
+    volumes:
+      - "./traefik/acme.json:/etc/traefik/acme.json"  # Persistent storage for certificates
+      - "/var/run/docker.sock:/var/run/docker.sock"  # Mount Docker socket to allow Traefik to access Docker API
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"  # Enable Traefik for this service
+
+networks:
+  web:
+    external: false
+
+volumes:
+  traefik:
+    external: false
