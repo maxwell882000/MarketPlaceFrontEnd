@@ -12,7 +12,7 @@ services:
       - "80"  # Expose the internal port 80 to Traefik
     labels:
       - "traefik.enable=true"  # Enable Traefik on this service
-      - "traefik.http.routers.vue-app.rule=Host(`front.localhost`)"  # Domain for routing
+      - "traefik.http.routers.vue-app.rule=Host(`uzora.uz`)"  # Domain for routing
       - "traefik.http.routers.vue-app.entrypoints=web,websecure"  # Enable both HTTP and HTTPS
       - "traefik.http.services.vue-app.loadbalancer.server.port=80"  # Server port inside the container
       - "traefik.http.routers.vue-app.tls.certresolver=myresolver"  # Use Let's Encrypt for SSL
@@ -26,7 +26,7 @@ services:
       - "--entrypoints.web.address=:80"  # HTTP entrypoint
       - "--entrypoints.websecure.address=:443"  # HTTPS entrypoint
       - "--certificatesresolvers.myresolver.acme.httpChallenge.entryPoint=web"  # HTTP challenge for Let's Encrypt
-      - "--certificatesresolvers.myresolver.acme.email=your-email@example.com"  # Replace with your email
+      - "--certificatesresolvers.myresolver.acme.email=shaxa882@gmail.com"  # Replace with your email
       - "--certificatesresolvers.myresolver.acme.storage=/etc/traefik/acme.json"  # ACME storage for certificates
     ports:
       - "80:80"   # Expose HTTP port
