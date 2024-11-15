@@ -29,7 +29,9 @@ services:
       - "--certificatesresolvers.myresolver.acme.email=shaxa882@gmail.com"  # Replace with your email
       - "--certificatesresolvers.myresolver.acme.storage=/etc/traefik/acme.json"  # ACME storage for certificates
     ports:
-      - "81:80"   # Expose HTTP port
+      - "8081:80"   # Expose HTTP port (internal port 8080 -> external 80)
+      - "8443:443"   # Expose HTTPS port (internal port 443 -> external 443)
+      - "8181:8080"  # Dashboard for the second instance
     volumes:
       - "./traefik/acme.json:/etc/traefik/acme.json"  # Persistent storage for certificates
       - "/var/run/docker.sock:/var/run/docker.sock"  # Mount Docker socket to allow Traefik to access Docker API
