@@ -20,8 +20,9 @@ jobs:
           VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
         run: |
           # Save the SSH private key to a temporary file
-          echo "$VPS_SSH_KEY" > vps_key.pem
+          touch vps_key.pem
           chmod 600 vps_key.pem
+          echo "$VPS_SSH_KEY" > vps_key.pem
           
           # Run the deployment script on the remote VPS
           ssh -i vps_key.pem -o StrictHostKeyChecking=no $VPS_USER@$VPS_IP 'bash -s' <  ./deploy.sh
