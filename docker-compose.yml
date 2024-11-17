@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile  # The Dockerfile we just created
     container_name: vue-app
     networks:
-      - traefik-network
+      - my-network
     expose:
       - "80"  # Expose the internal port 80 to Traefik
     labels:
@@ -41,7 +41,7 @@ services:
 #      - "traefik.enable=true"  # Enable Traefik for this service
 
 networks:
-  traefik-network:
+  my-network:
     external: true
 
 volumes:
