@@ -29,7 +29,6 @@
 </template>
 
 <script setup>
-import ByShop from "@/components/icons/by-shop";
 // eslint-disable-next-line no-unused-vars
 import SearchIcon from "@/components/icons/search";
 import useSearch from "@/components/header/search/setup/useSearch";
@@ -38,6 +37,7 @@ import useSearchResults from "@/components/header/search/setup/useSearchResults"
 import {computed, watch} from "vue";
 import {useStore} from "vuex";
 import {useRoute} from "vue-router";
+import ByShop from "@/components/icons/by-shop.vue";
 
 
 const {search, leaveFocus, onFocus} = useSearch();

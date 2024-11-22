@@ -70,7 +70,7 @@
               </svg>
             </router-link>
           </div>
-          <p class="text-muted mt-3">© 2021 «ByShop»</p>
+          <p class="text-muted mt-3">© 2021 «Uzora»</p>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
           <h6>{{ $t("Покупателям") }}</h6>
@@ -93,7 +93,7 @@
           </ul>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
-          <h6>{{ $t("ByShop") }}</h6>
+          <h6>{{ $t("Uzora") }}</h6>
           <ul>
             <li><router-link to="not-found"> {{ $t("О компании") }}</router-link></li>
             <li><router-link to="not-found">{{ $t("Контакты") }}</router-link></li>

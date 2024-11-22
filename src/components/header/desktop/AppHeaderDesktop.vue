@@ -6,7 +6,7 @@
       <div class="container">
         <div class="d-flex justify-content-between align-items-center py-3">
           <router-link to="/">
-            <img src="@/assets/logo.svg" alt="buy-shop logo"/>
+            <img style="height: 45px; width: 93px;"  src="@/assets/logo.png" alt="buy-shop logo"/>
           </router-link>
           <div class="d-none d-sm-none d-md-block">
             <search-header></search-header>

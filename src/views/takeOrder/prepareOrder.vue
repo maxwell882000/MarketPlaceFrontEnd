@@ -45,7 +45,7 @@
               <span class="text-xs text-gray">{{ $t("Нажимая «Оплатить» вы соглашаетесь с") }}
               <span class="text-dark text-underline pointer"> {{ $t("уcловиями использования") }} </span>
                 {{ $t("и") }}
-              <span class="text-dark text-underline pointer">{{ $t("оплаты") }}</span>{{ $t("сервиса") }}  ByShop</span>
+              <span class="text-dark text-underline pointer">{{ $t("оплаты") }}</span>{{ $t("сервиса") }}  Uzora</span>
             </div>
           </loader>
         </section>

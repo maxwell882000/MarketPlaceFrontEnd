@@ -81,7 +81,7 @@
         <span class="text-blue small-text">
           {{ $t("Условиями использования") }}</span> {{ $t("и") }} <span
             class="text-blue small-text">{{ $t("Политикой конфиденциальности") }} </span>
-        {{ $t("ByShop") }} </em>
+        {{ $t("Uzora") }} </em>
     </div>
     <ButtonBlue @click="acceptInstallment" :title="$t('Подтвердить способ оплаты')"></ButtonBlue>
   </section>
