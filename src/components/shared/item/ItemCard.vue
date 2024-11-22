@@ -5,7 +5,7 @@
         <Like :id="product.id" :favourite="product.favourite"/>
       </div>
       <div class="image-sizing">
-        <div style="height: 100%; overflow: hidden; border-radius: 10px">
+        <div style="height: 100%; overflow: hidden; border-radius: var(--borderRadius);">
           <img v-lazy="product.image" class="img-res" center fluid alt="item image"/>
         </div>
       </div>

@@ -85,6 +85,8 @@ function isChangedPrice() {
   .images {
     max-height: 14.071rem;
     height: max-content;
+    overflow:hidden;
+    border-radius: var(--borderRadius);
     width: 14.071rem;
     margin-right: 3.786rem;
   }
