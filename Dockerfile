@@ -22,6 +22,9 @@ FROM nginx:alpine
 # Copy the built Vue app from the previous stage
 COPY --from=build /app/dist /usr/share/nginx/html
 
+# Add a custom NGINX configuration to redirect all requests to the Vue app
+COPY nginx.conf /etc/nginx/default.conf
+
 # Expose port 80 for the web server
 EXPOSE 80
 
