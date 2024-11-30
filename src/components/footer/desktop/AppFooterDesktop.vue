@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
-          <img src="@/assets/logo-grey.png" alt="buy-shop logo grey"/>
+          <img src="@/assets/logo.svg" alt="buy-shop logo grey"/>
           <div class="icons-row">
             <router-link class="telegram" to="not-found">
               <svg
