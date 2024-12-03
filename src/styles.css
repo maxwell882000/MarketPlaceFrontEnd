@@ -179,6 +179,9 @@ hr {
   color: var(--orange);
 }
 
+.text-nowrap {
+  text-wrap: nowrap;
+}
 .one-only-sentence {
   overflow: hidden;
   text-overflow: ellipsis;

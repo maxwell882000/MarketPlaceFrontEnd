@@ -6,7 +6,7 @@
       <div class="container">
         <div class="d-flex justify-content-between align-items-center py-3">
           <router-link to="/">
-            <img style="height: 45px; width: 93px;"  src="@/assets/logo.svg" alt="buy-shop logo"/>
+            <img style="height: 45px; width: 93px;" src="@/assets/logo.svg" alt="buy-shop logo"/>
           </router-link>
           <div class="d-none d-sm-none d-md-block">
             <search-header></search-header>
@@ -26,7 +26,7 @@
               {{ $t('Корзина') }}
             </router-link>
             <AuthProfile>
-              <a class="one-only-sentence" v-if="!isAuthenticated || user.phone == ''" href="#">
+              <a class="one-only-sentence text-nowrap" v-if="!isAuthenticated || user.phone == ''" href="#">
                 <img src="@/assets/icons/user.svg" alt="cart icon"/>
                 {{ $t('Профиль') }}
               </a>
