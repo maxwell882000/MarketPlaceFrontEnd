@@ -46,7 +46,6 @@ function closeSortModal() {
 }
 
 function closeModal() {
-  console.log('CLOSEED');
   modal.value = false;
 }
 </script>

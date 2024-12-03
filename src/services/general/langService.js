@@ -6,16 +6,15 @@ class LangService {
         let lang = cookies.get('lang');
         if (lang) {
             return lang;
-        } else {
-            console.error('[LangService]: No lang found!');
-            lang = "ru";
         }
-        i18n.global.locale = lang;
+        console.error('[LangService]: No lang found!');
+        lang = "ru";
         return lang;
     }
 
     setLang(lang) {
         cookies.set('lang', lang);
+        console.log(lang);
         i18n.global.locale = lang;
     }
 }

@@ -173,12 +173,9 @@ export const categoryModule = {
             try {
                 let result = await categoryService.getCategory(slug);
                 commit("setCategory", result);
-                if (result.depth === 3) {
-                    console.log(result);
-                    console.log("FILTER CAN BE APPLIED");
+                if (result.height === 0) {
                     commit("productFilterByModule/setFilterCanBeApplied", result, {root: true}) // set the filter
                 }
-                // namely , which value could exist in filter
             } catch (e) {
                 console.log(e);
             }

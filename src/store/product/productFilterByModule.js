@@ -121,7 +121,6 @@ export const productFilterByModule = {
             dispatch("getProducts", 1);
         },
         addFilterAndGetProduct({commit, dispatch}, val) {
-            console.log(val);
             commit('addFilterBy', val);
             dispatch('getProducts', 1);
         },
