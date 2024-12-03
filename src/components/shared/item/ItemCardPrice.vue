@@ -1,8 +1,9 @@
 <template>
   <div class="d-flex align-items-center justify-content-end  flex-wrap flex-sm-wrap flex-md-nowrap desktop-price">
     <installmentPrice :credit="credit"></installmentPrice>
-    <div class="my-2 my-sm-2 my-md-0 basket h-100">
-      <CartButton class="basket h-100 card-desktop" :price="product.real_price" :basket="basket" :image="image" :id="id"/>
+    <div class="my-2 my-sm-2 my-md-0 basket h-100 w-100">
+      <CartButton class="basket h-100 card-desktop" :price="product.real_price" :basket="basket" :image="image"
+                  :id="id"/>
     </div>
   </div>
 </template>
@@ -52,7 +53,8 @@ export default {
   }
 
   .card-desktop {
-    width: 3.429rem;
+    min-width: 3.429rem;
+    width: 100%;
   }
 }
 
