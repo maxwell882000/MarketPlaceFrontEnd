@@ -16,6 +16,8 @@ services:
       - "traefik.http.routers.vue-app.entrypoints=web,websecure"  # Enable both HTTP and HTTPS
       - "traefik.http.services.vue-app.loadbalancer.server.port=80"  # Server port inside the container
       - "traefik.http.routers.vue-app.tls.certresolver=myresolver"  # Use Let's Encrypt for SSL
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"  # Define redirect middleware
+      - "traefik.http.routers.vue-app.middlewares=redirect-to-https"  # Apply middleware for HTTP to HTTPS redirection
 
 #  traefik-vue: already exists traefik
 #    image: traefik:v2.8
