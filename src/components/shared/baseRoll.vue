@@ -4,7 +4,7 @@
       <pagination-arrows></pagination-arrows>
     </template>
     <slot></slot>
-<!--    <div></div>-->
+    <!--    <div></div>-->
   </Splide>
 </template>
 <script>
@@ -74,7 +74,7 @@ export default {
           },
           577: {
             // perPage: this.perPage - 3 || 1,
-            // perMove: 1,
+            perMove: 1,
             // gap: '10px',
             // padding: "0.5rem",
             arrows: false,
@@ -82,7 +82,7 @@ export default {
           },
           500: {
             // perPage: this.perPage - 4 || 1,
-            // perMove: 1,
+            perMove: 1,
             // gap: '10px',
             // padding: "0.5rem",
             arrows: false,
@@ -91,7 +91,7 @@ export default {
           },
           375: {
             // perPage: 2,
-            // perMove: 1,
+            perMove: 1,
             // gap: '10px',
             // padding: "0.5rem",
             arrows: false,
