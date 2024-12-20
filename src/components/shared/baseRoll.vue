@@ -4,7 +4,6 @@
       <pagination-arrows></pagination-arrows>
     </template>
     <slot></slot>
-    <!--    <div></div>-->
   </Splide>
 </template>
 <script>
@@ -73,31 +72,32 @@ export default {
 
           },
           577: {
-            // perPage: this.perPage - 3 || 1,
+            drag: true,   // Enable dragging
             perMove: 1,
-            // gap: '10px',
-            // padding: "0.5rem",
-            arrows: false,
-
+            flickMaxPages: 1,
+            flickPower: 250,
+            waitForTransition: true,
+            dragMinThreshold: 10000
           },
           500: {
-            // perPage: this.perPage - 4 || 1,
+            drag: true,   // Enable dragging
             perMove: 1,
-            // gap: '10px',
-            // padding: "0.5rem",
-            arrows: false,
-
-
+            flickMaxPages: 1,
+            flickPower: 250,
+            waitForTransition: true,
+            dragMinThreshold: 10000
           },
           375: {
-            // perPage: 2,
+            drag: true,   // Enable dragging
             perMove: 1,
-            // gap: '10px',
-            // padding: "0.5rem",
-            arrows: false,
+            flickMaxPages: 1,
+            flickPower: 250,
+            waitForTransition: true,
+            dragMinThreshold: 10000
 
           }
         },
+        flick: true, // Smoothens the swipe motion
       },
     };
   },
