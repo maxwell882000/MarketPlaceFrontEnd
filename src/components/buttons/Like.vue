@@ -1,5 +1,5 @@
 <template>
-  <button @click.prevent="clicked" class="like-btn" v-b-tooltip.hover :title="$t('Добавить в избраное')">
+  <button @click.stop.prevent.capture="clicked" class="like-btn" v-b-tooltip.hover :title="$t('Добавить в избраное')">
     <ResponsiveLayout>
       <template #desktop>
         <heart :class="fill && 'active'"></heart>
@@ -69,7 +69,7 @@ export default {
 button.like-btn {
   background: transparent;
   border-radius: 20px;
-  z-index: 1;
+  position: relative;
   border: none;
   font-size: 18px;
 }
