@@ -6,6 +6,7 @@ services:
       context: .  # Use the current directory for the build context
       dockerfile: Dockerfile  # The Dockerfile we just created
     container_name: vue-app
+    restart: always
     networks:
       - my-network
     expose:
