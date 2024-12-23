@@ -3,7 +3,7 @@
     <div class="col-lg-9 col-sm-12 col-12 h-max p-0">
       <Splide class="splide banner banner-only-arrows" :has-slider-wrapper="true"
               :options="{ autoplay: true, type: 'loop',gap:10 }">
-        <pagination-arrows></pagination-arrows>
+        <pagination-arrows v-show="banners.length > 1"></pagination-arrows>
         <SplideSlide class="border-sm" v-for="item in banners" :key="'banners_id' + item.id"
                      data-splide-interval="3000">
           <a class="banner_image d-block" :href="item.link">
@@ -33,7 +33,8 @@
               <p class="item-of-day__description mb-1">
                 {{ product.title }}
               </p>
-              <ItemCardPrice :product="product" :image="product.image" :basket="product.basket" :id="product.id" :credit="product.credit"/>
+              <ItemCardPrice :product="product" :image="product.image" :basket="product.basket" :id="product.id"
+                             :credit="product.credit"/>
             </div>
           </div>
         </div>
