@@ -73,44 +73,44 @@
           <p class="text-muted mt-3">© 2021 «Uzora»</p>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
-          <h6>{{ $t("Покупателям") }}</h6>
-          <ul>
-            <li><router-link to="not-found">{{ $t("Отслеживание заказов") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Мои заказы") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Условия доставки") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Оплата") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Центр поддержки") }}</router-link></li>
-          </ul>
+<!--          <h6>{{ $t("Покупателям") }}</h6>-->
+<!--          <ul>-->
+<!--            <li><router-link to="not-found">{{ $t("Отслеживание заказов") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Мои заказы") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Условия доставки") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Оплата") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Центр поддержки") }}</router-link></li>-->
+<!--          </ul>-->
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
-          <h6>{{ $t("Магазинам") }}</h6>
-          <ul>
-            <li><router-link to="not-found">{{ $t("Начать продавать") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Помощь магазинам") }}</router-link></li>
-              <li><router-link to="not-found">{{ $t("Тарифы") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Google Ads") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Бонусная программа") }}</router-link></li>
-          </ul>
+<!--          <h6>{{ $t("Магазинам") }}</h6>-->
+<!--          <ul>-->
+<!--            <li><router-link to="not-found">{{ $t("Начать продавать") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Помощь магазинам") }}</router-link></li>-->
+<!--              <li><router-link to="not-found">{{ $t("Тарифы") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Google Ads") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Бонусная программа") }}</router-link></li>-->
+<!--          </ul>-->
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
-          <h6>{{ $t("Uzora") }}</h6>
-          <ul>
-            <li><router-link to="not-found"> {{ $t("О компании") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Контакты") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Пресс-центр") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Акционерам") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Сотрудничество") }}</router-link></li>
-          </ul>
+<!--          <h6>{{ $t("Uzora") }}</h6>-->
+<!--          <ul>-->
+<!--            <li><router-link to="not-found"> {{ $t("О компании") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Контакты") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Пресс-центр") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Акционерам") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Сотрудничество") }}</router-link></li>-->
+<!--          </ul>-->
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
-          <h6>{{ $t("Правовая информация") }}</h6>
-          <ul>
-            <li><router-link to="not-found">{{ $t("Условия использования") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Политика обработки данных") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Условия заказа и доставки") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Правила сервиса") }}</router-link></li>
-            <li><router-link to="not-found">{{ $t("Раздел рассылки") }}</router-link></li>
-          </ul>
+<!--          <h6>{{ $t("Правовая информация") }}</h6>-->
+<!--          <ul>-->
+<!--            <li><router-link to="not-found">{{ $t("Условия использования") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Политика обработки данных") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Условия заказа и доставки") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Правила сервиса") }}</router-link></li>-->
+<!--            <li><router-link to="not-found">{{ $t("Раздел рассылки") }}</router-link></li>-->
+<!--          </ul>-->
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 col-12 col">
           <h6><router-link to="tel:998971234576">998 97 123-45-67</router-link></h6>
