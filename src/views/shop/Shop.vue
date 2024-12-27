@@ -5,7 +5,6 @@
         <shop-header :shop="shop"></shop-header>
         <filter-with-products></filter-with-products>
       </div>
-      <!--    <product-wrapper></product-wrapper>-->
     </section>
   </loader>
 
@@ -17,9 +16,9 @@ import FilterWithProducts from "@/components/filter/component/filterWithProducts
 import ShopHeader from "@/components/shop/shopHeader";
 import {useStore} from "vuex";
 import {computed} from "vue";
-import useFilterWithComponent from "@/components/filter/setup/useFilterWithComponent";
-import useFilterBy from "@/components/filter/setup/useFilterBy";
 import {useRoute} from "vue-router";
+import useFilterWithWatch from "@/components/filter/setup/useFilterWithWatch";
+import useFilterBy from "@/components/filter/setup/useFilterBy";
 
 const store = useStore();
 const route = useRoute();
@@ -27,7 +26,11 @@ const route = useRoute();
 const shop = computed(() => store.getters['shopModule/shop']);
 const getShop = (val) => store.dispatch("shopModule/getShop", val);
 getShop(route.params.shop);
-useFilterWithComponent(useFilterBy({key: "shop_id", item: shop.value.id}))
+useFilterWithWatch((newShop) => {
+  console.log("useFilterWithWatch ", newShop.id);
+  useFilterBy({key: "shop_id", item: newShop.id}, store)();
+}, () => shop.value);
+
 </script>
 
 <style lang="scss">
